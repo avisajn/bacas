@@ -1,0 +1,52 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --port 8080 --host 0.0.0.0",
+    "watch": "sass --watch r/css:r/css --style expanded",
+    "build": "rimraf ./dist && NODE_ENV=production webpack --progress --colors"
+  },
+  "keywords": [
+    "weui",
+    "todo",
+    "demo"
+  ],
+  "author": "ymark",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "crypto-js": "^3.1.9-1",
+    "fastclick": "^1.0.6",
+    "jquery": "^2.2.1",
+    "js-cookie": "^2.1.3",
+    "moment": "^2.17.1",
+    "path-to-regexp": "^1.2.1",
+    "superagent": "^2.3.0",
+    "typed.js": "^2.0.6",
+    "vivus": "^0.4.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "babel-core": "^6.7.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.9.0",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.2",
+    "open-browser-webpack-plugin": "0.0.2",
+    "postcss-loader": "^0.8.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

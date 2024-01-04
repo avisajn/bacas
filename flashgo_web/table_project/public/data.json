@@ -1,0 +1,36 @@
+{
+    "normal": [
+        {
+            "span_title": "云川台球俱乐部",
+            "small_title": "赛台120分钟一对一.节假日通知",
+            "acd_distance": "1.1公里"
+        },
+        {
+            "span_title": "台球俱乐部",
+            "small_title": "120分钟一对一.节假日通知",
+            "acd_distance": "2.2公里"
+        },
+        {
+            "span_title": "世界你好你好你好",
+            "small_title": "你好世界世界世界",
+            "acd_distance": "3.5公里"
+        }
+    ],
+    "unnormal": [
+        {
+            "span_title": "asfd",
+            "small_title": "sddsf.节假日通知",
+            "acd_distance": "1.sfd"
+        },
+        {
+            "span_title": "台球asd乐部",
+            "small_title": "asfd.节假日通知",
+            "acd_distance": "2.afsd"
+        },
+        {
+            "span_title": "afsd",
+            "small_title": "safd",
+            "acd_distance": "3.asdf"
+        }
+    ]
+}

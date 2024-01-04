@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/ali.js"],"names":["region","accessKeyId","accessKeySecret"],"mappings":"AAAA;;;kBAEe;AACbA,UAAQ,gBADK;AAEbC,eAAa,kBAFA;AAGbC,mBAAiB;AAHJ,C","file":"ali.js","sourcesContent":["'use strict';\n\nexport default {\n  region: 'oss-cn-qingdao',\n  accessKeyId: 'LTAI8iD7l0Vv42AG',\n  accessKeySecret: 'rVrb2q6fjMHKzQKWvv6ELRjzQgEMm4'\n}"]}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kreator Nama Keren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Lupakan nama karakter game yang membosankan! Download sKuy dan gunakan Kreator Nama Keren sekarang juga!">
+    <meta name="description" content="Lupakan nama karakter game yang membosankan! Download sKuy dan gunakan Kreator Nama Keren sekarang juga!">
+    <meta name="robots" content="all">
+    <meta name="baiduspider" content="all">
+    <meta name="googlebot" content="all">
+    <meta property="og:url" content="http://d2jyugty5j87ft.cloudfront.net/sKuy/sharetool.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kreator Nama Keren" />
+    <meta property="og:description" content="Lupakan nama karakter game yang membosankan! Download sKuy dan gunakan Kreator Nama Keren sekarang juga!" />
+    <meta property="og:image" content="https://nipidpraise.blob.core.windows.net/webviewbanner/web-img/nametools-share.png" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35158941-23"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-35158941-23');
+</script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        color: #fff;
+        height: 100%;
+        font-size: 0.32rem;
+        background-color: #fff;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .wrapper-bottom .answer-btn {
+        font-size: 0.35rem;
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        text-align: center;
+        position: fixed;
+        bottom: 13.97%;
+        width: 89%;
+        height: 1rem;
+        line-height: 1rem;
+        margin-left: 5.5%;
+        color: #E8BD88;
+        background-color: #121D2A;
+        border: 3px solid #E8BD88;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0rem .15rem .3rem 0rem rgba(0, 0, 0, 0.43);
+    }
+
+    .answer-btn {
+        animation: breathe 1s infinite;
+    }
+
+    @keyframes breathe {
+        from {
+            transform: scale(.91, .91);
+        }
+
+        50% {
+            transform: scale(1, 1);
+        }
+
+        80% {
+            transform: scale(.91, .91);
+        }
+
+        to {
+            transform: scale(.91, .91);
+        }
+    }
+    </style>
+</head>
+
+<body style="margin: 0;" onclick="download()">
+    <div class="wrapper">
+        <div class="wrapper-bottom">
+            <img style="width:100%; display: block" src="https://nipidpraise.blob.core.windows.net/webviewbanner/gamebanner/img/nameTool_min.jpg" alt="">
+            <div class="answer-btn" onclick="download()">Dapatkan nama keren untukmu</div>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var docEl = document.documentElement,
+            docBody = document.body,
+            baseFontSize = 100,
+            pageMaxWidth = 750,
+            rootHtml = document.getElementsByTagName('html')[0],
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = Math.min(
+                    docEl.clientWidth || docBody.clientWidth,
+                    window.innerWidth,
+                    pageMaxWidth
+                );
+                var resFont = baseFontSize * (clientWidth / pageMaxWidth);
+                rootHtml.style.fontSize = resFont + 'px';
+            };
+        if (!window.addEventListener) return;
+        window.addEventListener(resizeEvt, recalc, false);
+        recalc();
+    })();
+
+    $(function() {
+        var test = /_min\./
+        $("img").each(function(index, obj) {
+            if (test.test($(this).attr("src"))) {
+                var reSrc = $(this).attr("src").replace(test, ".");
+                $(this).attr("src", reSrc)
+            }
+        })
+    })
+
+    function download() {
+        gtag('event', 'click', {
+            'event_category': 'toGooglePlay',
+            'event_label': 'Download',
+            'event_callback': function() {
+                console.log('YES')
+            }
+        });
+        window.open('https://play.google.com/store/apps/details?id=com.jakarta.baca&referrer=pid%3Dwap%26c%3Dname&utm_source=wap&utm_campaign=name')
+    }
+    </script>
+</body>
+
+</html>

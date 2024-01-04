@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <script src="/public/js/google.js"></script>
+    <style>
+      .native {
+        position: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .window {
+        width: 78%;
+        background: #fff;
+        border-radius: 4px;
+        display: none;
+      }
+      .window-title {
+        margin: 0;
+        border-bottom: 1px solid #eaeaea;
+        line-height: 24px;
+        color: #333;
+        padding: 18px 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .window-bottom {
+        text-align: center;
+        color: #fff;
+        line-height: 45px;
+        color: #000;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="native">
+      <div class="window">
+        <div class="window-title"></div>
+        <div class="window-bottom" onclick="openApp('click')">Cek</div>
+      </div>
+      <div hidden class="ga_tag">G-KL9JTFHCB7</div>
+    </div>
+    <script>
+      googleAnalytics('', document.querySelector('.ga_tag').innerText)
+    </script>
+    <script>
+      const $queryParse = (string) => {
+        if (!string) return false
+        const obj = {}
+        const str = string[0] === '?' ? string.substring(1) : string
+        str.split('&').map(val => {
+          return val.split('=')
+        }).forEach(val => {
+          if (val.length >= 2 && val[0]) {
+            obj[val[0]] = val[1]
+          }
+        })
+        return obj
+      }
+      const isMobile = function () {
+        let flag = navigator.userAgent.match(
+          /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        );
+        return flag;
+      }
+      const query = $queryParse(location.search)
+      const openApp = function (flag) {
+        if (flag == "click") {
+          document.querySelector('.window-bottom').style.opacity = 0.6
+          setTimeout(() => {
+            document.querySelector('.window-bottom').style.opacity = 1
+          }, 200)
+        }
+        if (query.id == 0) {
+          location.href = 'mokkayasupplier://mokkayasupplier.com/app/main?page=order&secondLevelPage=toBeShipped&outFrom=to_be_shipped_link'
+        } else {
+          const loadTimer = setTimeout(() => {
+            window.location.href = 'https://play.google.com/store/apps/details?id=com.mokkaya&referrer=utm_source=mokkaya.com&utm_medium=homepage_download_button'
+          }, 2500)
+
+          const visibilitychange = () => {
+            const tag = document.hidden || document.webkitHidden
+            tag && clearTimeout(loadTimer)
+          }
+
+          document.addEventListener('visibilitychange', visibilitychange, false)
+          location.href = `mokkaya://${location.host}/webapp/detail/${query.id}?from=${query.from}`
+        }
+      }
+      const { id, sim, uuid } = $queryParse(location.search)
+      if (sim && sim.split('.')[3] === '1') {
+        gtag('event', 'from_whatsapp_link', {url: location.href, uuid, about: 'browser'})
+      }
+      if (id) {
+        let isApp = ''
+        try {
+          isApp = MokkayaAndroid.getPackageName() 
+        } catch (error) {
+          isApp = 'none'
+        }
+        if(isApp != 'none') {
+          window.location.href = `https://${location.host}/webapp/detail/${query.id}?from=${query.from}`
+        } else {
+          console.log('reseller')
+          document.querySelector('.window-title').innerHtml = 'Cek pesanan di aplikasi Mokkaya'
+          if (isMobile()) {
+            // this.openApp('auto')
+            setTimeout(() => {
+              document.querySelector('.native').style.background = `rgba(0, 0, 0, .5)`
+              document.querySelector('.window').style.display = `block`
+            }, 3000)
+          } else {
+            window.location.href = `https://${location.host}/webapp/detail/${query.id}?from=${query.from}`
+          }
+        }
+      } else {
+        if (isMobile()) {
+          openApp('auto')
+          setTimeout(() => {
+            document.querySelector('.native').style.background = `rgba(0, 0, 0, .5)`
+            document.querySelector('.window').style.display = `block`
+          }, 3000)
+        } else {
+          location.href = `https://play.google.com/store/apps/details?id=com.mokkaya&referrer=utm_source%3Dmokkaya.com%26utm_medium%3Ddownload_button%26utm_campaign%3Dutm_source%25253Dinstagram%252526utm_medium%25253Dpost%252526utm_campaign%25253D20200820`
+        }
+        console.log('vendor')
+      }
+      // const sim = $queryParse(lo)
+    </script>
+  </body>
+</html>

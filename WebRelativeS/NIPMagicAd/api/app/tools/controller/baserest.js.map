@@ -1,0 +1,42 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/tools/controller/baserest.js"
+    ],
+    "names": [
+        "__before",
+        "allowAccessOrigin",
+        "http",
+        "headers",
+        "origin",
+        "header",
+        "method",
+        "toLowerCase",
+        "end",
+        "fail",
+        "token",
+        "cookie",
+        "decryptedData",
+        "id",
+        "username",
+        "roleids",
+        "Date",
+        "getTime",
+        "time",
+        "_userInfo",
+        "getUser",
+        "getUserId",
+        "__call",
+        "think",
+        "locale",
+        "action",
+        "url",
+        "controller",
+        "rest"
+    ],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;AAEE;;;mBAGMA,Q;;;;;;;;AACAC,+B,GAAoB,KAAKC,IAAL,CAAUC,OAAV,CAAkBC,M;;AAC1C,mBAAKC,MAAL,CAAY,6BAAZ,EAA2CJ,iBAA3C;AACA,mBAAKI,MAAL,CAAY,8BAAZ,EAA4C,qEAA5C;AACA,mBAAKA,MAAL,CAAY,8BAAZ,EAA4C,iCAA5C;AACA,mBAAKA,MAAL,CAAY,kCAAZ,EAAgD,MAAhD;;oBACG,KAAKH,IAAL,CAAUI,MAAV,CAAiBC,WAAjB,OAAmC,S;;;;;AACpC,mBAAKC,GAAL;+CACO,KAAKC,IAAL,CAAU,CAAC,CAAX,C;;;AAGLC,mB,GAAQ,KAAKC,MAAL,CAAY,OAAZ,C;;oBACT,CAACD,KAAD,IAAUA,SAAS,G;;;;;+CACb,KAAKD,IAAL,CAAU,CAAC,EAAX,C;;;AAEHG,2B,GAAgB,uBAAYF,KAAZ,C;;oBACnB,CAACE,aAAD,IAAkB,CAACA,cAAcC,EAAjC,IAAuC,CAACD,cAAcE,QAAtD,IAAkE,CAACF,cAAcG,O;;;;;+CAC3E,KAAKN,IAAL,CAAU,CAAC,EAAX,C;;;oBAEN,IAAIO,IAAJ,GAAWC,OAAX,MAAwBL,cAAcM,I;;;;;+CAChC,KAAKT,IAAL,CAAU,CAAC,EAAX,C;;;AAELU,uB,GAAYP,a;;;AAEhB,mBAAKQ,OAAL,GAAe,YAAU;AACvB,uBAAOD,SAAP;AACD,eAFD;;AAIA,mBAAKE,SAAL,GAAiB,YAAU;AACvB,uBAAOF,UAAUN,EAAjB;AACH,eAFD;;;;;;;;;;;;;;;;;mBAMFS,M,qBAAQ;AACN,WAAO,KAAKb,IAAL,CAAUc,MAAMC,MAAN,CAAa,gBAAb,EAA+B,KAAKtB,IAAL,CAAUuB,MAAzC,EAAiD,KAAKvB,IAAL,CAAUwB,GAA3D,CAAV,CAAP;AACD,G;;;EAxC0BH,MAAMI,UAAN,CAAiBC,I",
+    "file": "../../../src/tools/controller/baserest.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport {decryptCode} from '../../util.js';\nexport default class extends think.controller.rest {\n  /**\n   * some base method in here\n   */\n  async __before() {\n    let allowAccessOrigin = this.http.headers.origin;\n    this.header('Access-Control-Allow-Origin', allowAccessOrigin);\n    this.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With');\n    this.header('Access-Control-Allow-Methods', \"GET, POST, PUT, DELETE, OPTIONS\");\n    this.header('Access-Control-Allow-Credentials', 'true');\n    if(this.http.method.toLowerCase() === \"options\"){\n      this.end();\n      return this.fail(-1);\n    }\n\n    let token = this.cookie(\"token\");\n    if(!token || token == '0'){\n      return this.fail(-99);\n    }\n    const decryptedData = decryptCode(token);\n    if(!decryptedData || !decryptedData.id || !decryptedData.username || !decryptedData.roleids){\n      return this.fail(-99);\n    }\n    if(new Date().getTime() >= decryptedData.time){\n      return this.fail(-98);\n    }\n    let _userInfo = decryptedData;\n\n    this.getUser = function(){\n      return _userInfo;\n    }\n\n    this.getUserId = function(){\n        return _userInfo.id;\n    }\n\n  }\n\n  __call(){\n    return this.fail(think.locale(\"ACTION_INVALID\", this.http.action, this.http.url));\n  }\n}"
+    ]
+}

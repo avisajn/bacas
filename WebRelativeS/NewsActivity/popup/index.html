@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="alert">
+        <img src="./bg.png" alt="" class="bgc">
+        <div class="content">
+            <div class="item">
+                <p><span class="title">Langkah 1:</span>
+                    Ajak teman Anda download Baca Plus.</p>
+            </div>
+            <div class="item">
+                <p><span class="title">Langkah 2:</span>
+                    Beri tahu mereka kode Invite Anda.</p>
+                <p> Kode Invite Anda: 
+                	<span class="copy" id="copy">xxxx</span>
+                	<img onclick="copy()" class="copy-img" src="./copy@2x.png" alt="">
+                </p>
+            </div>
+            <div class="item">
+                <p><span class="title">Langkah 3:</span>
+                    Ajak mereka mengisi kode Invite Anda setelah mereka telah sukses Login. 
+               </p>
+               <p> Mereka bisa mengisi di sini:</p>
+               <img class="image-content" src="./im@2x.png" alt="">
+               <img onclick="handOpen()" class="hand-img" src="./hand@2x.png" alt="">
+            </div>
+            <div class="item">
+                <p><span class="title">Langkah 4:</span>
+                   Bila teman Anda sukses login dan mengisi kode Invite Anda, maka Anda mendapat <span class="title" id="price">prx</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+	function copy() {
+     
+
+    }
+    function handOpen() {
+    	//放大
+    }
+    function changeText(copy,price) {
+        document.getElementById("copy").innerHTML = copy;
+        document.getElementById("price").innerHTML = price;
+    }
+</script>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    padding-top: 2rem;
+    font-family: Roboto-Bold;
+}
+
+.content {
+    font-size: .95rem;
+    line-height: 1.4rem;
+    padding: 0 1.5rem;
+    color: rgba(255, 73, 9, 1);
+    margin-top: -5.8rem;
+    background: rgba(253, 233, 233, 1);
+    
+}
+
+.alert {
+    width: 100%;
+    height: 100%;
+    background: rgba(253, 233, 233, 1);
+}
+
+.bgc {
+    position: relative;
+    top: -3rem;
+    width: 100%;
+}
+
+.item {
+    color: #000;
+    margin-top: .5rem;
+}
+
+.title {
+    color: rgba(255, 73, 9, 1);
+    font-weight: bold;
+}
+
+.image-content {
+	width: 50%;
+}
+
+.copy-img {
+	width: 1.2rem;
+	position: relative;
+	top: .3rem;
+}
+
+.hand-img {
+	width: 2.8rem;
+	position: relative;
+	top: -3.5rem;
+	margin-left: -2rem;
+}
+
+.copy {
+	font-weight: bold;
+}
+</style>
+
+</html>

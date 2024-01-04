@@ -1,0 +1,42 @@
+$navItemHeight: 62px;
+$themeColor: #6374F9;
+$secondThemeColor: rgb(59,191,220);
+$navWidth: 260px;
+$headerHeight: 62px;
+$successColor: #52c41a;
+$warnColor: #faad14;
+$errorColor: #f5222d;
+$borderColor: #eee;
+
+$actionColor-0: #CCCCCC;
+$actionColor-1: #a1cffd;
+$actionColor-2: #0099FF;
+$actionColor-3: #6699FF;
+$actionColor-4: #3399CC;
+$actionColor-5: #003366;
+$actionColor-6: #FFFFCC;
+$actionColor-7: #FFFF66;
+$actionColor-success: $successColor;
+$actionColor-wran: $warnColor;
+$actionColor-error: $errorColor;
+
+@function actionBg ($args) {
+  @return $actionColor-#{$args};
+}
+.theme-color {
+  color: $themeColor !important;
+}
+.theme-bg {
+  background-color: $themeColor !important;
+}
+
+.button-disable {
+  background-color: $actionColor-0;
+}
+
+:export {
+  navItemHeight: $navItemHeight;
+  themeColor: $themeColor;
+  navWidth: $navWidth;
+  headerHeight: $headerHeight;
+}

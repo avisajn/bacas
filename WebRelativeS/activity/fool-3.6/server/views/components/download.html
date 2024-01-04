@@ -1,0 +1,12 @@
+{% macro get(source ,firm ,firmIntro ,downloadIntro) %}
+<div class="app-download" id="appDownload">
+  <img class="logo" src="/common/img/logo-min.png">
+  <div class="firmname">
+    {{firm}}
+    <br>
+    <span>{{firmIntro}}</span>
+  </div>
+  <div class="closeApp" onclick="window.Download.closeDown('{{source}}')">closeDownload</div>
+  <div class="downloadApp  btnRedirectApp" onclick="window.Download.redirect('{{source}}')">{{downloadIntro}}</div>
+</div>
+{% endmacro %}

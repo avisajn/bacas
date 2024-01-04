@@ -1,0 +1,14 @@
+{
+  "checkpointFile": "/datadrive/flashgo/logs/kinesis/kinesis_main.log",
+  "cloudwatch.emitMetrics": false,
+  "kinesis.endpoint": "https://kinesis.ap-southeast-1.amazonaws.com",
+  "awsAccessKeyId": "AKIAJJ67HQDFLENG63QQ",
+  "awsSecretAccessKey": "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",
+  "flows": [
+    {
+      "filePattern": "/datadrive/flashgo/logs/python/kinesis.log*",
+      "initialPosition": "END_OF_FILE",
+      "kinesisStream": "flashgo-events"
+    }
+  ]
+}

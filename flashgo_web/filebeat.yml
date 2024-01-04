@@ -1,0 +1,22 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+  - /datadrive/flashgo/logs/python/kinesis.log*
+  tail_files: true
+  close_inactive: 2h
+
+processors:
+- decode_json_fields:
+    fields: ["message"]
+
+output:
+  streams:
+    region: ap-southeast-1
+    stream_name: flashgo-rec-events
+    # generate unique key per event
+    partition_key_provider: xid
+
+queue.mem:
+  events: 4096
+  flush.min_events: 5
+  flush.timeout: 3s

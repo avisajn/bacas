@@ -1,0 +1,94 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+    <title>{{Country.language['webTitle']}}</title>
+    <meta name="description" content=" {{Country.language['webDescription']}} ">
+    <meta name="keywords" content=" {{Country.language['webKeyWords']}} ">
+    {% if env === "production"  %}
+        <link rel="stylesheet" href="/newslist/index.css">
+    {% endif %}
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', "{{Country.language['ga']}}", 'auto');
+      ga('send', 'pageview');
+      window.page = 'list';
+      window.hostUrl = '{{Country.webUrl}}';
+      window.language = {
+          'blueFreshMessage-num' : "{{Country.language['blueFreshMessage-num']}}",
+          'blueFreshMessage-null': "{{Country.language['blueFreshMessage-null']}}",
+      }
+    </script>
+    {% if language == 'bx' %}
+    <!-- <script src='https://www.appadhoc.com/downloads/sdk/ab.js'></script> -->
+    {% endif %}
+{% endblock %}
+
+
+{% block TplCommon %}
+<!-- 引入head 和 categorylist -->
+{% import "./components/header.html" as head_tpl %}
+{{ head_tpl.blockCategory(language ,Country.language['search-place'],AdSearchId ,Country.adSearch) }}
+
+<!-- 引入底部下载块 -->
+{% import "./components/download.html" as download_tpl %}
+{{download_tpl.get('list' ,Country.language['firm'] ,Country.language['firm-intro'],Country.language['download'])}}
+
+<!-- 引用分享模块 -->
+{% include "./components/share.html" %}
+
+{% import "./components/firstscreen.html" as firstscreen_tpl %}
+{% if language == 'bx' %}
+  {{firstscreen_tpl.getBx(Country.language)}}
+{% elif language == 'yn' %}
+  {{firstscreen_tpl.getYn(Country.language)}}
+{% else %}
+  {{firstscreen_tpl.getMe(Country.language)}}
+{% endif %}
+
+
+<div class="upd-number" id="updNumber"></div>
+<div class="first-loading" id="myLoading">
+    <img src="/common/img/loading.gif">
+</div>
+
+<div class="right-loading" id="rightReloading">
+  <div></div>
+</div>
+
+<div class="hide atlas-panel" id="atlasPanel">
+      <div class="title"></div>
+      <div class="imgbox">
+        <ul id="imgList"> </ul> 
+      </div>
+      <div class="intro" id="atlasText"></div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block Content %}
+<div id="newsList"></div>
+
+<div class="panel-trending hide" id="trendingPanel">
+  {{ head_tpl.blockTitle('none','Link.toList') }}
+  <div class="tredingInfoList container-block">
+    <div id="tredingInfoList"> </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/newslist/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

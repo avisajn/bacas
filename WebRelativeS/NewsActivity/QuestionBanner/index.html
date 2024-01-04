@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="activity_one" id="time">
+        <div class="activity">
+            <div style="width: 71%">
+                <p class="title">Anda terpilih mengikuti event !</p>
+                <p class="desc">Ikut survei dan lihat tips mendapat Komisi tanpa batas
+                    <span class="click">Klik di sini>></span></p>
+            </div>
+            <div class="time">
+                <span id="t_h">00</span>
+                <span>:</span>
+                <span id="t_m">00</span>
+                <span>:</span>
+                <span id="t_s">00</span>
+            </div>
+            <div class=" arrow right-arrow">
+                <img src="https://questionaire.baca.co.id/activityImage/arrow.png">
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+function getRTime() {
+    var EndTime = new Date('2020/06/11 00:59:59');
+    var NowTime = new Date();
+    var t = EndTime.getTime() - NowTime.getTime();
+    var h = Math.floor(t / 1000 / 60 / 60);
+    var m = Math.floor(t / 1000 / 60 % 60);
+    var s = Math.floor(t / 1000 % 60);
+    if (m < 0 || h < 0 || s < 0) {
+        document.getElementById("time").style.display = "none"
+    }
+    if (m < 10) m = '0' + m;
+    if (h < 10) h = '0' + h;
+    if (s < 10) s = '0' + s;
+    document.getElementById("t_h").innerHTML = h
+    document.getElementById("t_m").innerHTML = m
+    document.getElementById("t_s").innerHTML = s;
+    if (s == "00" && m == "00" && h == "00") {
+        document.getElementById("time").style.display = "none"
+    }
+}
+setInterval(getRTime, 1000);
+</script>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.activity_one {
+    width: 100%;
+    height: 6.1rem;
+}
+
+.activity {
+    background: url("https://questionaire.baca.co.id/activityImage/banner.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    padding: .9rem .5rem .6rem 1rem;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.time {
+    font-size: 0;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    margin-right: 20px;
+    background-color: #FFE25D;
+    display: block;
+    color: #D47611;
+    padding: 2px 18px;
+    vertical-align: middle;
+    position: absolute;
+    bottom: 18%;
+    right: 9%;
+    font-weight: 400;
+}
+
+.time span {
+    display: inline-block;
+}
+
+.desc {
+    text-align: left;
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 7px;
+    line-height: 1.3rem
+}
+
+.title {
+    text-align: left;
+    font-weight: bold;
+    color: #FFEF02;
+    font-size: 1.2rem
+}
+
+.arrow {
+    right: 2%;
+
+    padding: 0px 3px;
+    vertical-align: middle;
+    position: absolute;
+    bottom: 37%;
+}
+
+.style_time {
+    width: 20%;
+}
+
+.click {
+    color: #FDE02A;
+    font-size: .8rem;
+    margin-top: 8px;
+}
+
+p {
+    font-size: 1.1rem;
+}
+</style>
+
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Product feedback survey example, jQuery Survey Library Example
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.0.73/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.0.73/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/layer/3.0.3/mobile/layer.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+    <script type="text/javascript">
+    Survey.StylesManager.applyTheme("default");
+
+    var json = {
+        locale: "id",
+        pages: [{
+            name: "page1",
+            elements: [{
+                    type: "radiogroup",
+                    name: "How many times do you play PC games in a week",
+                    title: "Berapa kali Anda bermain PC games dalam sepekan",
+                    isRequired: true,
+                    choices: [{
+                            value: "I do not like to play PC games",
+                            text: "Saya tidak menyukai bermain PC games"
+                        },
+                        {
+                            value: "Uncertain",
+                            text: "Tidak menentu"
+                        },
+                        "1 - 3 x",
+                        "4 - 5 x",
+                        "6 - 7 x",
+                        "> 7 x"
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "What type of PC games do you like to play (max 4 choices)",
+                    visible: false,
+                    visibleIf: "{How many times do you play PC games in a week} = \"1 - 3 x\" or {How many times do you play PC games in a week} = \"4 - 5 x\" or {How many times do you play PC games in a week} = \"6 - 7 x\" or {How many times do you play PC games in a week} = \"> 7 x\"",
+                    title: "Jenis PC games apa yang anda suka mainkan (max 4 pilihan)",
+                    isRequired: true,
+                    validators: [{
+                        type: "answercount",
+                        maxCount: 4
+                    }],
+                    choices: [{
+                            value: "Platform games - example Super Mario Bros.",
+                            text: "Platform games - contoh Super Mario Bros. "
+                        },
+                        {
+                            value: "Shooter games ",
+                            text: "Shooter games  "
+                        },
+                        "Fighting games ",
+                        {
+                            value: "Adventure games - examples of resident evil",
+                            text: "Adventure games - contoh resident evil"
+                        },
+                        "RPG",
+                        {
+                            value: "Simulation - example SimCity ",
+                            text: "Simulation - contoh SimCity "
+                        },
+                        "Strategy and War",
+                        "Sports",
+                        "Racing",
+                        "MOBA  "
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "From the following games (not only PC Games), whichever you are familiar with (choose as many as you are familiar)",
+                    title: "Dari game berikut (tidak hanya PC games saja), mana saja yang anda familiar (pilih sebanyak mungkin yang anda familiar)",
+                    isRequired: true,
+                    choices: [
+                        "Gran Turismo",
+                        "Winning Eleven / Pro Evolution Soccer (PES)",
+                        "Pokemon",
+                        "Resident Evil",
+                        "Final Fantasy",
+                        "The Legend of Zelda",
+                        "Dragon Ball",
+                        {
+                            value: "Nothing in this option",
+                            text: "Tidak ada "
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "Which of these games (not only PC Games) have you played (choose as much as you ever played)",
+                    title: "Dari game berikut (tidak hanya PC games), mana saja yang pernah anda mainkan  (pilih sebanyak mungkin yang anda pernah mainkan )",
+                    isRequired: true,
+                    choices: [
+                        "Gran Turismo",
+                        "Winning Eleven / Pro Evolution Soccer (PES)",
+                        "Pokemon",
+                        "Resident Evil",
+                        "Final Fantasy",
+                        "The Legend of Zelda",
+                        "Dragon Ball",
+                        {
+                            value: "Nothing in this option",
+                            text: "Tidak ada "
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "How many times have you read or discuss about games about games in a week via online",
+                    title: "Berapa kali Anda membaca atau membahas mengenai games dalam sepekan via online",
+                    isRequired: true,
+                    choices: [{
+                            value: "I don't like to read or discuss about games",
+                            text: "Saya tidak suka membaca atau membahas mengenai game  "
+                        },
+                        {
+                            value: "Uncertain",
+                            text: "Tidak menentu"
+                        },
+                        "1 - 3 x",
+                        "4 - 5 x",
+                        "6 - 7 x",
+                        "> 7 x"
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "Where you usually read or discuss about games  (please choose as many as relevant to you)",
+                    visible: false,
+                    visibleIf: "{How many times have you read or discuss about games about games in a week via online} = \"1 - 3 x\" or {How many times have you read or discuss about games about games in a week via online} = \"4 - 5 x\" or {How many times have you read or discuss about games about games in a week via online} = \"6 - 7 x\" or {How many times have you read or discuss about games about games in a week via online} = \"> 7 x\"",
+                    title: "Dimana Anda biasa membaca atau membahas mengenai games  (silahkan pilih sebanyak mungkin yang relevan dengan anda)",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [
+                        "Youtube",
+                        "Instagram",
+                        "Twitter",
+                        "Facebook",
+                        "Line",
+                        "WhatsApp",
+                        {
+                            value: "game timeline",
+                            text: "Timeline game"
+                        },
+                        "Discord",
+                        "KASKUS"
+                    ],
+                    otherText: "forum / situs/apps tertentu *tuliskan ________"
+                },
+                {
+                    type: "radiogroup",
+                    name: "In the past 1 year, how many times have you made payments while playing mobile / PC games",
+                    title: "Dalam 1 tahun terakhir, berapa kali Anda pernah melakukan pembayaran ketika sedang bermain mobile / PC game ",
+                    isRequired: true,
+                    choices: [{
+                            value: "I have never paid while playing mobile / PC game",
+                            text: "Saya tidak pernah membayar ketika sedang bermain mobile / PC game "
+                        },
+                        "1 - 3 x",
+                        "4 - 9 x",
+                        "10 - 15 x",
+                        "> 15 x"
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)",
+                    visible: false,
+                    visibleIf: "{In the past 1 year, how many times have you made payments while playing mobile / PC games} = \"1 - 3 x\" or {In the past 1 year, how many times have you made payments while playing mobile / PC games} = \"4 - 9 x\" or {In the past 1 year, how many times have you made payments while playing mobile / PC games} = \"10 - 15 x\" or {In the past 1 year, how many times have you made payments while playing mobile / PC games} = \"> 15 x\"",
+                    title: "Hal apa yang membuat Anda mengeluarkan uang di dalam permainan PC / Mobile?   (silahkan pilih sebanyak mungkin yang relevan dengan anda)",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Get weapons / protectors",
+                            text: "Mendapatkan senjata / pelindung"
+                        },
+                        {
+                            value: "Get extra lives",
+                            text: "Mendapatkan tambahan nyawa"
+                        },
+                        {
+                            value: "Get a cheat",
+                            text: "Mendapatkan cheat"
+                        },
+                        {
+                            value: "Open access for new levels",
+                            text: "Membuka akses untuk level baru"
+                        },
+                        {
+                            value: "Get a character / avatar",
+                            text: "Mendapatkan karakter / avatar"
+                        },
+                        {
+                            value: "Never",
+                            text: "Belum pernah satupun"
+                        }
+                    ],
+                    otherText: "lainnya *tuliskan ________"
+                },
+                {
+                    type: "checkbox",
+                    name: "How do you make payments in the PC / Mobile game? (Please choose as many as relevant to you)",
+                    visible: false,
+                    visibleIf: "{What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} contains \"Get weapons / protectors\"\n or {What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} contains \"Get extra lives\"\n  or {What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} = [\"Get a cheat\"]\n   or {What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} contains \"Open access for new levels\"\n    or {What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} contains \"Get a character / avatar\"\n     or {What conditions will make you spend money on PC / Mobile games?  (please choose as many as relevant to you)} contains \"other\"",
+                    title: "Bagaimana cara Anda dalam melakukan pembayaran di dalam permainan PC / Mobile?   (silahkan pilih sebanyak mungkin yang relevan dengan anda)",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Use a credit card",
+                            text: "Menggunakan kartu kredit"
+                        },
+                        {
+                            value: "Using telephone credit",
+                            text: "Menggunakan pulsa telefon"
+                        },
+                        {
+                            value: "Using GOPAY / OVO",
+                            text: "Menggunakan GOPAY / OVO"
+                        },
+                        {
+                            value: "Through credit vouchers sold in e-commerce (such as Tokopedia)",
+                            text: "Melalui voucher kredit yang dijual di e-commerce (seperti Tokopedia) "
+                        },
+                        {
+                            value: "Through credit vouchers sold in retail stores (such as Indomaret)",
+                            text: "Melalui voucher kredit yang dijual di toko retail (seperti Indomaret) "
+                        }
+                    ],
+                    otherText: "lainnya *tuliskan ________"
+                },
+                {
+                    type: "checkbox",
+                    name: "What accessories / merchandise games have you bought? (Please choose as many as relevant to you)",
+                    title: "Aksesoris / merchandise game apa saja yang pernah Anda beli? (silahkan pilih sebanyak mungkin yang relevan dengan anda)",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "T-shirt",
+                            text: "kaos"
+                        },
+                        {
+                            value: "hat",
+                            text: "topi"
+                        },
+                        "syall",
+                        {
+                            value: "shoes",
+                            text: "sepatu"
+                        },
+                        {
+                            value: "doll",
+                            text: "boneka"
+                        },
+                        {
+                            value: "action figure",
+                            text: "action figure "
+                        },
+                        {
+                            value: "cosplay costume",
+                            text: "kostum cosplay"
+                        },
+                        {
+                            value: "Never",
+                            text: "Belum pernah satupun"
+                        }
+                    ],
+                    otherText: "lainnya *tuliskan ________"
+                }
+            ]
+        }]
+    }
+    window.survey = new Survey.Model(json);
+
+    window.config = this.initParams.apply(window);
+
+    this.init(window.config);
+
+    survey.onComplete.add(function(result) {
+        // 
+        // document.querySelector("#surveyResult").innerHTML =
+        //   "result: " + JSON.stringify(result.data);
+        // 
+        config['result'] = result.data;
+        result.data && postAction(config);
+
+    });
+
+    $("#surveyElement").Survey({
+        model: survey,
+    });
+
+    //method
+    function initParams() {
+
+        window.param = {
+            xuserid: '',
+            xusertoken: '',
+            xinvitecode: '',
+            xmac: '',
+            xosversion: '',
+            xpackage: '',
+            xosapi: '',
+            eventid: ''
+        };
+
+        this.param.xusertoken = this.getQueryString('X-User-Token') || this.getQueryString('x-user-token');
+        this.param.xuserid = this.getQueryString('X-User-Id') || this.getQueryString('x-user-id');
+        this.param.xinvitecode = this.getQueryString('x-invite-code') || this.getQueryString('X-Invite-Code');
+        this.param.xosversion = this.getQueryString('X-Os-Version') || this.getQueryString('x-os-version');
+        this.param.xpackage = this.getQueryString('X-App-Package-Id') || this.getQueryString('x-app-package-id');
+        this.param.xmac = this.getQueryString('X-Own-Mac') || this.getQueryString('x-own-mac');
+        this.param.xosapi = this.getQueryString('X-Os-Api') || this.getQueryString('x-os-api');
+        this.param.eventid = this.getEventId();
+
+        return param;
+
+    }
+
+    function getQueryString(name) {
+
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+
+        var r = window.location.search.substr(1).match(reg);
+        return r ? unescape(r[2]) : null;
+    }
+
+    function getEventId() {
+
+        let url = window.location.href;
+        return "3200d1bf-f1bc-4bbb-9227-a2273e204a65";
+    }
+
+    function init(param) {
+        let url = 'https://api.baca.co.id/api/v1/questionaire/' + param.eventid;
+        let requestHeader = {
+            "x-user-id": param.xuserid,
+            "x-user-token": param.xusertoken,
+            "x-invite-code": param.xinvitecode,
+            "X-Os-Version": param.xosversion,
+            "X-Os-Api": param.xosapi,
+            "X-App-Package-Id": param.xpackage,
+            "X-Own-Mac": param.xmac,
+            "Content-Type": "application/json"
+        };
+
+        let requestOptions = {
+            type: "head",
+            url: url,
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (res.status == 409) { //已经做过该活动;              
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                }
+            },
+            error: function(error) {
+                console.log(error);
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                }
+                console.log(error);
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function postAction(data) {
+        let requestHeader = {
+            "x-user-id": data.xuserid,
+            "x-user-token": data.xusertoken,
+            "x-invite-code": data.xinvitecode,
+            "X-Os-Version": data.xosversion,
+            "X-Os-Api": data.xosapi,
+            "X-App-Package-Id": data.xpackage,
+            "X-Own-Mac": data.xmac,
+            "Content-Type": "application/json"
+        };
+        let postUrl = 'https://api.baca.co.id/api/v1/questionaire/' + data.eventid;
+        let requestOptions = {
+            type: "post",
+            url: postUrl,
+            data: JSON.stringify(data.result),
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.errorno == 0) {
+                    var coin = res.data.extraCoin;
+                    let tip = 'Anda mendapat ' + coin + ' Koin! Silahkan periksa di saldo Anda!'; //提交成功
+                    message(tip, 'OK', true, false);
+                    //奖励弹窗 
+                    //TODO：埋点1 调用APP更新金币 待确认
+                    BacaAndroid.refreshCoinSystem();
+                }
+            },
+            error: function(error) {
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                }
+                let tip = 'Gagal mengirim, silahkan coba lagi'; //提交失败
+                message(tip, 'OK', false, true);
+                console.log(error);
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function message(desc, btnText, isNeedBack, isShadeClose) {
+        var _self = this;
+        var index = layer.open({
+            content: desc,
+            shadeClose: isShadeClose,
+            btn: [btnText],
+            yes: function() {
+                isNeedBack && _self.toApp();
+            }
+        })
+    }
+
+    function toApp() {
+        BacaAndroid.goBackToApp();
+    }
+    </script>
+</body>
+
+</html>

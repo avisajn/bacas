@@ -1,0 +1,350 @@
+
+body {
+    background: rgba(249, 249, 249, 1);
+}
+
+.page, .page-group, .content, .page-current {
+    background: rgba(249, 249, 249, 1);
+}
+
+.row {
+    margin-left: 0;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-bottom: .5rem;
+}
+
+.row .col-50 {
+    width: 50%;
+    margin-left: 0;
+}
+
+.row .col-85 {
+    width: 85%;
+    margin-left: 0;
+}
+
+.row .col-15 {
+    width: 15%;
+    margin-left: 0;
+}
+
+.swiper-pagination-bullet-active {
+    background: white;
+}
+
+.block-icon {
+    width: .8rem;
+    height: .8rem;
+    /*margin-left: .8rem;*/
+    margin-right: .3rem;
+    margin-top: .1rem;
+}
+
+.block-title {
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    padding-right: .5rem;
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 0;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: .7rem;
+    background: #fff;
+}
+
+.back-botton {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 2;
+}
+
+.discount-icon {
+    position: absolute;
+    left: 0;
+    bottom: .1rem;
+    z-index: 2;
+    width: 3.5rem;
+    height: 1.65rem;
+}
+
+.discount-text {
+    width: 3.2rem;
+    height: 1.5rem;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: .1rem;
+    color: white;
+    padding-top: .1rem;
+    font-size: .7rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.detail-title {
+    font-weight: bold;
+    font-size: .7rem;
+    color: rgba(51, 51, 51, 1);
+    line-height: 1.1;
+    padding: .5rem;
+}
+
+.source-icon {
+    position: absolute;
+    right: .2rem;
+    bottom: .4rem;
+    z-index: 2;
+    width: 1.65rem;
+    height: 1.65rem;
+}
+
+.price-block {
+    height: 3.9rem;
+    background: linear-gradient(to right, rgba(255, 82, 117, 1), rgba(243, 100, 100, 1));
+}
+
+.price {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.original-price {
+    color: white;
+    font-size: .7rem;
+    text-decoration: line-through;
+}
+
+.sales {
+    font-size: .7rem;
+    color: rgba(255, 216, 0, 1);
+    font-weight: bold;
+    padding-right: .5rem;
+}
+
+.review-block {
+    padding-left: .3rem;
+}
+
+.star-icon {
+    width: .8rem;
+    height: .8rem;
+    margin-left: .2rem;
+    margin-top: .1rem;
+}
+
+.comment-count {
+    color: rgba(119, 119, 119, 1);
+    font-size: .7rem;
+    margin-left: .3rem;
+}
+
+.relative-deal-item {
+    position: relative;
+    margin-right: .5rem;
+    width: 5.5rem;
+    height: 9em;
+    text-align: center;
+}
+
+.relative-item-title {
+    font-size: .6rem;
+    width: 5.5rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: rgba(85, 85, 85, 1);
+}
+
+.relative-item-price {
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+}
+
+.see-more-icon {
+    width: .8rem;
+    height: .8rem;
+    margin-top: 2rem;
+}
+
+.see-more-text {
+    font-size: .65rem;
+    color: rgba(242, 52, 78, 1);
+}
+
+.inline-scroll {
+    width: 100%;
+    height: 9rem;
+    white-space: nowrap; /*规定段落中的文本不进行换行*/
+    overflow-x: scroll;
+    overflow-y: hidden; /*竖直方向，超出部分隐藏*/
+    float: left; /*一定要设置左侧浮动*/
+    margin-bottom: 2rem;
+}
+
+.inline-scroll li {
+    list-style: none;
+}
+
+.inline-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.item-img {
+    width: 100%;
+    height: 5.5rem;
+}
+
+.dock-block {
+    background: linear-gradient(to right, #FFC434, #FFA121);
+    position: fixed;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    height: 2.2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.dock-block img {
+    width: .8rem;
+    margin-right: .4rem;
+    margin-top: .5rem;
+}
+
+.location-block img {
+    width: .8rem;
+    margin-right: .1rem;
+    margin-top: .2rem;
+}
+
+.location-block {
+    font-size: .75rem;
+    font-weight: bold;
+    color: rgba(85, 85, 85, 1)
+}
+
+.location-block span {
+    margin-bottom: .6rem;
+}
+
+.banner-background {
+    width: 100%;
+    padding: 0;
+    min-height: 2.8rem;
+    z-index: 1000;
+    background: #404040;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+}
+
+.banner-logo {
+    margin-top: .7rem;
+    margin-left: .2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.banner-text {
+    margin-top: .7rem;
+    margin-left: .2rem;
+    font-size: .6rem;
+    font-weight: bold;
+    color: white;
+    line-height: 1.2;
+}
+
+.banner-text-money {
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(235, 255, 0, 1);
+}
+
+.close-button {
+    margin-right: .2rem;
+    margin-left: .2rem;
+    margin-top: .9rem;
+}
+
+.close-button img {
+    width: .75rem;
+}
+
+.download-button {
+    margin-top: .75rem;
+    border-radius: .75rem;
+    width: 3.6rem;
+    height: 1.5rem;
+    background: linear-gradient(to right top, rgba(255, 236, 117, 1), rgba(255, 250, 213, 1), rgba(255, 236, 119, 1));
+    animation: download-button 0.3s cubic-bezier(0.51, 0.6, 1, 1) infinite alternate forwards;
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(218, 76, 85, 1);
+    border: 0;
+}
+
+@keyframes download-button {
+    100% {
+        /* color:  blue; */
+        background: linear-gradient(to right bottom, rgba(238, 216, 81, 1), rgba(255, 250, 213, 1), rgba(238, 216, 81, 1));
+    }
+}
+
+.countdown-field-home {
+    border-radius: .2rem;
+    font-weight: bold;
+    font-size: .5rem;
+    color: white;
+    background: rgba(242, 52, 78, 1);
+    padding-left: .2rem;
+    padding-right: .2rem;
+    margin-top: .1rem;
+}
+
+.countdown-sep-home {
+    margin-left: .2rem;
+    margin-right: .2rem;
+    font-size: .5rem;
+    color: rgba(242, 52, 78, 1);
+}
+
+.countdown-block {
+    padding-right: .5rem;
+    padding-top: .3rem;
+}
+
+.countdown-field-detail {
+    border-radius: .2rem;
+    font-weight: bold;
+    font-size: .5rem;
+    color: rgba(242, 52, 78, 1);
+    background: white;
+    padding: .1rem .2rem;
+    margin-top: .1rem;
+}
+
+.countdown-sep-detail {
+    margin-left: .1rem;
+    margin-right: .1rem;
+    font-size: .7rem;
+    font-weight: bold;
+    color: white;
+}

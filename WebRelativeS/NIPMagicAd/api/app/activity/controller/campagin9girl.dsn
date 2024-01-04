@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+1.根据uk获取用户信息
+	参数： uk
+	返回： null 或者 用户信息
+
+1.提交信息
+	参数： 
+		uk
+		姓名，
+		地址
+		手机号，
+		支持的女生
+
+	过程：
+		先去总的用户数据表中查询uk是否存在，不存在则提示填写，存在则
+
+
+
+2.根据用户id，uk查询用户选择的支持女生
+	1.
+
+
+
+
+
+数据表设计
+	
+
+	campagin9girl
+		id
+		uid
+		k
+		select_img
+		addtime
+
+	CREATE TABLE `campagin9girl` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `k` varchar(200) NOT NULL,
+	  `uid` int(11) NOT NULL,
+	  `select_img` varchar(500) NOT NULL,
+	  `addtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+
+
+
+
+
+
+
+
+
+
+
+
+
+

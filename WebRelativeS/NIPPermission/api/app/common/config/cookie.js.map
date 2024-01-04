@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/common/config/cookie.js"],"names":["timeout"],"mappings":";;;kBAAe;AACbA,WAAS,IAAI,EAAJ,GAAS,IADL,CACW;AADX,C","file":"cookie.js","sourcesContent":["export default {\n  timeout: 7 * 24 * 3600  //将 cookie 有效时间设置为 7 天\n};"]}

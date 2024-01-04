@@ -1,0 +1,71 @@
+@import '../../../../theme.scss';
+
+.order_detail_model {
+  .detail {
+    .express-link {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .order_id {
+      line-height: 40px;
+      span:last-child {
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    }
+    .title {
+      font-weight: bold;
+      color: #343536;
+      line-height: 40px;
+      margin: 0;
+      margin-top: 20px;
+    }
+    .address_name, .pick_up_time, .order_status, .penalty_line {
+      line-height: 36px;
+    }
+    .order_status {
+      line-height: 36px;
+      span:last-child {
+        font-weight: bold;
+        margin-left: 5px;
+      }
+    }
+     .is-cod {
+       background-color: $actionColor-1;
+       border-radius: 10px;
+       padding: 0 10px;
+       display: inline-block;
+     }
+    .order_info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      span {
+        line-height: 36px;
+        height: 36px;
+        width: calc(100% / 2);
+        margin-top: 15px;
+      }
+    }
+    .address_detail {
+      word-break: keep-all;
+      line-height: 40px;
+    }
+    table {
+      margin: 10px;
+      width: 100%;
+      tr:first-child {
+        background-color: #eee;
+        color: #666;
+      }
+      td,
+      th {
+        border: 1px solid $borderColor;
+        text-align: left;
+        padding: 8px;
+        width: 180px;
+        text-align: center;
+      }
+    }
+  }
+}

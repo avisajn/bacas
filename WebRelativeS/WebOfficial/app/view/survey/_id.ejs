@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%=pageTitle%></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width"/>
+    <script src="/public/js/knockout.js"></script>
+    <script src="/public/js/survey.ko.min.js"></script>
+    <script src="/public/js/ajax.js"></script>
+    <link rel="stylesheet" href="/public/css/survey_index.css">
+    <link rel="stylesheet" href="/public/css/survey.css"/>
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <style>
+      *:focus {
+        outline: none !important;
+      }
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        z-index: 10;
+      }
+      .loading-window {
+        width: 120px;
+        height: 40px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .loading-window img {
+        width: 20px;
+        height: 20px;
+        /* margin: 10px; */
+        margin-right: 5px;
+        animation: rotete infinite 1.25s;
+      }
+      @keyframes rotete {
+        0% {transform: rotateZ(0deg);}
+        100% {transform: rotateZ(360deg);}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="surveyElement" style="width:100%; display: inline-block;"></div>
+    <div id="surveyResult"></div>
+    <div class="loading">
+      <div class="loading-window">
+        <img src="/public/img/common/loading.png" alt="">
+        <div>Memuat…</div>
+      </div>
+    </div>
+    <div hidden class="ga_tag"><%=logKey%></div>
+    <div hidden class="survey_id"><%=_id%></div>
+    <script src="/public/js/google.js"></script>
+    <script>
+      googleAnalytics('', document.querySelector('.ga_tag').innerText)
+    </script>
+    <div style="display: none;" class="requst_url"><%=requestUrl%></div>
+    <div id="data-info" style="display: none;"><%=info%></div>
+    <script src="/public/js/survey/<%=_id%>.js"></script>
+  </body>
+</html>

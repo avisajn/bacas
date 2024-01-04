@@ -1,0 +1,150 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "flashgo-api",
+      "image": "239801832578.dkr.ecr.ap-southeast-1.amazonaws.com/flashgo-api:latest",
+      "cpu": 5120,
+      "memory": 5120,
+      "essential": true,
+      "command": [
+        "sh",
+        "-c",
+        "python3 manage.py collectstatic --noinput && uwsgi --ini uwsgi.ini"
+      ],
+      "mountPoints": [
+        {
+          "containerPath": "/datadrive/flashgo/logs/python",
+          "sourceVolume": "flashgo-api-logs"
+        },
+        {
+          "containerPath": "/datadrive/flashgo/static",
+          "sourceVolume": "flashgo-static"
+        }
+      ],
+      "hostname": "flashgo-api",
+      "workingDirectory": "/app/sale_aggregator_service",
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 50000,
+          "hardLimit": 50000
+        }
+      ]
+    },
+    {
+      "name": "flashgo-nginx",
+      "image": "nginx",
+      "essential": true,
+      "cpu": 1024,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 8008,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "links": [
+        "flashgo-api:flashgo-api"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "flashgo-nginx-logs",
+          "containerPath": "/datadrive/flashgo/logs/nginx",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "flashgo-nginx-conf",
+          "containerPath": "/etc/nginx/nginx.conf",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "flashgo-nginx-site",
+          "containerPath": "/etc/nginx/sites-enabled/default",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "flashgo-static",
+          "containerPath": "/datadrive/flashgo/static",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "flashgo-nginx-uwsgi",
+          "containerPath": "/etc/nginx/uwsgi_params",
+          "readOnly": true
+        }
+      ],
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 50000,
+          "hardLimit": 50000
+        }
+      ]
+    },
+    {
+      "name": "flashgo-s3-agent",
+      "image": "239801832578.dkr.ecr.ap-southeast-1.amazonaws.com/flashgo-api:latest",
+      "essential": true,
+      "cpu": 512,
+      "memory": 512,
+      "command": [
+        "sh",
+        "-c",
+        "cd recsys && bash upload_events.sh"
+      ],
+      "mountPoints": [
+        {
+          "containerPath": "/datadrive/flashgo/logs/python",
+          "sourceVolume": "flashgo-api-logs"
+        }
+      ],
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 50000,
+          "hardLimit": 50000
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "flashgo-api-logs",
+      "host": {
+        "sourcePath": "/datadrive/flashgo/logs/python"
+      }
+    },
+    {
+      "name": "flashgo-nginx-logs",
+      "host": {
+        "sourcePath": "/datadrive/flashgo/logs/nginx"
+      }
+    },
+    {
+      "host": {
+        "sourcePath": "/datadrive/ConfCenter/flashgo/nginx/flashgo.conf"
+      },
+      "name": "flashgo-nginx-conf"
+    },
+    {
+      "host": {
+        "sourcePath": "/datadrive/ConfCenter/flashgo/nginx/flashgo.site"
+      },
+      "name": "flashgo-nginx-site"
+    },
+    {
+      "host": {
+        "sourcePath": "/datadrive/ConfCenter/flashgo/nginx/flashgo.uwsgi_params"
+      },
+      "name": "flashgo-nginx-uwsgi"
+    },
+    {
+      "host": {
+        "sourcePath": "/datadrive/flashgo/static"
+      },
+      "name": "flashgo-static"
+    }
+  ],
+  "family": "flashgo-service"
+}

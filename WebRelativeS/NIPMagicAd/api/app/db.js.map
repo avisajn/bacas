@@ -1,0 +1,32 @@
+{
+    "version": 3,
+    "sources": [
+        "../src/db.js"
+    ],
+    "names": [
+        "mapping",
+        "host",
+        "pwd",
+        "normal_pwd",
+        "dbConfig",
+        "think",
+        "env",
+        "type",
+        "log_sql",
+        "log_connect",
+        "dbmagicad",
+        "port",
+        "database",
+        "user",
+        "password",
+        "prefix",
+        "encoding",
+        "permisson",
+        "activity"
+    ],
+    "mappings": "AAAA;;;AAGA,IAAMA,UAAU;AACd,iBAAgB;AACdC,UAAO,WADO;AAEdC,SAAM,EAFQ;;AAIdC,gBAAa;AAJC,GADF;AAOd,gBAAe;AACbF,UAAO,qCADM;AAEbC,SAAM,UAFO;;AAIbC,gBAAa;AAJA;AAPD,CAAhB;AAcA,IAAMC,WAAWJ,QAAQK,MAAMC,GAAd,CAAjB;AACA;kBACe;AACbC,QAAM,OADO;AAEbC,WAAS,IAFI;AAGbC,eAAa,KAHA;AAIbC,aAAY,EAAO;AACjBH,UAAM,OADI;AAEVN,UAAMG,SAAS,MAAT,CAFI;AAGVO,UAAM,MAHI;AAIVC,cAAU,eAJA;AAKVC,UAAM,MALI;AAMVC,cAAUV,SAAS,KAAT,CANA,EAMiB;AAC3BW,YAAQ,EAPE;AAQVC,cAAU;AARA,GAJC;AAcbC,aAAW;AACTV,UAAM,OADG,EACM;AACfN,UAAM,WAFG;AAGTU,UAAM,MAHG;AAITC,cAAU,iBAJD;AAKTC,UAAM,MALG;AAMTC,cAAUV,SAAS,YAAT,CAND;AAOTW,YAAQ,EAPC;AAQTC,cAAU;AARD,GAdE;;AAyBbE,YAAW;AACTX,UAAM,OADG,EACM;AACfN,UAAM,WAFG;AAGTU,UAAM,MAHG;AAITC,cAAU,eAJD;AAKTC,UAAM,MALG;AAMTC,cAAUV,SAAS,YAAT,CAND;AAOTW,YAAQ,EAPC;AAQTC,cAAU;AARD;AAzBE,C",
+    "file": "../src/db.js",
+    "sourcesContent": [
+        "'use strict';\n\n\nconst mapping = {\n  'development' : {\n    host : '127.0.0.1',\n    pwd : '',\n\n    normal_pwd : ''\n  },\n  'production' : {\n    host : 'usadadmin.westus.cloudapp.azure.com',\n    pwd : 'Baca@123',\n\n    normal_pwd : 'root'\n  },\n}\nconst dbConfig = mapping[think.env];\n// const dbConfig = mapping['production'];\nexport default {\n  type: 'mysql',\n  log_sql: true,\n  log_connect: false,\n  dbmagicad : {      // app关于食谱的所有API所用到的数据库\n    type: 'mysql', \n    host: dbConfig['host'],\n    port: '3306',\n    database: 'magicadsystem',\n    user: 'root',\n    password: dbConfig['pwd'], //数据库密码\n    prefix: '',\n    encoding: 'utf8'\n  },\n  permisson: {\n    type: 'mysql', //这里需要将 type 重新设置为 mysql\n    host: '127.0.0.1',\n    port: '3306',\n    database: 'baka_permission',\n    user: 'root',\n    password: dbConfig['normal_pwd'],\n    prefix: '',\n    encoding: 'utf8'\n  },\n\n  activity : {\n    type: 'mysql', //这里需要将 type 重新设置为 mysql\n    host: '127.0.0.1',\n    port: '3306',\n    database: 'baka_activity',\n    user: 'root',\n    password: dbConfig['normal_pwd'],\n    prefix: '',\n    encoding: 'utf8'\n  }\n}"
+    ]
+}

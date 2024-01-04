@@ -1,0 +1,42 @@
+{
+		"NewsId": 22829198,
+		"Title": "Jadwal Panggung Padat, Vokalis Nissa Sabyan Pingsan",
+		"CreatedAt": "2018-07-02T22:23:46.397044+00:00",
+		"Url": "http://berita.baca.co.id/22829198",
+		"Media": "Okezone",
+		"MediaId": 340,
+		"Abstract": "",
+		"news_like": "http://api.oppo.baca.co.id/api/v1/news/28264742/like",
+		"Html": "<div><body><div><div><div><div style=\"background-image: url(http://celebrity.okezone.com/read/2018/07/03/33/1916991/background.png); background-repeat: no-repeat; background-size: 100%;\" height=\"auto\" width=\"auto\"><img style=\"width: 100%!important; height: auto;\" src=\"http://raw.cdn.baca.co.id/f29f7296-635f-4e5b-8811-b7ff17f368a4\"></div><div><div id=\"contentx\" class=\"read\">  <p><strong>JAKARTA </strong>- Grup musik Sabyan Gambus saat ini memang tengah menjadi buah bibir di masyarakat, karena lagu-lagunya yang membuat orang menyukainya. Bahkan grup musik tersebut, mempunyai jadwal pagggung yang sangat padat. </p><p>Dengan jadwal panggung yang sangat padat itu, membuat sang vokalis Sabyan Gambus Khoirunissa atau biasa disapa Nissa itu pingsan selesai mengisi acara di Jakarta Timur seperti dalam tayangan Go Spot, Senin 2 Juni 2018.</p> <div class=\"flying_carpet_div\"><div id=\"div-gpt-ad-1510661249458-0\"></div></div> <p></p><div style=\"background-image: url(http://celebrity.okezone.com/read/2018/07/03/33/1916991/background.png); background-repeat: no-repeat; background-size: 100%;\" height=\"auto\" width=\"auto\"><img style=\"width: 100%!important; height: auto;\" src=\"http://raw.cdn.baca.co.id/92c8d402-6512-4a9a-a8ab-dd56e122f9da\" alt=\"Nissa Sabyan\"></div>  <p>Terlihat saat pingsan Nissa pun langsung dibopong oleh beberapa petugas keamanan untuk mendapatkan pertolongan pertama. Wanita 19 itu pun, akhirnya mendapatkan pertolongan dengan di infus. </p><p>\"Ini momen suka duka tapi bahagia,\" ujar salah satu personel Sabyan Gambus, Anissa, Selasa (3/7/2018). </p><p>Setelah sang vokalis Nissa sadarkan diri setelah pingsan, grup Sabyan gambus pun melanjutkan perjalanan jadwal panggungnya yang padat tersebut. </p><div class=\"vicon\"><iframe src=\"https://video.okezone.com/embed/MjAxOC8wNy8wMi82LzExMzg4Mi8wLw==\" frameborder=\"0\" allowfullscreen width=\"100%\" height=\"340\"></iframe></div> <p>Grup band Sabyan Gambus telah menghipnotis remaja tanah air untuk mulai menyukai musik salawatan dengan musikalisasi yang dianggap modern. Baru saja dikenal akhir tahun 2017 lalu, Sabyan Gambus mengungkapkan bayaran mereka yang dinilai fantastis untuk ukuran penyanyi pendatang baru. </p><p>Viralnya lantunan salawat seperti ‘Ya Habibal Qalbi’ serta ‘Deen Assalam’ membawa grup band Sabyan Gambus menapaki tangga kesuksesan mereka di belantika musik tanah air dengan membawa konsep baru.                   </p><p><strong>(edi)</strong></p>     </div> </div></div></div></div></body></div>",
+		"ImageGuids": ["f29f7296-635f-4e5b-8811-b7ff17f368a4", "92c8d402-6512-4a9a-a8ab-dd56e122f9da"],
+		"Images": [{
+			"Index": 0,
+			"ImageGuid": "f29f7296-635f-4e5b-8811-b7ff17f368a4",
+			"ImageType": "image/jpg",
+			"Description": "",
+			"Width": 800,
+			"Height": 450
+		}, {
+			"Index": 1,
+			"ImageGuid": "92c8d402-6512-4a9a-a8ab-dd56e122f9da",
+			"ImageType": "image/jpg",
+			"Description": "",
+			"Width": 479,
+			"Height": 595
+		}],
+		"Categories": [3, 29],
+		"CommentCount": 0,
+		"ShowOnFeed": true,
+		"Like": false,
+		"Dislike": false,
+		"Likes": 1,
+		"Dislikes": 0,
+		"Type": 0,
+		"RecommendIndex": 0,
+		"Hot": false,
+		"PageId": "0993a89e-efd8-444a-8ab0-dca379b73b1e",
+		"PageIndex": 1,
+		"DisplayAd": false,
+		"SendTraffic": false,
+		"ReadCount": 0
+	}

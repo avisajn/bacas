@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%=title%></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/public/js/native.js"></script>
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    .weight {
+      font-weight: bold;
+    }
+    .address_pre {
+      width: 100%;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+    .term_table {
+      margin-top: 10px;
+      border-color: #aaa;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    .term_table th,
+    .term_table td {
+      text-align: center;
+    }
+    .agreement {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      font-size: 14px;
+      padding: 0 5px;
+      color: #000;
+    }
+    .agreement h3 {
+      padding: 15px 0;
+      line-height: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+    .agreement > p {
+      line-height: 18px;
+      margin-bottom: 15px;
+      padding: 0 8px;
+    }
+    .agreement .title_list li {
+      margin-bottom: 15px;
+    }
+    .agreement .title_list li .section {
+      display: flex;
+    }
+    .agreement .title_list li .section > span {
+      padding-left: 5px;
+      font-size: 14px;
+      width: 16%;
+      font-weight: bold;
+      line-height: 18px;
+    }
+    .agreement .title_list li .section > div {
+      width: 84%;
+    }
+    .agreement .title_list li .section > div .name_title {
+      text-align: center;
+      margin: 10px 0 15px;
+    }
+    .agreement .title_list li .section > div p {
+      line-height: 18px;
+    }
+    .agreement .list > li {
+      margin-bottom: 32px;
+    }
+    .agreement .list > li .list_title {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .agreement .list > li .list_title > span {
+      padding-left: 5px;
+      font-size: 16px;
+      width: 20%;
+      font-weight: bold;
+      line-height: 18px;
+    }
+    .agreement .list > li .list_title > p {
+      width: 80%;
+    }
+    .agreement .list > li .list_title > p .name_title {
+      text-align: center;
+      margin: 10px 0 15px;
+    }
+    .agreement .list > li .list_title > p p {
+      line-height: 18px;
+    }
+    .agreement .list > li .inner_list > li .second_title {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .agreement .list > li .inner_list > li .second_title > span {
+      width: 20%;
+      line-height: 24px;
+      padding-left: 10px;
+    }
+    .agreement .list > li .inner_list > li .second_title > p {
+      width: 80%;
+      line-height: 24px;
+    }
+    .agreement .list > li .inner_list > li .second_title > div {
+      width: 80%;
+      line-height: 24px;
+    }
+    .agreement .list > li .inner_list > li .forteent_info {
+      padding-left: 16%;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+    .agreement .list > li .inner_list > li ul {
+      overflow: hidden;
+    }
+    .agreement .list > li .inner_list > li ul li {
+      display: flex;
+      margin-bottom: 16px;
+    }
+    .agreement .list > li .inner_list > li ul li > span {
+      width: 20%;
+      line-height: 24px;
+      padding-left: 8px;
+      word-break: break-all;
+      padding-left: 16px;
+    }
+    .agreement .list > li .inner_list > li ul li p {
+      width: 80%;
+      line-height: 24px;
+    }
+    .agreement .line_title {
+      margin: 30px 0;
+    }
+    .agreement .line_title h4 {
+      text-align: center;
+      font-size: 16px;
+      color: #000;
+      line-height: 24px;
+    }
+    .agreement .line_title h4 span {
+      text-decoration: underline;
+    }
+    .agreement .info_list {
+      padding-left: 5px;
+    }
+    .agreement .info_list li {
+      display: flex;
+      margin-bottom: 16px;
+      line-height: 24px;
+    }
+    .agreement .info_list li span {
+      margin-right: 10px;
+    }
+    .agreement .last_list > li {
+      margin-bottom: 32px;
+    }
+    .agreement .last_list > li > div {
+      width: 100%;
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .agreement .last_list > li > div span {
+      width: 18%;
+      padding-left: 10px;
+      line-height: 24px;
+    }
+    .agreement .last_list > li > div p {
+      width: 72%;
+      line-height: 24px;
+    }
+    .agreement .last_list > li > ul > li {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .agreement .last_list > li > ul > li > span {
+      width: 18%;
+      padding-left: 10px;
+      line-height: 24px;
+    }
+    .agreement .last_list > li > ul > li > div {
+      width: 72%;
+    }
+    .agreement .last_list > li > ul > li > div p {
+      line-height: 24px;
+    }
+    .agreement .last_list > li > ul > li > div ul.second li {
+      position: relative;
+      font-style: normal;
+      left: -19%;
+      display: flex;
+      width: 120%;
+    }
+    .agreement .last_list > li > ul > li > div ul.second li span {
+      width: 16%;
+    }
+    .agreement .last_list > li > ul > li > div ul.second li p {
+      width: 83%;
+    }
+    .agreement .last_list > li > ul > li > div ul {
+      bottom: 0;
+    }
+    .agreement .last_list > li > ul > li > div ul li {
+      line-height: 24px;
+      margin: 10px 0;
+      font-style: italic;
+    }
+    .agreement .line_sec_title {
+      margin: 10px 0 20px 0;
+    }
+    .agreement .line_sec_title h5 {
+      text-align: center;
+      line-height: 20px;
+    }
+    .agreement .line_sec_title h5 span {
+      font-weight: normal;
+    }
+    .agreement .info_text {
+      padding: 0 10px;
+      line-height: 30px;
+      margin-bottom: 25px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="ga_tag" hidden><%=googleTag%></div>
+    <div class="agreement">
+      <h3>PERJANJIAN PEMASOK/SUPPLIER/MERCHANT</h3>
+      <p><span class="weight">PERJANJIAN PEMASOK/SUPPLIER/MERCHANT (“Perjanjian”)</span> ini tertanggal 9 September 2020 (09-09-2020)diadakan antara:</p>
+      <ul class="title_list">
+        <li>
+          <div class="section">
+            <span>Ⅰ.</span>
+            <div class="inner_list">
+              <p><span class="weight">PT Digital Baca Interaktif</span> yang berkantor resmi di di Gedung APL Tower Central Park Lantai 7 Unit T9,
+                JL. Letjend S. Parman Kav. 28 Tanjung Duren Selatan Grogol Petamburan Jakarta Barat Dalam hal ini
+                diwakili oleh <span class="weight">Johan Panjaitan</span> dalam kedudukannya sebagai Direktur berhak untuk bertindak secara hukum
+                untuk mewakili oleh dan atas nama Perusahaan (selanjutnya disebut sebagai “Perusahaan”, istilah mana
+                akan, kecuali menyalahi konteks atau artinya, dianggap berarti dan mencakup penerus dan penerima alih
+                haknya);</p>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="section">
+            <span>Ⅱ.</span>
+            <div class="inner_list">
+              <p class="name_title">DAN</p>
+              <p>[●] yang diwakili oleh pemilik perorangan [●] berusia sekitar [●], dan bertempat tinggal di [●] (selanjutnya
+                disebut sebagai “Pemasok/Supplier/Merchant”, istilah mana akan, kecuali menyalahi konteks atau artinya,
+                dianggap berarti dan mencakup pewaris, pelaksana dan pengurusnya)
+              </p>
+              <p class="name_title">atau</p>
+              <p>
+                [●] Perusahaan Kemitraan yang berkantor di [●] (selanjutnya disebut sebagai
+                “Pemasok/Supplier/Merchant”, istilah mana akan, kecuali menyalahi konteks atau artinya, dianggap berarti
+                dan mencakup pewaris, pelaksana dan pengurusnya).
+              </p>
+              <p class="name_title">atau</p>
+              <p>
+                [●], yang beralamat kantor resmi di [●] (selanjutnya disebut sebagai “Pemasok/Supplier/Merchant”, istilah
+                mana akan, kecuali menyalahi konteks atau artinya, dianggap berarti dan mencakup pewaris, pelaksana dan
+                pengurusnya
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <p>
+        Dalam Perjanjian ini, Perusahaan dan Pemasok/Supplier/Merchant selanjutnya secara bersama-sama disebut sebagai
+        <span class="weight">“Para Pihak”</span>  dan secara sendiri-sendiri disebut sebagai <span class="weight">“Pihak”</span>, sebagaimana mungkin ditentukan konteks.
+      </p>
+      <p class="weight">Para Pihak dengan ini terlebih dahulu menerangkan hal-hal sebagai berikut:</p>
+      <ul class="title_list">
+        <li>
+          <div class="section">
+            <span>A.</span>
+            <div class="inner_list">
+              <p>
+                Perusahaan menjalankan usaha promosi penjualan, pemasaran, layanan pemenuhan penyediaan barang, dan
+                layanan penagihan pembayaran di banyak kategori konsumen. Perusahaan memiliki aplikasi dan portal web
+                yang menyediakan pasar online dimana Pemasok/Supplier/Merchant terdaftar (didefinisikan di bawah ini)
+                dapat menawarkan untuk menjual produknya masing-masing kepada pengguna Aplikasi/portal web
+                (“Reseller”). Peranan Perusahaan dibatasi pada pengelolaan Aplikasi/portal web dan pemasaran, penagihan
+                pembayaran, pengelolaan pesanan, pengelolaan permintaan terkait dan layanan insidental lain untuk
+                memungkinkan transaksi antara Pemasok/Supplier/Merchant dan Reseller ;
+              </p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="section">
+            <span>B.</span>
+            <div class="inner_list">
+              <p>
+                Pemasok/Supplier/Merchant terlibat dalam usaha pemanufakturan/perdagangan grosir dalam produk tertentu
+                , rincian Pemasok/Supplier/Merchant dan deskripsi Produk dirinci secara lebih lengkap dalam <span class="weight">Lampiran 1</span>;
+              </p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="section">
+            <span>C.</span>
+            <div class="inner_list">
+              <p>
+                Pemasok/Supplier/Merchant telah mendekati Perusahaan dan membuat pernyataan tertentu berkenaan
+                dengan kelayakannya untuk mencantumkan Produknya pada Aplikasi, dan Perusahaan telah setuju untuk
+                mengizinkan penjualan Produk pada Aplikasi kepada Pengguna (“Reseller”) dan selain itu menyediakan
+                Pemasok/Supplier/Merchant dengan layanan khusus yang diuraikan secara lebih lengkap dalam <span class="weight">Lampiran
+                2 (“Layanan”)</span> ; dan
+              </p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="section">
+            <span>D.</span>
+            <div class="inner_list">
+              <p>Menurut Uraian Pendahuluan C, Para Pihak sekarang ingin mencatat secara formal syarat dan ketentuan yang mengatur kemitraan di antara Para Pihak.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <p>
+        <span class="weight">OLEH KARENA ITU</span>, dengan mempertimbangkan segala kesepakatan dan perjanjian yang diatur selanjutnya dalam
+        Perjanjian ini, dipahami, disetujui dan disepakati bersama sebagai berikut:
+      </p>
+      <ul class="list">
+        <li>
+          <div class="list_title">
+            <span>1.</span>
+            <p>DEFINISI DAN INTERPRETASI</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>1.1</span>
+                <p>Kecuali konteks menentukan lain, kata dan istilah berikut ini akan memiliki artisebagaimana tertera di bawah ini:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>1.1.1.</span>
+                  <p>
+                    <span class="weight">“Afiliasi”</span> Orang (didefinisikan di bawah ini; <span class="weight">“Subyek Orang”</span> ) berarti (i) dalam hal Subyek Orang
+                    yang merupakan orang perorangan, yang terlibat baik secara langsung maupun tidak langsung
+                    dengan usaha manufaktur/produksi/ dan Distribusi Grosir produk
+                  </p>
+                </li>
+                <li>
+                <span>1.1.2.</span>
+                  <p>
+                    <span class="weight">“Hukum Yang Berlaku”</span>” berarti semua ketentuan yang berlaku dari semua (i) konstitusi, traktat,
+                    undang-undang, hukum (termasuk hukum umum), kitab undang-undang, aturan, peraturan,
+                    ordonansi, atau anggaran rumah tangga; (ii) perintah, keputusan, injungsi, putusan dan penetapan
+                    atau perjanjian dengan Otoritas Pemerintahan (didefinisikan di bawah ini), yang memiliki kekuatan
+                    hukum mengikat; atau (ii) persetujuan Otoritas Pemerintahan, baik yang berlaku per tanggal
+                    Perjanjian ini atau sewaktu-waktu setelahnya;
+                  </p>
+                </li>
+                <li>
+                  <span>1.1.3.</span>
+                  <p><span class="weight">“Hari Kerja”</span> mengacu ke hari dimana bank umum terjadwal di Indonesia buka dan beroperasi, dan tidak termasuk hari Minggu dan hari libur umum yang diberitahukan;</p>
+                </li>
+                <li>
+                  <span>1.1.4.</span>
+                  <p><span class="weight">“Komisi”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 3.1;</p>
+                </li>
+                <li>
+                  <span>1.1.5.</span>
+                  <p><span class="weight">“Informasi Rahasia”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 7.3;</p>
+                </li>
+                <li>
+                  <span>1.1.6.</span>
+                  <p><span class="weight">“Pertimbangan”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 2.5;</p>
+                </li>
+                <li>
+                  <span>1.1.7.</span>
+                  <p><span class="weight">“Data”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 4.1;</p>
+                </li>
+                <li>
+                  <span>1.1.8.</span>
+                  <p><span class="weight">“Keadaan Kahar”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 10.1;</p>
+                </li>
+                <li>
+                  <span>1.1.9.</span>
+                  <p><span class="weight">“Otoritas Pemerintahan”</span> berarti setiap negara, pemerintah, negara bagian atau bagian ketatanegaraannya; setiap entitas, otoritas atau badan yang melaksanakan fungsi eksekutif, legislatif, yudikatif, regulatif atau administratif dari atau menyangkut pemerintahan, termasuk setiap otoritas, lembaga, dinas, dewan, komisi atau instansi pemerintahan Indonesia atau yurisdiksi lainnya, sebagaimana berlaku, atau bagian ketatanegaraannya atau yurisdiksi berlaku lainnya atau setiap pengadilan, mahkamah atau arbiter;</p>
+                </li>
+                <li>
+                  <span>1.1.10.</span>
+                  <p><span class="weight">“Kekayaan Intelektual”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 7.2;</p>
+                </li>
+                <li>
+                  <span>1.1.11.</span>
+                  <p><span class="weight">“Pesanan”</span> berarti pesanan pembelian akhir yang ditempatkan oleh Reseller kepada Pemasok/Supplier/Merchant melalui Aplikasi untuk pembelian Produk;</p>
+                </li>
+                <li>
+                  <span>1.1.12.</span>
+                  <p><span class="weight">“Orang”</span> berarti setiap orang perorangan, firma, perusahaan, usaha patungan, kemitraan, serikat atau entitas lain (baik memiliki kepribadian hukum terpisah maupun tidak);</p>
+                </li>
+                <li>
+                  <span>1.1.13.</span>
+                  <p><span class="weight">“Produk”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Uraian Pendahuluan B dan Lampiran 1;</p>
+                </li>
+                <li>
+                  <span>1.1.14.</span>
+                  <p><span class="weight">“Nilai Jual”</span> adalah harga Pemasok/Supplier/Merchant ke Reseller untuk barang dan jasa yang dijual di platform Perusahaan;</p>
+                </li>
+                <li>
+                  <span>1.1.15.</span>
+                  <p><span class="weight">“Panel Penjual”</span> berarti panel berbeda yang disediakan oleh Perusahaan bagi Pemasok/Supplier/Merchant di Aplikasi dengan fungsionalitas yang diuraikan secara lebih rinci dalam Lampiran II;</p>
+                </li>
+                <li>
+                  <span>1.1.16.</span>
+                  <p><span class="weight">“Imbalan Jasa”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 3.2;</p>
+                </li>
+                <li>
+                  <span>1.1.17.</span>
+                  <p><span class="weight">“Jangka Waktu”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 8.1;</p>
+                </li>
+                <li>
+                  <span>1.1.18.</span>
+                  <p><span class="weight">“Imbalan Pemasok/Supplier/Merchant”</span> memiliki arti yang diberikan kepada istilah tersebut dalam Pasal 2.9; dan</p>
+                </li>
+                <li>
+                  <span>1.1.19.</span>
+                  <p><span class="weight">“Pedoman Pemasok/Supplier/Merchant”</span> berarti kebijakan Perusahaan yang berlaku menyangkut, antara lain, pengemasan, pemasaran, logistik dan keuangan yang dilampirkan pada Perjanjian ini sebagai <span class="weight">Lampiran 3</span>, dan sebagaimana diubah dari waktu ke waktu.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>1.2.</span>
+                <p>Dalam Perjanjian ini, kecuali konteks menentukan lain:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>1.2.1.</span>
+                  <p>Acuan ke suatu perjanjian mencakup semua perubahan, penyesuaian dan penambahannya.</p>
+                </li>
+                <li>
+                <span>1.2.2.</span>
+                  <p>Kepala judul dan anak judul dimasukkan dalam Perjanjian ini untuk kemudahan dan identifikasi saja dan seharusnya diabaikan untuk tujuan penafsiran kecuali sejauh konteks menentukan lain.</p>
+                </li>
+                <li>
+                  <span>1.2.3.</span>
+                  <p>Apabila suatu kata atau frasa didefinisikan, kelas kata dan bentuk gramatikal lainnya dari kata atau frasa tersebut memiliki arti yang bersesuaian.</p>
+                </li>
+                <li>
+                  <span>1.2.4.</span>
+                  <p>Acuan ke hari berarti hari kalender.</p>
+                </li>
+                <li>
+                  <span>1.2.5.</span>
+                  <p>Acuan dalam bentuk tunggal mencakup acuan dalam bentuk jamak dan sebaliknya.</p>
+                </li>
+                <li>
+                  <span>1.2.6.</span>
+                  <p>Kata ganti atau kata ganti-kata ganti dianggap mencakup semua jenis kelamin.</p>
+                </li>
+                <li>
+                  <span>1.2.7.</span>
+                  <p>Kata-kata ‘dari Perjanjian ini’, ‘dalam Perjanjian ini’ dan ‘berdasarkan Perjanjian ini’ dan kata-kata bermakna sama mengacu ke Perjanjian ini secara keseluruhan dan tidak mengacu ke ketentuan manapun dari Perjanjian ini.</p>
+                </li>
+                <li>
+                  <span>1.2.8.</span>
+                  <p>Istilah-istilah yang didefinisikan dalam Lampiran pada Perjanjian ini memiliki arti yang diberikan kepadanya dalam Lampiran pada Perjanjian ini yang berlaku ketika digunakan di tempat lain dalam Perjanjian ini.</p>
+                </li>
+                <li>
+                  <span>1.2.9.</span>
+                  <p>Lampiran pada Perjanjian ini merupakan bagian yang tidak terpisahkan dari Perjanjian ini dan akan berlaku sepenuhnya seolah-olah tertera dengan jelas dalam batang tubuh Perjanjian ini.</p>
+                </li>
+                <li>
+                  <span>1.2.10.</span>
+                  <p>Kata-kata ‘tertulis’ dan ‘secara tertulis’ mencakup transmisi faksimili dan segala cara memperbanyak kata diakui secara hukum lainnya dalam bentuk nyata dan terlihat secara permanen dengan konfirmasi transmisi.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>2.</span>
+            <p>PENDAFTARAN, PENJUALAN DAN PENGELOLAAN PRODUK</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>2.1.</span>
+                <p>Perusahaan akan mengizinkan Pemasok/Supplier/Merchant untuk mencantumkan Produk di Aplikasi, dengan ketentuan yang terdapat dalam Perjanjian ini, namun ketentuan bahwa Perusahaan berhak untuk memilih atau mencoret Produk apa pun atau mencoret Pemasok/Supplier/Merchant yang ada, tergantung kebijaksanaannya semata.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.2.</span>
+                <p>Pemasok/Supplier/Merchant akan sepanjang waktu mematuhi ketentuan Perjanjian ini dan Pedoman Pemasok/Supplier/Merchant yang dilampirkan pada Perjanjian ini sebagai <span class="weight">Lampiran 3</span>, sebagaimana diubah dari waktu ke waktu.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.3.</span>
+                <p>Pemasok/Supplier/Merchant akan bertanggung jawab  untuk memastikan mutu, kecukupan kuantitas Produk yang tercantum di aplikasi/portal web dengan minimal 10 Unit/Type dan akan memastikan bahwa Produk mematuhi standar yang telah ditentukan sebelumnya untuk Produk tersebut berdasarkan Pedoman Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.4.</span>
+                <p>Pemasok/Supplier/Merchant akan menyediakan Perusahaan dengan rincian dan gambar Produk yang mereka tawarkan untuk dijual di Aplikasi sesuai dengan Pedoman Pemasok/Supplier/Merchant. Pemasok/Supplier/Merchant bertanggung jawab untuk memastikan keakuratan deskripsi Produk dan akan memperbarui rincian Produk di Aplikasi dari waktu ke waktu, dengan cara dan kekerapan sebagaimana telah ditentukan sebelumnya oleh Perusahaan. Pemasok/Supplier/Merchant bertanggung jawab semata-mata untuk memastikan bahwa Produk dan gambar tidak melanggar hak pihak ketiga, termasuk tanpa pembatasan, hak kekayaan intelektual pihak tersebut.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.5.</span>
+                <p>Pemasok/Supplier/Merchant akan menawarkan untuk mencantumkan Produk di Aplikasi dengan harga grosirnya (termasuk pajak) kepada Perusahaan. Terlepas dari segala sesuatu yang terdapat dalam Pasal ini, Pemasok/Supplier/Merchant memberikan kuasa kepada Perusahaan dalam kapasitas agen pemasaran untuk menemukan & menginfokan harga pasar terbaik yang berlaku untuk produknya. Penetapan harga jual adalah atas kebijaksanaan Pemasok/Supplier/Merchant semata dan hal tersebut akan dikomunikasikan kepada Perusahaan. Perusahaan akan bertindak sebagai “Agen Murni” Pemasok/Supplier/Merchant berdasarkan Hukum Yang Berlaku dan tidak memiliki peranan apa pun dalam penetapan harga jual produk di Aplikasi.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.6.</span>
+                <p>Akan tetapi, dalam hal Pemasok/Supplier/Merchant tidak menyetujui harga pasar yang ditemukan oleh Perusahaan, maka Pemasok/Supplier/Merchant berhak untuk menarik Produk dari Aplikasi mengenai memberitahu Perusahaan tentang ketidaksetujuan tersebut dengan permintaan untuk menarik Produk dari Aplikasi. Permintaan penarikan khusus oleh Pemasok/Supplier/Merchant akan berlaku dalam waktu dua belas (12) hingga dua puluh empat (24) jam sejak diterimanya permintaan tersebut.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.7.</span>
+                <p>Perusahaan akan berusaha untuk menyediakan infrastruktur backend penting bagi Pemasok/Supplier/Merchant seperti fasilitas pengunggahan produk, call centre, sistem pengelolaan pesanan, dll, untuk mengumpulkan Pesanan yang ditempatkan kepada Pemasok/Supplier/Merchant melalui Aplikasi. Pesanan yang ditempatkan oleh Reseller di Aplikasi dapat dilihat dan diakses oleh Pemasok/Supplier/Merchant secara langsung pada Panel Penjual. Pada saat diterimanya Pesanan, Pemasok/Supplier/Merchant akan mengemas Produk dan mengirim Produk mutlak sesuai dengan amanah yang diatur dalam Pedoman Pemasok/Supplier/Merchant. Dalam hal terjadi penundaan, Perusahaan akan memberitahukan dengan seketika penundaan tersebut oleh Pemasok/Supplier/Merchant, bersama-sama dengan waktu pengiriman yang diharapkan, sehingga Reseller dapat diupdate secara layak mengenai waktu penyerahan melalui Aplikasi. Dalam hal Pemasok/Supplier/Merchant gagal membuat Produk siap dikirimkan ke Reseller dalam jangka waktu sebagaimana ditetapkan di atas atau menandai Pesanan sebagai batal karena alasan apa pun juga, Perusahaan akan berhak untuk menghukum Pemasok/Supplier/Merchant sesuai dengan Pedoman Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.8.</span>
+                <p>Pemasok/Supplier/Merchant juga menyanggupi bahwa pihaknya tidak akan secara independen (selain di Aplikasi/portal web) mempromosikan produk, layanan, tawaran, paket, dll kepada Reseller atau pelanggan Reseller secara langsung, tidak langsung dan/atau melalui e-mail, SMS atau mode elektronik atau fisik lainnya. Segala bentuk pelanggaran yang dalam kaitannya Pemasok/Supplier/Merchant memasarkan produk secara independen baik secara langsung ataupun tidak langsung kepada reseller maka itu akan dianggap sebagai pelanggaran perjanjian yang menyebabkan kerugian material bagi Pihak Perusahaan. Pemasok/Supplier/Merchant bersedia untuk memberikan ganti rugi material yang diakibatkan kepada Pihak Perusahaan.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.9.</span>
+                <p>Dalam hal pembayaran Pesanan dikumpulkan oleh Perusahaan atas nama Pemasok/Supplier/Merchant <span class="weight">(“Imbalan Pemasok/Supplier/Merchant”)</span>, hal yang sama akan dikumpulkan selagi bertindak sebagai agen Pemasok/Supplier/Merchant dengan niat semata-mata memfasilitasi transaksi Pemasok/Supplier/Merchant. Perusahaan akan mentransfer saldo Imbalan Pemasok/Supplier/Merchant ke rekening bank yang ditentukan oleh Pemasok/Supplier/Merchant dengan dikurangi komisi perusahaan, biaya – biaya yang ditimbulkan oleh transaksi perdagangan dengan reseller (biaya transfer, administrasi bank, biaya virtual account ataupun Management fee atas transaksi penagihan secara COD) dan sebagaimana tertera pada pasal 3.4 dan 3.5 dalam perjanjian ini.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.10.</span>
+                <p>Perusahaan memiliki hak tunggal untuk mengubah susunan atau sifat Layanan atau Aplikasi, termasuk cara dimana Layanan diberikan, tanpa persetujuan tertulis sebelumnya dari Pemasok/Supplier/Merchant. Segala perubahan pada Layanan atau Aplikasi akan dikomunikasikan kepada Pemasok/Supplier/Merchant secara tertulis, yang memperinci penyesuaian tersebut sekurang-kurangnya tiga (3) hari sebelum implementasi perubahan yang diharapkan tersebut.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.11.</span>
+                <div>
+                  <p>Pemasok/Supplier/Merchant akan menentukan satu (1) individu yang akan menjadi penghubung utama untuk segala perkara yang mungkin timbul berdasarkan Perjanjian ini (“Perwakilan”). Pada tanggal pelaksanaan Perjanjian ini, Pemasok/Supplier/Merchant akan menyediakan Perusahaan dengan nomor telepon, alamat e-mail dan rincian kontak Perwakilan. Pemasok/Supplier/Merchant berhak untuk mengganti Perwakilan dengan penyampaian pemberitahuan tertulis satu</p>
+                  <p>(1) bulan sebelumnya kepada Perusahaan</p>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>2.12.</span>
+                <p>Selanjutnya, sebagai Pemasok/Supplier/Merchant pilihan, Perusahaan akan menawarkan Pemasok/Supplier/Merchant manfaat berikut ini:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>2.12.1.</span>
+                  <p>Dedicated Business Development (BD) yang akan membantu Pemasok/Supplier/Merchant melakukan pendaftaran di sistem dan juga akan bertanggung jawab untuk mengunggah produk dari Pemasok/Supplier/Merchant saat pertama kali di daftarkan.</p>
+                </li>
+                <li>
+                  <span>2.12.2.</span>
+                  <p>Dedicated Account Manager (AM) untuk menangani semua isu dan klarifikasi mengenai return. Bidang fokus utama AM ini adalah bekerjasama dengan Pemasok/Supplier/Merchant dan mengambil inisiatif untuk mengurangi persentase retur Pemasok/Supplier/Merchant.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>3.</span>
+            <p>KOMISI DAN IMBALAN JASA</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>3.1.</span>
+                <p>Sebagai pertimbangan mengizinkan Pemasok/Supplier/Merchant untuk menjual Produk di Aplikasi, Perusahaan akan membebankan Imbalan atas setiap Pesanan layak yang ditempatkan di Aplikasi, dengan tarif yang telah ditentukan sebelumnya dalam Bagian A dari Lampiran 4 (“Imbalan”/“Komisi”). Imbalan (yang merupakan persentase jumlah penjualan) dapat direvisi dari waktu ke waktu dan revisi tersebut akan dikomunikasikan sebelumnya oleh Perusahaan kepada Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>3.2.</span>
+                <p>Perusahaan juga akan membebani Pemasok/Supplier/Merchant untuk Layanan yang disediakan oleh Perusahaan, termasuk segala belanja pemasaran dan beban logistik yang diadakan oleh Perusahaan atas nama Pemasok/Supplier/Merchant (“<span class="weight">Imbalan Jasa</span>”), dengan tarif yang telah ditentukan sebelumnya dalam <span class="weight">Bagian B</span> dari <span class="weight">Lampiran 4</span>.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>3.3.</span>
+                <p>Perusahaan akan menyerahkan faktur tagihan kepada Pemasok/Supplier/Merchant setiap bulan untuk Imbalan Jasa yang harus dibayar oleh Pemasok/Supplier/Merchant pada atau sebelum tanggal 15 bulan berikutnya. Semua pembayaran harus dilakukan oleh Pemasok/Supplier/Merchant dalam Rupiah Indonesia kecuali disepakati lain oleh Para Pihak secara tertulis. Penagihan dan pembayaran Imbalan Jasa adalah sesuai dengan Pedoman Pemasok/Supplier/Merchant yang telah ditentukan sebelumnya dalam hal ini.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>3.4.</span>
+                <p>Perusahaan akan menghitung segala kerugian, Imbalan Jasa atau Komisi yang harus dibayar oleh Pemasok/Supplier/Merchant kepada Perusahaan merujuk kepada Pasal 9 dalam perjanjian ini. Hak Perusahaan berdasarkan Pasal 3.4 merupakan penambahan pada, dan bukan pengurangan dari semua hak lain yang tersedia bagi Perusahaan berdasarkan Perjanjian ini atau Hukum Yang Berlaku.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>3.5.</span>
+                <p>Pemasok/Supplier/Merchant harus bertanggung jawab atas segala pajak, retribusi, pungutan apa pun juga termasuk pajak yang berkaitan dengan Produk, yang dapat dihubungkan dengan atau diadakan oleh Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>3.6.</span>
+                <p>Perusahaan akan memotong pajak/pembayaran, jika diperlukan berdasarkan Hukum Yang Berlaku untuk dipotong terhadap pembayaran yang dilakukan kepada Pemasok/Supplier/Merchant berdasarkan Perjanjian ini dan wajib disetorkan kepada Pemasok/Supplier/Merchant hanya hasil bersihnya. Perusahaan akan menyetorkan pajak yang dipotong kepada Otoritas Pemerintahan yang tepat dan setuju untuk menyediakan Pemasok/Supplier/Merchant, secara tepat waktu, dengan dokumentasi yang disahkan sebagaimana mestinya atau informasi atau tanda terima atau surat keterangan lain yang membuktikan pembayaran pajak tersebut.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>4.</span>
+            <p>DATA</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>4.1.</span>
+                <p>Perusahaan dan Afiliasinya adalah dan tetap menjadi pemilik tunggal segala Data Reseller, berkas kasus atau informasi Reseller terkait lainnya (secara bersama-sama disebut sebagai “Data”) sepanjang waktu selama Jangka Waktu. Pemasok/Supplier/Merchant akan memastikan bahwa Data tidak akan: (i) digunakan oleh Pemasok/Supplier/Merchant selain sehubungan dengan penjualan Produk; (ii) dijual, dialihkan, disewakan, atau lainnya, dengan cara atau bentuk apa pun juga yang diungkapkan kepada Orang Ketiga oleh Pemasok/Supplier/Merchant; atau (iii) secara komersial dieksploitasi oleh atau atas nama Pemasok/Supplier/Merchant, karyawan, subkontraktor, agen atau afiliasinya.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>4.2.</span>
+                <p>Sebagai bagian dari Layanan, Pemasok/Supplier/Merchant akan segera memperbaiki segala kesalahan atau ketidakakuratan dalam Data yang disebabkan oleh Pemasok/Supplier/Merchant. Atas permintaan Perusahaan, Pemasok/Supplier/Merchant juga akan segera memperbaiki segala kesalahan atau ketidakakuratan lain dalam Data.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>4.3.</span>
+                <p>
+                  Semua Data yang diterima atau dihasilkan selama pelaksanaan Layanan berdasarkan Perjanjian ini, dan
+                  dalam kepemilikan Pemasok/Supplier/Merchant, terdapat di dalam basis data dan, atas permintaan tertulis
+                  Perusahaan, akan diserahkan kepada Perusahaan atau Afiliasinya dalam periode waktu dan dalam format
+                  yang dinyatakan dalam permintaan oleh Perusahaan. Apabila ada Data musnah atau rusak dengan cara apa pun,
+                  Pemasok/Supplier/Merchant akan, atas ongkosnya sendiri, memulihkan Data atau memfasilitasi
+                  pengumpulan Data tersebut. Pemasok/Supplier/Merchant akan melindungi Data sepanjang waktu dan
+                  menggunakan tingkat kehati-hatian yang sama untuk mencegah kehilangan atau perubahan Data yang ada
+                  dalam kepemilikan Pemasok/Supplier/Merchant yang akan digunakan oleh seseorang yang bijak untuk
+                  melindungi informasi orang tersebut dan yang dengan cara apa pun tidak kurang dari standar kehati-hatian
+                  yang digunakan oleh Pemasok/Supplier/Merchant untuk melindungi informasinya sendiri dan informasi lain
+                  yang mungkin ada dalam kepemilikannya.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>5.</span>
+            <p>PERNYATAAN DAN JAMINAN PEMASOK/SUPPLIER/MERCHANT</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>5.1.</span>
+                <p>Pemasok/Supplier/Merchant menyatakan dan menjamin Perusahaan sebagai berikut:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>5.1.1.</span>
+                  <p>Pemasok/Supplier/Merchant memiliki keahlian dan sumber daya yang diperlukan untuk menjalankan kewajibannya berdasarkan Perjanjian ini dan tanpa batasan, halangan, hambatan atau larangan baginya untuk menjalankan hal yang sama;</p>
+                </li>
+                <li>
+                  <span>5.1.2.</span>
+                  <p>Pemasok/Supplier/Merchant memiliki kuasa dan kewenangan penuh untuk mengadakan Perjanjian ini dan mengambil segala tindakan dan mengesahkan segala dokumen yang dibutuhkan oleh ketentuan Perjanjian ini dan bahwa Perjanjian ini, ketika diadakan telah diotorisasi sebagaimana mestinya, telah disahkan dan diserahkan sebagaimana mestinya, dan merupakan kewajiban sah, berlaku, dan mengikat dari Pemasok/Supplier/Merchant, dan bahwa Orang-Orang yang mengesahkan Perjanjian ini atas nama Pemasok/Supplier/Merchant diberikan kuasa dan wewenang sebagaimana mestinya untuk mengesahkan Perjanjian ini dan untuk melaksanakan semua kewajibannya sesuai dengan ketentuan Perjanjian ini;</p>
+                </li>
+                <li>
+                  <span>5.1.3.</span>
+                  <p>Tidak satu pun baik pengesahan maupun penyerahan Perjanjian ini, pelaksanaan transaksi yang dimaksudkan oleh Perjanjian ini, atau pemenuhan atau kepatuhan terhadap syarat dan ketentuan Perjanjian ini, yang bertentangan dengan atau melanggar hak pihak ketiga atau mengakibatkan pelanggaran atau wanprestasi berdasarkan syarat, kondisi atau ketentuan batasan hukum (termasuk,tanpa pembatasan, segala putusan, perintah, injungsi, penetapan atau ketetapan segala hukum, undang-undang, aturan atau peraturan pusat, daerah, lokal atau lainnya) atau segala kesepakatan atau perjanjian atau instrumen dimana Pemasok/Supplier/Merchant menjadi salah satu pihak, atau dimana Pemasok/Supplier/Merchant atau properti Pemasok/Supplier/Merchant terikat dengannya, dan tidak pula pengesahan, penyerahan, pelaksanaan atau kepatuhan tersebut melanggar atau mengakibatkan pelanggaran terhadap dokumen konstitusionalnya.</p>
+                </li>
+                <li>
+                  <span>5.1.4.</span>
+                  <p>Pemasok/Supplier/Merchant menjamin bahwa barang/produk yang diperjualbelikan lewat aplikasi/portal web perusahaan merupakan produk yang diizinkan oleh negara, tidak melanggar hukum, tidak termasuk kategori NAPZA. Segala bentuk ketidaksesuaian antara deskripsi produk dengan kandungan produk yang dikirimkan kepada reseller menjadi tanggung jawab sepenuhnya Pemasok/Supplier/Merchant dan membebaskan Perusahaan dari segala macam tuntutan hukum.</p>
+                </li>
+                <li>
+                  <span>5.1.5.</span>
+                  <p>Pemasok/Supplier/Merchant semata-mata bertanggung jawab untuk melunasi semua kewajiban pajak dan kepatuhan terkait atas penjualan semua produk dan jasa yang dijual di Aplikasi.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>6.</span>
+            <p>KESEPAKATAN DAN KESANGGUPAN</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>6.1.</span>
+                <p>Pemasok/Supplier/Merchant bersepakat dan menyanggupi kepada Perusahaan bahwa Pemasok/Supplier/Merchant akan:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>6.1.1.</span>
+                  <p>bertindak sesuai dengan Perjanjian dan menggunakan keahlian, kehati-hatian dan ketekunan wajar dalam pelaksanaan kewajibannya berdasarkan Perjanjian ini;</p>
+                </li>
+                <li>
+                  <span>6.1.2.</span>
+                  <p>memastikan kepatuhan terhadap semua Hukum Yang Berlaku dan tidak melanggar hak pihak ketiga selagi melakukan tugas dan tanggung jawabnya berdasarkan Perjanjian;</p>
+                </li>
+                <li>
+                  <span>6.1.3.</span>
+                  <p>memperoleh dan mempertahankan semua lisensi, izin dan persetujuan yang dibutuhkan oleh Otoritas Pemerintahan untuk pelaksanaan tugas dan tanggung jawabnya berdasarkan Perjanjian ini, dan memberikan buktinya kepada Perusahaan, dan memberitahu Perusahaan dengan seketika tentang berakhirnya, diakhirinya, tidak diperpanjangnya, ditolaknya atau dicabutnya lisensi, izin atau persetujuan tersebut termasuk (namun tidak terbatas pada) hukum ketenagakerjaan, hukum kesehatan dan keselamatan, dan semua perundang-undangan lokal lain yang berlaku terhadap Pemasok/Supplier/Merchant;.</p>
+                </li>
+                <li>
+                  <span>6.1.4.</span>
+                  <p>memastikan kepatuhan terhadap kebijakan privasi, kebijakan pelecehan seksual, Pedoman Pemasok/Supplier/Merchant dan kebijakan internal lainnya, syarat dan ketentuan sebagaimana mungkin telah ditentukan sebelumnya oleh Perusahaan dari waktu ke waktu;</p>
+                </li>
+                <li>
+                  <span>6.1.5.</span>
+                  <p>menggunakan kebijaksanaannya sesuai dengan praktek terbaik industri dan untuk kepentingan Perusahaan dan Afiliasinya;</p>
+                </li>
+                <li>
+                  <span>6.1.6.</span>
+                  <p>akan memperhatikan dan menaati semua standar bisnis dan tidak akan bertindak, dan akan menahan diri dari bertindak, dengan cara yang dapat merugikan atau mencoreng nama, reputasi, kedudukan atau itikad baik Perusahaan dan Afiliasinya;</p>
+                </li>
+                <li>
+                  <span>6.1.7.</span>
+                  <p>tidak mengadakan utang, pinjaman atau kewajiban apa pun atas nama <span class="weight">“Perusahaan”</span>, dan tidak pula menggunakan atau menyiratkan kewenangan untuk menggunakan kredit <span class="weight">“Perusahaan”</span>;</p>
+                </li>
+                <li>
+                  <span>6.1.8.</span>
+                  <p>melaksanakan semua perbaikan, penggantian, peningkatan mutu atau pengadaan peralatan/fasilitas infrastruktunya sendiri baik dimiliki, disewakan, dilisensikan atau bentuk apa pun yang memiliki kendali olehnya yang diperlukan untuk memfasilitasi pelaksanaan Perjanjian ini, atas ongkosnya sendiri;</p>
+                </li>
+                <li>
+                  <span>6.1.9.</span>
+                  <p>selama berlangsungnya Jangka Waktu Perjanjian, tidak menjual Produk apa pun kepada Orang ketiga, atau mencantumkan Produk tersebut pada platform Orang ketiga, dengan harga yang lebih rendah daripada harga pasar Produk yang ditentukan oleh Perusahaan dengan cara yang diatur dalam Pasal 2.5, dan pelanggaran pasal ini akan dianggap sebagai pelanggaran material terhadap Perjanjian ini dan atas terjadinya peristiwa tersebut Pemasok/Suplier/Merchant akan dikenakan denda kerugian material sebesar <span class="weight">Rp 15.000.0000 (Lima belas juta rupiah)</span>, Perusahaan berhak untuk mengakhiri Perjanjian ini sesuai dengan Pasal 8.2.2 dari Perjanjian ini.</p>
+                </li>
+                <li>
+                  <span>6.1.10.</span>
+                  <p>memberitahu Perusahaan tentang berakhir, disesuaikan, atau ditangguhkannya segala persetujuan/perizinan tersebut dan dimulainya segala tindakan merugikan oleh otoritas terkait bersangkutan dalam kaitan dengannya dan yang dapat mencampuri atau memiliki dampak merugikan pada pelaksanaan kewajibannya berdasarkan Perjanjian ini.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>6.2.</span>
+                <p>
+                  Pemasok/Supplier/Merchant dengan ini menyatakan dan mengkonfirmasi bahwa Produknya resmi dan
+                  dijamin kualitasnya, dan tidak termasuk kategori barang yang dilarang untuk diperdagangkan oleh Hukum
+                  Yang Berlaku. Pernyataan Pemasok/Supplier/Merchant dilampirkan pada Perjanjian ini sebagai Lampiran
+                  5, pernyataan mana akan disahkan oleh Pemasok/Supplier/Merchant secara serentak dengan pelaksanaan
+                  Perjanjian ini. Pemasok/Supplier/Merchant selanjutnya menyatakan bahwa pihaknya tidak akan melanggar
+                  hak kekayaan intelektual Orang ketiga dan akan bertanggung jawab sepenuhnya atas segala pelanggaran hak
+                  kekayaan intelektual tersebut dan membebaskan “Perusahaan” dari semua tuntutan akibat pelanggaran
+                  tersebut.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>7.</span>
+            <p>JANGKA WAKTU DAN PENGAKHIRAN PERJANJIAN</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>7.1.</span>
+                <p>Jangka Waktu Perjanjian ini (“Jangka Waktu Perjanjian”) adalah selama dua (2) tahun yang dimulai sejak tanggal Perjanjian ini kecuali diakhiri berdasarkan Pasal 8.2 atau Pasal 8.3. Meskipun terdapat ketentuan lain yang terdapat dalam Perjanjian ini, Pemasok/Supplier/Merchant tidak berhak untuk mengakhiri Perjanjian ini selama satu (1) tahun sejak tanggal Perjanjian ini.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>7.2.</span>
+                <p>Perusahaan berhak untuk mengakhiri Perjanjian ini:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>7.2.1.</span>
+                  <p>Dengan mengeluarkan pemberitahuan tertulis Lima Belas (15) Hari Kerja sebelumnya kepada Pemasok/Supplier/Merchant untuk mengakhiri Perjanjian ini tanpa sebab sewaktu-waktu selama Jangka Waktu Perjanjian;</p>
+                </li>
+                <li>
+                  <span>7.2.2.</span>
+                  <p>Dengan seketika, tanpa keharusan tindakan atau pemberitahuan lebih lanjut (kecuali untuk pemberitahuan kepada Pemasok/Supplier/Merchant tentang pengakhiran tersebut), apabila:</p>
+                </li>
+                <li>
+                  <span>7.2.2.1</span>
+                  <p>diketahui oleh Perusahaan bahwa Pemasok/Supplier/Merchant menjual Produk dengan harga yang lebih rendah daripada harga yang ditampilkan di Aplikasi untuk Produk tersebut;</p>
+                </li>
+                <li>
+                  <span>7.2.2.2</span>
+                  <p>Pada saat dilakukannya pelanggaran oleh Pemasok/Supplier/Merchant terhadap Perjanjian ini, Pedoman Pemasok/Supplier/Merchant atau kebijakan internal Perusahaan, tergantung keadaannya, (termasuk segala pernyataan, jaminan atau kesepakatan berdasarkan Perjanjian ini), Pedoman Pemasok/Supplier/Merchant atau kebijakan internal Perusahaan, tergantung keadaannya, (termasuk segala pernyataan, jaminan atau kesepakatan berdasarkan Perjanjian ini), pelanggaran mana tidak diperbaiki oleh Pemasok/Supplier/Merchant dalam waktu tiga (3) Hari Kerja sejak diterimanya pemberitahuan tentang pelanggaran tersebut dari Perusahaan;</p>
+                </li>
+                <li>
+                  <span>7.2.2.3</span>
+                  <p>Perbuatan jahat atau kelalaian oleh Pemasok/Supplier/Merchant atau personelnya; atau</p>
+                </li>
+                <li>
+                  <span>7.2.2.4</span>
+                  <p>Pada saat terjadinya Keadaan Kahar sesuai dengan Pasal 10; atau</p>
+                </li>
+                <li>
+                  <span>7.2.2.5</span>
+                  <p>Pemasok/Supplier/Merchant diperintahkan untuk menutup usahanya untuk alasan apa pun oleh pengadilan dan/atau pelikuidasi/kurator resmi yang ditunjuk berkenaan dengan urusannya kecuali dan merger, peleburan usaha atau skema atau pengaturan lain dimana Pemasok/Supplier/Merchant (secara langsung atau tidak langsung) menjadi bagian darinya.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>7.3.</span>
+                <p>Pemasok/Supplier/Merchant berhak untuk mengakhiri Perjanjian ini dengan memberikan pemberitahuan 30 Hari kerja di muka sebelum tanggal batas pengakhiran yang diinginkan oleh Pemasok/Supplier/Merchant:</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>7.4.</span>
+                <p>Pengakhiran Perjanjian ini dalam keadaan apa pun sebagaimana tersebut di atas tidak akan sama sekali mempengaruhi atau mengurangi hak apa pun yang akan diterima oleh Pihak manapun terhadap yang lain sebelum pengakhiran tersebut. Pemasok/Supplier/Merchant harus segera membayarkan Perusahaan semua jumlah yang belum dilunasi, dalam kaitannya dengan Perjanjian ini.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>7.5.</span>
+                <p>Pemasok/Supplier/Merchant akan, atas permintaan Perusahaan sewaktu-waktu, atau pada saat berakhir atau diakhirinya lebih awal Perjanjian ini, (i) segera mengembalikan kepada Perusahaan, dalam format dan pada media yang digunakan terhitung sejak tanggal permintaan, semua atau sebagian Data tersebut, sebagaimana diminta; dan (ii) menghapus atau memusnahkan semua Data yang tersisa dalam kepemilikan Pemasok/Supplier/Merchant setelah pengembalian yang tertera di atas.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>7.6.</span>
+                <p>Pemasok/Supplier/Merchant akan segera, atas permintaan tertulis yang dilakukan oleh Perusahaan atau pada saat diakhirinya Perjanjian ini mengembalikan Informasi Rahasia yang disediakan olehnya dan semua salinan atau kutipannya, atau menghapus atau memusnahkan Informasi Rahasia tersebut dalam waktu tujuh (7) hari sejak permintaan tersebut. Pemasok/Supplier/Merchant akan menerangkan secara tertulis kepada Pihak yang mengungkapkan informasi bahwa pihaknya telah mematuhi kewajibannya berdasarkan pasal ini.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>8.</span>
+            <p>PENGGANTIAN KERUGIAN</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>8.1.</span>
+                <p>Dipahami dan disepakati di antara Para Pihak bahwa Pemasok/Supplier/Merchant akan menjadi prinsipal pada kontrak dengan pelanggan termasuk Reseller dan pelanggan akhir dan akan tanpa mengurangi hak lain yang tersedia bagi Perusahaan berdasarkan Hukum Yang Berlaku atau berdasarkan Perjanjian ini, Pemasok/Supplier/Merchant dengan ini membela, mengganti rugi dan membebaskan Perusahaan dan direktur, pengurus, agen, dan penerima alih haknya dari dan terhadap segala kerugian, liabilitas, ganti rugi, kekurangan, tuntutan, klaim (termasuk klaim Orang ketiga), gugatan, putusan atau dasar gugatan, ketetapan, bunga, denda, penalti, penyusutan nilai dan ongkos atau biaya lainnya (termasuk, tanpa pembatasan, jumlah yang dibayarkan dalam penyelesiaan, ongkos perkara dan semua upah pengacara dan biaya talangan) baik secara langsung maupun tidak langsung berdasarkan, diakibatkan oleh, atau ditimbulkan dari, atau dalam kaitannya dengasn atau sebaliknya berkenaan dengan:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>8.1.1.</span>
+                  <p>segala kegagalan Pemasok/Supplier/Merchant atau personelnya untuk melaksanakan atau sebaliknya memenuhi segala kesepakatan, kesanggupan atau perjanjian atau kewajiban lain yang terdapat dalam Perjanjian ini;</p>
+                </li>
+                <li>
+                  <span>8.1.2.</span>
+                  <p>segala pelanggaran Perjanjian ini oleh Pemasok/Supplier/Merchant atau personelnya;</p>
+                </li>
+                <li>
+                  <span>8.1.3.</span>
+                  <p>segala tindakan, kealpaan, kesalahan, pernyataan, pernyataan keliru, perbuatan jahat, kelalaian Pemasok/Supplier/Merchant dan/atau personelnya dalam pelaksanaan kewajibannya berdasarkan Perjanjian ini;</p>
+                </li>
+                <li>
+                  <span>8.1.4.</span>
+                  <p>segala liabilitas yang timbul dari ketidakpatuhan terhadap Pedoman Pemasok/Supplier/Merchant atau kebijakan internal lain dari Perusahaan;;</p>
+                </li>
+                <li>
+                  <span>8.1.5.</span>
+                  <p>segala liabilitas akibat ketidakpatuhan terhadap Hukum Yang Berlaku oleh Pemasok/Supplier/Merchant selama Jangka Waktu Perjanjian;</p>
+                </li>
+                <li>
+                  <span>8.1.6.</span>
+                  <p>segala kerugian, ongkos dan/atau biaya yang timbul dari karyawan Pemasok/Supplier/Merchant yang dianggap sebagai karyawan atau pekerja Perusahaan;</p>
+                </li>
+                <li>
+                  <span>8.1.7.</span>
+                  <p>segala ketidakakuratan dalam, atau pelanggaran, setiap pernyataan dan jaminan Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.8.</span>
+                  <p>kelalaian atau kecurangan oleh Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.9.</span>
+                  <p>segala liabilitas yang timbul dari klaim Orang ketiga yang diakibatkan oleh setiap kecelakaan atau kerusakan yang disebabkan oleh Pemasok/Supplier/Merchant atau pihak yang ditunjuknya selama berlangsungnya Perjanjian ini; atau</p>
+                </li>
+                <li>
+                  <span>8.1.10.</span>
+                  <p>segala kerugian, ongkos dan/atau biaya yang ditimbulkan pada Perusahaan oleh karyawan Pemasok/Supplier/Merchant atau Orang-Orang yang dilibatkan oleh Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.11.</span>
+                  <p>segala kehilangan, penyelewengan, penyalahgunaan, pelanggaran atau perusakan pada Informasi Rahasia yang ada dalam kepemilikan Pemasok/Supplier/Merchant atau personelnya atau orang lain yang dilibatkan oleh Pemasok/Supplier/Merchant atau dalam kendali Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.12.</span>
+                  <p>pelanggaran segala Hukum Yang Berlaku;</p>
+                </li>
+                <li>
+                  <span>8.1.13.</span>
+                  <p>denda, penalti, atau ganti rugi penghukuman yang diakibatkan oleh tindakan pengawasan terhadap Pemasok/Supplier/Merchant dan disebabkan oleh Pemasok/Supplier/Merchant, serta penyelesaian pribadi akibat kealpaan dan perbuatan Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.14.</span>
+                  <p>segala liabilitas yang timbul dari klaim Reseller, yang diakibatkan oleh kekurangan pada Produk yang dijual oleh Pemasok/Supplier/Merchant;</p>
+                </li>
+                <li>
+                  <span>8.1.15.</span>
+                  <p>segala tindakan pelanggaran Orang ketiga yang dimulai terhadap Perusahaan sebagai akibat dari menggunakan kekayaan intelektual Pemasok/Supplier/Merchant sebagaimana disediakan kepada Perusahaan berdasarkan Perjanjian ini atau pelanggaran oleh Pemasok/Supplier/Merchant terhadap hak pihak ketiga tersebut; dan</p>
+                </li>
+                <li>
+                  <span>8.1.16.</span>
+                  <p>segala pelanggaran Kekayaan Intelektual oleh Pemasok/Supplier/Merchant atau personelnya atau Orang yang berada dibawah kendalinya.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>8.2.</span>
+                <p>Pemasok/Supplier/Merchant sepakat bahwa terlepas dari segala sesuatu yang terdapat dalam Perjanjian ini, Perusahaan tidak akan dilibatkan dalam operasi sehari-hari Pemasok/Supplier/Merchant, dan selanjutnya mengganti rugi Perusahaan terhadap segala klaim, kerugian, tuntutan kompensasi atau ganti rugi lain yang mungkin dialami oleh Perusahaan, karena segala tindakan atau kealpaan berkenaan dengan atau yang timbul dari operasi Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>8.3.</span>
+                <p>Konsekuensi (termasuk namun tidak terbatas pada tanggung jawab hukum, klaim, sangkalan dan biaya) dari segala kehilangan atau kerugian yang disebabkan atau penundaan yang dialami oleh Reseller atau Orang ketiga akibat kelalaian atau perbuatan jahat disengaja dari Pihak manapun akan ditanggung oleh Pihak yang wanprestasi. Jika konsekuensi tersebut ditimbulkan terhadap Pihak lain, Pihak yang wanprestasi berkomitmen untuk mengganti rugi Pihak tersebut terhadap segala konsekuensi dimaksud tunduk pada ketentuan dalam Pasal 9.4.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>8.4.</span>
+                <p>Kewajiban penggantian kerugian berdasarkan Perjanjian ini akan tetap berlaku setelah pengakhiran atau berakhirnya Perjanjian ini.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>9.</span>
+            <p>KEADAAN KAHAR</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>9.1.</span>
+                <p>
+                  Jika pelaksanaan kewajiban Perusahaan berdasarkan Perjanjian ini terhalang, terbatas atau terganggu dengan
+                  alasan kebakaran, atau musibah atau kecelakaan, pemogokan atau sengketa ketenagakerjaan lainnya; perang
+                  atau kekerasan lain; atau segala tindakan atau kondisi diluar kendali wajar Perusahaan (masing-masing
+                  disebut sebagai “Keadaan Kahar”), maka Perusahaan akan dibebaskan dari pelaksanaan tersebut sejauh
+                  halangan, batasan atau gangguan tersebut; namun dengan ketentuan bahwa Perusahaan akan segera
+                  menyampaikan pemberitahuan dalam waktu tujuh (7) Hari Kerja sejak tanggal terjadinya Keadaan Kahar
+                  tersebut dan memberikan keterangan kepada Pemasok/Supplier/Merchant tentang Keadaan Kahar tersebut
+                  dalam pemberitahuan tersebut, termasuk keterangan, dalam kekhususan wajar, tentang sebab Keadaan Kahar
+                  tersebut dan kemungkinan lamanya dampak atau penundaan yang disebabkan oleh Keadaan Kahar; dan
+                  dengan ketentuan lebih jauh bahwa Perusahaan akan berupaya sewajarnya untuk menghindari atau
+                  menghilangkan sebab tidak dilaksanakannya kewajiban tersebut dan melanjutkan pelaksanaan kewajiban
+                  berdasarkan Perjanjian ini kapan saja sebab tersebut dihilangkan.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>9.2.</span>
+                <p>
+                  Jika pelaksanaan kewajiban oleh Perusahaan berdasarkan Perjanjian ini ditangguhkan akibat terjadinya
+                  Keadaan Kahar selama lebih dari tiga puluh (30) Hari Kerja, Perusahaan dapat mengakhiri Perjanjian ini
+                  tanpa menimbulkan beban apa pun.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>10.</span>
+            <p>PEMBERITAHUAN</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>10.1.</span>
+                <p>Semua pemberitahuan, permintaan, tuntutan, klaim dan komunikasi lain berdasarkan Perjanjian ini harus dituangkan secara tertulis. Segala pemberitahuan, permintaan, tuntutan, klaim atau komunikasi lain berdasarkan Perjanjian ini dianggap telah disampaikan jika dikirim secara elektronik, melalui pos terdaftar atau tercatat, dengan meminta tanda terimanya atau perangko dibayar dimuka dan dialamatkan ke penerima dimaksud sebagaimana ditetapkan di bawah ini:n.</p>
+              </div>
+              <div class="ten_section">
+                <p class="weight">Dalam hal pemberitahuan kepada Perusahaan:</p>
+                <pre class="address_pre">
+
+          Alamat:   Gedung APL Tower
+          Central Park Lantai 7 Unit T9,
+          JL. Letjend S. Parman Kav. 28 
+          Tanjung Duren Selatan Grogol 
+          Petamburan Jakarta Barat
+
+          U.p.:     Johan Panjaitan
+
+          E-mail:   johan@newsinpalm.com
+
+          Dalam hal pemberitahuan kepada 
+
+          Pemasok/Supplier/Merchant:
+
+          <i>[ Masukkan Alamat Pemasok/
+          Supplier/Merchant]</i>
+                </pre>
+              </div>    
+            </li>
+            <li>
+              <div class="second_title">
+                <span>10.2.</span>
+                <p>Pihak manapun dapat, dari waktu ke waktu, mengubah alamat atau perwakilannya untuk penerimaan pemberitahuan yang diatur dalam Perjanjian ini dengan menyampaikan pemberitahuan tertulis sekurang- kurangnya tiga puluh (30) hari sebelumnya kepada Pihak lain..</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>11.</span>
+            <p>KESEPAKATAN TERBATAS</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>11.1.</span>
+                <p>Pemasok/Supplier/Merchant tidak akan sewaktu-waktu selama Jangka Waktu Perjanjian, dan selama Dua (2) tahun sejak pengakhiran atau berakhirnya Perjanjian ini, baik mengatasnamakan Perusahaan atau sehubungan dengan atau atas nama Orang, firma atau perusahaan lainnya yang bersaing dengan Perusahaan:</p>
+              </div>
+              <ul>
+                <li>
+                  <span>11.1.1.</span>
+                  <p>meminta atau membujuk untuk pemekerjaan atau perikatan langsung atau tidak langsung atau mempekerjakan atau mengikat karyawan Perusahaan atau melanjutkan dengan pendekatan yang dilakukan oleh atau atas nama karyawan Perusahaan;</p>
+                </li>
+                <li>
+                  <span>11.1.2.</span>
+                  <p>membujuk atau mendorong karyawan Perusahaan untuk meninggalkan pemekerjaan atau perikatan dengan Perusahaan, dan tidak pula merekomendasikan karyawan Perusahaan kepada siapa pun yang dapat mengakibatkan karyawan Perusahaan meninggalkan pemekerjaan atau perikatan dengan Perusahaan;</p>
+                </li>
+                <li>
+                  <span>11.1.3.</span>
+                  <p>membujuk, baik secara langsung maupun tidak langsung atau berusaha untuk memikat Reseller atau calon Reseller untuk menjauh dari Perusahaan, atau menyediakan pekerjaan atau layanan berjenis apa pun yang sama atau serupa dengan Aplikasi atau Layanan yang disediakan atau dimaksudkan untuk disediakan kepada Reseller atau calon Reseller berdasarkan Perjanjian ini; atau</p>
+                </li>
+                <li>
+                  <span>11.1.4.</span>
+                  <p>membujuk, baik secara langsung maupun tidak langsung, setiap Reseller atau calon Reseller untuk menahan diri dari menggunakan layanan Perusahaan, baik dengan menggunakan layanan Pemasok/Supplier/Merchant maupun Orang lain.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>12.</span>
+            <p>PEMBATASAN TANGGUNG JAWAB</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>12.1.</span>
+                <p>Jumlah pertanggungjawaban Perusahaan berdasarkan Perjanjian ini untuk setiap kejadian tunggal atau serangkaian kejadian yang merupakan pelanggaran Perjanjian atau wanprestasi apa pun berdasarkan Perjanjian ini tidak akan melebihi, dalam keadaan apa pun juga, seratus persen (100%) dari Komisi dan Imbalan Jasa yang dibayarkan atau harus dibayarkan kepada Perusahaan selama jangka waktu tiga (3) bulan sebelumnya.</p>
+              </div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>12.2.</span>
+                <p>Perusahaan tidak akan bertanggung jawab kepada Pemasok/Supplier/Merchant atas segala kehilangan atau kerusakan tidak langsung atau ikutan, termasuk, tanpa pembatasan, segala kehilangan bisnis atau laba dalam masing-masing kasus baik yang timbul dari kelalaian, pelanggaran kontrak atau lainnya..</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>13.</span>
+            <p>HUKUM YANG BERLAKU DAN PENYELESAIAN SENGKETA</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>13.1.</span>
+                <p>
+                  Perjanjian ini akan diatur oleh hukum Indonesia dan pengadilan Indonesia akan memiliki yurisdiksi eksklusif
+                  untuk mengadili semua sengketa di antara Para Pihak menurut Perjanjian ini. Selanjutnya, masing-masing
+                  Pihak harus mematuhi semua undang-undang, peraturan, atau ordonansi daerah atau lokal yang berlaku atau
+                  di kemudian hari yang mengatur ketentuan Perjanjian ini.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span>14.</span>
+            <p>KETENTUAN LAIN-LAIN</p>
+          </div>
+          <ul class="inner_list">
+            <li>
+              <div class="second_title">
+                <span>14.1.</span>
+                <p>Keseluruhan Perjanjian</p>
+              </div>
+              <div class="forteent_info">Perjanjian ini bersama-sama dengan Lampiran pada Perjanjian ini merupakan keseluruhan Perjanjian dan kesepahaman di antara Para Pihak berkenaan dengan pokok materinya dan akan menggantikan semua pernyataan, janji, komunikasi, kesepahaman atau perjanjian sebelumnya, baik tertulis maupun lisan, berkenaan dengan pokok materi tersebut. Tidak ada satu pun dari Para Pihak yang bertanggung jawab atau terikat dengan Pihak lain dengan cara apa pun berdasarkan segala pernyataan, jaminan atau kesepakatan yang berkaitan dengan pokok materi tersebut kecuali sebagaimana ditetapkan secara khusus dalam Perjanjian ini atau di dalamnya.</div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>14.2.</span>
+                <p>Rangkap Perjanjian</p>
+              </div>
+              <div class="forteent_info">Perjanjian ini akan dilangsungkan dalam dua (2) rangkap, masing-masing rangkap akan disimpan oleh masing-masing Pihak. Setiap rangkap akan dianggap sebagai aslinya dan dapat diberlakukan tanpa mengandalkan rangkap lain sebagai dokumen aslinya.</div>
+            </li>
+            <li>
+              <div class="second_title">
+                <span>14.3.</span>
+                <p>Hak Independen dan Hak Kumulatif</p>
+              </div>
+              <div class="forteent_info">Masing-masing hak dari Para Pihak dalam Perjanjian ini berdasarkan Perjanjian ini bersifat independen, kumulatif dan tanpa mengurangi semua hak lain yang tersedia bagi Para Pihak, dan penggunaan atau  tidaknya penggunaan hak tersebut tidak akan mengurangi atau merupakan pengenyampingan hak lain dari Pihak tersebut, apakah berdasarkan Perjanjian ini atau Hukum Yang Berlaku. Masing-masing dari pernyataan dan jaminan akan bersifat terpisah dan independen dan, kecuali sebagaimana diatur lain dengan jelas, tidak akan dibatasi oleh acuan ke atau kesimpulan dari pernyataan dan jaminan lainnya atau ketentuan lainnya dari Perjanjian ini. Pemilihan satu atau lebih upaya hukum oleh Perusahaan dalam Perjanjian ini bukan merupakan pengenyampingan hak Perusahaan untuk menempuh upaya hukum atau upaya-upaya hukum lainnya yang tersedia.</div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="line_title">
+        <h4>
+          <span>DESKRIPSI LAYANAN</span>
+        </h4>
+      </div>
+      <ul class="info_list">
+        <li>
+          <span class="weight">1.</span>
+          <p>Perusahaan akan menyediakan Pemasok/Supplier/Merchant dengan panel Penjual untuk memproses orderan dan mengatur persedian barang dan Harga barang yang ada di Aplikasi.</p>
+        </li>
+        <li>
+          <span class="weight">2.</span>
+          <p>Perusahaan akan menyediakan layanan pemasaran kepada Pemasok/Supplier/Merchant untuk produknya..</p>
+        </li>
+        <li>
+          <span class="weight">3.</span>
+          <p>Perusahaan akan menyediakan layanan penagihan pembayaran kepada Pemasok/Supplier/Merchant yang dapat di minta melalui Business Development (BD) atau Account Manager (AM) yang bertanggung jawab kepada Pemasok/Supplier/Merchant.</p>
+        </li>
+        <li>
+          <span class="weight">4.</span>
+          <p>Perusahaan akan menyediakan layanan logistik kepada Pemasok/Supplier/Merchant untuk produknya.</p>
+        </li>
+      </ul>
+      <div class="line_title">
+        <h4>
+          <span>PEDOMAN</span>
+        </h4>
+        <h4>
+          <span>PEMASOK/SUPPLIER</span>
+        </h4>
+        <h4>
+          <span>/MERCHANT</span>
+        </h4>
+      </div>
+      <ul class="last_list">
+        <li>
+          <div class="list_title">
+            <span class="weight">1.</span>
+            <p class="weight">PEDOMAN PENENTUAN HARGA</p>
+          </div>
+          <ul>
+            <li>
+              <span>1.1.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant setuju untuk menawarkan harga grosir atau harga transfer terbaik dan terendahnya (termasuk semua pajak yang berlaku) dari Produk yang akan ditampilkan di Aplikasi.</p>
+              </div>
+            </li>
+            <li>
+              <span>1.2.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant memberikan kuasa kepada Perusahaan dalam kapasitas sebagai agen pemasaran untuk menemukan & menginfokan harga pasar terbaik yang berlaku untuk produknya. Penetapan harga jual adalah atas kebijaksanaan Pemasok/Supplier/Merchant semata dan hal tersebut akan dikomunikasikan kepada Perusahaan. Perusahaan akan bertindak sebagai “Agen Murni” Pemasok/Supplier/Merchant berdasarkan Hukum Yang Berlaku dan tidak memiliki peranan apa pun dalam penetapan harga jual produk di Aplikasi.</p>
+              </div>
+            </li>
+            <li>
+              <span>1.3.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant berhak untuk menarik Produk tertentu dari Aplikasi jika terdapat sengketa tentang harga Produk tertentu tersebut. Semua penarikan tersebut akan berlaku dalam waktu dua belas (12) hingga dua puluh empat (24) jam sejak pemberitahuan kepada Perusahaan.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">2.</span>
+            <p class="weight">PEDOMAN PENYETOKAN</p>
+          </div>
+          <ul>
+            <li>
+              <span>2.1.</span>
+              <div>
+                <p>Perusahaan dan Pemasok/Supplier/Merchant akan menentukan estimasi jumlah satuan yang akan disetok sebagaimana terhadap masing-masing Produk yang tercantum di Aplikasi, berdasarkan penjualan yang diharapkan. Pemasok/Supplier/Merchant akan memastikan bahwa jumlah Produk tersebut akan dicadangkan bagi Perusahaan sepanjang waktu.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">3.</span>
+            <p class="weight">NAMA MEREK DAN VISIBILITAS TAG MRP</p>
+          </div>
+          <ul>
+            <li>
+              <span>3.1.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant setuju untuk mengemas Produk dalam kantong polos ataupun materi seperti cap, lakban , yang tidak berisi rincian Pemasok/Supplier/Merchant atau nama perusahaan lain.</p>
+              </div>
+            </li>
+            <li>
+              <span>3.2.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant wajib mencetak label mokkaya secara digital untuk ditempelkan di paket yang akan di kirim.</p>
+              </div>
+            </li>
+            <li>
+              <span>3.3.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant tidak diizinkan untuk menghubungi pelanggan atau Reseller secara langsung. Dalam hal terjadi kebingungan, harap menghubungi Account Manager khusus..</p>
+              </div>
+            </li>
+                      <li>
+              <span>3.4.</span>
+              <div>
+                <p>Pelanggaran ketentuan di atas dapat mengakibatkan penonaktifan permanen.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">4.</span>
+            <p class="weight">PEDOMAN LOGISTIK</p>
+          </div>
+          <ul>
+            <li>
+              <span>4.1.</span>
+              <div>
+                <p>Hak milik & kepemilikan dalam produk akan dialihkan kepada Reseller di tempat pembongkaran barang / produk. Sebagai pasar yang besar, Perusahaan menyediakan layanan pengiriman / logistik kepada Pemasok/Supplier/Merchant dan menagih Pemasok/Supplier/Merchant untuk layanan logistik yang akan dipertimbangkan Pemasok/Supplier/Merchant dalam harga produk yang tercantum di platform. Akan tetapi, jika akibat alamat pengantaran yang tidak dapat dilayani oleh mitra logistik Perusahaan atau akibat situasi yang tidak dapat dihindari, Pemasok/Supplier/Merchant dapat mengirimkan / mengeposkan produk secara langsung ke alamat pengantaran sebagaimana diatur oleh Perusahaan. Ongkos pengeposan / pengiriman tersebut akan diganti ke Pemasok/Supplier/Merchant pada saat diserahkan / diperlihatkannya bukti pengantaran sah / asli. Segala kerusakan dalam perjalanan karena pengemasan yang tidak memadai / tidak sesuai akan menjadi tanggungan Pemasok/Supplier/Merchant. Akan tetapi, segala kerusakan pada produk dalam perjalanan akibat kesalahan penanganan oleh mitra logistik yang ditunjuk oleh Perusahaan, Perusahaan akan memfasilitasi pemulihan nilai produk dari mitra logistik. Dalam hal, produk dikirim oleh Pemasok/Supplier/Merchant melalui agensi pengiriman / kurir lain, Pemasok/Supplier/Merchant akan bertanggung jawab atas semua kerusakan. </p>
+              </div>
+            </li>
+            <li>
+              <span>4.2.</span>
+              <div>
+                <p>Pada saat diterimanya Pesanan, Pemasok/Supplier/Merchant harus memastikan bahwa Pesanan dikirim dalam waktu tiga (3) Hari Kerja sejak menerima pesanan, kecuali disepakati lain antara Pemasok/Supplier/Merchant, Perusahaan atau Reseller dalam Pesanan masing-masing sebelumnya.</p>
+              </div>
+            </li>
+            <li>
+              <span>4.3.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant wajib menyiapkan paket untuk siap dikirim sebelum kurir tiba. Kurir hanya akan menunggu 10 menit setelah datang ke alamat Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">5.</span>
+            <p class="weight">PENAGIHAN IMBALAN RESELLER DAN PEMASOK/SUPPLIER/MERCHANT</p>
+          </div>
+          <ul>
+            <li>
+              <span>5.1.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant akan membuat Faktur Tagihan sesuai dengan hukum yang berlaku termasuk tanpa pembatasan hukum perpajakan berkenaan dengan penjualan produknya di Aplikasi sebagaimana terhadap Reseller yang bersesuaian. Pemasok/Supplier/Merchant akan menyediakan Perusahaan dengan salinan faktur tagihan tersebut. </p>
+              </div>
+            </li>
+            <li>
+              <span>5.2.</span>
+              <div>
+                <p>Perusahaan akan mengumpulkan nilai produk dari Reseller, atas nama Pemasok/Supplier/Merchant, dan Perusahaan akan mengalihkan jumlah tersebut, terkena potongan Komisi atau Imbalan Jasa dalam tanggal Pesanan Diantar + 15 hari.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">6.</span>
+            <p class="weight">KEBIJAKAN PENGEMBALIAN, PERBAIKAN, PENGGANTIAN DAN PEMBATALAN</p>
+          </div>
+          <ul>
+            <li>
+              <span>6.1.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant bertanggung jawab untuk menentukan kebijakan pengembalian dan penukaran untuk Produknya. Dalam hal terjadi sengketa antara Pemasok/Supplier/Merchant dan Reseller, Perusahaan berhak untuk menentukan apakah Produk tersebut jatuh kedalam kebijakan pengembalian dan penukaran Pemasok/Supplier/Merchant. Keputusan Perusahaan dalam hal ini akan bersifat final dan mengikat.</p>
+              </div>
+            </li>
+            <li>
+              <span>6.2.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant akan mengeluarkan dengan benar, kartu garansi produsen yang telah distempel (jika berlaku) kepada Reseller dengan Produk pada waktu pengiriman Produk. Jika Produk apa pun diketahui cacat oleh Reseller, Pemasok/Supplier/Merchant akan memastikan perbaikan, penggantian Produk tersebut, atau pengembalian nilai produk yang bersesuaian, sesuai dengan kebijakan pengembalian Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+            <li>
+              <span>6.3.</span>
+              <div>
+                <p>Dalam hal pengembalian/penukaran Produk untuk alasan berikut ini:</p>
+                <ul class="second">
+                  <li>
+                    <span>6.3.1.</span>
+                    <p>cacat manufaktur;</p>
+                  </li>
+                  <li>
+                    <span>6.3.2.</span>
+                    <p>Rincian Produk yang tidak benar;</p>
+                  </li>
+                  <li>
+                    <span>6.3.3.</span>
+                    <p>pengiriman Produk yang salah;</p>
+                  </li>
+                  <li>
+                    <span>6.3.4.</span>
+                    <p>pengiriman Produk dalam ukuran yang salah;</p>
+                  </li>
+                  <li>
+                    <span>6.3.5.</span>
+                    <p>Ketidaksesuaian antara gambar Produk dan Produk yang diantarkan; dan</p>
+                  </li>
+                  <li>
+                    <span>6.3.6.</span>
+                    <p>Ketidaksesuaian fabrik Produk</p>
+                  </li>
+                </ul>
+                <p>Pemasok/Supplier/Merchant akan menanggung semua ongkos dan beban, termasuk beban logistik, yang diadakan dalam hal ini, kecuali pengembalian/penukaran tersebut dapat dihubungkan dengan segala kesalahan yang dilakukan oleh Perusahaan. Dalam hal Pemasok/Supplier/Merchant memanfaatkan layanan logistik yang disediakan oleh Perusahaan, semua retur Produk akan dikembalikan ke alamat pengiriman Pemasok/Supplier/Merchant saja. Perusahaan tidak akan menanggung ongkos apa pun berkenaan dengan Produk, kecuali setiap ongkos logistik kecuali dalam contoh yang disebutkan di atas.</p>
+              </div>
+            </li>
+            <li>
+              <span>6.4.</span>
+              <div>
+                <p>Dalam hal Pemasok/Supplier/Merchant gagal membuat Produk siap dikirimkan dalam waktu yang ditetapkan atau Pesanan dibatalkan akibat alasan apa pun, Perusahaan berhak untuk memberikan penalty kepada  Pemasok/Supplier/Merchant.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">7.</span>
+            <p class="weight">HAK PIHAK KETIGA</p>
+          </div>
+          <ul>
+            <li>
+              <span>7.1.</span>
+              <div>
+                <p>Produk Pemasok/Supplier/Merchant dan gambar-gambar tidak akan melanggar hak pihak ketiga, termasuk tanpa pembatasan, hak kekayaan intelektual pihak tersebut.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">8.</span>
+            <p class="weight">MUTU - KEPATUHAN DAN PENALTI</p>
+          </div>
+          <ul>
+            <li>
+              <span>8.1.</span>
+              <div>
+                <p>Produk yang dikembalikan atau ditukar akibat alasan berikut ini akan dihubungkan dengan persoalan mutu</p>
+                <ul>
+                  <li>a.Mutu bahan / produk yang buruk</li>
+                  <li>b.Ketidaksesuaian warna</li>
+                  <li>c.Ketidaksesuaian desain</li>
+                  <li>d.Ketidaksesuaian fabrik</li>
+                  <li>e.Produk cacat</li>
+                  <li>f.Produk salah yang diantarkan</li>
+                  <li>g.Item yang hilang dalam pesanan</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span>8.2.</span>
+              <div>
+                <p>Dalam hal sengketa pengembalian atau penukaran yang salah, Pemasok/Supplier/Merchant perlu menginfokan Perusahaan di dalam waktu 48 jam sejak diterimanya produk bersama-sama dengan gambar dan id pesanan produk yang salah, jika tidak hal itu tidak akan dipertimbangkan.</p>
+              </div>
+            </li>
+            <li>
+              <span>8.3.</span>
+              <div>
+                <p>Pemasok/Supplier/Merchant diharuskan untuk mempertahankan ambang batas mutu berikut ini. Dalam hal ambang batas ini dilanggar selama 2 hingga 3 minggu, akun Pemasok/Supplier/Merchant akan dinonaktifkan secara sementara atau permanen, atau visibilitas produk akan dikurangi, sehingga berdampak pada penjualan.</p>
+                <div class="img-wrap">
+                  <table border="1" cellspacing="0" cellpadding="0" class="term_table">
+                    <tr>
+                      <th>Jumlah Pesanan Diantar</th>
+                      <th>Retur Mutu%</th>
+                      <th>Aksi</th>
+                    </tr>
+                    <tr>
+                      <td>>=50</td>
+                      <td>>=10%</td>
+                      <td>
+                        <p>Sementara atau </p>
+                        <p>penonaktifan permanen</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>>=50</td>
+                      <td>8-10%</td>
+                      <td>
+                        <p>Visibilitas berkurang</p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span>8.4.</span>
+              <div>
+                <p>Dalam hal akun Pemasok/Supplier/Merchant dinonaktifkan, Pemasok/Supplier/Merchant akan perlu menyerahkan rencana aksi yang menjelaskan bagaimana Pemasok/Supplier/Merchant akan memperbaiki persoalan mutu. Rencana aksi dapat disampaikan di – [.]/ Sesudahnya, Perusahaan akan mengevaluasi rencana aksi ini dan atas dasar kebijaksanaannya memutuskan untuk mengaktifkan kembali akun tersebut, namun dengan visibilitas yang sangat berkurang di Aplikasi.</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">9.</span>
+            <p class="weight">PEMENUHAN PESANAN - KEPATUHAN DAN PENALTI</p>
+          </div>
+          <ul>
+            <li>
+              <span>9.1.</span>
+              <div>
+                <p>Waktu Penyiapan Pesanan Rata-Rata</p>
+                <ul class="second">
+                  <li>
+                    <span>9.1.1</span>
+                    <p>Semua pesanan akan dikirimkan dalam waktu 1-3 hari sejak menerima hal yang sama</p>
+                  </li>
+                  <li>
+                    <span>9.1.2</span>
+                    <p>Waktu pengiriman rata-rata >= 3 hari akan mengakibatkan visibilitas yang berkurang di aplikasi dan volume pesanan yang berkurang</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span>9.2.</span>
+              <div>
+                <p>Ketaatan SLA Pengiriman</p>
+                <ul class="second">
+                  <li>
+                    <span>9.2.1</span>
+                    <p>SLA pengiriman default untuk semua Pemasok/Supplier/Merchant adalah 2 hari, kecuali ditentukan lain oleh Pemasok/Supplier/Merchant sementara mencatatkan produk.</p>
+                  </li>
+                  <li>
+                    <span>9.2.2</span>
+                    <p>Segala penundaan diluar SLA yang disediakan oleh Pemasok/Supplier/Merchant akan dihitung terhadap Late Dispatch Rate (LDR) Pemasok/Supplier/Merchant, dan akan mengakibatkan visibilitas yang berkurang di Aplikasi, sehingga mengurangi penjualan Pemasok/Supplier/Merchant.</p>
+                  </li>
+                  <li>
+                    <span>9.2.3</span>
+                    <p>Untuk menghindari persoalan pengambilan atau pemindaian tertunda, disarankan bagi Pemasok/Supplier/Merchant untuk memanifes pesanan sekurang-kurangnya 1 hari sebelum SLA, dan sebelum jam 11 pagi.</p>
+                  </li>
+                  <li>
+                    <span>9.2.4</span>
+                    <p>Dalam hal persoalan pengambilan atau pemindaian tertunda, Pemasok/Supplier/Merchant perlu mengeposkan ke kami di sebelum jam 12 siang keesokan harinya dengan daftar ID Pesanan beserta manifes yang telah ditandatangani (dalam hal terjadi persoalan pemindaian tertunda).</p>
+                  </li>
+                  <li>
+                    <span>9.2.5</span>
+                    <p>Setiap Pesanan yang belum dikirimkan hingga 3 hari setelah SLA akan batal secara otomatiskurang di aplikasi dan volume pesanan yang berkurang</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="list_title">
+            <span class="weight">10.</span>
+            <p class="weight">PROSES PENONAKTIFAN DAN PENGAKTIFAN KEMBALI</p>
+          </div>
+          <ul>
+            <li>
+              <span>10.1.</span>
+              <div>
+                <p>
+                  Perusahaan berhak untuk menonaktifkan Pemasok/Supplier/Merchant (secara sementara atau permanen)
+                  dalam hal terjdi pelanggaran kinerja terus menerus terhadap ketentuan yang terdapat dalam Perjanjian ini.
+                </p> 
+              </div>
+            </li>
+            <li>
+              <span>10.2.</span>
+              <div>
+                <p>
+                  Perusahaan dapat mengaktifkan kembali Pemasok/Supplier/Merchant dalam hal Pemasok/Supplier/Merchant
+                  memberikan rencana aksi konkret tentang peningkatan kinerja.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>10.3.</span>
+              <div>
+                <p>
+                  Setelah diaktifkan kembali, Pemasok/Supplier/Merchant akan menjalani review selama 2 minggu dan
+                  ketentuan yang ditetapkan oleh Perusahaan akan berlaku:
+                </p>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="line_title">
+        <h4>
+          <span>KOMISI DAN IMBALAN JASA</span>
+        </h4>
+      </div>
+      <div class="line_sec_title">
+        <h5>
+          <span>BAGIAN A & BAGIAN B</span>
+        </h5>
+        <h5>
+          <span>Komisi & Imbalan Jasa</span>
+        </h5>
+      </div>
+      <div class="info_text">Perusahaan akan membebankan komisi dengan nominal yang akan ditentukan kemudian berdasarkan kesepakatan kedua belah pihak  Hal ini dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya.</div>
+      <div class="line_title">
+        <h4>
+          <span>PERNYATAAN</span>
+        </h4>
+        <h4>
+          <span>Kepada Pihak Yang Berkepentingan</span>
+        </h4>
+      </div>
+      <div class="info_text">
+        Pemasok/Supplier/Merchant dengan ini menyatakan dan menegaskan bahwa Pemasok/Supplier/Merchant memiliki
+        izin yang dibutuhkan untuk memperdagangkan produk yang diwakili melalui merek yang disebutkan dalam Lampiran
+        1. Pemasok/Supplier/Merchant telah memperoleh produk dengan jaminan mutu dari saluran resmi dan berhak untuk
+        mengadakan perjanjian ini dengan Perusahaan, yang memungkinkan Pemasok/Supplier/Merchant dan/atau agen dan
+        mitra pemasarannya, untuk menata display dengan tujuan menjual dan mendistribusikan produk kepada Reseller.
+        Pemasok/Supplier/Merchant dengan ini menyatakan dan menegaskan bahwa dalam pemenuhan kewajibannya
+        berdasarkan Perjanjian Layanan Pemasok/Supplier/Merchant tertanggal [●], Pemasok/Supplier/Merchant tidak akan
+        melanggar hak kekayaan intelektual Perusahaan atau Orang ketiga lainnya.
+      </div>
+      <div class="info_text">[●]</div>
+      <div class="info_text">(Penanda Tangan Resmi)</div>
+      <div class="info_text">Tanggal: [●]</div>
+      <div class="info_text">Tempat: [●]</div>
+    </div>
+    <script src="/public/js/google.js" async></script>
+  </body>
+</html>

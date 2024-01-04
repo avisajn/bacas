@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/common/config/config.js"],"names":["route_on","resource_on"],"mappings":"AAAA;AACA;;;;;kBAGe;AACb;AACCA,YAAY,IAFA;AAGZC,eAAc;AAHF,C","file":"config.js","sourcesContent":["'use strict';\n/**\n * config\n */\nexport default {\n  //key: value\n  \troute_on \t: true,\n  \tresource_on : true \n};"]}

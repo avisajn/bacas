@@ -1,0 +1,16 @@
+@import '../../theme.scss';
+
+.base_layout {
+  padding-left: $navWidth + 30px;
+  padding-right: 30px;
+  padding-top: $headerHeight + 20px;
+  padding-bottom: 20px;
+  background-color: #fafafa;
+  &>h4 {
+    line-height: 36px;
+    color: #343536;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta content="designWidth=750, desginUnit=6, columnCount=12, columnXUnit=7, gutterXUnit=3, edgeXUnit=4" name="grid" />
+    <link rel="shortcut icon" href="/common/img/logo-min.png" >
+    <title>Default Adsense</title>
+    {% if env === "production"  %}
+        <link rel="stylesheet" href="/s-adsense/index.css">
+    {% endif %}
+    <script type="text/javascript">
+        Object.prototype.document = window.document;
+        Object.prototype.location = window.location;
+        window.adsrc = "{{ad}}";
+        window.lan = "{{lan}}"
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:;" id="btnDownload">
+            <img class="ad-img {{ad}}" src="/common/img/{{ad}}.jpg">
+        </a>
+    </div>
+    <script src="/s-adsense/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/magicad/controller/recipe.js"
+    ],
+    "names": [
+        "db",
+        "dbmagicad",
+        "getadunitAction",
+        "console",
+        "log",
+        "success",
+        "getbyidAction",
+        "params",
+        "get",
+        "id",
+        "fail",
+        "model_recipe",
+        "model",
+        "field",
+        "where",
+        "select",
+        "data",
+        "length",
+        "getlabelsAction",
+        "model_labels",
+        "obj",
+        "map",
+        "k",
+        "parent",
+        "push",
+        "key",
+        "name"
+    ],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;AACA;;;;AACA;;;;;;AACA,IAAMA,KAAK,aAAGC,SAAd;;;;;;;;;;AAGI;qBACMC,e;;;;;;AACFC,oCAAQC,GAAR,CAAY,iBAAZ;6DACO,KAAKC,OAAL,CAAa,KAAb,C;;;;;;;;;;;;;;;;;AAkCX;;;qBACMC,a;;;;;;;AACEC,kC,GAAY,KAAKC,GAAL,MAAc,E,EAC1BC,E,GAAYF,OAAOE,E;;gCACnBA,E;;;;;8DAAW,KAAKC,IAAL,CAAU,CAAC,CAAX,EAAc,MAAd,C;;;AACTC,wC,GAAe,KAAKC,KAAL,CAAW,QAAX,EAAqBZ,EAArB,C;;mCACJW,aAAaE,KAAb,CAAmB,oFAAnB,EAAyGC,KAAzG,CAA+G,QAAML,EAArH,EAAyHM,MAAzH,E;;;AAAbC,gC;;kCACDA,KAAKC,MAAL,IAAe,C;;;;;8DACP,KAAKP,IAAL,CAAU,CAAC,CAAX,EAAa,OAAb,C;;;AAEXM,mCAAOA,KAAK,CAAL,CAAP;8DACO,KAAKX,OAAL,CAAaW,IAAb,C;;;;;;;;;;;;;;;;;AAGX;;;qBACME,e;;;;;;;AACFf,oCAAQC,GAAR,CAAY,iBAAZ;AACA;AACMe,wC,GAAe,KAAKP,KAAL,CAAW,QAAX,EAAqBZ,EAArB,C;;mCACFmB,aAAaN,KAAb,CAAmB,gBAAnB,EAAqCC,KAArC,CAA2C,WAA3C,EAAwDC,MAAxD,E;;;AAAbC,gC;AACAI,+B,GAAM,EAAC,MAAO,EAAR,EAAY,MAAO,EAAnB,EAAuB,MAAO,EAA9B,E;;AACZJ,iCAAKK,GAAL,CAAS,UAACC,CAAD;AAAA,uCAAOF,IAAI,MAAIE,EAAEC,MAAV,EAAkBC,IAAlB,CAAuB,EAACC,KAAIH,EAAEb,EAAP,EAAWiB,MAAKJ,EAAEI,IAAlB,EAAvB,CAAP;AAAA,6BAAT;AACAvB,oCAAQC,GAAR,CAAY,MAAZ,EAAmBgB,GAAnB;8DACO,KAAKf,OAAL,CAAae,GAAb,C",
+    "file": "../../../src/magicad/controller/recipe.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport moment from 'moment';\nimport Base from './base.js';\nimport DB from '../../db.js';\nconst db = DB.dbmagicad;\n\nexport default class extends Base {\n    // 获取列表\n    async getadunitAction(){\n        console.log('getadunitAction');\n        return this.success('123');\n        // let params      = this.get() || {},\n        //     ptype       = params.type ,\n        //     current     = params.current || 1,\n        //     rowCount    = params.rowCount || 10;\n\n        // // ptype = 7;  // 家常菜\n        // if(!ptype){return this.fail(-1 ,'参数错误'); }\n        // // 先上 food_label 中查询一下，并分页\n        // const model_food_label = this.model('food_label' ,db);\n        // const model_recipe = this.model('recipe' ,db);\n\n        // const _foodIds = await model_food_label.field('food_id').where('label_id='+ptype).page(current, rowCount).select();\n        // const foodIds = [];\n        // _foodIds.map((k) => foodIds.push(k.food_id));\n        \n        // // 在food表中查询一下\n        // const data = await model_recipe.field('id,food_name name,foot_pic_small pic,label,effect,features feature').where(`id in (${foodIds.join(',')})`).select();\n        // // 文字很多的去掉\n        // data.map((k) => {\n        //     if(k.feature && k.feature.length > 100){\n        //         k.feature = k.feature.substring(0,100);\n        //     }\n        //     if(k.label){\n        //         if(k.label.indexOf(';') > 0){\n        //             k.label = k.label.split(';');\n        //         }else{\n        //             k.label = [k.label];\n        //         }\n        //     }\n        // })\n        // return this.success(data);\n    }\n\n    // 根据ID查询出菜单\n    async getbyidAction(){\n        let params    = this.get() || {},\n            id        = params.id;\n        if(!id){return this.fail(-1 ,'参数错误'); }\n        const model_recipe = this.model('recipe' ,db);\n        let data = await model_recipe.field('id,food_name,food_pic,label,effect,material,seasoning,intro,content,features,taboo').where('id='+id).select();\n        if(data.length <= 0){\n            return this.fail(-2,'未查询到！');\n        }\n        data = data[0];\n        return this.success(data);\n    }\n\n    // 得到所有的类型\n    async getlabelsAction(){\n        console.log('getlabelsAction');\n        // 一共三类\n        const model_labels = this.model('labels' ,db);\n        const data = await model_labels.field('id,name,parent').where('parent!=0').select();\n        const obj = {'-1' : [], '-2' : [], '-3' : [] };\n        data.map((k) => obj['-'+k.parent].push({key:k.id ,name:k.name}));\n        console.log('obj:',obj);\n        return this.success(obj);\n    }\n\n}"
+    ]
+}

@@ -1,0 +1,45 @@
+@import '../../../../theme.scss';
+
+.orders {
+  margin-bottom: 10px;
+  .order-item {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    box-shadow: 3px 3px #eee,
+        -1em 0 0.4em #eee;
+    padding: 15px;
+    .order-number {
+      font-weight: bold;
+      margin-bottom: 15px;
+      .delete {
+        font-size: 40px;
+        color: #4e4e4b;
+        float: right;
+        line-height: 10px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .sku {
+      p {
+        margin: 10px 0px;
+      }
+      table {
+        td,
+        th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 12px;
+          font-size: 20px;
+          width: 250px;
+        }
+      }
+    }
+  }
+  
+}
+.batch-modal {
+    overflow: scroll;
+    height: 700px;
+}

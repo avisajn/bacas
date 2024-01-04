@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/jquery"></script>
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+function openApp() {
+    let fromPage = BacaAndroid.getFromPage()
+    let position = BacaAndroid.getPosition()
+    let url = 'community://baca.co.id/link/com.jakata.baca.activity.BacaWebViewActivity?key_link_url_s=https://bit.ly/2Th1Sqx&key_from_s=rec_banner&key_page_name_s=community_rec_game_list_page&key_type_s=style_1&key_from_rec_s=' + fromPage + '&key_position_s=' + position + '&key_detail_position_s=banner1_game&nipEventArgs={"event_name":"community_game_rec_position_click","id":"cf9dee81-f8a8-4658-bbf7-b8183eb59110","type":"web","sub_type":"style_1","from":' + fromPage + ',"position":' + position + ',"click_ui":"banner1_game"}'
+    window.location.href = url
+}
+
+</script>
+
+<body>
+    <div class="banner" id="banner">
+        <img src="https://bit.ly/2SWwD3P" onclick="openApp()" />
+    </div>
+</body>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+html,
+body {
+    font-size: 20px;
+}
+
+.banner {
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: .2rem;
+}
+</style>
+
+</html>

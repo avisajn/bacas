@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/common/config/env/production.js"],"names":["resource_on","port"],"mappings":"AAAA;;;kBAEe;AACbA,eAAa,KADA;AAEbC,QAAO;AAFM,C","file":"production.js","sourcesContent":["'use strict';\n\nexport default {\n  resource_on: false,\n  port : 8090\n};"]}

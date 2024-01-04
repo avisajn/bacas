@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35158941-24"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-35158941-24');
+    </script>
+</head>
+<script type="text/javascript">
+function goback() {
+    window.history.go(-1)
+};
+
+function toDown() {
+    gtag('event', 'click', {
+        'event_category': 'toGooglePlay',
+        'event_label': 'Update',
+        'event_callback': function() {
+            console.log('YES')
+        }
+    });
+    window.open('https://app.appsflyer.com/com.jakarta.baca.lite?pid=web&c=update')
+}
+</script>
+
+<body>
+    <div class="update">
+        <div class="content-down">
+            <img src="https://questionaire.baca.co.id/update/image/im.png" alt="">
+            <p class="description">Versi aplikasi anda terlalu rendah, silahkan update aplikasi anda untuk dapat menikmati fitur terbaru dari kami.</p>
+            <div class="download" onclick="toDown()">Update</div>
+        </div>
+        <div class="footer">
+            <img class="icon" src="https://questionaire.baca.co.id/update/image/google@2x.png" alt="">
+        </div>
+    </div>
+</body>
+<style type="text/css">
+.update {
+    width: 100%;
+    height: 100%;
+}
+
+.content-down {
+    margin: 0 auto;
+    padding-top: 35%;
+    width: 88.88%;
+    background: #fff;
+    position: relative;
+    font-family: Roboto;
+    color: #464646;
+}
+
+.content-down img {
+    width: 56%;
+    margin-left: 22%;
+}
+
+.icon-back {
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+    top: .2rem;
+    left: .5rem;
+}
+
+.icon-back img {
+    width: 5%;
+}
+
+.description {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem !important;
+}
+
+.download {
+    background-color: #F2354E;
+    height: 2.8rem;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    line-height: 2.8rem;
+    font-size: 1.1rem;
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 1rem;
+}
+
+.icon {
+    width: 35%;
+    margin-left: 32.5%;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-size: 14px;
+}
+</style>
+
+</html>

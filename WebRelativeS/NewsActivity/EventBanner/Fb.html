@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<div class="img">
+			 <span style="height:100%;display:inline-block;vertical-align:middle"></span>
+			<img src=".\img\icon-Facebook-Logo (1).png" alt="">
+			<span class="dot"></span>
+		</div>
+		<div class="title">
+			<p class="one">Like 'Baca' di Facebook</p>
+			<p class="two">Like halaman kami dan dapatkan <span style="font-weight: bold;">500 Koin</span></p>
+		</div>
+		<div class="right">
+			<div class="like">
+				<div class="hand">
+			 		<span style="height:100%;display:inline-block;vertical-align:middle"></span>
+					<img src=".\img\分组.png" alt="" style="vertical-align:middle;">
+					<span style="color: #79848D; font-size: 2.2rem">Like</sapn>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<style>
+	.box {
+		background-color: #F2F6FF;
+		display: flex;
+		width: 100%;
+		font-size: 2.8rem;
+		height: 8.5rem;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.box .img {
+		flex: 1;
+		position: relative;
+		text-align: center;
+		padding: 5px 10px;
+		height: 100%;
+	}
+	.box .img img {
+		vertical-align:middle;
+		width: 4.5rem;
+	}
+	.box .img .dot {
+		position: absolute;
+		background: #D0021B;
+		border-radius: 50%;
+		border: 2px solid #fff;
+	    width: 25px;
+	    height: 25px;
+	    display: block;
+	    background-color: #D0021B;
+	    position: absolute;
+	    top: 1.5rem;
+	    right: .6rem;
+	}
+	.box .title {
+		flex: 6;
+		padding-top: 1rem;
+		padding-left: 1rem;
+	}
+	.box .title p.one {
+		font-weight: bold;
+		line-height: 3.5rem;
+		color: #515864;
+	}
+	.box .title p.two {
+		color: #999999;
+		line-height: 3.5rem;
+		font-size: 1.8rem;
+	}
+	.box .title p.two span {
+		color: orange;
+	}
+	.box .right {
+		flex: 2;
+		justify-content:center;
+		align-items:center;
+		display:-webkit-flex;
+	}
+	.box .right .like {
+		width: 10rem;
+		height: 4.4rem;
+		border:  4px solid #3C5A99;
+		border-radius: 10px;
+	}
+	.box .right .like .hand {
+		height: 100%;
+		background-color: #fff;
+	}
+</style>
+</html>

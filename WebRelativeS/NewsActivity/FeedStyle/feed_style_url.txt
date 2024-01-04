@@ -1,0 +1,25 @@
+
+
+
+https://nipidpraise.blob.core.windows.net/webviewbanner/webview-html/banner1_game.html
+https://nipidpraise.blob.core.windows.net/webviewbanner/webview-html/banner1.html
+
+https://wvb.baca.co.id/webview-html/banner1_game.html
+https://wvb.baca.co.id/webview-html/banner1.html
+
+进入主页：   bacaplus ---- GameHomeActivity---- xxx_news.html 
+不进入主页： skuy ----  GameArticleDetailActivity---- xxx.html
+
+Android客户端深度链接:
+    https://newsinpalm.visualstudio.com/NewsInPalm/_wiki/wikis/NewsInPalm.wiki/424/Android客户端深度链接
+
+获取话题内的游戏入口列表：
+    https://dev.azure.com/newsinpalm/NewsInPalm/_wiki/wikis/NewsInPalm.wiki/402/获取话题内的游戏入口列表
+
+推荐位：
+    样式7在客户端 其余1 2 4 4.1 5 6 feed7 是web
+    话题推荐位： topic.html 
+
+
+
+

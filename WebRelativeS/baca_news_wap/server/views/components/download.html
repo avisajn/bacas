@@ -1,0 +1,20 @@
+{% macro get(source ,firm ,firmIntro ,downloadIntro) %}
+<div class="app-download" id="appDownload">
+    {% if firm == "Baca" %}
+    <img alt="logo" class="logo" style="vertical-align:middle;" src="/common/img/mipmap-xxxhdpi/logo.png">
+    <div class="firmname" style="top:0px;width:85%;font-size:12px;line-height:14px;" onclick="window.Download.redirect('{{source}}')">
+        Download <span style="color:#FFD800;font-size:13px;font-weight:bold;">Baca Plus</span> dan menangkan hadiah!
+    </div>
+    <div class="closeApp" onclick="window.Download.closeDown('{{source}}')">closeDownload</div>
+    {% else %}
+    <img alt="logo" class="logo" src="/common/img/logo-min.png">
+    <div class="firmname">
+        {{firm}}
+        <br>
+        <span>{{firmIntro}}</span>
+    </div>
+    <div class="closeApp" onclick="window.Download.closeDown('{{source}}')">closeDownload</div>
+    <div class="downloadApp  btnRedirectApp" onclick="window.Download.redirect('{{source}}')">{{downloadIntro}}</div>
+    {% endif %}
+</div>
+{% endmacro %}

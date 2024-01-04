@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta content="designWidth=750, desginUnit=6, columnCount=12, columnXUnit=7, gutterXUnit=3, edgeXUnit=4" name="grid" />
+    <link rel="shortcut icon" href="/common/img/logo-min.png" >
+    <title>Default Adsense</title>
+    <style type="text/css">
+      *{margin:0px;padding:0px;}
+    </style>
+    <script type="text/javascript">
+        const  getQuery = function(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        };
+    </script>
+</head>
+<body style="width:{{width}}px;height:{{height}}px;overflow:hidden;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <div style="text-align: center;">
+        <ins id="adUnit" 
+             class="adsbygoogle yn-ads"
+             style="display:inline-block;width:{{width}}px;height:{{height}}px"
+             data-ad-client="ca-pub-9683444248981364"
+             data-ad-slot="9713754339">
+              <a class="default-img" href="javascript:window.Download.redirect('detail');"> </a>
+        </ins>
+        <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+    </div>
+</body>
+</html>
+

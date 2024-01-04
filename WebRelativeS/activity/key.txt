@@ -1,0 +1,18 @@
+
+okclean 部署：
+
+链接： ftp://waws-prod-hk1-019.ftp.azurewebsites.windows.net
+用户名： HaTech__CleanTool\ftp-wxw
+密码： admin1!1
+
+
+ftp waws-prod-hk1-019.ftp.azurewebsites.windows.net
+
+
+
+
+1.16号活动：
+链接：ftp://waws-prod-sg1-005.ftp.azurewebsites.windows.net
+用户名：idevent\ftp-wxw
+密码：admin1!1
+

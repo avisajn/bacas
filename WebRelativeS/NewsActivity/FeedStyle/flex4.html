@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ketentuan Komisi</title>
+</head>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto-Regular, Roboto;
+
+}
+
+body {
+    background: #fff;
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.flex {
+    background: #EEEFF1;
+    padding: .5rem .5rem 0rem .5rem;
+}
+
+.header {
+    font-size: .85rem;
+    width: 100%;
+    display: flex;
+    margin-bottom: .8rem;
+}
+
+.title {
+    font-weight: bold;
+    flex: .75;
+    font-size: .8rem;
+}
+
+.more {
+    display: flex;
+    float: left;
+    flex: .25;
+    color: #999999;
+    align-items: center;
+    font-size: .6rem;
+    justify-content: flex-end;
+}
+
+.content {
+    display: flex;
+}
+
+.item {
+    flex: 1;
+    font-size: .7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+}
+
+.pic {
+    border-radius: .6rem;
+    overflow: hidden;
+    margin: 0rem.6rem 0rem .6rem;
+}
+
+.game-title {
+    width: 100%;
+    padding: 0rem .25rem;
+    font-size: .63rem;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: #333333;
+    font-family: Roboto-Regular, Roboto;
+    font-weight: 400;
+    justify-content: center;
+    display: flex;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.item-top {
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    margin-top: .3rem;
+}
+
+.game-rate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .6rem;
+    color: #7B7B7B;
+}
+
+.icon-more {
+    width: .8rem;
+    height: .8rem;
+    margin-left: .2rem;
+}
+</style>
+
+<body>
+    <div class="flex" id="banner">
+        <div class="header">
+            <div class="title" id="title"></div>
+            <div class="more" id="moreLink">Semua
+                <img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/more.png" alt="" class="icon-more">
+            </div>
+        </div>
+        <div class="content" id="content"></div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+    function w() {
+        var r = document.documentElement;
+        var a = r.getBoundingClientRect().width;
+        if (a > 750) {
+            a = 750;
+        };
+        rem = a / 18;
+        r.style.fontSize = rem + "px"
+    }
+    w();
+    window.addEventListener("resize", function() {
+        w()
+    }, false);
+})();
+
+function getQueryStringByName(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+function dataJson(data) {
+    if (data.data4) {
+        const obj = data.data4;
+        $('#title').html(obj.Title);
+        $('#moreLink').click(() => {
+            window.location.href = obj.LinkMoreUrl + obj.Title;
+        })
+        if (obj.Data && obj.Data.length > 0) {
+            $('#content').html('');
+            let _html = '';
+            obj.Data.forEach(item => {
+                _html += `<div class="item" id="item" onclick="openApp('${item.RedirectUrl}')">
+                    <div class="pic">
+                        <img src="${item.ImageUrl}" class="item-img">
+                    </div>
+                    <div class="item-top">
+                        <div class="game-title">${item.Name}</div>
+                    </div>
+                    <div class="game-rate">${item.Text}</div>
+                    </div>`;
+            })
+            $('#content').html($(_html));
+        }
+    }
+}
+
+function openApp(url) {
+    window.location.href = url
+}
+</script>
+<script src="./json.js?cb=dataJson"></script>
+
+</html>

@@ -1,0 +1,30 @@
+dea files
+*.iml
+.idea
+
+# python files
+__pycache__/
+.virtualenv/
+*.py[cod]
+.Python
+env/
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+migrations/
+
+# refactoring rope files
+.ropeproject
+
+.DS_Store
+
+# web project files
+node_modules/
+dist/
+npm-debug.log
+selenium-debug.log
+
+

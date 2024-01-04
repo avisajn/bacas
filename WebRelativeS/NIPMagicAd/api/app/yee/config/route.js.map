@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/yee/config/route.js"],"names":[],"mappings":";;;kBAAe;AACd;AACA;AACA;AAHc,C","file":"route.js","sourcesContent":["export default [\n\t// /manage/article -> manage/article/index\n\t// 在article.js中 定义indexAction(){ return this.display('list'); }\n\t// 这样就实现了自动输出模板\n];"]}

@@ -1,0 +1,38 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+    <title>{{Country.language['category-top']}}</title>
+    {% if env === "production"  %}
+        <link rel="stylesheet" href="/category/index.css">
+    {% endif %}
+{% endblock %}
+
+
+{% block TplCommon %}
+
+<!-- 引入head 和 categorylist -->
+{% import "./components/header.html" as head_tpl %}
+{{ head_tpl.blockTitle(Country.language['category-top'],'headerRedirect') }}
+
+{% endblock %}
+
+
+{% block Content %}
+<div class="category-container">
+  <h3>{{ Country.language['category-show'] }}</h3>
+  <ul class="c-list clearfix" id="ulShowList">
+  	<img src="/common/img/loading.gif">
+  </ul>
+  <h3>{{ Country.language['category-hide'] }}</h3>
+  <ul class="c-list clearfix" id="ulHideList"></ul>
+</div>
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/category/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

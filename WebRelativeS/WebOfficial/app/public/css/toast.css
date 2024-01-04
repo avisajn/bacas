@@ -1,0 +1,24 @@
+.toast_wrap {
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 63.5%;
+  text-align: center;
+  width: 100%;
+}
+.toast_info {
+  max-width: 70%;
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: rgba(50, 50, 51, .88);
+  color: #fff;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  margin: 0 auto;
+  display: inline-block;
+  opacity: 0;
+  transition: all 5s ease-in;
+  transition: all 0.3s ease-in;
+}
+

@@ -1,0 +1,224 @@
+
+html,body {
+	width: 100%;
+	font-size: 12px;
+	max-width: 1200px;
+	margin: 0 auto;
+	/* width: 100%;
+	box-sizing: border-box; */
+}
+#news .up_time {
+	text-align: center;
+	font-size: 0.7rem;
+	color: #999999;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+ul li {
+	list-style: none;
+}
+#news .top {
+	width: 100%;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	padding: 0px 16px 0 16px;
+	box-sizing: border-box;
+
+    /* padding: 0 1.34rem; */
+  
+}
+#news .top .from {
+	margin-right: 15px;
+}
+#news .title {
+	margin: 0 auto;
+    text-align: center;
+    font-size: 1.67rem;
+    padding-bottom: 1.67rem;
+    padding-top: 4.67rem;
+
+	
+}
+
+.info {
+	text-align: center;
+    font-size: 1rem;
+    color: #999999;
+}
+.i-amphtml-fill-content {
+
+	margin: 0 auto;
+	width: 100%;
+	border-radius: 20px;
+	margin-top: 60px;
+	    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+.article {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.article .content {
+	font-size: 1.5rem;
+    color: #333333;
+    line-height: 2.2rem;
+    margin-top: 30px;
+    margin-bottom: 31px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.footer {
+	margin-bottom: 30px;
+}
+.footer img {
+	width: 16px;
+	height: 16px;
+}
+.footer span {
+	color: #999999;
+}
+.footer span.monuts {
+	float: right;
+	margin-right: 10px;
+	font-size: 14px;
+}
+.footer #like {
+	float: right;
+	margin-top: 0px;
+	border-radius: 20%;
+}
+.footer .i-amphtml-fill-content {
+	margin-right: 10px;
+	width: 16px;
+	height: 16px;
+   
+}
+.ul ul {
+	color: #999999;
+	text-align: center;
+	display: flex;
+}
+.ul ul li {
+	width: 25%;
+	font-size: 20px;
+
+	 overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.ul ul li a img {
+	width: 33px;
+	height: 33px;
+}
+.li {
+	height: 30px;
+}
+.li ul li {
+	color: #999999;
+	width: 25%;
+	font-size: 12px;
+	float: left;
+	text-align: center;
+}
+.separator {
+	border-top: 9px solid #F5F5F5;
+}
+.content_block .rel_list {
+	color: #999999;
+	box-sizing: border-box;
+	padding-left: 16px;
+	font-size: 12px;
+	padding-top: 16px;
+	padding-bottom: 10px;
+}
+.content_block .data_list ul {
+	/* width: 95%; */
+}
+.content_block .data_list ul li  {
+	/* padding-left: 16px; */
+	display: block;
+	height: 4rem;
+	line-height: 4rem;
+	color: #2e2e2e;
+	font-size: 1.25rem;
+	/* padding-right: 10px; */
+	margin: 0px 10px;
+	/* width: 100%; */
+	overflow: hidden;
+	text-overflow:ellipsis;
+    white-space:nowrap;
+	border-top: 1px solid #e5e5e5;
+}
+
+.comments .comments_title {
+	color: #999999;
+	box-sizing: border-box;
+	padding-left: 48px;
+	font-size: 12px;
+	padding-top: 46px;
+	padding-bottom: 30px;
+}
+.comments .eve {
+	padding-left: 48px;
+	box-sizing: border-box;
+}
+.comments .eve ul li {
+	padding-bottom: 60px;
+	box-sizing: border-box;
+}
+.comments .eve ul li .userimg {
+	display: block;
+	background-color: pink;
+	float: left;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+.comments .eve ul li .more .username {
+	font-size: 13px;
+	margin-left: 10px;
+	color: #999999;
+}
+.comments .eve ul li .more .lit {
+	float: right;
+	margin-right: 12px;
+	font-size: 36px;
+}
+.comments .eve ul li .more  #zan_like {
+	float: right;
+	margin-right: 42px;
+}
+.comments .eve ul li .more .time {
+	margin-left: 100px;
+	color: #999999;
+	margin-top: 10px;
+	box-sizing: border-box;
+
+}
+.comments .eve ul li .more .cont {
+	font-size: 15px;
+	color: #333333;
+	margin-top: 15px;
+	padding-left: 100px;
+	/* white-space:normal;  */
+	box-sizing: border-box;
+	width:100%;
+}
+.morehot {
+	color: #3399ff;
+	font-size: 13px;
+	margin-bottom: 60px;
+	/* margin-top: 60px; */
+	text-align: center;
+}

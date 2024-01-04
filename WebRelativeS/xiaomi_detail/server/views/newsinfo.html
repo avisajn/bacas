@@ -1,0 +1,116 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>{{Title}}</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/newsinfo/index.css">
+  {% endif %}
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="description" content="{{Abstract}} - {{Country.language['webTitle']}}">
+  <!-- 分享到facebook的meta -->
+  <meta property="og:url" content="{{ Country.webUrl }}/{{NewsId}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{Title}}" />
+  <meta property="og:description" content="{{Abstract}} - {{Country.language['webTitle']}}" />
+  <meta property="og:image" content="{{ Country.imgHost }}api/v1/NewsImage/{{Cover}}?allowRedirect=true"/>
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- 分享到twitter的meta -->
+  <meta name="twitter:card" content="gallery">
+  <meta name="twitter:url"  content="{{ Country.webUrl }}/{{NewsId}}">
+  <meta name="twitter:title" content="{{Title}}">
+  <meta name="twitter:description" itemprop="description" content="{{Abstract}} - {{Country.language['webTitle']}}">
+  <meta name="twitter:image" itemprop="image" content="{{ Country.imgHost }}api/v1/NewsImage/{{Cover}}?allowRedirect=true">
+  <script type="text/javascript">
+  	window.newsId = '{{NewsId}}';
+    window.hostUrl = '{{Country.webUrl}}';
+  	window.newTitle = '{{Title}}';
+  	window.CreatedTime = "{{CreatedAt}}";
+    window.ClientId = "{{userId}}";
+    window.page = 'info';
+    window.newLabels = '{{Keywords}}';
+    window.newsType = '{{Type}}';
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', "{{Country.language['ga']}}", 'auto');
+    ga('send', 'pageview');
+    // ga('create', 'UA-35158941-9', 'auto', 'abtest');
+    // ga('abtest.send', 'pageview');
+    // ga('send', 'pageview' , {'sessionControl': 'start'});
+
+  </script>
+{% endblock %}
+
+
+{% block Content %}
+<div class="news-info xiaomi-font" id="newsInfo">
+  <h1 class="name" itemprop="name">{{ Title }}</h1>
+  <div class="info">
+    <span class="from">{{Media}}</span>
+    <span class="date">&middot;</span>
+    <span class="date" id="createTime"></span>
+  </div>
+  <div class="article-detail">
+      {{ Html | safe }}
+      <a href="https://app.appsflyer.com/com.jakarta.baca?pid=wapmi">
+          <div style="background-color:#F0F0F0;text-align:center;color:#999999;padding-top:2%;padding-bottom:2%;font-weight: bold;">Powered by Baca</div>
+      </a>
+  </div>
+  <div class="ads-panel" id="adsPanel">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-2192244849111594"
+         data-ad-slot="1707006605"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <!-- <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9683444248981364"
+         data-ad-slot="9441620735"></ins>
+    <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script> -->
+  </div>
+
+{% if RelativeNews and RelativeNews.length > 0%}
+  <div class="rel-list list-block" id="relList">
+    <h3 class="title">Berita terkait</h3>
+    <div class="data-list">
+      {% for item in RelativeNews %}
+      <div><hr class="line" /></div>
+      <section class="set-rtl">
+          <a href="{{item.NewsId}}?origin=relative&pageId={{item.PageId}}&PageIndex={{item.PageIndex}}#list" class="item-link clearfix ">
+            <div class="title">
+              <div>
+                <nobr>{{item.Title}}</nobr>
+              </div>
+              <div class="info-tag">
+                <span>{{item.Media}}</span>
+              </div>
+            </div>
+            <div class="img-right"> <img src="{{Country.imgHost}}api/v1/NewsImage/{{item.ImageGuids[0]}}?allowRedirect=true&thumbnail=true"></div>
+          </a>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+</div>
+
+
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/newsinfo/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

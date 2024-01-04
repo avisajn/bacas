@@ -1,0 +1,139 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="activity_one" id="time">
+        <div class="activity">
+            <div style="width: 75%">
+                <p style="text-align: left; font-weight: bold;">Anda terpilih mengikuti event!</p>
+                <p style="text-align: left; font-size: 1rem;">Ayo isi survei ini sekarang!
+                <span style="color: #C9945A; font-size: .8rem; margin-top: 8px;">Klik di sini>></span></p>
+            </div>
+            <div class="time">
+                <span id="t_h">00:</span>
+                <span id="t_m">00:</span>
+                <span id="t_s">00</span>
+            </div>
+            <div class=" arrow right-arrow"></div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    function getRTime() {
+        var EndTime = new Date('2021/07/22 16:30:59');
+        var NowTime = new Date();
+        var t = EndTime.getTime() - NowTime.getTime();
+        var h = Math.floor(t / 1000 / 60 / 60);
+        var m = Math.floor(t / 1000 / 60 % 60);
+        var s = Math.floor(t / 1000 % 60);
+        if (m < 0 || h < 0 || s < 0) {
+            document.getElementById("time").style.display = "none"
+        }
+        if (m < 10) m = '0' + m;
+        if (h < 10) h = '0' + h;
+        if (s < 10) s = '0' + s;
+        document.getElementById("t_h").innerHTML = h + ":";
+        document.getElementById("t_m").innerHTML = m + ":";
+        document.getElementById("t_s").innerHTML = s;
+        if (s == "00" && m == "00" && h == "00") {
+            document.getElementById("time").style.display = "none"
+        }
+    }
+    setInterval(getRTime, 1000);
+</script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+    }
+    
+    .activity_one {
+        width: 100%;
+        height: 5.5rem;
+    }
+    
+    .activity {
+        background: url("https://questionaire.baca.co.id/webview-image/questionnaire_banner.png");
+        background-repeat: no-repeat;
+        background-position: right top;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        padding: .8rem;
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    .time {
+        margin-right: 20px;
+        background-color: #FF6C00;
+        display: block;
+        font-size: 1rem;
+        color: #fff;
+        padding: 0px 3px;
+        vertical-align: middle;
+        position: absolute;
+        bottom: 37%;
+        right: 4%;
+    }
+    
+    .arrow {
+        right: 2%;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0px 3px;
+        vertical-align: middle;
+        position: absolute;
+        bottom: 37%;
+    }
+    
+    .style_time {
+        width: 20%;
+    }
+    
+    p {
+        font-size: 1.1rem;
+    }
+    
+    .right-arrow {
+        display: inline-block;
+        position: relative;
+        width: .7rem;
+        height: .7rem;
+        margin-right: 20px;
+        display: block;
+        font-size: 1rem;
+        color: #000;
+        padding: 0px 3px;
+        vertical-align: middle;
+        position: absolute;
+        bottom: 37%;
+        right: .5%;
+    }
+    
+    .right-arrow::after {
+        display: inline-block;
+        content: " ";
+        height: .6rem;
+        width: .6rem;
+        border-width: 4px 4px 0 0;
+        border-color: #000;
+        border-style: solid;
+        transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        position: absolute;
+        top: 0;
+        right: 6px;
+        margin-top: -9px;
+    }
+</style>
+
+</html>

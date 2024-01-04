@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 42px;" class="loading">
+<head>
+    <title>Baca - Puzzle Si Baca</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- <meta http-equiv="pragma" content="no-cache" /> -->
+	<!-- <meta http-equiv="Cache-Control" content="no-transform"> -->
+	<link rel="shortcut icon" href="http://img.cdn.baca.co.id/event/pt/img/share.jpg" >
+
+
+	<meta name="description" content="Uji Kecepatanmu dan menangkan hadiah menarik! ">
+
+	<!-- 分享到facebook的meta -->
+	<meta property="og:url" content="http://event.baca.co.id/pt/index.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Puzzle Si Baca" />
+	<meta property="og:description" content="Uji Kecepatanmu dan menangkan hadiah menarik! " />
+	<meta property="og:image" content="http://img.cdn.baca.co.id/event/pt/img/share.jpg"/>
+	<meta property="og:image:type" content="image/jpeg">
+
+	<!-- 分享到twitter的meta -->
+	<meta name="twitter:card" content="gallery">
+	<meta name="twitter:url"  content="http://event.baca.co.id/pt/index.html">
+	<meta name="twitter:title" content="Puzzle Si Baca">
+	<meta name="twitter:description" itemprop="description" content="Uji Kecepatanmu dan menangkan hadiah menarik! ">
+	<meta name="twitter:image" itemprop="image" content="http://img.cdn.baca.co.id/event/pt/img/share.jpg">
+
+
+    <style type="text/css">
+    .myloading{position:fixed;top:0px;width:100%;left:0px;height:100%;background:white;z-index:222;text-align:center;}
+    .myloading>img{position:absolute;top:50%;height:14px;width:14px;margin-top:-7px;margin-left:-7px;left:50%;}
+    .hide{display: none;}
+    </style>
+    <script type="text/javascript">
+    	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-110141868-1', 'auto');
+		ga('send', 'pageview');
+		window.ga = ga;
+		window.SEOData = {
+		    title : 'Baca - Puzzle Si Baca',
+		    description : 'Uji Kecepatanmu dan menangkan hadiah menarik! ',
+		    url : 'http://event.baca.co.id/pt/index.html',
+		    image : 'http://img.cdn.baca.co.id/event/pt/img/share.jpg',
+		}
+    </script>
+</head>
+<body class="">
+	<div class="hide">
+ 		<audio src="http://img.cdn.baca.co.id/event/pt/img/8.mp3" id="music_bck" loop controls preload="auto"></audio>
+ 	</div>
+	<div class="hide"><img src="http://img.cdn.baca.co.id/event/pt/img/share.jpg"></div>
+	<div class="myloading" id="pageLoading"><img src="http://img.cdn.baca.co.id/event/top10/img/5-121204193943.gif"></div>
+	<div class="form-loading hide" id="formLoading"> 
+		<div class="single-load">
+			<img src="http://img.cdn.baca.co.id/event/top10/img/spinner.svg">
+		</div>
+	</div>
+
+	<div class="main-container" id="pageContainer">
+		<img src="http://img.cdn.baca.co.id/event/top10/img/bck-1.png">
+		<div class="main-panel">
+			<div class="btn-panel clearfix">
+				<div class="my-btn myfamily yellow" id="btn_show_ranking" style="float:left;"> RANKING </div>
+				<div class="my-btn myfamily green" id="btn_show_gift" style="float:right;"> HADIAH </div>
+			</div>
+			<div class="big-image-panel sprite sprite-big-main-image"></div>
+			<div class="input-panel">
+				<img class="input-bck-img" src="http://img.cdn.baca.co.id/event/pt/img/main-input-bck.png">
+				<div class="form-panel">
+					<div>
+						<div class="inset-shadow-panel radius-1">
+							<div class="form-item">
+								<input class="input-item" id="form_name" placeholder="NAMA"></input>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="inset-shadow-panel radius-1">
+							<div class="form-item">
+								<input class="input-item" id="form_phone" placeholder="NO. HANDPHONE"></input>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="inset-shadow-panel radius-1">
+							<div class="form-item">
+								<input class="input-item" id="form_city" placeholder="ALAMAT"></input>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="my-btn myfamily red" id="btn_play"> PLAY </div>
+					</div>
+				</div>
+			</div>
+			<div class="bck-foot-panel">
+				<img src="http://img.cdn.baca.co.id/event/top10/img/bck-bottom.png">
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="100_t" value="{{ymark-code}}"></input>
+	<input type="hidden" id="200_t" value="{{userId}}"></input>
+	<div class="modal_containers">
+	  	<div class="modal hide" id="modal_game_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:420px">
+		      <div class="modal-content">
+		      		<div class="tools clearfix">
+		      			<div style="float:left;" class="username-panel inset-shadow-panel radius-1"><span id="set_user">USERNAME</span></div>
+		      			<div class="inset-shadow-panel time-panel"><span id="time_str" class="clearfix"><span>00:00.</span><span>00</span></span></div>
+		      			<div style="float:right" id="tip_music" class="sprite sprite-music tip-music"></div>
+		      			<div style="float:right;margin-right:3px;" id="show_preview" class="sprite sprite-warn tip-warn"></div>
+		      		</div>
+		      		<div class="main-canvas" id="my_pt_container">
+		      			<div class="preview-image-mask" id="close_preview_mask">
+		      				<img id="previewImage" src="">
+		      			</div>
+		      			<div id="my_pt_container_canvas">
+		      				
+		      			</div>
+
+		      		</div>
+		      		<div class="share-play-again" style="bottom:0px;">
+		      		  	<div class="my-btn myfamily red" id="btnRePlay"> <span>ULANG</span> </div>
+		      		</div>
+		      		<!-- <div class="warn-panel">
+		      			<div class="inset-shadow-panel radius-2" style="height:100px;">	
+		      				<div style="padding:10px;">
+		      					<div class="inset-shadow-panel radius-2" style="height: 80px;">
+		      						<div class="content-p">
+		      							<p>1. Susun Puzzle Si Baca hingga menjadi gambar yang tepat</p>
+		      							<p>2. Waktu akan berjalan ketika gambar mulai digerakkan</p>
+		      							<p>3. Tap tombol 'Lihat Gambar' di atas untuk melihat gambar secara lengkap</p>
+		      							Semoga Beruntung!
+		      						</div>
+		      					</div>
+		      				</div>
+		      			</div>
+		      		</div> -->
+		      	</div>
+		    </div>
+	  	</div> 
+	  	<div class="modal hide" id="modal_ranking_panel">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body" style="height:400px;">
+		      <div class="modal-header">
+		      	<div class="sprite sprite-ranking img-panel">
+		      	</div>
+		      </div>
+		      <div class="sprite close"></div>
+		      <div class="modal-content">
+		      		<ul class="ranking-list" id="ul_rankingList">
+		      			<div class="loading"> loading... </div>
+		      		</ul>
+		      	</div>
+		    </div>
+	  	</div> 
+	  	<div class="modal hide" id="modal_gift_panel">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body" style="height:400px;">
+		      <div class="modal-header">
+		      	<div class="sprite sprite-gift img-panel">
+		      	</div>
+		      </div>
+		      <div class="sprite close"></div>
+		      <div class="modal-content">
+		      		<div class="inset-shadow-panel" style="height:320px">
+		      			<div class="myfamily">
+			      			<p>Syarat Dan Ketentuan Game:</p>
+			      			<p>1. Durasi game: 22 Januari 00:00 WIB - 26 Januari 23:59 WIB</p>
+			      			<p>2. Pemenang diumumkan tanggal 29 Januari 2018 dan hadiah akan diproses dalam 7 hari kerja</p>
+			      			<p>3. 8 pemenang beruntung akan dipilih berdasarkan waktu tercepat dalam menyelesaikan Puzzle Si Baca.</p>
+			      			<ul>
+			      				<li>3 pemenang utama dengan hadiah uang tunai sebesar:</li>
+			      				<li>1. Juara I = Rp. 500.000</li>
+			      				<li>2. ‎Juara II = Rp. 300.000</li>
+			      				<li>3. ‎Juara III = Rp. 200.000 </li>
+			      			</ul>
+			      			<p>5 pemenang favorit akan mendapatkan Tshirt Baca</p>
+			      			<p>4. Pemenang wajib untuk share game Puzzle Si Baca di Facebook dan mention akun Baca</p>
+			      			<p>5. Pajak 15% ditanggung oleh pemenang</p>
+			      			<p>6. Syarat dan Ketentuan dibuat mutlak oleh Baca dan tidak dapat dinegosiasi</p>
+			      			<p>7. Pemenang tidak dipungut biaya apapun. Untuk informasi lebih lengkap silakan cek di Facebook Baca</p>
+			      			<p>8. User yang melakukan kecurangan dalam bentuk apapun, berhak mendapatkan diskualifikasi dan tidak bisa mengikuti permainan</p>
+		      			</div>
+		      		</div>
+		      	</div>
+		    </div>
+	  	</div> 
+
+
+	  	<div class="modal hide" id="modal_rule_panel">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body" style="height:300px;">
+		      <div class="modal-header">
+		      	<div class="sprite sprite-cara-main img-panel">
+		      	</div>
+		      </div>
+		      <div class="modal-content">
+		      		<div class="inset-shadow-panel" style="height:320px">
+		      			<div class="myfamily">
+			      			<p>1. Susun Puzzle Si Baca hingga menjadi gambar yang tepat</p>
+  							<p>2. Waktu akan berjalan ketika gambar mulai digerakkan</p>
+  							<p>3. Tap tombol 'Lihat Gambar' di atas untuk melihat gambar secara lengkap</p>
+		      			</div>
+		      		</div>
+		      	</div>
+		      	<div class="share-play-again">
+		      		<div class="my-btn myfamily red" id="btn_skip"> <span>Lanjutkan</span> </div>
+		      	</div>
+		    </div>
+	  	</div> 
+
+	  	<div class="modal hide" id="modal_share_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:300px;">
+		      <div class="modal-header">
+		      	<div class="sprite sprite-share img-panel">
+		      	</div>
+		      </div>
+		      <!-- <div class="sprite close"></div> -->
+		      <div class="modal-content">
+		      	<div class="result-panel">
+		      		<div class="star-panel" id="starPanel">
+		      			<div class="sprite star-1 sprite-star"></div>
+		      			<div class="sprite star-2 sprite-star"></div>
+		      			<div class="sprite star-3 sprite-star"></div>
+		      		</div>
+		      		<div class="result">
+			      		<div class="inset-shadow-panel" style="height:70px">
+			      			<div class="myfamily">
+			      				<p>SELAMAT</p>
+			      				<p>WAKTU KAMU : <span id="res_time">01:30</span></p>
+			      			</div>
+			      		</div>
+		      		</div>
+		      		<div class="share-title">
+			      		<div class="inset-shadow-panel radius-2">
+			      			<div class="myfamily"> SHARE </div>
+			      		</div>
+		      		</div>
+		      		<div class="share-btn-panel">
+		      			<div class="sprite sprite-fb" share-fb></div>
+		      			<div class="sprite sprite-tw" share-tw></div>
+		      			<div class="sprite sprite-ws" share-wp></div>
+		      		</div>
+
+		      	</div>	
+		      </div>
+      		  <div class="share-play-again">
+      		  	<div class="my-btn myfamily red" id="btnPlayAgain"> <span>MAIN LAGI</span> </div>
+      		  </div>
+		    </div>
+	  	</div> 
+
+	  	<div class="modal hide" id="modal_download_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:350px;" _offset_margin="100">
+		      	<div class="modal-header">
+		      		<img src="http://img.cdn.baca.co.id/event/pt/img/down-header-image.png">
+		      	</div>
+		      	<div class="modal-content">
+		      		<div class="tip-panel">
+			      		<div class="inset-shadow-panel" style="height:150px;">
+			      			<div class="myfamily">
+			      				<p class="big"> Mau lanjut main dan dapat hadiah ? </p>
+			      				<hr/>
+			      				<p> Download Aplikasi Baca sekarang juga </p>
+			      			</div>
+			      		</div>
+		      		</div>	
+		      		<div>
+		      			<div class="my-btn myfamily red" downapp> <span>DOWNLOAD</span> </div>
+		      		</div>
+		    	</div>
+		    </div>
+	  	</div> 
+
+
+
+	</div>
+
+</body>
+</html>

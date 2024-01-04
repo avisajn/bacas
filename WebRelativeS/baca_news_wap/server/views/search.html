@@ -1,0 +1,84 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>Search</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/search/index.css">
+  {% endif %}
+{% endblock %}
+
+
+
+{% block Content %}
+<div class="search-panel search-index-panel"> <!-- search-loading  none-data search-index-panel  -->
+  <div class="search-head search-{{lan}}">
+    <div class="n-left">
+      <a href="javascript:window.headerRedirect();"></a>
+    </div>
+    <div class="n-middle"> 
+      <div class="middle">
+        <span class="icon"></span>
+        <div  class="input">
+          <input id="inputKey" placeholder="{{Country.language['search-placeholder']}}" />  
+        </div>
+      </div>
+    </div>
+    <div class="n-right"> {{Country.language['search-btn']}} </div>
+  </div>
+
+  <div class="loading">
+      <img alt="loading" src="/common/img/loading.gif" />
+  </div>
+
+  <div class="search-index">
+      <div class="title">
+        {{Country.language['search-title']}}
+      </div>
+      <ul class="types clearfix">
+          <li><img alt="search tags" src="/common/img/search-3.png"><div>{{Country.language['search-blank-1']}}</div></li>
+          <li><img alt="search tags" src="/common/img/search-2.png"><div>{{Country.language['search-blank-2']}}</div></li>
+          <li><img alt="search tags" src="/common/img/search-1.png"><div>{{Country.language['search-blank-3']}}</div></li>
+          <li><img alt="search tags" src="/common/img/search-4.png"><div>{{Country.language['search-blank-4']}}</div></li>
+      </ul>
+  </div>
+
+  <div class="data-null">
+      <img alt="search none" src="/common/img/search-none.png">
+      <div>{{Country.language['search-null']}}</div>
+  </div>
+
+  <div class="search-more">
+    <div class="mask"></div>
+    <div class="more-panel">
+      <ul id="recordList"></ul>
+      <div class="btn-clear">
+        {{Country.language['search-clear']}}
+      </div>
+    </div>
+  </div>
+
+  <div class="searchList container-block">
+  <div id="searchList"></div>
+  <div class="hide atlas-panel" id="atlasPanel">
+      <div class="title"></div>
+      <div class="imgbox">
+        <ul id="imgList"> </ul> 
+      </div>
+      <div class="intro" id="atlasText"></div>
+</div>
+</div>
+
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block Script %}
+  <script src="/search/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}

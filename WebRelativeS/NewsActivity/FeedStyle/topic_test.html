@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>topic</title>
+</head>
+<style type='text/css'>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 0rem;
+}
+
+img {
+    display: block;
+}
+
+.content {
+    background: #EEEFF1;
+    font-family: Roboto-Bold, Roboto;
+}
+
+.top {
+    font-size: .75rem;
+    padding-left: .5rem;
+    height: 1.75rem;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.75rem;
+}
+
+.feed {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: .2rem;
+    height: 2.5rem;
+}
+
+.feed-one {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background: #EEEFF1;
+
+}
+
+.item {
+    font-size: 0px;
+}
+
+.item-width {
+    flex-shrink: 0;
+    height: 1rem;
+    background: #EEEFF1;
+    width: .7rem;
+}
+
+.item:nth-child(1) {
+    margin-left: .5rem;
+}
+
+.item:last-child {
+    margin-right: .5rem;
+}
+
+
+.bottom {
+    border-top: 1px solid #eee;
+    display: flex;
+}
+
+.game-icon-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    border-radius: 20%;
+}
+
+.game-item-one {
+    width: 100%;
+}
+
+.star {
+    width: .55rem;
+    height: .55rem;
+    margin-right: .05rem;
+    display: inline-block;
+}
+
+.game {
+    width: 84%;
+}
+
+.rate-score {
+    color: #7B7B7B;
+    font-size: .55rem;
+    position: relative;
+    top: -1px;
+    left: .2rem;
+}
+
+.game-item {
+    width: 80%;
+    font-size: .6rem;
+    align-items: center;
+    display: flex;
+    height: 4rem;
+}
+
+.name {
+    font-size: .76rem;
+    padding-right: 1rem;
+    font-weight: bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.game-one {
+    display: flex;
+    height: 3.25rem;
+    padding: .43rem;
+    padding-bottom: .13rem;
+}
+
+.pic {
+    width: 3.25rem;
+    height: 3.25rem;
+    align-items: center;
+}
+
+.pic img {
+    border-radius: .3rem;
+    width: 100%;
+}
+
+.content-one {
+    flex: 5;
+    display: flex;
+    margin-left: .45rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feed::-webkit-scrollbar {
+    display: none !important
+}
+
+.gogame {
+    justify-content: center;
+    width: .4rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-left: .2rem;
+    margin-top: 1.7rem;
+    margin-right: .62rem;
+}
+</style>
+
+<body id="banner">
+    <div class="content">
+        <div id="content" class="content"></div>
+        <div class="feed-one" id="feed-one">
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+    function w() {
+        var r = document.documentElement;
+        var a = r.getBoundingClientRect().width;
+        if (a > 750) {
+            a = 750;
+        };
+        rem = a / 18;
+        r.style.fontSize = rem + "px"
+    }
+    w();
+    window.addEventListener("resize", function() {
+        w()
+    }, false);
+})();
+
+function getQueryStringByName(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+function guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+function dataJson(data) {
+    const id = getQueryStringByName('topic')
+    window.guid = guid()
+    let postUrl = 'https://static.api.community.baca.co.id/v2/topics/' + id + '/game-entrance'
+    $.ajax({
+        type: "get",
+        cache: false, 
+        url: postUrl,
+        type: "get",
+        dataType: "json",
+        success: function(res) {
+            const obj = res.data.Games
+            $('#content').html('');
+            let _html = '';
+            let html = ''
+            let topic_id = getQueryStringByName('topic')
+
+
+            if (obj.length > 1) {
+                $('.feed-one')[0].style.display = 'none';
+                obj.forEach((item, idx) => {
+                    //Statistics
+                    try {
+                        let fromPage = BacaAndroid.getFromPage()
+                        let sendEventString = {
+                            "event_name": "community_topic_detail_game_show",
+                            "game_id": `${item.Id}`,
+                            "position": idx + 1,
+                            "guid": window.guid,
+                            "feed": fromPage,
+                            "topic_id": topic_id
+                        }
+                        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+                    } catch (err) {
+
+                    }
+
+                    html += `<div class="item" onclick="openApp('${item.RedirectUrl}', ${item.Id}, ${idx+1})">
+                                <img src="${item.IconUrl}" alt="" class="game-icon-image">
+                            </div>
+                            <div class="item-width"></div> `;
+                })
+                const _html = ` 
+                    <div class="top">
+                        <div class="title">Game terkait</div>
+                    </div>
+                    <div class="feed" id="feed">` + html + `</div> `
+
+
+                $('#content').html($(_html));
+            } else {
+
+                obj.forEach(item => {
+                    //Statistics
+                    //
+                    try {
+                        let fromPage = BacaAndroid.getFromPage()
+                        let sendEventString = {
+                            "event_name": "community_topic_detail_game_show",
+                            "game_id": `${item.Id}`,
+                            "position": '1',
+                            "guid": window.guid,
+                            "feed": fromPage,
+                            "topic_id": topic_id
+                        }
+                        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+                    } catch (error) {}
+
+                    let _image = ''
+                    for (i = 0; i < Math.round(item.Score / 20); i++) {
+                        _image += `<img src="https://wvb.baca.co.id/webview-image/star.png" alt="" class="star">`
+                    }
+                    for (i = 0; i < 5 - Math.round(item.Score / 20); i++) {
+                        _image += `<img src="https://wvb.baca.co.id/webview-image/no_star.png" alt="" class="star">`
+                    }
+                    $('.feed-one').click(() => {
+                        openApp(item.RedirectUrl, item.Id, 1)
+                    })
+                    _html += ` <div class="game-one">
+                                <div class="pic">
+                                    <img src="${item.IconUrl}" alt="" class="game-item-one">
+                                </div>
+                                <div class="content-one">
+                                  <div class="name" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">${item.Name}</div>
+                                  <div class="rate">
+                                  ` + _image + `<span class="rate-score">${(parseInt(item.Score)/20).toFixed(1)}</span> 
+                                  </div>
+                                </div>
+                                <img src="https://wvb.baca.co.id/gamebanner/img/gogame.png" alt="" class="gogame" />
+                              </div>
+                            `;
+                })
+                $('#feed-one').html($(_html));
+            }
+        },
+        error: function(error) {}
+    });
+}
+
+function openApp(url, id, idx) {
+    let topic_id = getQueryStringByName('topic')
+    let bannerid = getQueryStringByName('bannerid')
+    let fromPage = BacaAndroid.getFromPage()
+    let position = BacaAndroid.getPosition()
+    //Statistics click
+    let sendEventString = {
+        "event_name": "community_topic_detail_game_click",
+        "game_id": id,
+        "position": idx,
+        "guid": window.guid,
+        "feed": fromPage,
+        "topic_id": topic_id
+    }
+    try {
+        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+    } catch (err) {
+
+    }
+    if (parseInt(topic_id) == 34) {
+        window.location.href = url + '?key_game_id_l=' + id + '&key_entrance_s=rec_banner&key_enter_tab_s=Marbar&key_type_s=topic_style&key_from_rec_s=' + fromPage + '&key_position_s=' + position + '&key_detail_position_s=game' + id + '&nipEventArgs={"event_name":"community_game_rec_position_click","id":' + bannerid + ',"type":"web","sub_type":"topic_style","from":' + fromPage + ',"position":' + position + ',"click_ui":' + "game" + id + '}'
+    }else if (parseInt(topic_id) == 82) {
+        window.location.href = url + '?key_game_id_l=' + id + '&key_entrance_s=rec_banner&key_enter_tab_s=Trade&key_type_s=topic_style&key_from_rec_s=' + fromPage + '&key_position_s=' + position + '&key_detail_position_s=game' + id + '&nipEventArgs={"event_name":"community_game_rec_position_click","id":' + bannerid + ',"type":"web","sub_type":"topic_style","from":' + fromPage + ',"position":' + position + ',"click_ui":' + "game" + id + '}'
+    } else {
+        if (url.indexOf('key_game_id_l') != -1) {
+            window.location.href = url + '&nipEventArgs={"event_name":"community_game_rec_position_click","id":' + bannerid + ',"type":"web","sub_type":"topic_style","from":' + fromPage + ',"position":' + position + ',"click_ui":' + "game" + id + '}'
+        } else {
+            window.location.href = url + '?key_game_id_l=' + id + '&key_entrance_s=rec_banner&key_enter_tab_s=Review&key_type_s=topic_style&key_from_rec_s=' + fromPage + '&key_position_s=' + position + '&key_detail_position_s=game' + id + '&nipEventArgs={"event_name":"community_game_rec_position_click","id":' + bannerid + ',"type":"web","sub_type":"topic_style","from":' + fromPage + ',"position":' + position + ',"click_ui":' + "game" + id + '}'
+        }
+    }
+  
+}
+window.onload = function() {
+    dataJson()
+}
+</script>
+
+</html>

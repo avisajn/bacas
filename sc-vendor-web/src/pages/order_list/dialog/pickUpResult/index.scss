@@ -1,0 +1,54 @@
+@import '../../../../theme.scss';
+.result {
+  padding: 10px;
+  .order-number {
+    font-weight: bold;
+  }
+  .error-text{
+    border-bottom: 1px solid #000;
+  }
+  .opreate {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    .action {
+      color: #fff;
+    }
+
+    .action-1 {
+      background-color: $actionColor-3;
+    }
+
+    .action-2 {
+      background-color: $actionColor-error;
+    }
+
+    .action-3 {
+      background-color: $actionColor-success;
+    }
+    
+    .ant-btn:not(.ant-btn-primary):hover {
+      opacity: .5;
+    }
+  }
+  .ant-btn[disabled] {
+    opacity: .5;
+  }
+ 
+}
+.sku-column {
+  padding: 0 !important;
+  width: 320px;
+  text-align: center;
+  
+}
+.combined-sku {
+  margin: 4px;
+  border-bottom: 1px solid $borderColor;
+}
+.combined-sku:last-child {
+  border-bottom: none;
+}
+.sku-amount {
+  color: red;
+}

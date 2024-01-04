@@ -1,0 +1,28 @@
+FROM nginx:alpine
+EXPOSE 80
+
+RUN mkdir -p /usr/src/vendor
+
+# COPY codes into image
+COPY . /usr/src/vendor/
+
+# install nodejs
+RUN apk add nodejs npm
+RUN npm i yarn -g
+
+# set default workspace
+WORKDIR /usr/src/vendor
+
+RUN cd /usr/src/vendor/
+
+RUN ls
+
+# RUN yarn config set registry https://registry.npm.taobao.org/
+# RUN yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+
+# run codes and build product
+RUN yarn install
+RUN yarn build prod
+
+RUN cp default.conf /etc/nginx/conf.d/
+RUN cp -r build/* /usr/share/nginx/html/

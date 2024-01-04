@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 42px;">
+<head>
+    <title>Baca-AXA</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <style type="text/css">
+    .loading #loadingFirst{display: block;}
+    .loading .panel-container ,.loading .n-topbar{display: none;}
+    .page{display: none;}
+    </style>
+
+    <script>
+    	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1917693091841419'); fbq('track', 'PageView'); window.fbq = fbq; 
+    </script>
+    <noscript> <img height="1" width="1"src="https://www.facebook.com/tr?id=1917693091841419&ev=PageView&noscript=1"/> </noscript>
+</head>
+<body class="loading">
+	<div class="myloading" id="loadingFirst">
+	  <div></div>
+	</div>
+	<div class="panel-container" id="container">
+		<div class="page" id="page1">
+			<div class="normal-page page-1">
+				<div class="blue-head"></div>
+				<div class="maxHeight">
+					<div class="sub-logo-1">
+						<img src="/img/logo-1.png">
+					</div>
+					<div class="sub-logo">
+						<img src="/img/logo.png">
+					</div>
+					<div class="form-container">
+						<div class="form-panel" style="padding-bottom:20px;">
+							<span class="label">Email</span><br/>
+							<div class="shadow full-width">
+								<input type="text" placeholder="@example.com" class="form-input-email form-input"  objname="email"/>
+							</div>
+						</div>
+
+						<div class="form-panel">
+							<span class="label">Nama lengkap sesuai KTP</span><br/>
+							<div class="shadow full-width">
+								<input 
+									class="form-input"  
+									objname="name"
+									onkeyup="this.value=this.value.toUpperCase()" 
+									onafterpaste="this.value=this.value.toUpperCase()"
+								/>
+							</div>
+							<br/>
+							<div style="margin-top:15px;margin-bottom: 20px;" class="clearfix">
+								<div style="width:46%;float:left;margin-right:5%;">
+									<span class="label">Tanggal lahir</span><br/>
+									<div class=" half-width">
+										<div class="shadow form-birthday-item">
+											<input 
+												onkeyup="this.value=this.value.replace(/\D/g,'')" 
+												onafterpaste="this.value=this.value.replace(/\D/g,'')"
+												type="number" 
+												class="form-input form-input-normal " 
+												objname="birthdateDD" 
+												placeholder="dd" 
+											/>
+										</div>
+										<div class="shadow form-birthday-item">
+											<input 
+												onkeyup="this.value=this.value.replace(/\D/g,'')" 
+												onafterpaste="this.value=this.value.replace(/\D/g,'')"
+												type="number" 
+												class="form-input form-input-normal" 
+												objname="birthdateMM" 
+												placeholder="mm" 
+											/>
+										</div>
+										<div class="shadow form-birthday-item">
+											<input 
+												onkeyup="this.value=this.value.replace(/\D/g,'')" 
+												onafterpaste="this.value=this.value.replace(/\D/g,'')"
+												type="number" 
+												class="form-input form-input-normal" 
+												objname="birthdateYYYY" 
+												placeholder="yyyy" 
+											/>
+										</div>
+									</div>
+								</div>
+								<div style="width:49%;float: left;">
+									<span class="label">No Telepon/HP</span><br/>
+									<div class="shadow half-width">
+										<input 
+											placeholder="08** **** ***" 
+											type="text" 
+											class="form-input form-input-normal" 
+											objname="phone"
+											/>
+									</div>
+								</div>
+							</div>
+
+							<div style="margin-top:15px;margin-bottom: 20px;" class="clearfix">
+								<div style="width:46%;float:left;margin-right:5%;">
+									<span class="label">Kota</span><br/>
+									<div class="shadow half-width" style="border-radius: 3px;">
+										<div class="kota-select"> 
+											<select objselect="city" class="text"> 
+												<option></option> 
+												<option value="Aceh">Aceh</option>
+												<option value="Bali">Bali</option>
+												<option value="Banten">Banten</option>
+												<option value="Bengkulu">Bengkulu</option>
+												<option value="DI Yogyakarta">DI Yogyakarta</option>
+												<option value="DKI Jakarta">DKI Jakarta</option>
+												<option value="Gorontalo">Gorontalo</option>
+												<option value="Jambi">Jambi</option>
+												<option value="Jawa Barat">Jawa Barat</option>
+												<option value="Jawa Tengah">Jawa Tengah</option>
+												<option value="Jawa Timur">Jawa Timur</option>
+												<option value="Kalimantan Barat">Kalimantan Barat</option>
+												<option value="Kalimantan Selatan">Kalimantan Selatan</option>
+												<option value="Kalimantan Tengah">Kalimantan Tengah</option>
+												<option value="Kalimantan Timur">Kalimantan Timur</option>
+												<option value="Kalimantan Utara">Kalimantan Utara</option>
+												<option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+												<option value="Kepulauan Riau">Kepulauan Riau</option>
+												<option value="Lampung">Lampung</option>
+												<option value="Maluku">Maluku</option>
+												<option value="Maluku Utara">Maluku Utara</option>
+												<option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+												<option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+												<option value="Papua">Papua</option>
+												<option value="Papua Barat">Papua Barat</option>
+												<option value="Riau">Riau</option>
+												<option value="Sulawesi Barat">Sulawesi Barat</option>
+												<option value="Sulawesi Selatan">Sulawesi Selatan</option>
+												<option value="Sulawesi Tengah">Sulawesi Tengah</option>
+												<option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+												<option value="Sulawesi Utara">Sulawesi Utara</option>
+												<option value="Sumatera Barat">Sumatera Barat</option>
+												<option value="Sumatera Selatan">Sumatera Selatan</option>
+												<option value="Sumatera Utara">Sumatera Utara</option>
+											</select> 
+										</div> 
+									</div>
+								</div>
+								<div style="width:49%;float: right;">
+									<span class="label">Jenis kelamin</span>
+									<div class="half-width">
+										<div class="double-input-panel">
+											<input type="radio" name="sex" value="male"><br/><span class="mini-label">Laki-laki</span>
+										</div>
+										<div class="double-input-panel">
+											<input type="radio" name="sex" value="female" checked><br/><span class="mini-label">Wanita</span>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="clearfix">
+								<span class="label">Memiliki kartu kredit?</span>
+
+								<div style="width:49%;float: right;">
+									<div class="half-width">
+										<div class="double-input-panel">
+											<input type="radio" name="card" value="yes" checked><br/><span class="mini-label">YA</span>
+										</div>
+										<div class="double-input-panel">
+											<input type="radio" name="card" value="no"><br/><span class="mini-label">TIDAK</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div style="padding-bottom:10px;">
+							<div class="form-btn shadow click-big btn-form-submit-next"> DAFTAR </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" id="page3">
+			<div class="normal-page page-3 page-2">
+				<div class="blue-head"></div>
+				<div style="margin:15px;background: #e3ebf5;padding:10px;">
+					<div class="maxHeight" id="maxHeight100" style="background:white;padding: 10px;box-shadow: 1px 1px 1px #9d9d9d;">
+						<span class="label">Hadiah:</span>
+						<ol>
+							<li><p>Voucher Pulsa senilai Rp. 50,000,- untuk 50 pemenang yang beruntung </p></li>
+							<li><p>Voucher Belanja senilai Rp. 250,000,- untuk 10 pemenang yang beruntung</p></li>
+							<li>
+								<p>Free Asuransi AXA senilai Rp. 25.000.000,- untuk user yang telah memenuhi syarat dan ketentuan di bawah ini.</p>
+								<img style="height:50px;" src="/img/g.png">
+							</li>
+						</ol>
+
+
+						<span class="label">Mekanisme:</span>
+						<ol>
+							<li><p>user menyetujui Terms and Conditions yang ditentukan oleh BACA</p></li>
+							<li><p>user yang terpilih sebagai pemenang akan dihubungi melalui e-mail dan telepon yang diberikan melalui microsite</p></li>
+						</ol>
+
+						<span class="label">Pemilihan Pemenang diatur sebagai berikut:</span>
+						<ol>
+							<li><p>Pemenang dipilih berdasarkan undian yang dilakukan oleh Tim BACA</p></li>
+							<li><p>Keputusan pemenang adalah mutlak, dan tidak dapat di ganggu gugat</p></li>
+							<li><p>Pemenang akan diumumkan langsung oleh Tim BACA setelah periode berakhir</p></li>
+							<li><p>Untuk keperluan verifikasi, user harus memiliki nomor telepon aktif dan bisa dihubungi</p></li>
+							<li><p>Untuk pemenang yang tidak bisa dihubungi akan dianggap gugur secara otomatis dan kehilangan hak terhadap hadiah. Kesamaan data pemenang yang diberikan pada saat registrasi, berupa:</p>
+								<ol>
+									<li><p>Nama Lengkap (Sesuai KTP)</p></li>
+									<li><p>Alamat Email</p></li>
+									<li><p>No Handphone</p></li>
+								</ol>
+							</li> 
+						</ol>
+
+						<span class="label">Syarat dan ketentuan mendapatkan ‘AXA Care Protection’</span>
+						<ul>
+							<li>
+								<p>AXA Care Protection adalah Asuransi Kecelakaan Diri yang diberikan Gratis oleh PT. AXA Life Indonesia dengan nilai pertanggungan sebesar Rp 25,000,000,- apabila terjadi tutup usia karena resiko kecelakaan dengan periode perlindungan selama 3 bulan sejak aktif polis.</p>
+							</li>
+							<li>
+								<p>Pastikan data nama, tanggal lahir, alamat email, dan nomor HP anda valid dan sesuai agar tidak ada kendala ketika mengajukan klaim.</p>
+							</li>
+							<li>
+								<p>Berusia minimal 24 – 52 tahun (akan dilakukan verifikasi KTP bagi para pemenang hadiah).</p>
+							</li>
+							<li>
+								<p>Kepesertaan AXA Care Protection hanya untuk satu kali pendaftaran.</p>
+							</li>
+							<li>
+								<p>Ketika polis aktif anda akan mendapatkan e-policy (Polis Elektronik AXA Care Protection sebagai bukti kepesertaan) yang akan dikirimkan ke alamat email yang didaftarkan.</p>
+							</li>
+							<li>
+								<p>Anda akan mendapatkan informasi tambahan tentang layanan dan informasi produk dari PT. AXA Life Indonesia.</p>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="agree-panel">
+						<img style="margin-top: 2px;" src="/img/logo-1.png">
+						<input style="position:relative;top:-12px;margin-left:10px;" type="checkbox" name="agree" onchange="window.agreeCheckbox(this.checked)">
+						<div style="display: inline-block;line-height: 18px;">
+							<span style="font-size:14px;font-weight:bold;">Saya setuju</span><br/> 
+							<span style="font-style: italic;" for="agree">I agree terms and conditions</span>
+						</div>
+					</div>
+					<div style="text-align: center;margin-top: 10px;line-height: 22px;">
+						<div class="form-btn shadow click-big btn-form-submit"> SUBMIT </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="page" id="page4">
+			<div class="normal-page page-4 page-1">
+				<div class="blue-head"></div>
+				<div class="maxHeight" id="maxHeight100" style="padding: 10px;">
+					<div class="sub-logo-1" style="margin-bottom:20px;">
+						<img src="/img/logo-1.png">
+					</div>
+					<div class="sub-logo" style="margin-bottom:20px;">
+						<img src="/img/logo.png">
+					</div>
+					<div class="thanks">
+						Terima kasih
+					</div>
+					<div style="text-align: center;line-height: 20px;margin-top: 20px;">
+						Dengan ini Anda menyutujui BACA berhak menggunakan dan mendistribusikan informasi yang telah diberikan
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

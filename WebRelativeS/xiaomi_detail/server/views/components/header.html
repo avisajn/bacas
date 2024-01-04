@@ -1,0 +1,66 @@
+{% macro blockTitle(title ,onRedirect) %}
+<div class='n-topbar n-topbar-text'>
+  	<div class="n-left">
+  		{% if onRedirect %}
+  			<a href="javascript:window.{{onRedirect}}();"></a>
+    	{% else %}
+    		<a href="/"></a>
+    	{% endif %}
+  	</div>
+  	<div class="n-middle"> 
+	    <div class="mid-text" id="headerText">{{ title }}</div>
+  	</div>
+  	<div class="n-right">
+  		<div class="search"> </div>
+      <div class="search-block">
+        
+      </div>
+
+  	</div>
+</div>
+{% endmacro %}
+
+{% macro blockCategory(lang ,AdPlace,adSearchId,adSearch) %}
+<div class='n-topbar' id="topbar">
+  	<div class="n-left"> </div>
+  	<div class="n-middle"> 
+	    <div class="mid"> 
+	    {% if lang == 'yn' %}
+	      	<img class="logo" src="/common/img/logo.png">
+	    {% elif lang == 'bx' %}
+	    	<img class="logo" src="/common/img/logo-bx.png">
+      {% elif lang == 'me' %}
+        <img class="logo" src="/common/img/logo-me.png">
+	    {%endif%}
+	    </div>
+  	</div>
+  	<div class="n-right"> 
+  		<a class="search" href="/search"> </a>
+      <div class="search-block">
+        <form action="{{adSearch['actionLink']}}" id="cse-search-box" class="google-search">
+          <div>
+            <input type="hidden" name="cx" value="{{adSearchId}}:{{adSearch['adId']}}" />
+            <input type="hidden" name="ie" value="UTF-8" />
+            <input type="text" id="searchText" onkeydown="window.serchKeySubmit();" class="text-search" name="q" placeholder="{{AdPlace}}" size="55" />
+            <input type="submit" id="btnSearchSubmit" style="display:none;"/>
+            <input class="icon-search" onclick="window.searchSubmit();" type="button" name="sa" />
+          </div>
+        </form>
+      </div>
+  	</div>
+
+	<div class="top_menu_bar">
+	    <div class="top_menu_more">
+	      <a href="/category" class="more_btn"></a>
+	    </div>
+	    <div class="top_menu">
+	    	<div class="top_menu_list" id="menuList">
+	    		<div class="loading">
+	    			<img src="/common/img/loading.gif">
+	    		</div>
+		    </div>
+	  	</div>
+	</div>
+</div>
+{% endmacro %}
+

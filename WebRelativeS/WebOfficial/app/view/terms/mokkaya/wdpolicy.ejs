@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%=title%></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <script src="/public/js/native.js"></script>
+    <style>
+    .wdpolicy {
+      overflow: scroll;
+      padding: 2rem 1rem;
+      font-size: .85rem;
+      color: #000;
+      line-height: 22px;
+    }
+    .withdraw_header {
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      height: 2.35rem;
+      line-height: 2.35rem;
+      text-align: center;
+      box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.1); 
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .withdraw_back {
+      position: absolute;
+      width: .85rem;
+      height: .85rem;
+      top: .75rem;
+      left: .5rem;
+      line-height: 1;
+    }
+    .withdraw_back img {
+      width: 100%;
+      height: 100%;
+    }
+    h2 {
+      text-align: center;
+      padding: .5rem;
+    }
+    .text {
+      font-size: .75rem;
+      padding: 0 .5rem;
+    }
+    @media screen and (min-width: 1200px) {
+      .wdpolicy {
+        width: 50% !important;
+        margin: auto !important;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ga_tag" hidden><%=googleTag%></div>
+    <div class="wdpolicy">
+      <div class="withdraw_header">
+        <div class="withdraw_back" onclick="appGoBack()">
+          <img src="../../../public/img/common/icon-back.png" alt="">
+        </div>
+      </div>
+      <h2>Kebijakan Penarikan</h2>
+      <p />
+      <div>Kebijakan Penarikan ini bertujuan untuk mengatur prosedur serta tata cara melakukan penarikan saldo dari akun Anda di aplikasi Mokkaya.</div>
+      <p />1.Dengan menggunakan dan melakukan pemesanan produk di aplikasi ataupun website Mokkaya, Anda dianggap telah menyetujui isi dari Kebijakan Penarikan ini. 
+      <p />2.Dana di akun Mokkaya milik Anda tidak dapat digunakan untuk membayar pesanan, atau ditransfer ke akun Mokkaya pengguna lainnya. Dana hanya dapat ditarik atau dicairkan ke rekening bank Anda. 
+      <p />3.Penarikan dana dari Saldoku hanya dapat ditransfer ke bank dan E-wallet yang telah disediakan oleh Mokkaya dalam halaman Penarikan. 
+      <p />4.Dana yang dapat ditarik hanya sejumlah yang tersedia di akun “Saldoku” milik Anda, yang berasal dari kegiatan yang Anda lakukan di dalam aplikasi Mokkaya, misalnya: bonus, margin COD, dan promo lainnya. 
+      <p />5.Jumlah minimal untuk dapat melakukan penarikan saldo adalah Rp15.500 (lima belas ribu lima ratus rupiah). Dana di bawah nominal tersebut tidak dapat ditarik dengan cara apapun. 
+      <p />6.Penarikan saldo di bawah nominal Rp100.000 (seratus ribu rupiah) akan dikenakan biaya administrasi sebesar Rp5.500 (lima ribu lima ratus rupiah) yang akan langsung memotong nominal yang ditarik. 
+      <p />7.Jumlah maksimal yang dapat ditarik dalam sekali transaksi adalah Rp50.000.000 (lima puluh juta rupiah) untuk penarikan ke rekening bank. Sedangkan untuk penarikan ke E-wallet, jumlah maksimal yang dapat ditarik dalam sekali transaksi adalah Rp10.000.000 (sepuluh juta rupiah). Dana yang tersisa setelah penarikan tersebut akan tetap disimpan di akun “Saldoku” milik Anda. 
+      <p />8.Anda hanya dapat menarik keseluruhan dana yang ada di dalam saldo, ataupun jumlah maksimal penarikan. Anda tidak dapat menarik sebagian dana atau memilih jumlah dana yang ingin ditarik. 
+      <p />9.Batasan minimal dan maksimal, serta biaya administrasi yang dikenakan bisa berubah sewaktu-waktu dengan ataupun tanpa pemberitahuan terlebih dahulu. 
+      <p />10.Setelah melakukan konfirmasi penarikan dana, pihak bank atau E-wallet memerlukan waktu paling lambat 4 (empat) hari kerja untuk melakukan verifikasi. Proses ini bisa lebih cepat ataupun lebih lambat tergantung pada faktor operasional bank atau E-wallet tersebut. Setelah verifikasi selesai, maka dana akan masuk ke rekening bank atau akun E-wallet yang Anda masukkan. 
+      <p />11.Dengan melakukan penarikan, Anda menyatakan bahwa tindakan tersebut Anda lakukan dalam kondisi sadar, dan tanpa paksaan pihak manapun. 
+      <p />12.Dengan melakukan penarikan, Anda menyatakan bahwa semua data rekening bank atau akun E-wallet yang Anda masukkan adalah benar dan merupakan milik Anda, atau Anda memiliki kuasa atas data tersebut. 
+      <p />13.Mokkaya tidak bertanggung jawab atas semua bentuk gagalnya proses penarikan yang disebabkan oleh faktor di luar pihak Mokkaya, seperti misalnya, namun tidak terbatas pada: kesalahan memasukkan data rekening atau akun, permasalahan pada pihak bank atau E-wallet, kehilangan kepemilikan atas rekening atau akun Anda, penarikan yang dilakukan oleh orang lain dengan ataupun tanpa persetujuan Anda, terjadinya bencana alam atau kerusakan infrastruktur yang dibutuhkan dalam proses transfer, dll. Dana yang hilang dalam proses ini tidak akan dikembalikan ke akun Anda. 
+      <p />14.Bila proses penarikan dana mengalami kegagalan akibat faktor internal Mokkaya, maka dana akan dikembalikan ke akun “Saldoku” milik Anda, dan Anda dapat menariknya lagi. 
+      <p />15.Setiap proses penarikan akan memiliki “ID Transaksi” yang unik. Salin dan beri tahukan ID Transaksi tersebut kepada tim admin Mokkaya bila Anda membutuhkan bantuan untuk memeriksa suatu proses penarikan dana. 
+      <p />16.Untuk pengajuan komplain perihal penarikan dana, diatur dengan syarat-syarat sebagai berikut: 
+      <p class="text">a.Salin ID transaksi yang ingin dilaporkan dan beri tahukan kepada tim admin Mokkaya lewat fitur chat dalam aplikasi. </p>
+      <p class="text">b.Untuk komplain perihal dana yang belum diterima, mohon pastikan bahwa proses verifikasi sudah melebihi 4 (empat) hari kerja sejak diajukan. </p>
+      <p class="text">c.Untuk komplain perihal proses verifikasi yang telah melebihi 4 (empat) hari kerja, tim Admin akan memeriksa dan membantu penyelesaian prosesnya paling lambat 3 (tiga) hari kerja terhitung sejak komplain diajukan. </p>
+      <p class="text">d.Apabila keterlambatan proses verifikasi tersebut diakibatkan oleh faktor internal Mokkaya, maka tim Admin akan (1)Jika memungkinkan, membantu untuk menyelesaikan proses verifikasi sehingga dana diterima oleh rekening bank atau E-wallet Anda; atau (2)Membatalkan proses verifikasi dan mengembalikan dana ke akun Mokkaya Anda, sehingga Anda dapat melakukan penarikan kembali sesuai prosedur. </p>
+      <p class="text">e.Untuk komplain perihal dana yang belum diterima namun status transaksi sudah Sukses, mohon menyertakan screenshot (1)Halaman riwayat penarikan di aplikasi Mokkaya yang menunjukkan transaksi tersebut; dan (2)Mutasi rekening atau E-wallet Anda di waktu yang sama dengan waktu suksesnya penarikan. </p>
+      <p class="text">f.Tim Admin akan memeriksa bukti-bukti yang diberikan dan memeriksa di dalam database internal Mokkaya, kemudian mengkonfirmasikan hasilnya paling lambat dalam 3 (tiga) hari kerja terhitung sejak komplain dan bukti-bukti diajukan. </p>
+      <p class="text">g.Apabila hasil pemeriksaan menunjukkan bahwa klaim Anda adalah benar, maka dana akan dikembalikan ke akun Mokkaya Anda, sehingga Anda dapat melakukan penarikan kembali sesuai prosedur. </p>
+      <p class="text">h.Tim Admin Mokkaya memiliki wewenang untuk menentukan keputusan terakhir dan tidak dapat diganggu gugat. </p>
+      <p />17.Bila akun Mokkaya Anda sedang dibekukan, maka Anda tidak dapat melakukan penarikan dana dari akun Anda. Tanda bahwa Akun Mokkaya Anda sedang dibekukan adalah tombol “Tarik saldo” yang tidak aktif dan tidak bisa diklik. Akun Mokkaya Anda dapat dibekukan dengan berbagai sebab berikut ini, namun tidak terbatas pada: 
+      <p class="text">a.Anda melakukan pelanggaran terhadap kebijakan apapun yang berlaku di Mokkaya.</p>
+      <p class="text">b.Anda dinyatakan atau diduga melakukan tindakan yang dapat merugikan Mokkaya, baik secara materiil maupun immateriil, sebagai contohnya yaitu menyalahgunakan fitur COD. </p>
+      <p class="text">c.Anda dinyatakan atau diduga melakukan tindakan yang dapat merugikan reseller Mokkaya lainnya, sebagai contohnya meminta data pribadi reseller lain dengan memaksa. </p>
+      <p class="text">d.Anda melakukan kecurangan dalam mengumpulkan saldo, sebagai contohnya yaitu modifikasi atau hacking aplikasi maupun website Mokkaya.</p>
+      <p class="text">e.Anda mengalami banyak pesanan COD yang ditolak pembeli dan dikenakan Biaya Penolakan yang mengakibatkan saldo Anda berupa nilai negatif. </p>
+      <p />18.Dalam kondisi akun Mokkaya yang sedang dibekukan, Anda tetap dapat menambah saldo dengan tetap melakukan pemesanan di Mokkaya. 
+      <p />19.Tidak ada batasan waktu untuk pembekuan akun Mokkaya, dan tidak akan dibebaskan secara otomatis. 
+      <p />20.Untuk membebaskan akun Mokkaya Anda yang sedang dibekukan, harap menghubungi tim admin Mokkaya lewat fitur chat dalam aplikasi. Akun Mokkaya Anda dapat dibebaskan dengan berbagai pertimbangan tertentu, tergantung dari apa faktor penyebab akun Anda dibekukan.
+      <p />21.Anda menyadari dan memahami bahwa isi dari Kebijakan Penarikan ini dapat berubah sewaktu-waktu dengan ataupun tanpa pemberitahuan terlebih dahulu. 
+      <p />22. Bila mengalami kendala dalam proses penarikan dana, bisa menghubungi tim admin Mokkaya lewat fitur Tanya Jawab dalam
+      aplikasi dari halaman Akun atau Panduan.
+    </div>
+    <script src="/public/js/google.js" async></script>
+  </body>
+</html>

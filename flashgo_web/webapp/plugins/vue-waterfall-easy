@@ -1,0 +1,4 @@
+import Vue from 'vue'
+import vueWaterFallEasy from 'vue-waterfall-easy'
+
+Vue.use(vueWaterFallEasy)

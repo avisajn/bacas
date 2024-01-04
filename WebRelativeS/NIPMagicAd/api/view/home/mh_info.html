@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Daily Statistics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <style type="text/css">
+    *{margin:0px;padding:0px;}
+    body,html{
+        width: 100%;
+        height: 100%;
+    }
+    .next-up-block{
+        position: fixed;
+        right:0px;
+        top:50%;
+        width:40px;
+        height:100px;
+        background: rgba(0, 0, 0, 0.71);
+        color: white;
+    }
+    .next-up-block>div{
+        height: 50px;
+        width:40px;
+        text-align: center;
+        line-height: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="next-up-block"> <div onclick="upPage()"> 上页 </div> <div onclick="nextPage()"> 下页 </div> </div>
+   	<div id="ifm">
+	<script type="text/javascript">
+		function getQuery(name){
+	        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	        var r = window.location.search.substr(1).match(reg);
+	        if(r!=null)return  unescape(r[2]); return null;
+	    }
+        const formatNum = function(n){
+            n = parseInt(n);
+            if(n < 10) return '00'+n;
+            if(n < 100) return '0'+n;
+            return ''+n;
+        }
+        var base = getQuery('b');
+        var total = getQuery('total');
+        var current = getQuery('c') || 1;
+	    var suf = getQuery('suf');
+        var data = [];
+        for(var i=0;i<total;i++){
+            data.push(base+formatNum(i)+suf);
+        }
+
+        function showImg(url) {
+            var frameid = 'frameimg' + new Date().getTime();
+            //全局变量名称起唯一
+            window['var' + frameid] = '<img id="img"  width="100%" src=\'' + url + '?' + Math.random() + '\' /><script>window.onload = function() { parent.document.getElementById(\'' + frameid + '\').height = document.getElementById(\'img\').height+\'px\';delete parent.var' + frameid + ' }<' + '/script>';
+            document.write('<iframe id="' + frameid + '" src="javascript:parent.var' + frameid + ';" frameBorder="0" scrolling="no" width="100%"></iframe>');  
+            // document.write('<iframe id="' + frameid + '" src="javascript:parent.var' + frameid + ';" frameBorder="0" scrolling="no" width="100%"></iframe>');
+        }
+
+        var pageSize = 5;
+        function loadPage(p){
+            for(var i = (p-1)*pageSize,len=p*pageSize;i<len;i++){
+                showImg(data[i]);
+            }
+        }
+        loadPage(current);
+        function nextPage(){
+            current = parseInt(current) +1;
+            window.location.href = '/home/mh/info.html?b='+base+'&suf='+suf+'&c='+current+'&total='+total;
+        }
+        function upPage(){
+            current = parseInt(current) -1;
+            window.location.href = '/home/mh/info.html?b='+base+'&suf='+suf+'&c='+current+'&total='+total;
+        }
+	    </script>
+	</div>
+
+    <script type="text/javascript">
+        
+
+    </script>
+
+</body>
+</html> 

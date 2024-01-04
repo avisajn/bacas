@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Product feedback survey example, jQuery Survey Library Example
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.5.5/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.5.5/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/layer/3.0.3/mobile/layer.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+    <script type="text/javascript">
+    Survey.StylesManager.applyTheme("default");
+
+    var json = {
+        pages: [{
+            name: "page1",
+            elements: [{
+                    type: "radiogroup",
+                    name: "Have you ever bought secondhand / secondhand (refurbished) goods?",
+                    title: "Apakah Anda pernah membeli barang bekas / second (seken) / refurbished (rekondisi) ",
+                    isRequired: true,
+                    choices: [{
+                            value: "item1",
+                            text: "Ya"
+                        },
+                        {
+                            value: "item2",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "Where did you buy those secondhand / secondhand (refurbished) goods?",
+                    visibleIf: "{Have you ever bought secondhand / secondhand (refurbished) goods?} = 'item1'",
+                    title: "Dimanakah Anda membeli barang bekas / second (seken) / refurbished (rekondisi) tersebut?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "Di Toko Ritel (Offline)"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Langsung dari Teman / Kerabat / Kolega (Offline)"
+                        },
+                        {
+                            name: "Column 3",
+                            title: "Mencari di E-Commerce / Marketplace Online (Tokopedia, OLX, dll)"
+                        },
+                        {
+                            name: "Column 4",
+                            title: "Melalui Social Media / Online (FB,  IG, Twitter, dll) "
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Smartphone"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Tablet"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Komputer PC / Laptop"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Sepeda Motor"
+                        },
+                        {
+                            value: "Row 5",
+                            text: "Akun Virtual Game"
+                        },
+                        {
+                            value: "Row 6",
+                            text: "Televisi"
+                        },
+                        {
+                            value: "Row 7",
+                            text: "Jam Tangan / aksesoris"
+                        },
+                        {
+                            value: "Row 8",
+                            text: "Mainan / action figures "
+                        },
+                        {
+                            value: "Row 9",
+                            text: "Pakaian / Sepatu / Fesyen"
+                        },
+                        {
+                            value: "Row 10",
+                            text: "Furniture "
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "How do you make payments?",
+                    visibleIf: "{Have you ever bought secondhand / secondhand (refurbished) goods?} = 'item1'",
+                    title: "Bagaimana Anda melakukan pembayaran?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "COD / bertemu langsung"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Tanpa tatap muka / bertemu - Transfer via indomaret / alfa atau ATM / Bank"
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Smartphone"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Tablet"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Komputer PC / Laptop"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Sepeda Motor"
+                        },
+                        {
+                            value: "Row 5",
+                            text: "Akun Virtual Game"
+                        },
+                        {
+                            value: "Row 6",
+                            text: "Televisi"
+                        },
+                        {
+                            value: "Row 7",
+                            text: "Jam Tangan / aksesoris"
+                        },
+                        {
+                            value: "Row 8",
+                            text: "Mainan / action figures "
+                        },
+                        {
+                            value: "Row 9",
+                            text: "Pakaian / Sepatu / Fesyen"
+                        },
+                        {
+                            value: "Row 10",
+                            text: "Furniture "
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "What Makes You Buy at that Place",
+                    visibleIf: "{Have you ever bought secondhand / secondhand (refurbished) goods?} = 'item1'",
+                    title: "Mengapa Anda membeli di tempat tersebut?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "Harga lebih murah / ada diskon"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Bisa mengecek kondisi barang"
+                        },
+                        {
+                            name: "Column 3",
+                            title: "Lebih mudah mencari"
+                        },
+                        {
+                            name: "Column 4",
+                            title: "Proses pembelian lebih mudah "
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Di Toko Ritel (Offline)"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Langsung dari Teman / Kerabat / Kolega (Offline)"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Mencari di E-Commerce / Marketplace Online (Tokopedia, OLX, dll)"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Melalui Social Media / Online (FB,  IG, Twitter, dll) "
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "Why did you buy second hand / second hand (refurbished)?",
+                    visibleIf: "{Have you ever bought secondhand / secondhand (refurbished) goods?} = 'item1'",
+                    title: "Kenapa Anda membeli barang bekas / second (seken) / refurbished (rekondisi) ?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "Harga lebih murah"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Kondisi masih baik"
+                        },
+                        {
+                            name: "Column 3",
+                            title: "Barang lebih cepat didapat"
+                        },
+                        {
+                            name: "Column 4",
+                            title: "Proses membelinya lebih mudah "
+                        },
+                        {
+                            name: "Column 5",
+                            title: "Stok barang terbatas"
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Smartphone"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Tablet"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Komputer PC / Laptop"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Sepeda Motor"
+                        },
+                        {
+                            value: "Row 5",
+                            text: "Akun Virtual Game"
+                        },
+                        {
+                            value: "Row 6",
+                            text: "Televisi"
+                        },
+                        {
+                            value: "Row 7",
+                            text: "Jam Tangan / aksesoris"
+                        },
+                        {
+                            value: "Row 8",
+                            text: "Mainan / action figures "
+                        },
+                        {
+                            value: "Row 9",
+                            text: "Pakaian / Sepatu / Fesyen"
+                        },
+                        {
+                            value: "Row 10",
+                            text: "Furniture "
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Have you ever sold items that you have used before?",
+                    title: "Apakah Anda pernah menjual barang yang pernah Anda gunakan sebelumnya  ?",
+                    isRequired: true,
+                    choices: [{
+                            value: "item1",
+                            text: "Ya"
+                        },
+                        {
+                            value: "item2",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "What items did you sell and Where do you sell it?",
+                    visibleIf: "{Have you ever sold items that you have used before?} = 'item1'",
+                    title: "Barang apa saja yang pernah Anda jual dan dimana / bagaimana Anda menjual ?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "Menjual ke Toko Ritel (Offline)"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Secara langsung ke Teman / Kerabat / Kolega (Offline)"
+                        },
+                        {
+                            name: "Column 3",
+                            title: "melalui E-Commerce / Marketplace Online (Tokopedia, OLX, dll)"
+                        },
+                        {
+                            name: "Column 4",
+                            title: "melalui Social Media / Online (FB,  IG, Twitter, dll) "
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Smartphone"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Tablet"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Komputer PC / Laptop"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Sepeda Motor"
+                        },
+                        {
+                            value: "Row 5",
+                            text: "Akun Virtual Game"
+                        },
+                        {
+                            value: "Row 6",
+                            text: "Televisi"
+                        },
+                        {
+                            value: "Row 7",
+                            text: "Jam Tangan / aksesoris"
+                        },
+                        {
+                            value: "Row 8",
+                            text: "Mainan / action figures "
+                        },
+                        {
+                            value: "Row 9",
+                            text: "Pakaian / Sepatu / Fesyen"
+                        },
+                        {
+                            value: "Row 10",
+                            text: "Furniture "
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "How do you receive payment?",
+                    visibleIf: "{Have you ever sold items that you have used before?} = 'item1'",
+                    title: "Bagaimana Anda menerima pembayaran?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "COD / bertemu langsung"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Tanpa tatap muka / bertemu - Transfer via indomaret / alfa atau ATM / Bank"
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Smartphone"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Tablet"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Komputer PC / Laptop"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Sepeda Motor"
+                        },
+                        {
+                            value: "Row 5",
+                            text: "Akun Virtual Game"
+                        },
+                        {
+                            value: "Row 6",
+                            text: "Televisi"
+                        },
+                        {
+                            value: "Row 7",
+                            text: "Jam Tangan / aksesoris"
+                        },
+                        {
+                            value: "Row 8",
+                            text: "Mainan / action figures "
+                        },
+                        {
+                            value: "Row 9",
+                            text: "Pakaian / Sepatu / Fesyen"
+                        },
+                        {
+                            value: "Row 10",
+                            text: "Furniture "
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "What Makes You Sell at that Channel?",
+                    visibleIf: "{Have you ever sold items that you have used before?} = 'item1'",
+                    title: "Apa yang Membuat Anda menjual di tempat tersebut?",
+                    isRequired: true,
+                    columns: [{
+                            name: "Di Toko Ritel (Offline)",
+                            title: "Harga lebih murah / ada diskon"
+                        },
+                        {
+                            name: "Column 2",
+                            title: "Mempermudah customer mengecek kondisi barang"
+                        },
+                        {
+                            name: "Column 3",
+                            title: "Proses menjual lebih mudah"
+                        },
+                        {
+                            name: "Column 4",
+                            title: "Peluang lebih tinggi untuk laku dijual"
+                        }
+                    ],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Row 1",
+                            text: "Di Toko Ritel (Offline)"
+                        },
+                        {
+                            value: "Row 2",
+                            text: "Langsung dari Teman / Kerabat / Kolega (Offline)"
+                        },
+                        {
+                            value: "Row 3",
+                            text: "Mencari di E-Commerce / Marketplace Online (Tokopedia, OLX, dll)"
+                        },
+                        {
+                            value: "Row 4",
+                            text: "Melalui Social Media / Online (FB,  IG, Twitter, dll) "
+                        }
+                    ]
+                }
+            ]
+        }],
+        triggers: [{
+            type: "complete"
+        }],
+    }
+    window.survey = new Survey.Model(json);
+    window.config = this.initParams.apply(window);
+
+    survey.onComplete.add(function(result) {
+        config['result'] = result.data;
+        result.data && postAction(config);
+
+    });
+
+    $("#surveyElement").Survey({
+        model: survey,
+    });
+
+    //method
+    function initParams() {
+        window.param = {
+            xuserid: '',
+            xusertoken: '',
+            xinvitecode: '',
+            xpackage: '',
+            eventid: '',
+            origin: ''
+        };
+
+        this.param.xusertoken = this.getQueryString('X-User-Token') || this.getQueryString('x-user-token');
+        this.param.xuserid = this.getQueryString('X-User-Id') || this.getQueryString('x-user-id');
+        this.param.xinvitecode = this.getQueryString('x-invite-code') || this.getQueryString('X-Invite-Code');
+        this.param.xpackage = this.getQueryString('X-App-Package-Id') || this.getQueryString('x-app-package-id');
+      
+        this.param.origin = this.getQueryString('origin') || this.getQueryString('origin');
+        this.param.eventid = this.getEventId();
+        return param;
+
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        return r ? unescape(r[2]) : null;
+    }
+
+    function getEventId() {
+        let url = window.location.href;
+        return "acb89717-2bd0-4bfb-a251-82b80777be19";
+    }
+
+    function postAction(data) {
+        let requestHeader = {
+            "x-user-id": data.xuserid+'#'+data.xpackage,
+            "x-user-token": data.xusertoken,
+            "x-invite-code": data.xinvitecode,
+            "X-App-Package-Id": data.xpackage,
+            "Content-Type": "application/json"
+        };
+        data.result.origin = data.origin
+        debugger
+        let postUrl = 'https://api.baca.co.id/api/v1/non-app/questionaire' + data.eventid;
+        let requestOptions = {
+            type: "post",
+            url: postUrl,
+            data: JSON.stringify(data.result),
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.errorno == 0) {
+                    var coin = res.data.extraCoin;
+                    let tip = 'Anda mendapat ' + coin + ' Koin! Silahkan periksa di saldo Anda!'; //提交成功
+                    message(tip, 'OK', true, false);
+                    //TODO：埋点1 调用APP更新金币 待确认
+                    BacaAndroid.refreshCoinSystem();
+                }
+            },
+            error: function(error) {
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                }
+                let tip = 'Gagal mengirim, silahkan coba lagi'; //提交失败
+                message(tip, 'OK', false, true);
+                console.log(error);
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function message(desc, btnText, isNeedBack, isShadeClose) {
+        var _self = this;
+        var index = layer.open({
+            content: desc,
+            shadeClose: isShadeClose,
+            btn: [btnText],
+            yes: function() {
+                isNeedBack && _self.toApp();
+            }
+        })
+    }
+
+    function toApp() {
+        BacaAndroid.goBackToApp();
+    }
+    </script>
+</body>
+
+</html>

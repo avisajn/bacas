@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4938415401579749",
+    enable_page_level_ads: true
+  });
+</script>
+
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<style type="text/css">
+		html,body {
+			margin: 0px auto;
+			z-index: 1000;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="news"></div>
+	<script type="text/javascript" src="sea.js"></script>
+	<script type="text/javascript" src="js/seajs-css.js"></script>
+	<script type="text/javascript" src="js/seajs-preload.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			preload: ["js/MVC", "js/jquery", "js/underscore"]
+		})
+		seajs.use("./modules/index_main.js", function (main) {
+			MVC.install();
+		})
+	</script>
+</body>
+</html>

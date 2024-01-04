@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/static/images/icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="fb:app_id" content="367713750463138">
+    <meta name="og:url" content="/sales/deals/webapp_detail/{{ dealDetail.deal.id }}">
+    <meta name="og:title" content="Saya menemukan produk yang sangat murah!">
+    <meta name="og:description" content="{{ dealDetail.deal.title }}">
+    {% if dealDetail and dealDetail.dealarticleimages|length > 0 %}
+    <meta name="og:image" content="{{ dealDetail.dealarticleimages[0].image }}">
+    {% else %}
+    <meta name="og:image" content="/static/images/icon.png">
+    {% endif %}
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/detail.css">
+</head>
+<body>
+<div id="app">
+    {% if dealDetail %}
+    <div class="content">
+        <div class="row banner-background">
+            <img src="http://kasbon.cash/ads/flashgo.png" class="banner-logo pull-left">
+            <div class="banner-text pull-left">
+                Unduh Flash Go untuk <br>
+                mendapatkan <span class="banner-text-money">Rp800</span> sekarang!
+            </div>
+            <a href="#" class="close-button pull-right" onclick="closeDownload()"><img
+                    src="http://kasbon.cash/ads/flashgo/static/images/close.png"/></a>
+            <button class="download-button pull-right" onclick="gotoDownload('{{ inviter_id }}')">Unduh</button>
+        </div>
+        <!-- Slider -->
+        <div class="swiper-container">
+            <a href="#" onclick="back()">
+                <img class="back-botton"
+                     src="http://kasbon.cash/ads/flashgo/static/images/back_detail.png"/>
+            </a>
+            <div class="swiper-wrapper">
+                {% for image in dealDetail.dealarticleimages %}
+                <div class="swiper-slide">
+                    <img style="width: 100%" src="{{ image.image }}">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            {% if dealDetail.deal.off > 0 %}
+            <img class="discount-icon" src="http://kasbon.cash/ads/flashgo/static/images/discount_detail.png"/>
+            <span class="discount-text">{{ (dealDetail.deal.off * 100)|to_int }}% Off</span>
+            {% endif %}
+            <img class="source-icon" src="{{ dealDetail.ecommerce.logo }}"/>
+        </div>
+        <div class="price-block">
+            <div class="row">
+                <span class="pull-left price">Rp {{ dealDetail.deal.current_price|format_number }}</span>
+                {% if dealDetail.deal.type=='F' %}
+                <div class="pull-right">
+                    <div>
+                        <div class="countdown-block">
+                            <span class="countdown-field-detail pull-left" id="span-hours"></span>
+                            <span class="countdown-sep-detail pull-left">:</span>
+                            <span class="countdown-field-detail pull-left" id="span-minutes"></span>
+                            <span class="countdown-sep-detail pull-left">:</span>
+                            <span class="countdown-field-detail pull-left" id="span-seconds"></span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <span class="pull-left original-price">Rp {{ dealDetail.deal.original_price|format_number }}</span>
+                <span class="pull-right sales">Habis: {{ dealDetail.deal.sales }}</span>
+            </div>
+        </div>
+        <div class="row detail-title">
+      <span>
+        {{ dealDetail.deal.title }}
+      </span>
+        </div>
+        <div class="row review-block">
+            {% for i in range(5) %}
+            {% if dealDetail.deal.stars - i >= 1 %}
+            <img src="http://kasbon.cash/ads/flashgo/static/images/star_one.png"
+                 class="pull-left star-icon">
+            {% endif %}
+            {% if dealDetail.deal.stars - i > 0 and dealDetail.deal.stars - i < 1 %}
+            <img src="http://kasbon.cash/ads/flashgo/static/images/star_half.png"
+                 class="pull-left star-icon">
+            {% endif %}
+            {% if dealDetail.deal.stars - i <= 0 %}
+            <img src="http://kasbon.cash/ads/flashgo/static/images/star_zero.png"
+                 class="pull-left star-icon">
+            {% endif %}
+            {% endfor %}
+            <label class="pull-left comment-count">({{ dealDetail.deal.comments }})</label>
+            <!--<div class="pull-right location-block">-->
+            <!--<img div class="pull-left" src="http://kasbon.cash/ads/flashgo/static/images/location.png">-->
+            <!--<div class="pull-left">Jarkata</div>-->
+            <!--</div>-->
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="http://kasbon.cash/ads/flashgo/static/images/recommend.png" class="pull-left block-icon">
+                <span class="pull-left block-title">Rekomendasi</span>
+            </div>
+        </div>
+        {% if relativeDeals|length > 0 %}
+        <div class="row inline-scroll">
+            <div style="width: 200rem;">
+                {% for relativeDeal in relativeDeals %}
+                <a href="#" onclick="goToDetail('{{ relativeDeal.deal.id }}')">
+                    <div class="relative-deal-item pull-left">
+                        <img class="item-img" src="{{ relativeDeal.dealarticleimages[0].image }}">
+                        <div class="relative-item-title">{{ relativeDeal.deal.title }}</div>
+                        <div class="relative-item-price"> Rp {{ relativeDeal.deal.current_price|format_number }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+                <a href="#" onclick="gotoDownload('{{ inviter_id }}')">
+                    <div class="relative-deal-item pull-left">
+                        <img class="see-more-icon" src="http://kasbon.cash/ads/flashgo/static/images/right_arrow.png">
+                        <div class="see-more-text">Lihat Semua</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        <a href="#" onclick="gotoTarget('{{ dealDetail.deal.trackinglink }}' + '&inviter_id={{ inviter_id }}')">
+            {% if dealDetail.deal.type=='F' and to_datetime(dealDetail.flash.now) < to_datetime(dealDetail.flash.starttime) %}
+            <div class="dock-block" style="background: linear-gradient(to right, #FFC434, #FFA121)">
+                <img src="http://kasbon.cash/ads/flashgo/static/images/remind.png">
+                <span>Ingatkan saya</span>
+            </div>
+            {% else %}
+            <div class="dock-block">
+                <img src="http://kasbon.cash/ads/flashgo/static/images/cart.png">
+                <span>Beli</span>
+            </div>
+            {% endif %}
+        </a>
+    </div>
+    {% endif %}
+</div>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src="/static/js/detail.js"></script>
+<script type='text/javascript'>
+    swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+    '{% if dealDetail.deal.type=="F" %}'
+    showCountdown('{{ dealDetail.flash.endtime }}');
+    '{% endif %}'
+</script>
+</body>
+</html>

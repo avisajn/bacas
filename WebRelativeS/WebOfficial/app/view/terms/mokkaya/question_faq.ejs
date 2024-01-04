@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+  <script src="/public/js/bootstrap.min.js" defer></script>
+  <script src="/public/js/faq_data.js"></script>
+  <script src="/public/js/vue.min.js"></script>
+  <title><%=title%></title>
+  <style>
+    #app {
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      color: #000;
+      font-size: .85rem;
+      overflow: scroll;
+      line-height: 22px;
+      font-family: sans-serif;
+    }
+    .header-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .wrapper:not(:first-child) {
+      margin-top: 1rem;
+    }
+    .wrapper > .wrapper_header {
+      display: flex;
+      align-items: center;
+    }
+    .wrapper > .wrapper_header > img {
+      width: 1.1rem;
+      margin-right: .4rem;
+    }
+    .wrapper > .wrapper_header > span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .accordion-button,.accordion-body {
+      padding: 1rem 0;
+    }
+    .accordion-body > div:nth-child(1){
+      font-weight: bold;
+    }
+    .accordion-body > div:nth-child(2){
+      margin-top: .5rem;
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    .accordion-button:focus {
+      border:none !important;
+      border-color: none !important;
+      box-shadow: none !important;
+    }
+    @media screen and (min-width: 1200px) {
+      #app {
+       width: 50% !important;
+       margin: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 class="header-title">Artikel</h1>
+    <div class="wrapper" v-for="(count,index) in sources" :key="index">
+      <div class="wrapper_header">
+        <img :src="count.top_category_icon">
+        <span>{{count.top_category_in}}</span>
+      </div>
+      <div 
+      class=" accordion accordion-flush"
+      v-for="(title_count,_index) in count.list" 
+      :key="_index">
+        <div class="accordion-item">
+          <h2 class="accordion-header" :id="'panelsStayOpen-' +  _index">
+              <button 
+                class="accordion-button collapsed" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                :data-bs-target="'#flush-collapse' + _index + index"  
+                aria-expanded="false" 
+                :aria-controls="'#flush-collapse' + _index + index"
+              >
+                {{title_count.sub_category_in}}
+              </button>
+          </h2>
+          <div 
+            :id="'flush-collapse' + _index + index"
+            class="accordion-collapse collapse" 
+            :aria-labelledby="'flush-heading' + _index" 
+            data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"
+                v-for="(question,q_index) in title_count.list"
+                :key="q_index"
+                >
+                <div>{{question.question_in}}</div>
+                <div v-html="question.answer_in.replace(/\n/g,'</br>')"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load',function() {
+      new Vue({
+        data: {
+          sources
+        },
+      }).$mount('#app')
+    })
+  </script>
+</body>
+  
+</html> 

@@ -1,0 +1,813 @@
+@import '../common/common';
+body{
+	background: white;
+}
+
+.container-body{
+	margin-top: 50px;
+    /*position: fixed;*/
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+}
+
+.lan-me{
+	.praise-block{
+		direction: rtl;
+		.hand-o{
+			margin-left:0%;
+			margin-right: 10%;
+		}
+	}
+	.news-info .info>span{
+		float: right;
+	}
+	.news-info .info .share-detail{
+		float: left;
+	}
+	.list-block>.title{
+	    border-right: 8px solid #f43a3b;
+		text-align: right;
+		padding-right: 10px;
+		border-left: 0px;
+	}
+	.download-app-block,.like-share .text{
+		direction: rtl;
+	}
+	.list-block .data-list{
+		direction: rtl;
+	}
+	.hot-comment {
+		.img-left{
+	    	float: right;
+	    	background: rgba(0,0,0,.05) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAASFBMVEUAAADPz8/Nzc3MzMzNzc3Nzc3MzMzPz8/MzMzMzMzPz8/Nzc3MzMzNzc3Nzc3Nzc3Pz8/Nzc3Nzc3MzMzNzc3Nzc3Pz8/Nzc38ueqVAAAAF3RSTlMAEMDwYO9QQM+wMNCggN9/IJ/gr5BvTytZjt0AAAFESURBVDjLZVMJkoMwDCM2prmgS4/V/3+6aSaV066HgcFxJEtOlim2UyIQ5fz1nMfPaUCRlKQAdobv9d2Q1pENq8CuH8shQi5z4iKIE0g2rN+QKyxzv6lvdxC1QHxfnysQR3/E/8eyd30m5Hq+fHiyO+kklQT5wC2lG45Mktremt5WmW7dULUfQrRfdpCQBxLu7GJrDGEAoI605wIeixQSbpwa2yrSHsLRDa+VuCDNWdayLy8IKtSvgQWdgo7SQZaWxkIfC66hfa4o9PImL0msSECMQPIMHjSqn6QDLY5+smiUW70DKjWJ+nkT9WHlCBk6N0HMY1iUl00bFaHVMuV2eeHQlvHIeoTl+ZZbcNlpI8exbyj00DhJRoJpcED4PaGmTuomymcPMuz0DQqZr55yHASpCkS53yUCWrl9jq1KAYo8ZkV/Q5gPi66N//kAAAAASUVORK5CYII=) no-repeat 50%;
+	    	>img{
+    		    width: 52px;
+			    height: 52px;
+			    border: 0px;
+			    margin-top: -1px;
+			    margin-right: -1px;
+	    	}
+		}
+		.comment-info{
+			padding-left:0px;
+			padding-right:68px;
+			.info-tag {
+				.name{
+					float: right;
+				}
+				.numbers,.upimg{
+					float: left;
+				}
+			}
+		}
+	}
+}
+
+.body-load{
+	>.adsbygoogle{
+		display: none!important;
+	}
+	.detail-ads{
+		display: none!important;
+	}
+	/*.ad-rel-list{
+		display: none!important;
+	}*/
+}
+.newsInfoBody {
+  background: white;
+  min-width:320px;
+}
+.newsInfo-altas{
+	*{display: none!important;;}
+	.atlas-panel{
+		display: block;
+	}
+}
+.ad-rel-list{
+	width: 100%;
+	min-height: 50px;
+	height: auto;
+}
+.detail-ads{
+	text-align: center;
+	.default-img{
+		display: inline-block;
+	    width: 100%;
+	    height: 100%;
+		background-size: 295px!important;
+	}
+	>.yn-ads{
+		>.default-img{
+			background: #fff url(/common/img/ad-yn-320_250.jpg) no-repeat 50%;
+		}
+	}
+	>.bx-ads{
+		>.default-img{
+			background: #fff url(/common/img/ad-bx-320_250.jpg) no-repeat 50%;
+		}
+	}
+
+	>.me-ads{
+		>.default-img{
+			background: #fff url(/common/img/ad-me-320_250.jpg) no-repeat 50%;
+		}
+	}
+}
+
+.label-list{
+	display: none;
+	padding: .3rem;
+	>a{
+		display: inline-block;
+	    border: 0;
+	    margin-right: 5px;
+	    background: #ff424b;
+	    border-radius: 3px;
+	    text-align: center;
+	    padding: 5px 7px;
+	    margin-top: 5px;
+	    color: white;
+	}
+}
+
+.like-share{
+	position: relative;
+	line-height: 22px;
+	.close-share{
+		position: absolute;
+	    width: 22px;
+	    height: 22px;
+	    right: -9px;
+	    top: -30px;
+	    border-radius: 20px;
+	    background: #ff424b;
+	    >div{
+	    	width: 22px;
+    		height: 22px;	
+		    background-size: 12px;
+		    background-position-x: 5px;
+	    }
+	}
+	.text{
+		font-size: .5rem;
+		margin-top: 20px;
+	}
+	.icons{
+		padding: 5px;
+		margin-bottom: 10px;
+		>a{
+	      display: block;
+	      width: 33%;
+	      float: left;
+	      font-size: .35rem;
+	      >img{
+	        width:55px;
+	        height:55px;
+	      }
+
+	      >span{
+	        display: block;
+	        text-align: center;
+	        width: 100%;
+	        color:#757575;
+	        margin-top: 5px;
+	        font-size: .35rem;
+	      }
+		}
+	}
+}
+
+
+.news-info {
+  	padding: .3rem;
+  	.name{
+  		font-size: .6rem;
+		font-weight: normal;
+		line-height: 1.4;
+		padding-bottom: .2rem;
+  	}
+  	.info{
+  		color: #bdbbc0;
+	  	font-size: .28rem;
+	  	height: 20px;
+	  	margin-bottom: 10px;
+	  	line-height: 20px;
+
+	  	>span{
+	  		display: inline-block;
+  			float:left;
+	  	}
+
+	  	.dateicon{
+	  		background: url(/common/img/icons2.png) no-repeat;
+		 	background-size: 150px;
+		 	background-position-x: 10px;
+		 	background-position-y: -6px;
+		 	width: 31px;
+		 	height: 20px;
+	  	}
+
+	  	.date{
+	  		letter-spacing: .5px;
+	  	}
+
+	  	
+
+	  	.share-detail{
+	  		padding-bottom: .2rem;
+		 	float: right;
+		 	display: inline-block;
+		 	height: 20px;
+		 	min-width: 20px;
+		 	.share-facebook{
+		 		background: url(/common/img/facebook.png) no-repeat center center;
+		 	}
+		 	.share-line{
+		 		background: url(/common/img/line.png) no-repeat center center;
+		 	}
+		 	.share-whatsapp{
+		 		background: url(/common/img/whatsapp.png) no-repeat center center;
+		 	}
+		 	>a{
+		 		width: 20px;
+			  	display: inline-block;
+			  	height: 20px;
+			  	margin-right: 5px;
+			  	background-size: 20px!important;
+		 	}
+	  	}
+  	}
+
+  	.article-detail{
+  		*{
+  			font-size: 14px;
+		  	max-width: 100%!important;
+		  	line-height: 20px;
+		  	min-height: auto!important;
+  		}
+
+  		a{
+  			color : #39f;
+  		}
+
+  		li{
+  			list-style: inherit;
+  		}
+
+  		img{
+  			margin: 10px 0px;
+		  	width: 100%;
+		  	height: auto;
+		  	background: gray;
+  		}
+
+  		.videoIframe{
+  			width:100%;
+		  	min-height: 200px;
+		  	max-width: 460px!important;
+		  	height: auto;
+  		}
+  		[allowfullscreen="allowfullscreen"]{
+			margin-top: 25px;
+			margin-bottom: 25px;
+		}
+
+  	}
+  	
+}
+
+.toResource {
+	display: block;
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 11px 0px;
+	text-align: center;
+	color: #404040;
+	font-size: .35rem;
+}
+
+.praise-block{
+	padding: 20px 0px;
+  	text-align: center;
+  	border-bottom: 1px solid #fafafa;
+  	>a{
+  		display: inline-block;
+	  	width: 35%;
+	  	border: 1px solid #5f97f6;
+	  	padding: 5px;
+	  	border-radius: 15px;
+	  	color: #eeeeee!important;
+	  	background: #5f97f6;
+	  	font-size: 16px;
+	  	>span{
+	  		position: relative;
+		  	display: inline-block;
+		  	width: 25px;
+		  	height: 18px;
+		  	background: url(/common/img/icons2.png) no-repeat;
+		  	background-size: 111px;
+		  	margin-right: 10px;
+		  	background-position-y: -1px;
+		  	background-position-x: -54px;
+	  	}
+  	}
+
+  	.hand{
+  		>span{
+  			top: 2px;
+  		}
+  	}
+
+  	.over{
+  		background: #497cd1;
+  		border-color: #497cd1;
+  	}
+
+  	.hand-o{
+  		margin-left: 10%;
+
+  		>span{
+  			background-position-x: -30px;
+			background-position-y: -2px;
+			top: 4px;
+  		}
+  	}
+}
+
+.download-app-block{
+	margin: 10px .3rem 20px .3rem;
+	border: 1px solid #f43a3b;
+	background: #f43a3b;
+	border-radius: 5px;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	font-size: .33rem;
+	color:white;
+	display: block;
+	line-height: 19px;
+	padding-bottom: 7px;
+}
+.download-app-block:visited,.download-app-block:link,.download-app-block:active{color: white;}
+
+.list-block{
+	border-top: 10px solid #e5e5e5;
+	padding-top: 10px;
+
+	>.title{
+		border-left: 8px solid #f43a3b;
+	  	padding-left: 10px;
+	  	font-size: 15px;
+	}
+
+	.data-list{
+		padding: .3rem;
+
+		>section{
+			border-bottom: 1px solid rgba(221, 221, 221, 0.6);
+  			padding: 10px 0px;
+		}
+		>section:last-child{
+			border-bottom: 0px;
+		}
+	}
+}
+
+.hot-comment{
+	display: none;
+	.img-left{
+		overflow: hidden;
+		width: 50px;
+		height: 50px;
+		float: left;
+		border-radius: 50px;
+		>img{
+			width: 50px;
+  			height: 50px;
+		}
+	}
+
+	.read-more{
+		background: #f43a3b;
+		padding: 10px;
+		text-align: center;
+		color: white;
+		font-size: .33rem;
+		display: block;
+		line-height: 19px;
+		padding-bottom: 7px;
+	}
+
+	.data-list>section{
+		padding: 15px 0px;
+	}
+
+	.comment-info{
+  		width: 100%;
+    	padding-left: 68px;
+
+
+  		.comment{
+  			font-size: 14px;
+			color: #404040;
+			margin-top: 8px;
+			line-height: 20px;
+			clear: both;
+  		}
+
+  		.info-tag {
+  			height: 35px;
+  			color: gray;
+  			.upimg{
+				opacity: .65;
+				float: right;
+				background: url(/common/img/icons2.png) no-repeat;
+				background-size: 151px;
+				background-position-y: -6px;
+				background-position-x: -112px;
+				height: 20px;
+				width: 20px;
+				margin-top: 2px;
+			}
+
+			.name{
+	  			float: left;
+	      		line-height: 17px;
+
+	      		>b{
+	      			font-size: 13px;
+	    			font-weight: normal;
+	      		}
+	  		}
+
+
+	  		.numbers{
+	  			float: right;
+				line-height: 20px;
+				width: 20px;
+				text-align: center;
+				margin-top: 2px;
+				color:#969696;
+	  		}
+  		}
+	}
+}
+
+.rel-list{
+	.data-list{
+		.img-left{
+			display: inline-block;
+			width: 32%;
+			overflow: hidden;
+			vertical-align: middle;
+			height: 0px;
+			padding: 0 0 20%;
+			font-size: 0px;
+			line-height: 0;
+			position: relative;
+
+			>img{
+				min-height: 100%;
+			  	position: absolute;
+			  	vertical-align: middle;
+			  	width: 100%;
+			  	/*background: */
+			  	background: rgba(183, 183, 183, 0.48);
+			}
+		}
+		.title{
+			width: 65%;
+			display: inline-block;
+			margin-left: 1%;
+			line-height: 19px;
+			color: #656565;
+			vertical-align: middle;
+		}
+	}
+}
+
+.null-info {
+  	height: 500px;
+}
+
+
+
+.smallShare{
+  	background: url(/common/img/icons2.png) no-repeat;
+  	background-size: 150px;
+  	background-position-x: -19px;
+  	background-position-y: -6px;
+  	display: inline-block;
+  	width: 20px;
+  	height: 20px;
+}
+
+@media screen and (min-width:479px){
+  .newsInfoBody{
+    max-width: 480px;
+    margin: 0px auto;
+    .videoIframe{
+    	min-height: 350px!important;
+    }
+  }
+}
+
+/*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
+/*
+	Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
+*/
+/* pswp = photoswipe */
+.pswp {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  -ms-touch-action: none;
+  touch-action: none;
+  z-index: 1500;
+  -webkit-text-size-adjust: 100%;
+  /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
+  -webkit-backface-visibility: hidden;
+  outline: none; }
+
+.pswp .pswp__button{
+	display: none;
+}
+  .pswp * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .pswp img {
+    max-width: none; }
+
+/* style is added when JS option showHideOpacity is set to true */
+.pswp--animate_opacity {
+  /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
+  opacity: 0.001;
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--open {
+  display: block; }
+
+.pswp--zoom-allowed .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in; }
+
+.pswp--zoomed-in .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab; }
+
+.pswp--dragging .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing; }
+
+/*
+	Background is added as a separate element.
+	As animating opacity is much faster than animating rgba() background-color.
+*/
+.pswp__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: opacity; }
+
+.pswp__scroll-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  -ms-touch-action: none;
+  touch-action: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; }
+
+.pswp__zoom-wrap {
+  position: absolute;
+  width: 100%;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+  /* for open/close transition */
+  -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp__bg {
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--animated-in .pswp__bg,
+.pswp--animated-in .pswp__zoom-wrap {
+  -webkit-transition: none;
+  transition: none; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  -webkit-backface-visibility: hidden; }
+
+.pswp__item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+
+.pswp__img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 0;
+  left: 0; }
+
+/*
+	stretched thumbnail or div placeholder element (see below)
+	style is added to avoid flickering in webkit/blink when layers overlap
+*/
+.pswp__img--placeholder {
+  -webkit-backface-visibility: hidden; }
+
+/*
+	div element that matches size of large image
+	large image loads on top of it
+*/
+.pswp__img--placeholder--blank {
+  background: #222; }
+
+.pswp--ie .pswp__img {
+  width: 100% !important;
+  height: auto !important;
+  left: 0;
+  top: 0; }
+.pswp__counter{
+	margin-left:10px;
+	margin-top:10px;
+    color: rgba(255, 255, 255, 0.79);;
+}
+.pswp__caption__center{
+	max-height: 80px;
+	-webkit-overflow-scrolling: touch;
+	/* border: 1px solid white; */
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-left: 10px;
+	margin-right: 10px;
+    font-size: 15px;
+    line-height: 17px;
+	color: rgba(255, 255, 255, 0.79);
+    background: rgba(0, 0, 0, 0.47);
+}
+.info-text{
+    position: fixed;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	max-height: 80px;
+	/*border: 1px solid white;*/
+	z-index: 9999999;
+	background: rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255, 0.74);
+	font-size: 16px;
+	overflow-x: hidden;
+	overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.info-title{
+	top: 27px;
+    bottom: initial;
+}
+.pswp__caption{
+	position: absolute;
+	bottom: 10px;
+}
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: -8px;
+  color: #CCC; }
+
+.pswp__error-msg a {
+  color: #CCC;
+  text-decoration: underline; }
+
+#my-ad-slot{
+    position: fixed;
+    /*width:300px;*/
+    /*height:400px;*/
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999999999;
+    display: none;
+    text-align:  center;
+   
+    >div{
+    	position: absolute;
+	    top: 50%;
+	    margin-top: -240px;
+	    left: 50%;
+	    margin-left: -160px;
+	    z-index:2;
+    }
+    .mask{
+    	top:0px;
+    	margin:0px;
+    	left:0px;
+    	width:100%;
+    	height:100%;
+    	z-index:1;
+	 	background: rgba(255, 255, 255, 0.4);
+    }
+}
+#my-ad-slot.active{
+	display: block;
+}
+/*#my-ad-slot{
+	width:100px;
+	height:100px;
+	display: block;
+}*/
+@-webkit-keyframes layui-m-anim-scale {
+    0% {
+    opacity:0;
+    -webkit-transform:scale(.5);
+    transform:scale(.5)
+}
+100% {
+    opacity:1;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+}
+}@keyframes layui-m-anim-scale {
+    0% {
+    opacity:0;
+    -webkit-transform:scale(.5);
+    transform:scale(.5)
+}
+100% {
+    opacity:1;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+}
+}.layui-m-anim-scale {
+    animation-name:layui-m-anim-scale;
+    -webkit-animation-name:layui-m-anim-scale;
+    -webkit-overflow-scrolling:touch;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-duration:.2s;
+    animation-duration:.2s;
+}

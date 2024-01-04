@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%=title%></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        margin:0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        padding: 1em;
+      }
+      .container p {
+        line-height: 22px;
+        margin-bottom: 1em;
+      }
+      .container p:first-child {
+        text-align:center;
+      }
+      .container p:[text^=1] {
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"><%-termInfo%></div>
+  </body>
+</html>

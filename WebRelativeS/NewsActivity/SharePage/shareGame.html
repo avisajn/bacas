@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kreator Nama Keren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Lupakan nama karakter game yang membosankan! Download Baca Plus dan gunakan Kreator Nama Keren sekarang juga!">
+    <meta name="description" content="Lupakan nama karakter game yang membosankan! Download Baca Plus dan gunakan Kreator Nama Keren sekarang juga!">
+    <meta name="robots" content="all">
+    <meta name="baiduspider" content="all">
+    <meta name="googlebot" content="all">
+    <meta property="og:url" content="http://d2jyugty5j87ft.cloudfront.net/baca/sharetool.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kreator Nama Keren" />
+    <meta property="og:description" content="Lupakan nama karakter game yang membosankan! Download Baca Plus dan gunakan Kreator Nama Keren sekarang juga!" />
+    <meta property="og:image" content="https://nipidpraise.blob.core.windows.net/webviewbanner/web-img/nametools-share.png" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: Roboto-Bold, Roboto;
+    }
+
+    body {
+        height: 100%;
+        font-size: 0.34rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        display: block;
+    }
+
+    .wrapper-bottom {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+
+
+    }
+
+    .bgc {
+        width: 100%;
+    }
+
+    .wrapper-bottom .answer-btn {
+        font-size: 0.3rem;
+        font-weight: bold;
+        box-sizing: border-box;
+        padding: 0 .58rem;
+        text-align: center;
+        position: fixed;
+        bottom: 3rem;
+        width: 92%;
+        height: 1.1rem;
+        line-height: 1.1rem;
+        margin-left: 4%;
+        color: #fff;
+        background-color: #0074FF;
+        border-radius: 5px;
+    }
+
+    .answer-btn {
+        animation: breathe 1s infinite;
+    }
+
+    @keyframes breathe {
+        from {
+            transform: scale(.91, .91);
+        }
+
+        50% {
+            transform: scale(1, 1);
+        }
+
+        80% {
+            transform: scale(.91, .91);
+        }
+
+        to {
+            transform: scale(.91, .91);
+        }
+    }
+
+    .header {
+        display: flex;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .article {
+        display: flex;
+        height: 1.2rem;
+        font-size: .35rem;
+    }
+
+    .logo {
+        width: 16%;
+        margin-left: .1rem;
+    }
+
+
+    .logo-img {
+        width: 100%;
+        box-sizing: border-box;
+        padding: .2rem;
+    }
+
+    .content {
+        flex: 6;
+        align-items: center;
+        padding: 3% 0;
+    }
+
+    .content .top {
+        font-weight: bold;
+        font-size: .27rem;
+    }
+
+
+    .content .item {
+        font-size: .26rem;
+        color: #666666;
+    }
+
+    .openbtn {
+        flex: 2;
+        align-items: center;
+        display: -webkit-flex;
+        justify-content: center;
+    }
+
+    .text-open {
+        color: #fff;
+        padding: 2px 10px 7px;
+        background-color: #FF4808;
+        border-radius: .5rem;
+    }
+
+    .article {
+        margin-top: 1.35rem;
+
+    }
+
+    .article-list {
+        padding: .1rem .3rem;
+    }
+
+    .more img {
+        width: .5rem;
+        margin-top: .2rem;
+    }
+
+    .author-pic {
+        width: 80%;
+
+    }
+
+    .video,
+    .video-content {
+        width: 100%;
+        height: 4rem;
+    }
+
+    .time {
+        color: #999999;
+        font-size: .2rem;
+    }
+
+    .images,
+    .images-item {
+        width: 100%
+    }
+
+    @media screen and (min-width:1200px) {
+        body {
+            width: 40%;
+            margin: auto;
+        }
+
+        .header {
+            width: 40%;
+        }
+
+        .wrapper-bottom {
+            display: none;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" onclick="download()">
+        <header class="header">
+            <div class="logo">
+                <img src="https://wvb.baca.co.id/web-img/logo.png" class="logo-img" alt="">
+            </div>
+            <div class="content">
+                <p class="top">Baca Plus</p>
+                <p class="item">Komunitas game pilihan anak muda!</p>
+            </div>
+            <div class="openbtn answer-btn">
+                <div class="text-open">open</div>
+            </div>
+        </header>
+        <div>
+            <div class="article">
+                <div class="logo" style="  border-radius: 50%;">
+                    <img src="https://wvb.baca.co.id/web-img/author.png" class="author-pic" alt="">
+                </div>
+                <div class="content">
+                    <p class="author-name"></p>
+                    <p class="time"></p>
+                </div>
+                <div class="more">
+                    <img src="https://wvb.baca.co.id/web-img/more.png" alt="">
+                </div>
+            </div>
+            <div class="article-list">
+                <div class="article-content"></div>
+            </div>
+            <div class="video">
+                <iframe src="" class="video-content"></iframe>
+            </div>
+            <div class="images">
+                <img src="" alt="" class="images-item">
+            </div>
+        </div>
+        <div class="wrapper-bottom">
+            <img class="bgc" src="https://wvb.baca.co.id/web-img/down.png" alt="">
+            <div class="answer-btn" onclick="redirect()">Buka Baca Plus untuk melihat konten</div>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var docEl = document.documentElement,
+            docBody = document.body,
+            baseFontSize = 100,
+            pageMaxWidth = 750,
+            rootHtml = document.getElementsByTagName('html')[0],
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = Math.min(
+                    docEl.clientWidth || docBody.clientWidth,
+                    window.innerWidth,
+                    pageMaxWidth
+                );
+                var resFont = baseFontSize * (clientWidth / pageMaxWidth);
+                rootHtml.style.fontSize = resFont + 'px';
+            };
+        if (!window.addEventListener) return;
+        window.addEventListener(resizeEvt, recalc, false);
+        recalc();
+    })();
+
+    $(function() {
+        let id = location.href.substring(location.href.lastIndexOf('/'));
+        var urlStr = location.pathname;
+        var index = urlStr.lastIndexOf('\/');
+        urlStr = urlStr.substring(index + 1, urlStr.length);
+
+        $.ajax({
+            type: "GET",
+            url: "http://api.community.baca.co.id/v1/articles/" + 1254,
+            data: '',
+            dataType: "json",
+            success: function(datas) {
+                const date = new Date(datas.data.PublishTime * 1000)
+                const Y = date.getFullYear()
+                const M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/'
+                const D = date.getDate() + '/'
+                var time = D + M + Y
+                $('.time').html(time);
+                if (datas.data.Type == 3) {
+                    $(".video-content").attr("src", datas.data.Videos[0].DirectUrl);
+                }
+                if (datas.data.Type == 1) {
+                    $(".video").remove();
+                    datas.data.title == "" ? $('.article-content').html(datas.data.Content.substring(0, 400) + '...') : $('.article-content').html(datas.data.Title.substring(0, 400) + '...');
+                }
+                if (datas.data.Type == 2) {
+                    $(".video").remove();
+                    $('.article-content').html(datas.data.Title.substring(0, 400) + '...')
+                    $(".images-item").attr("src", 'https://img.cdn.community.baca.co.id/' + datas.data.Images[0].ImageGuid);
+                }
+                if (datas.data.Type == 4) {
+                    $(".video").remove();
+                    $('.article-content').html(datas.data.Content.substring(0, 400) + '...')
+                }
+                $(".author-pic").attr("src", datas.data.User.FaceUrl);
+            }
+        });
+    })
+
+    function download() {
+        // gtag('event', 'click', {
+        //     'event_category': 'goGooglePlay',
+        //     'event_label': 'Download',
+        //     'event_callback': function() {
+        //         console.log('goGooglePlay')
+        //     }
+        // });
+        //  gtag('event', 'click', {
+        //     'event_category': 'goApp',
+        //     'event_label': 'WakeApp',
+        //     'event_callback': function() {
+        //         console.log('goApp')
+        //     }
+        // });
+        // window.open('https://app.appsflyer.com/com.jakarta.baca.lite?pid=wap&c=name')
+    };
+
+    function redirect() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(ua)) {
+            var _url = 'baca://';
+            if (window.newsId) {
+                _url = _url + 123;
+            }
+            var now = new Date().valueOf();
+            setTimeout(function() {
+                if (new Date().valueOf() - now > 3050) return;
+                window.location = 'https://itunes.apple.com/us/app/baca-berita-video-dan-humor/id1180423098?l=zh&ls=1&mt=8';
+            }, 3000);
+            window.location = _url;
+        } else if (/android/.test(ua)) {
+            var now = new Date().valueOf();
+            setTimeout(function() {
+                if (new Date().valueOf() - now > 400) return;
+                window.location.href = 'https://app.appsflyer.com/com.jakarta.baca.lite?pid=communitywap&c=${source}';
+            }, 200);
+            console.log('baca://baca.co.id/link/com.jakata.baca.activity.GameHomeActivity?key_article_id_l=' + $ { id } + '&nipEventArgs=%7b%22event_name%22%3a%22share%22%2c%22utm_source%22%3a%22' + $ { source } + '%22%7d')
+            window.location.href = 'baca://baca.co.id/link/com.jakata.baca.activity.GameHomeActivity?key_article_id_l=' + $ { id } + '&nipEventArgs=%7b%22event_name%22%3a%22share%22%2c%22utm_source%22%3a%22' + $ { source } + '%22%7d';
+        }
+    }
+    </script>
+</body>
+
+</html>

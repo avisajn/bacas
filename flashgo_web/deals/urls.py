@@ -1,0 +1,37 @@
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('get_channels/', views.get_channels, name='get_channels'),
+    path('get_channel_feeds/', views.get_channel_feeds, name='get_channel_feeds'),
+    path('get_deal_detail/', views.get_deal_detail, name='get_deal_detail'),
+    path('get_cheapest_feeds/', views.get_cheapest_feeds, name='get_cheapest_feeds'),
+    path('get_recommendation_feeds/', views.get_recommendation_feeds, name='get_recommendation_feeds'),
+    path('get_relative_recommendation/', views.get_relative_recommendation, name='get_relative_recommendation'),
+    path('get_search_recommendation/', views.get_search_recommendation, name='get_search_recommendation'),
+    path('flash_deal_top_feeds/', views.flash_deal_top_feeds, name='flash_deal_top_feeds'),
+    path('flash_deal_detail/', views.flash_deal_detail, name='flash_deal_detail'),
+    path('ongoing_flash_deal_feeds/', views.ongoing_flash_deal_feeds, name='ongoing_flash_deal_feeds'),
+    path('comming_flash_deal_feeds/', views.comming_flash_deal_feeds, name='comming_flash_deal_feeds'),
+    path('set_user_browsing_history/', views.set_user_browsing_history, name='set_user_browsing_history'),
+    path('get_user_browsing_history/', views.get_user_browsing_history, name='get_user_browsing_history'),
+    path('load_deal_details/', views.load_deal_details, name='load_deal_details'),
+    path('webapp/detail/<int:deal_id>/', views.webapp_detail, name='webapp_detail'),
+    path('default_deal_image.png', views.default_deal_image),
+    path('get_top_seller/', views.get_top_seller, name='get_top_seller'),
+    path('get_webapp_top_seller/', views.get_webapp_top_seller, name='get_top_seller'),
+    path('share_deal_top_feeds/', views.share_deal_top_feeds, name='share_deal_top_feeds'),
+    path('get_share_links/', views.get_share_links, name='get_share_links'),
+    path('topic_feed/<int:topic_id>', views.get_topic_deals_feed, name='get_topic_deals_feed'),
+    path('v2/detail/<int:deal_id>', views.get_deal_detail_v2, name='get_deal_detail_v2'),
+    path('v2/channel/<str:channel_id>', views.get_channel_feeds_v2, name='get_channel_feeds_v2'),
+    path('v2/recommend', views.get_recommendation_feeds_v2, name='get_recommendation_feeds_v2'),
+    path('v2/relative/<int:deal_id>', views.get_relative_deals, name='get_relative_deals'),
+    path('v2/flash', views.get_flash_deals, name='get_flash_deals'),
+    path('v2/get_user_browsing_history', views.get_user_browsing_history_v2, name='get_user_browsing_history_v2'),
+    path('v2/topic_feed/<int:topic_id>', views.get_topic_deals_feed_v2, name='get_topic_deals_feed_v2'),
+    path(r'offer-income', views.get_user_offer_income, name='get_user_offer_income'),
+    path(r'offer/order-records', views.get_user_offer_records, name='get_user_offer_records'),
+    path(r'offer-link/<int:deal_id>', views.get_offer_share_link, name='get_offer_share_link'),
+]

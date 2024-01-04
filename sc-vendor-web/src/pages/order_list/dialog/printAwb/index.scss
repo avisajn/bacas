@@ -1,0 +1,30 @@
+@import '../../../../theme.scss';
+
+.result-awb {
+  font-size: 22px;
+  table {
+    margin-top: 50px;
+    width: 100%;
+
+    tr:first-child {
+      background-color: #eee;
+      color: #666;
+    }
+
+    td,
+    th {
+      border: 1px solid $borderColor;
+      text-align: left;
+      padding: 8px;
+      width: 180px;
+      text-align: center;
+    }
+    .action {
+      color: #fff;
+    }
+
+    .action-2 {
+      background-color: $actionColor-error;
+    }
+  }
+}

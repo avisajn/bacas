@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>topic</title>
+</head>
+<style type='text/css'>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 0rem;
+}
+
+img {
+    display: block;
+}
+
+.content {
+    font-family: Roboto-Bold, Roboto;
+}
+
+.feed {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+    height: 6.8rem;
+}
+
+.item {
+    font-size: 0px;
+    position: relative;
+}
+
+.item-width {
+    flex-shrink: 0;
+    height: 1rem;
+    width: .7rem;
+}
+
+.item:nth-child(1) {
+    margin-left: .5rem;
+}
+
+.item:last-child {
+    margin-right: .5rem;
+}
+
+.game-icon-image {
+    height: 6.8rem;
+}
+
+.play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.1rem;
+    margin-left: -.55rem;
+    margin-top: -.55rem;
+    opacity: 0;
+}
+
+.info {
+    padding: 0rem 1.05rem 0rem .5rem;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1rem;
+}
+
+.feed::-webkit-scrollbar {
+    display: none !important
+}
+
+.title {
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.description {
+    font-size: .73rem;
+    margin-top: .4rem;
+    margin-bottom: 1.05rem;
+    word-break: break-word;
+}
+</style>
+
+<body id="banner">
+    <div id="content" class="content"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+(function() {
+    function w() {
+        var r = document.documentElement;
+        var a = r.getBoundingClientRect().width;
+        if (a > 750) {
+            a = 750;
+        };
+        rem = a / 18;
+        r.style.fontSize = rem + "px"
+    }
+    w();
+    window.addEventListener("resize", function() {
+        w()
+    }, false);
+    document.addEventListener("DOMContentLoaded", function(event) {
+        dataJson()
+    })
+})();
+
+
+function getQueryStringByName(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+function guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+function dataJson(data) {
+
+    const id = getQueryStringByName('gameId')
+    window.guid = guid()
+    let postUrl = 'https://api.skuy.games/v1/games/' + id + '/info'
+    // let postUrl = 'https://staging.api.skuy.games/v1/games/' + id + '/info'
+    $.ajax({
+        type: "get",
+        cache: false,
+        url: postUrl,
+        type: "get",
+        dataType: "json",
+        success: function(res) {
+
+            const obj = res.data.Resources
+
+            $('#content').html('');
+
+            let html = ''
+            let gameId = getQueryStringByName('gameId')
+
+
+
+            if (obj.length > 0) {
+                obj.forEach((item, idx) => {
+                   // Statistics
+                    try {
+                        let fromPage = BacaAndroid.getFromPage()
+                        let sendEventString = {
+                            "event_name": "game_info_media_show",
+                            "game_id": gameId,
+                            "guid": window.guid,
+                            "feed": fromPage,
+                        }
+                        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+                    } catch (err) {
+
+                    }
+                    if (`${item.Type}` == 0) {
+                        var insert_video = `<img data-original="${item.CoverUrl}" alt="" id="cover" class="game-icon-image lazy"><img src="https://wvb.baca.co.id/webview-image/tab_info_video.png" alt="" class="play" id="play"/>`
+                    } else {
+                        var insert_video = `<img data-original="${item.ResourceUrl}" alt="" id="cover" class="game-icon-image lazy">`
+                    }
+                    html += `<div class="item" onclick="openApp('${item.ResourceUrl}', '${item.Id}', '${item.Type}', '${item.CoverUrl}', '${idx+1}')" id="item">` + insert_video + `
+                    </div>
+                    <div class="item-width"></div>`;
+                })
+                const _html = `<div class="feed" id="feed">` + html + `</div> 
+                        <div class="info">
+                            <p class="title gameTitle">Tentang game ini</p>   
+                            <div class="description">${res.data.Description}</div>
+                            <p class="title versionTitle">Update baru</p>                               
+                            <div class="description">${res.data.VersionDecription}</div>
+                        </div>`
+
+                $('#content').html($(_html));
+
+                if (`${res.data.Description}` == "") {
+                    $('.gameTitle')[0].style.display = 'none'
+                }
+
+                if (`${res.data.VersionDecription}` == "") {
+                    $('.versionTitle')[0].style.display = 'none'
+                }
+                setTimeout(() => {
+                    $('.play').each((idx, item) => {
+                        $('.play')[idx].style.opacity = '1'
+                    })
+                }, 100)
+
+                $(function() {
+                    $("img.lazy").lazyload({ threshold: 1000000000000000, effect: "fadeIn" });
+                });
+
+            }
+        },
+        error: function(error) {
+
+        }
+    });
+}
+
+
+
+
+function openApp(url, id, type, cover, idx) {
+
+    let gameId = getQueryStringByName('gameId')
+    let fromPage = BacaAndroid.getFromPage()
+
+
+    if (type == 0) { //video
+        var sourceId = parser(url)
+        BacaAndroid.openVideo(2, sourceId)
+        // click
+        let sendEventString = {
+            "event_name": "game_info_media_click",
+            "game_id": gameId,
+            "url": url,
+            "guid": window.guid,
+            "feed": fromPage,
+            "type": 'video'
+        }
+        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+
+    } else {
+
+        BacaAndroid.openImage(url, false)
+        
+        let sendEventString = {
+            "event_name": "game_info_media_click",
+            "game_id": gameId,
+            "url": url,
+            "guid": window.guid,
+            "feed": fromPage,
+            "type": 'video'
+        }
+        BacaAndroid.sendEvent(JSON.stringify(sendEventString))
+    }
+}
+
+function parser(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\/)|(\?v=|\&v=))([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if (match && match[8].length == 11) {
+        return match[8]
+    }
+}
+</script>
+
+</html>

@@ -1,0 +1,235 @@
+html, body {
+	font-size: 12px;
+	/* overflow-wrap: hidden; */
+	/* margin-right: 1rem; */
+	padding-top: 27px;
+	color: #333333;
+
+
+}
+.news .up_time {
+	text-align: center;
+	font-size: 0.7rem;
+	color: #999999;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+ul li {
+	list-style: none;
+}
+.news {
+	width: 100%;
+	/* overflow: hidden; */
+}
+.news .title {
+	line-height: 27px;
+	text-align: center;
+	font-size: 1.8rem;
+	margin-top: 2.8rem;
+	font-weight: bold;
+	margin-left: 1rem;
+	margin-top: .5rem;
+		
+}
+.news .up_time .min {
+	margin-left: 10px;
+}
+.news .big {
+	padding: 1rem 16px;
+	width: 100%;
+	max-width: 100%!important;
+    line-height: 20px;
+    min-height: auto!important;
+    border-radius: 20px;
+	
+
+}
+
+.news .content {
+	font-size: 1.5rem;
+	padding: 1rem 16px;
+	line-height: 29px;
+
+}
+.news .content .big_two {
+	/* padding: 1rem 16px; */
+	width: 100%;
+	max-width: 100%!important;
+    line-height: 20px;
+    min-height: auto!important;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+.news .content .content_one {
+	margin-bottom: 30px;
+}
+.news .like {
+	color: #999999;
+	font-size: 12px;
+	margin: 10px 16px 30px 16px;
+	position: relative;
+}
+.news .like .span_two {
+	position: absolute;
+	right: 50px;
+	margin-right: 45px;
+}
+.news .like .span_two:after {
+	width: 20px;
+	height: 20px;
+	content: '';
+
+}
+.news .like .span_three {
+	position: absolute;
+	right: 10px;
+	margin-right: 45px;
+}
+.news .icon {
+	width: 100%;
+	margin: 0px 38px 30px 38px;
+	box-sizing: border-box;
+}
+.news .icon ul {
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 6px;
+}
+.news .icon ul li {
+	float: left;
+	height: 51px;
+	list-style: none;	
+	margin-right: 50px;
+	position: relative;
+	box-sizing: border-box;
+
+}
+.news .icon ul li a {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.news .icon ul li span {
+	position: absolute;
+	left: 0;
+	top: 29px;
+}
+.news .icon ul li.last {
+	margin-right: 0px;
+
+}
+.news .icon p {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+}
+/* .news .icon ul li span {
+	float: left;
+	width: 25%;
+	list-style: none;	
+
+} */
+
+.news .line {
+	height: 3px;
+	background-color: #f5f5f5;
+	width: 100%;
+}
+.news .related {
+	padding-left: 16px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.news .related .top {
+	margin-top: 16px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	color: #999999;
+	border-bottom: 1px solid #e5e5e5;
+}
+.news .related ul li {
+	font-size: 15px;
+	color: #2e2e2e;
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	line-height: 44px;
+}
+.news .related ul li a {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+
+}
+.news .related ul li:last-child {
+	border-bottom: none;
+	color: red;
+}
+.news .hotcoments {
+	padding-left: 16px;
+	box-sizing: border-box;
+}
+.news .hotcoments .hot_top {
+	display: inline-block;
+	padding-top: 21px;
+	font-size: 12px;
+	color: #999999;
+}
+.news .hotcoments ul li {
+	box-sizing: border-box;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #f5f5f5;
+}
+.news .hotcoments ul li img {
+	display: block;
+	background-color: pink;
+
+	float: left;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.news .hotcoments ul li .more .username {
+	font-size: 13px;
+	margin-left: 10px;
+	color: #999999;
+}
+.news .hotcoments ul li .more .time {
+	margin-left: 40px;
+
+}
+.news .hotcoments ul li .more .cont {
+	font-size: 15px;
+	color: #333333;
+	margin-top: 5px;
+	margin-left: 40px;
+	white-space:normal; 
+	width:200px;
+}
+.morehot {
+	line-height: 53px;
+	font-size: 13px;
+	color: #3399ff;
+	text-align: center;
+	margin-top: -10px;
+
+}
+.recent .re_top {
+	font-size: 11px;
+	line-height: 37px;
+	margin-top: 8px;
+	margin-left: 16px;
+	color: #999999;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e5e5e5;
+}

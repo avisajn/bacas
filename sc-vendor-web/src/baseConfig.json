@@ -1,0 +1,42 @@
+{
+  "base_url": {
+    "dev": "https://test.api.web.vendor.mokkaya.com",
+    "prod": "https://api.web.vendor.mokkaya.com"
+  },
+  "firebase": {
+    "dev": {
+      "apiKey": "AIzaSyABxYnt6-P9My7c5giJuMGip7VFMUjA4Nk",
+      "authDomain": "nip-sc-supplier-test.firebaseapp.com",
+      "databaseURL": "https://nip-sc-supplier-test.firebaseio.com",
+      "projectId": "nip-sc-supplier-test",
+      "storageBucket": "nip-sc-supplier-test.appspot.com",
+      "messagingSenderId": "55563450039",
+      "appId": "1:55563450039:web:460f8e1f664eb1c384bf32",
+      "measurementId": "G-EDDGYX9MFY"
+    },
+    "prod": {
+      "apiKey": "AIzaSyBduKq4S2cutHoWECPBHLvaXBpsZSjzJko",
+      "authDomain": "nip-social-ecommerce-supplier.firebaseapp.com",
+      "databaseURL": "https://nip-social-ecommerce-supplier.firebaseio.com",
+      "projectId": "nip-social-ecommerce-supplier",
+      "storageBucket": "nip-social-ecommerce-supplier.appspot.com",
+      "messagingSenderId": "554110670092",
+      "appId": "1:554110670092:web:cb4eb93ced50a2a0cfa529",
+      "measurementId": "G-JXF7RNZ710"
+    }
+  },
+  "defaultLanguage": {
+    "dev": "yn",
+    "prod": "yn"
+  },
+  "resellerDomain": {
+    "dev": "https://test.mokkaya.com",
+    "prod": "https://mokkaya.com"
+  },
+  "logisiticDomain": {
+    "dev": "https://test.mokkaya.com/logisitics/",
+    "prod": "https://mokkaya.com/logisitics/"
+  },
+  "service_whatsapp": "6281315232587",
+  "whatsapp_url": "https://wa.me/"
+}

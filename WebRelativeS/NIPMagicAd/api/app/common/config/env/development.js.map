@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/common/config/env/development.js"],"names":[],"mappings":"AAAA;;;kBAEe;AACb;AADa,C","file":"development.js","sourcesContent":["'use strict';\n\nexport default {\n  // resource_on: false\n};"]}

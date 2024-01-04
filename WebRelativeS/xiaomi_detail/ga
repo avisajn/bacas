@@ -1,0 +1,58 @@
+
+// 列表页：
+window.ga('send', 'event', 'list', 'autoRefresh',     <name>); 	// 自动下拉刷新
+window.ga('send', 'event', 'list', 'pulldownRefresh', <name>); 	// 主动下拉刷新
+window.ga('send', 'event', 'list', 'clickRefresh',    <name>); 	// 单击刷新 
+window.ga('send', 'event', 'list', 'switchCategory',  <name>); 	// 切换栏目
+window.ga('send', 'event', 'list', 'changeCategories');	     	// 进入选择栏目页
+
+window.ga('send', 'event', 'detail', 'click', type, newsId); 	// 详情页点击, type = ['list', 'relative', 'organic']
+window.ga('send', 'event', 'detail', 'fromList' ,window.newsId); // 从列表页进入的新闻
+window.ga('send', 'event', 'detail', 'direct' ,window.newsId); // 直接进入到详情页：没有跳转到APP中
+window.ga('send', 'event', 'detail', 'directToApp' ,window.newsId); // 直接进入详情页：并跳转到APP中
+
+
+
+window.ga('send', 'event', 'list-btn', 'clickDownload', 'android'); 	// 列表－下载：android
+window.ga('send', 'event', 'list-btn', 'clickDownload', 'ios');			// 列表－下载：Ios
+window.ga('send', 'event', 'list-btn', 'clickDownload', 'other');		// 列表－下载：其它
+window.ga('send', 'event', 'list-btn', 'closeDownload'); 				// 列表－关闭
+
+window.ga('send', 'event', 'detail-btn', 'clickDownload', 'android'); 	// 详情页－下载：android
+window.ga('send', 'event', 'detail-btn', 'clickDownload', 'ios');		// 详情页－下载：Ios
+window.ga('send', 'event', 'detail-btn', 'clickDownload', 'other');		// 详情页－下载：其它
+window.ga('send', 'event', 'detail-btn', 'closeDownload'); 				// 详情页－关闭
+window.ga('send', 'event', 'detail-btn', 'readOriginal' ,newsId); 		// 详情页－阅读原文
+
+window.ga('send', 'event', 'detail-btn', 'clickLike' ,'true'  ,newsId); 		// 详情页－单击赞
+window.ga('send', 'event', 'detail-btn', 'clickLike' ,'false' ,newsId); 		// 详情页－单击踩
+window.ga('send', 'event', 'detail-btn', 'clickLike' ,'share' ,newsId); 		// 详情页－单击赞或踩后参与分享的次数
+
+
+window.ga('send', 'event', 'search', 'key', value); 	// 搜索页面－关键字统计
+
+
+
+
+
+
+
+window.ga('send', 'event', 'intro-btn', 'clickDownload', 'android'); 	// 引导页－下载：android
+window.ga('send', 'event', 'intro-btn', 'clickDownload', 'ios');		// 引导页－下载：Ios
+window.ga('send', 'event', 'intro-btn', 'clickDownload', 'other');		// 引导页－下载：其它引导页
+
+window.ga('send', 'event', 'intro-btn', 'intoSite');		// 引导页－进入官网
+window.ga('send', 'event', 'intro-btn', 'intoSiteIntro');		// 引导页－进入官网Intro页
+
+window.ga('send', 'event', 'error');		// 404页面
+window.ga('send', 'event', 'error-btn', 'clickDownload', 'android'); 	// 详情页－下载：android
+window.ga('send', 'event', 'error-btn', 'clickDownload', 'ios');		// 详情页－下载：Ios
+window.ga('send', 'event', 'error-btn', 'clickDownload', 'other');		// 详情页－下载：其它
+
+
+window.ga('send', 'event', 'info-share-btn', 'share-click', type, newsId);	// 点标签底下分享 type == ['title', 'float' ,'like']
+window.ga('send', 'event', 'info-share-btn', 'share', type, newsId);	// 分享类型 type = ['facebook', 'twitter', 'whatsapp']
+
+请求新闻的时候加3个参数：
+pageId、pageIndex，返回的json中自带
+index，点击的新闻是列表中的第几条 （从0开始）

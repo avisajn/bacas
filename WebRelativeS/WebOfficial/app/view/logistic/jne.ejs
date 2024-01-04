@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%= formData.combined_key || formData.order_no %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <meta name="description" content="mokkaya express label info">
+    <script src="/public/js/barcode.min.js"></script>
+    <script src="/public/js/ajax.js"></script>
+    <link rel="stylesheet" href="/public/css/logistic.css">
+    <link rel="stylesheet" href="/public/css/normalize.css">
+    <script src="/public/js/google.js"></script>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+    </div>
+    <pre style="display: none;"><%=dataSource%></pre>
+    <div style="display: none;" class="api"><%=apiUrl%></div>
+    <div class="container">
+      <div class="table">
+        <div class="table_line">
+          <div class="">
+            <img src="/public/img/logistic/JNE_logo.jpg" alt="">
+          </div>
+          <div>
+            <div class="img_wrap">
+              <img src="" alt="" id="barcode1" data-code="<%= formData.express_order_num %>">
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div>
+            <span>Nomor resi:</span>
+          </div>
+          <div>
+            <div>
+              <p id="orderId"><%= formData.express_order_num %></p>
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div class="">
+            <span>Penerima:</span>
+          </div>
+          <div class="two">
+            <div class="">
+              <p><%= formData.receiver_name || '-' %></p>
+              <p><%= formData.recipient_address %>, <%= formData.recipient_city %>, <%= formData.recipient_sub_district %>, <%= formData.recipient_province %>, <%= formData.recipient_code %><%=formData.recipient_landmark ? `(${formData.recipient_landmark})` : ''%></p>
+            </div>
+            <div class="">
+              <span><%= formData.city_code || '-' %></span>
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div class="">
+            <span>Telepon:</span>
+          </div>
+          <div class="">
+            <div>
+              <p><%=formData.telepon || '-'%></p>
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div class="">
+            <span>Pengirim:</span>
+          </div>
+          <div class="">
+            <div>
+              <%if (formData.source === 3){%>
+                <p>Ini adalah hadiah gratis dari [MOKKAYA], sebagai penghargaan atas pencapaian Anda bersama kami!</p>
+              <%}else{%>
+                <p><%=formData.sender_name || '-'%> <%= formData.reseller_phone_number || '-' %></p>
+              <%}%>
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div class="">
+            <span><%=formData.user_payment_type === 3 ? 'COD' : 'NON COD'%></span>
+          </div>
+          <div class="">
+            <div style="line-height: 40px;">
+              <%=
+                formData.user_payment_type === 3 ?
+                formData.cod_label
+                :
+                'NON COD'
+                %>
+            </div>
+          </div>
+        </div>
+        <div class="table_line">
+          <div>
+            <span>Kode pesanan:</span>
+          </div>
+          <div>
+            <div class="img_wrap">
+              <div style="padding-bottom: 0;">
+                <p style="text-align: left; margin-bottom: 0;" id="orderNo"><%= formData.combined_key || formData.order_no %></p>
+              </div>
+              <img src="" alt="" id="barcode2" data-code="<%=formData.combined_key%>">
+            </div>
+          </div>
+        </div>
+        <div class="table_note">
+          <div>
+            PERHATIAN: Ambil video unboxing ketika membuka paket pertama kali, untuk mempermudah proses komplain ke penjual.
+          </div>
+        </div>
+        <div class="table_line">
+          <div class="">
+            <span>Info barang:</span>
+          </div>
+          <div class="">
+            <div class="inner_table">
+              <div class="inner_table_title">
+                <div>Total: <%=formData.total_amount%></div>
+              </div>
+              <!-- skus -->
+              <%skus.forEach(item => {%>
+                <div class="inner_table_line">
+                  <div><%=item.product_title%></div>
+                  <div><%=item.detail ? '-' + item.detail : ''%></div>
+                  <div><%=item.amount%></div>
+                </div>
+              <%})%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <button onclick="handlePrint()">print</button>
+        <button onclick="handleDownload()">save as picture</button>
+      </div>
+    </div>
+    <div hidden class="ga_tag" style="display: none;"><%=logKey%></div>
+    <script>
+      googleAnalytics('', document.querySelector('.ga_tag').innerText)
+    </script>
+    <script>
+      const queryParse = function(string) {
+        if (!string) return false
+        const obj = {}
+        const str = string[0] === '?' ? string.substring(1) : string
+        str.split('&').map(val => {
+          return val.split('=')
+        }).forEach(val => {
+          if (val.length >= 2 && val[0]) {
+            obj[val[0]] = val[1]
+          }
+        })
+        return obj
+      }
+      if (queryParse(decodeURIComponent(location.search)).sim) {
+        const arr = queryParse(decodeURIComponent(location.search)).sim.split('.')
+        if (arr[3] === '1') {
+          console.log('send')
+          gtag('event', 'from_whatsapp_link', {url: location.search, uuid: queryParse(decodeURIComponent(location.search)).uuid, about: 'browser'})
+        } else if (arr[3] === '2') {
+          console.log('send_push')
+          gtag('event', 'from_push_link', {url: location.search, uuid: queryParse(decodeURIComponent(location.search)).uuid, about: 'browser'})
+        }
+      }
+      document.querySelector('.loading').style.display = 'block'
+
+      const el1 = document.getElementById('barcode1')
+      const el2 = document.getElementById('barcode2')
+
+      JsBarcode(el1, el1.getAttribute('data-code'), {width: 3, displayValue: false,height: 45, fontSize: 18})
+      JsBarcode(el2, el2.getAttribute('data-code'), {width: 2.5, displayValue: false, height: 45, fontSize: 18})
+      setTimeout(() => {
+        document.querySelector('.loading').style.display = 'none'
+        document.querySelector('.container').style.display = 'block'
+      }, 2000)
+
+      const handleDownload = function () {
+
+        document.querySelector('.loading').style.display = 'block'
+        const id = encodeURIComponent(btoa(document.getElementById('orderId').innerText))
+        gtag('event', 'label_save', {order_params: id})
+        axios({
+          url: document.querySelector('.api').innerText,
+          method: 'POST',
+          data: {
+            order_no: document.querySelector('#orderNo').innerText
+          }
+        }).then(result => {
+          if (result.data.success) {
+            axios({
+              url: `/download_logisitics/${id}`,
+              method: 'POST',
+              responseType: "blob"
+            }).then(res => {
+              let url = window.URL.createObjectURL(new Blob([res.data]))
+              let link = document.createElement('a')
+              link.style.display = 'none'
+              link.href = url
+              link.setAttribute('download', res.headers['content-disposition'].split('filename="')[1].replace('"' , ''))
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+              window.URL.revokeObjectURL(url)
+            }).then(res => {
+              document.querySelector('.loading').style.display = 'none'
+            }).catch(err => {
+              document.querySelector('.loading').style.display = 'none'
+            })
+          } else {
+            document.querySelector('.loading').style.display = 'none'
+            alert('network error')
+          }
+        }).catch(err => {
+          document.querySelector('.loading').style.display = 'none'
+          alert('network error')
+        })
+      }
+      const handlePrint = function () {
+        const id = encodeURIComponent(btoa(document.getElementById('orderId').innerText))
+        gtag('event', 'label_print', {order_params: id})
+        axios({
+          url: document.querySelector('.api').innerText,
+          method: 'POST',
+          data: {
+            order_no: document.querySelector('#orderNo').innerText
+          }
+        }).then(result => {
+          document.querySelector('.btn').style.display = 'none'
+          document.querySelector('title').innerHTML = '  '
+          window.print()
+          setTimeout(() => {
+            document.querySelector('title').innerHTML = 'Mokkaya - Portal Reselling Produk Berkualitas | MASKER ANAK LUCU | SELIMUT MOTIF ELEGANT'
+            document.querySelector('.btn').style.display = 'block'
+          }, 1000)
+        })
+      }
+    </script>
+  </body>
+</html>

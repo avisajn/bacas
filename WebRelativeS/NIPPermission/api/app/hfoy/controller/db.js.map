@@ -1,0 +1,29 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/hfoy/controller/db.js"
+    ],
+    "names": [
+        "mapping",
+        "pwd",
+        "dbConfig",
+        "think",
+        "env",
+        "type",
+        "log_sql",
+        "log_connect",
+        "dbhadoop",
+        "host",
+        "port",
+        "database",
+        "user",
+        "password",
+        "prefix",
+        "encoding"
+    ],
+    "mappings": "AAAA;;;AAGA,IAAMA,UAAU;AACd,iBAAgB;AACdC,SAAM;AADQ,GADF;AAId,gBAAe;AACbA,SAAM;AADO;AAJD,CAAhB;;AAUA,IAAMC,WAAWF,QAAQG,MAAMC,GAAd,CAAjB;kBACe;AACbC,QAAM,OADO;AAEbC,WAAS,IAFI;AAGbC,eAAa,KAHA;AAIbC,YAAW,EAAO;AAChBH,UAAM,OADG;AAETI,UAAM,WAFG;AAGTC,UAAM,MAHG;AAITC,cAAU,gBAJD;AAKTC,UAAM,MALG;AAMTC,cAAUX,SAAS,KAAT,CAND,EAMkB;AAC3BY,YAAQ,EAPC;AAQTC,cAAU;AARD;AAJE,C",
+    "file": "../../../src/hfoy/controller/db.js",
+    "sourcesContent": [
+        "'use strict';\n\n\nconst mapping = {\n  'development' : {\n    pwd : ''\n  },\n  'production' : {\n    pwd : 'admin1!1'\n  },\n}\n\n\nconst dbConfig = mapping[think.env];\nexport default {\n  type: 'mysql',\n  log_sql: true,\n  log_connect: false,\n  dbhadoop : {      // app关于食谱的所有API所用到的数据库\n    type: 'mysql', \n    host: '127.0.0.1',\n    port: '3306',\n    database: 'hadoop_fintech',\n    user: 'root',\n    password: dbConfig['pwd'], //数据库密码\n    prefix: '',\n    encoding: 'utf8'\n  },\n}"
+    ]
+}

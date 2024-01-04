@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta content="designWidth=750, desginUnit=6, columnCount=12, columnXUnit=7, gutterXUnit=3, edgeXUnit=4" name="grid" />
+    <title>FrameView</title>
+</head>
+<body>
+    <iframe id="myframe" twitterid="" width="100%" frameborder="0" scrolling="no" src=""></iframe>
+    <script type="text/javascript">
+        window.Tools = {
+            getQuery : function(name){
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+            },
+            getTime : function(strDate){
+                var date = new Date(strDate);
+                return date.Format("dd/MM hh:mm");
+            }
+        }
+        setTimeout(function(){
+            const url = window.Tools.getQuery('url');
+            const id = window.Tools.getQuery('id');
+            const type = window.Tools.getQuery('type');
+            console.log('load over0');
+            if(url){
+                console.log('load over1');
+                var $dom = document.getElementById('myframe');
+                $dom.setAttribute('twitterid' ,id);
+                $dom.setAttribute('src' ,url);
+
+                console.log('param:' ,url ,id ,type);
+
+                var fn, i, iframe, len, ref;
+                ref = document.querySelectorAll('iframe[twitterid]');
+                fn = function(iframe){
+                    var twitter;twitter = document.createElement('a');
+                    twitter.setAttribute('href', iframe.getAttribute('twitterid'));
+                    return iframe.parentNode.appendChild(twitter);
+                };
+                for (i = 0, len = ref.length; i < len; i++) {
+                    iframe = ref[i];fn(iframe);
+                }
+                widget=document.createElement('script');
+                widget.setAttribute('src', '//platform.twitter.com/widgets.js');
+                widget.setAttribute('charset', 'utf-8');
+                widget.setAttribute('async', '');
+                document.head.appendChild(widget)
+                console.log('load over2');
+            }
+        },1000);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 37.5px;">
+<head>
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="{{ Country.webUrl }}" />
+    <link rel="shortcut icon" href="/common/img/logo-min.png" >
+    {% block Head %}{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="designWidth=750, desginUnit=6, columnCount=12, columnXUnit=7, gutterXUnit=3, edgeXUnit=4" name="grid" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    {% if language == 'yn' %}
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+    _atrk_opts = { atrk_acct:"Uueio1IWNa10zM", domain:"baca.co.id",dynamic: true};
+    (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript>< img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Uueio1IWNa10zM" style="display:none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->  
+
+    {% endif %}
+
+    <script type="text/javascript">
+        Object.prototype.document = window.document;
+        Object.prototype.location = window.location;
+        window.lan = "{{language}}" || 'yn';
+    </script>
+</head>
+<body class="lan-{{language}} body-load">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% block TplCommon %}{% endblock %}
+    <div class="container-body">
+        <div class="container-block">
+            {% block Content %}{% endblock %}
+        </div>
+    </div>
+    {% block Script %}{% endblock %}
+    
+</body>
+</html>

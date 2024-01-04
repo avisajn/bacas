@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Product feedback survey example, jQuery Survey Library Example
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.5.5/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.5.5/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/layer/3.0.3/mobile/layer.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+    <script type="text/javascript">
+    Survey.StylesManager.applyTheme("default");
+
+    var json = {
+        completedHtmlOnCondition: [{
+            expression: "{Do you ever buy products on social media (such as WhatsApp, Facebook, Instagram, etc)} = 'Tidak'",
+            html: "Terima kasih \n\nAnda sudah menyelesaikan survey ini."
+        }],
+        pages: [{
+            name: "page1",
+            elements: [{
+                    type: "radiogroup",
+                    name: "How old are you?  ",
+                    title: "Berapa usia Anda?",
+                    isRequired: true,
+                    choices: [{
+                            value: "15-17 tahun",
+                            text: "15-17 tahun"
+                        },
+                        {
+                            value: "18-22 tahun",
+                            text: "18-22 tahun"
+                        },
+                        {
+                            value: "23- 25 tahun",
+                            text: "23- 25 tahun"
+                        },
+                        {
+                            value: "26 - 35  tahun",
+                            text: "26 - 35  tahun"
+                        },
+                        {
+                            value: "36- 45 tahun",
+                            text: "36- 45 tahun"
+                        },
+                        {
+                            value: "lebih dari 45 tahun",
+                            text: "lebih dari 45 tahun"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "What’s your gender? ",
+                    title: "apa jenis kelamin anda?",
+                    isRequired: true,
+                    choices: [{
+                            value: "Pria",
+                            text: "Pria"
+                        },
+                        {
+                            value: "Wanita",
+                            text: "Wanita"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "your marital status ? ",
+                    title: "Apa status pernikahan Anda?",
+                    isRequired: true,
+                    choices: [{
+                            value: "single",
+                            text: "single"
+                        },
+                        {
+                            value: "menikah belum ada anak",
+                            text: "menikah belum ada anak"
+                        },
+                        {
+                            value: "menikah dengan anak",
+                            text: "menikah dengan anak"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "How many post in average will you publish / posting in the social media every day?",
+                    title: "Berapa banyak posting yang rata-rata akan Anda terbitkan / posting di media sosial setiap hari?",
+                    isRequired: true,
+                    choices: [{
+                            value: "saya jarang posting",
+                            text: "saya jarang posting"
+                        },
+                        {
+                            value: "1-5 x ",
+                            text: "1-5 x "
+                        },
+                        {
+                            value: "6 - 10 x",
+                            text: "6 - 10 x"
+                        },
+                        {
+                            value: "lebih dari 10 x",
+                            text: "lebih dari 10 x"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "How many WhatsApp contact do you have? ",
+                    title: "Berapa banyak kontak WhatsApp yang Anda miliki?",
+                    description: "Cara memeriksa jumlah kontak WhatsApp Anda \n klik \"memulai obrolan\" \ndan masuk ke halaman \"pilih kontak\", \nAnda akan melihat jumlah kontak di bawah judul halaman",
+                    isRequired: true,
+                    choices: [{
+                            value: "Less than 50",
+                            text: "kurang dari 50"
+                        },
+                        {
+                            value: "51-150  ",
+                            text: "51-150  "
+                        },
+                        {
+                            value: "151-250  ",
+                            text: "151-250  "
+                        },
+                        {
+                            value: "251 - 400  ",
+                            text: "251 - 400  "
+                        },
+                        {
+                            value: "lebih dari 400",
+                            text: "lebih dari 400"
+                        }
+                    ]
+                },
+                {
+                    type: "multipletext",
+                    name: "Where do you live now?",
+                    title: "Dimana Anda tinggal saat ini?",
+                    isRequired: true,
+                    items: [{
+                            name: "Kota / Kabupaten",
+                            title: "Kota / Kabupaten"
+                        },
+                        {
+                            name: "Provinsi",
+                            title: "Provinsi"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Do most of your relatives and friends live in near region with you? ",
+                    title: "Apakah sebagian besar kerabat dan teman Anda tinggal di daerah dekat dengan Anda?",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya",
+                            text: "Ya"
+                        },
+                        {
+                            value: "Tidak",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "What’s your occupation? ",
+                    title: "Apakah pekerjaan Anda?",
+                    isRequired: true,
+                    choices: [{
+                            value: "Pekerja kantoran",
+                            text: "Pekerja kantoran"
+                        },
+                        {
+                            value: "Pekerja Pabrik",
+                            text: "Pekerja Pabrik"
+                        },
+                        {
+                            value: "Pelajar / Mahasiswa",
+                            text: "Pelajar / Mahasiswa"
+                        },
+                        {
+                            value: "Ibu Rumah Tangga",
+                            text: "Ibu Rumah Tangga"
+                        },
+                        {
+                            value: "Petani",
+                            text: "Petani"
+                        },
+                        {
+                            value: "Pekerja lepas / harian",
+                            text: "Pekerja lepas / harian"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Do you have avocation or other revenue source besides your occupation? ",
+                    title: "Apakah Anda memiliki usaha / pekerjaan sampingan selain pekerjaan utama Anda? ",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                        value: "Tidak",
+                        text: "Tidak"
+                    }],
+                    otherText: "Ya"
+                },
+                {
+                    type: "radiogroup",
+                    name: "Did you ever sell products via online (such as WhatsApp, Facebook, etc.) ",
+                    title: "Apakah Anda pernah menjual produk melalui online? (seperti WhatsApp, Facebook, dll.)",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya",
+                            text: "Ya"
+                        },
+                        {
+                            value: "Tidak",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "Which platform do you use to sell products?",
+                    visible: false,
+                    visibleIf: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Ya'",
+                    title: "Platform mana yang Anda gunakan untuk menjual produk?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Facebook",
+                            text: "Facebook"
+                        },
+                        {
+                            value: "Instagram",
+                            text: "Instagram"
+                        },
+                        {
+                            value: "Twitter",
+                            text: "Twitter"
+                        },
+                        {
+                            value: "Shopee",
+                            text: "Shopee"
+                        },
+                        {
+                            value: "Tokopedia",
+                            text: "Tokopedia"
+                        },
+                        {
+                            value: "Bukalapak ",
+                            text: "Bukalapak "
+                        },
+                        {
+                            value: "Lazada  ",
+                            text: "Lazada  "
+                        },
+                        {
+                            value: "WhatsApp  ",
+                            text: "WhatsApp  "
+                        },
+                        {
+                            value: "GO-FOOD/Grab FOOD ",
+                            text: "GO-FOOD/Grab FOOD "
+                        },
+                        {
+                            value: "Meesho ",
+                            text: "Meesho "
+                        },
+                        {
+                            value: "Evermos  ",
+                            text: "Evermos  "
+                        }
+                    ],
+                    otherText: "Lainnya"
+                },
+                {
+                    type: "checkbox",
+                    name: "What kind of product did you sell? ",
+                    visible: false,
+                    visibleIf: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Ya'",
+                    title: "Jenis produk apa yang Anda jual?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Fashion  ",
+                            text: "Fashion  "
+                        },
+                        {
+                            value: "Peralatan rumah",
+                            text: "Peralatan rumah"
+                        },
+                        {
+                            value: "Gadget / handphone / laptop",
+                            text: "Gadget / handphone / laptop"
+                        },
+                        {
+                            value: "Makanan dan minuman",
+                            text: "Makanan dan minuman"
+                        },
+                        {
+                            value: "Perlengkapan Ibu dan Bayi",
+                            text: "Perlengkapan Ibu dan Bayi"
+                        },
+                        {
+                            value: "otomotif dan spare part",
+                            text: "otomotif dan spare part"
+                        },
+                        {
+                            value: "Game ",
+                            text: "Game "
+                        }
+                    ],
+                    choicesOrder: "random",
+                    otherText: "Lainnya"
+                },
+                {
+                    type: "checkbox",
+                    name: "Where did you get the product? ",
+                    visible: false,
+                    visibleIf: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Ya'",
+                    title: "Dari mana Anda mendapatkan produk tersebut?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "dari pabrik /.pengrajin/ sumber di indonesia",
+                            text: "dari pabrik /.pengrajin/ sumber di indonesia"
+                        },
+                        {
+                            value: "import dari luar negeri",
+                            text: "import dari luar negeri"
+                        },
+                        {
+                            value: "reseller dari akun lain di marketplace / e-commerce  yang sama",
+                            text: "reseller dari akun lain di marketplace / e-commerce  yang sama"
+                        },
+                        {
+                            value: "reseller dari online store atau marketplace / e-commerce  yang lain",
+                            text: "reseller dari online store atau marketplace / e-commerce  yang lain"
+                        },
+                        {
+                            value: "dropship dari akun lain di marketplace / e-commerce  yang sama",
+                            text: "dropship dari akun lain di marketplace / e-commerce  yang sama"
+                        },
+                        {
+                            value: "dropship dari online store atau marketplace / e-commerce  yang lain",
+                            text: "dropship dari online store atau marketplace / e-commerce  yang lain"
+                        },
+                        {
+                            value: "retailer offline ",
+                            text: "retailer offline "
+                        },
+                        {
+                            value: "Agent / distributor offline ",
+                            text: "Agent / distributor offline "
+                        },
+                        {
+                            value: "membuat sendiri",
+                            text: "membuat sendiri"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "radiogroup",
+                    name: "Do you think it’s a good way to earn and want to continue (the existing)? ",
+                    visible: false,
+                    visibleIf: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Ya'",
+                    title: "Apakah Anda pikir ini cara yang baik untuk mendapatkan uang dan tetap ingin melanjutkan (usaha online yang ada)?",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya",
+                            text: "Ya"
+                        },
+                        {
+                            value: "Tidak",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "The reason you don’t want to continue?",
+                    visible: false,
+                    visibleIf: "{Do you think it’s a good way to earn and want to continue (the existing)? } = 'Tidak'",
+                    title: "Alasan Anda tidak ingin melanjutkan usaha jualan online Anda?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "marjin untung hanya sedikit",
+                            text: "marjin untung hanya sedikit"
+                        },
+                        {
+                            value: "proses penjualan online terlalu rumit",
+                            text: "proses penjualan online terlalu rumit"
+                        },
+                        {
+                            value: "tidak memiliki supplier barang dengan kualitas yang bagus",
+                            text: "tidak memiliki supplier barang dengan kualitas yang bagus"
+                        },
+                        {
+                            value: "tidak berhasil menemukan kostumer yang baik / loyal",
+                            text: "tidak berhasil menemukan kostumer yang baik / loyal"
+                        },
+                        {
+                            value: "tidak mengetahui trik berjualan online",
+                            text: "tidak mengetahui trik berjualan online"
+                        },
+                        {
+                            value: "tidak memilki kemampuan untuk memenuhi orderan yang datang ",
+                            text: "tidak memilki kemampuan untuk memenuhi orderan yang datang "
+                        },
+                        {
+                            value: "sering salah hitung invetori barang jualan ",
+                            text: "sering salah hitung invetori barang jualan "
+                        },
+                        {
+                            value: "belum  bisa handling produk / pengiriman dengan baik",
+                            text: "belum  bisa handling produk / pengiriman dengan baik"
+                        },
+                        {
+                            value: "terlalu menyita waktu",
+                            text: "terlalu menyita waktu"
+                        },
+                        {
+                            value: "tidak tahu cara memasarkan",
+                            text: "tidak tahu cara memasarkan"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "radiogroup",
+                    name: "If you have such opportunity, do you want to try sell product through online channel? ",
+                    visible: false,
+                    visibleIf: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Tidak'",
+                    title: "Jika Anda memiliki kesempatan untuk jualan online, apakah Anda ingin mencoba menjual produk melalui saluran online?",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya",
+                            text: "Ya"
+                        },
+                        {
+                            value: "Tidak",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "If you will try to sell product through online channel, which factor will you consider mostly? ",
+                    visible: false,
+                    visibleIf: "{If you have such opportunity, do you want to try sell product through online channel? } = 'Ya'",
+                    title: "Jika Anda akan mencoba menjual produk via online, faktor apa yang akan Anda pertimbangkan?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "marjin untung yang tinggi",
+                            text: "marjin untung yang tinggi"
+                        },
+                        {
+                            value: "kualitas produk yang bagus",
+                            text: "kualitas produk yang bagus"
+                        },
+                        {
+                            value: "proses penjualan online yang mudah ",
+                            text: "proses penjualan online yang mudah "
+                        },
+                        {
+                            value: "supplier barang yang bisa diandalkan",
+                            text: "tidak berhasil menemukan kostumer yang baik / loyal"
+                        },
+                        {
+                            value: "platform menyediakan panduan untuk trik berjualan online",
+                            text: "platform menyediakan panduan untuk trik berjualan online"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "checkbox",
+                    name: "Which e-commerce do you ever buy things on",
+                    title: "Sebutkan nama E-commerce yang Anda pernah melakukan pembelian?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Tokopedia",
+                            text: "Tokopedia"
+                        },
+                        {
+                            value: "Shopee   ",
+                            text: "Shopee   "
+                        },
+                        {
+                            value: "Bukalapak ",
+                            text: "Bukalapak "
+                        },
+                        {
+                            value: "Lazada  ",
+                            text: "Lazada  "
+                        },
+                        {
+                            value: "JD.id   ",
+                            text: "JD.id   "
+                        },
+                        {
+                            value: "Aliexpress  ",
+                            text: "Aliexpress  "
+                        },
+                        {
+                            value: "Meesho ",
+                            text: "Meesho "
+                        },
+                        {
+                            value: "Evermos  ",
+                            text: "Evermos  "
+                        }
+                    ],
+                    otherText: "Lainnya"
+                },
+                {
+                    type: "radiogroup",
+                    name: "Do you ever buy products on social media (such as WhatsApp, Facebook, Instagram, etc)",
+                    title: "Apakah Anda pernah membeli produk di media sosial (seperti WhatsApp, Facebook, Instagram, dll)",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya",
+                            text: "Ya"
+                        },
+                        {
+                            value: "Tidak",
+                            text: "Tidak"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "Whom do you buy product from? ",
+                    visible: false,
+                    visibleIf: "{Do you ever buy products on social media (such as WhatsApp, Facebook, Instagram, etc)} = 'Ya'",
+                    title: "Dari siapa Anda membeli produk tersebut?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "saudara / keluarga",
+                            text: "saudara / keluarga"
+                        },
+                        {
+                            value: "teman",
+                            text: "teman"
+                        },
+                        {
+                            value: "Rekan kerja",
+                            text: "Rekan kerja"
+                        },
+                        {
+                            value: "influencer / celebgram ",
+                            text: "influencer / celebgram "
+                        },
+                        {
+                            value: "akun penjual online di media sosial",
+                            text: "akun penjual online di media sosial"
+                        },
+                        {
+                            value: "official store merek tertentu di media sosial",
+                            text: "official store merek tertentu di media sosial"
+                        },
+                        {
+                            value: "orang tidak dikenal ",
+                            text: "orang tidak dikenal "
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "checkbox",
+                    name: "What kind of product do you usually buy from social media? ",
+                    visible: false,
+                    visibleIf: "{Do you ever buy products on social media (such as WhatsApp, Facebook, Instagram, etc)} = 'Ya'",
+                    title: "Jenis produk apa yang Anda beli di social media ?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Fashion  ",
+                            text: "Fashion  "
+                        },
+                        {
+                            value: "Peralatan rumah",
+                            text: "Peralatan rumah"
+                        },
+                        {
+                            value: "Gadget / handphone / laptop",
+                            text: "Gadget / handphone / laptop"
+                        },
+                        {
+                            value: "Makanan dan minuman",
+                            text: "Makanan dan minuman"
+                        },
+                        {
+                            value: "Perlengkapan Ibu dan Bayi",
+                            text: "Perlengkapan Ibu dan Bayi"
+                        },
+                        {
+                            value: "otomotif dan spare part",
+                            text: "otomotif dan spare part"
+                        },
+                        {
+                            value: "Game ",
+                            text: "Game "
+                        },
+                        {
+                            value: "tidak ada / tidak pernah",
+                            text: "tidak ada / tidak pernah"
+                        }
+                    ],
+                    otherText: "Lainnya"
+                },
+                {
+                    type: "checkbox",
+                    name: "How do you think of the product bought from social media? ",
+                    visible: false,
+                    visibleIf: "{Do you ever buy products on social media (such as WhatsApp, Facebook, Instagram, etc)} = 'Ya'",
+                    title: "Bagaimana menurut Anda, produk yang Anda beli di social media ?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "lebih murah",
+                            text: "lebih murah"
+                        },
+                        {
+                            value: "kualitas lebih baik",
+                            text: "kualitas lebih baik"
+                        },
+                        {
+                            value: "tidak ada bedanya dengan membeli di tempat lain",
+                            text: "tidak ada bedanya dengan membeli di tempat lain"
+                        },
+                        {
+                            value: "kualitas lebih buruk ",
+                            text: "kualitas lebih buruk "
+                        },
+                        {
+                            value: "lebih mahal",
+                            text: "lebih mahal"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "text",
+                    name: "Thanks for completing the survey!",
+                    title: "Selamat, saat ini Anda telah terpilih sebagai user VIP kami. Seperti yang mungkin Anda telah lihat di aplikasi, kami saat ini memiliki fitur baru yakni \"produk komisi\", Anda bisa mendapatkan komisi jika Anda bisa menjual produk tersebut kepada orang lain. Kami akan memberikan layanan khusus untuk pengguna VIP kami. Kami akan mengajari Anda cara menjual produk dengan baik dan memberi Anda komisi yang lebih tinggi. Jika Anda ingin bergabung, silakan tuliskan nomor WhatsApp Anda dan kami akan memiliki staf untuk segera menghubungi Anda."
+                }
+            ],
+            title: "Hai, kami ingin mengenal Anda lebih lanjut",
+            description: "Mohon dilengkapi survey berikut dengan benar dan lengkap."
+        }],
+        triggers: [{
+                type: "skip",
+                expression: "{Did you ever sell products via online (such as WhatsApp, Facebook, etc.) } = 'Tidak'",
+                gotoName: "If you have such opportunity, do you want to try sell product through online channel? "
+            },
+            {
+                type: "skip",
+                expression: "{Do you think it’s a good way to earn and want to continue (the existing)? } = 'Ya'",
+                gotoName: "Which e-commerce do you ever buy things on"
+            },
+            {
+                type: "skip",
+                expression: "{If you have such opportunity, do you want to try sell product through online channel? } = 'Tidak'",
+                gotoName: "Which e-commerce do you ever buy things on"
+            },
+            {
+                type: "skip",
+                expression: "{Do you have avocation or other revenue source besides your occupation? } = 'Tidak'",
+                gotoName: "Did you ever sell products via online (such as WhatsApp, Facebook, etc.) "
+            }
+        ]
+    }
+    window.survey = new Survey.Model(json);
+    window.config = this.initParams.apply(window);
+
+    survey.onComplete.add(function(result) {
+        config['result'] = result.data;
+        result.data && postAction(config);
+
+    });
+
+    $("#surveyElement").Survey({
+        model: survey,
+    });
+
+    //method
+    function initParams() {
+        window.param = {
+            xuserid: '',
+            xusertoken: '',
+            xinvitecode: '',
+            xpackage: '',
+            eventid: '',
+            origin: ''
+        };
+
+        this.param.xusertoken = this.getQueryString('X-User-Token') || this.getQueryString('x-user-token');
+        this.param.xuserid = this.getQueryString('X-User-Id') || this.getQueryString('x-user-id');
+        this.param.xinvitecode = this.getQueryString('x-invite-code') || this.getQueryString('X-Invite-Code');
+        this.param.xpackage = this.getQueryString('X-App-Package-Id') || this.getQueryString('x-app-package-id');
+
+        this.param.origin = this.getQueryString('origin') || this.getQueryString('origin');
+        this.param.eventid = this.getEventId();
+        return param;
+
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        return r ? unescape(r[2]) : null;
+    }
+
+    function getEventId() {
+        let url = window.location.href;
+        return "001B69A5-74A5-B3DE-D4EA-7D04E29C2769";
+    }
+
+    function postAction(data) {
+        let requestHeader = {
+            "x-user-id": data.xuserid + '#' + data.xpackage,
+            "x-user-token": data.xusertoken,
+            "x-invite-code": data.xinvitecode,
+            "X-App-Package-Id": data.xpackage,
+            "Content-Type": "application/json"
+        };
+        data.result.origin = data.origin //  push/banner
+
+        alert(JSON.stringify(requestHeader))
+
+
+        let postUrl = 'https://api.baca.co.id/api/v1/non-app/questionaire' + data.eventid;
+        let requestOptions = {
+            type: "post",
+            url: postUrl,
+            data: JSON.stringify(data.result),
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.errorno == 0) {
+                    var coin = res.data.extraCoin;
+                    let tip = 'Anda mendapat ' + coin + ' Koin! Silahkan periksa di saldo Anda!'; //提交成功
+                    message(tip, 'OK', true, false);
+                    //TODO：埋点1 调用APP更新金币 待确认
+                    BacaAndroid.refreshCoinSystem();
+                }
+            },
+            error: function(error) {
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                }
+                let tip = 'Gagal mengirim, silahkan coba lagi'; //提交失败
+                message(tip, 'OK', false, true);
+                console.log(error);
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function message(desc, btnText, isNeedBack, isShadeClose) {
+        var _self = this;
+        var index = layer.open({
+            content: desc,
+            shadeClose: isShadeClose,
+            btn: [btnText],
+            yes: function() {
+                isNeedBack && _self.toApp();
+            }
+        })
+    }
+
+    function toApp() {
+        BacaAndroid.goBackToApp();
+    }
+    </script>
+</body>
+
+</html>

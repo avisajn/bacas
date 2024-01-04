@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>404</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/error/index.css">
+  {% endif %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', "{{Country.language['ga']}}", 'auto');
+    ga('send', 'pageview');
+  </script>
+{% endblock %}
+
+
+
+{% block Content %}
+<div class="container">
+  <div class="top">
+    <div class="img"> 
+      <img alt="404" src="/common/img/404.png"> 
+      <span class="err-title">{{Country.language['404-err']}}</span>
+    </div>
+  </div>
+  <div class="btn-group">
+    <a href="/" class="btn btn-index">{{Country.language['404-intoSite']}}</a>
+    <a href="javascript:window.Download.redirect('error');" class="btn">{{Country.language['download']}}</a>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/error/bundle.js"></script>
+  <script type="text/javascript">
+    var direct = {{Direct}};
+    console.log('direct' ,direct);
+    if(direct){
+      if(window.localStorage){
+        window.localStorage['baca/store/'+window.location.hostname+'/firstscreen'] = JSON.stringify({"data":true,"ttl":new Date().getTime() + 1 * 24 * 60 * 60 * 1000});
+      }
+      setTimeout(function(){
+        window.location.href = '/';
+      },3000);
+    }
+  </script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

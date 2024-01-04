@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ID">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+  <link rel="stylesheet" href="/public/css/share_invite.css">
+  <link rel="stylesheet" href="/public/css/toast.css">
+  <!-- share meta -->
+  <meta property="og:image" content="<%=dim%>/invite_share_image/<%=code%>.png" />
+  <meta name="og:image" content="<%=dim%>/invite_share_image/<%=code%>.png" />
+  <meta property="og:url" content="<%=dim%>/invite/<%=code%>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%=name%> mengundang Anda untuk mendapatkan uang bersama!" />
+  <meta property="og:description" content="Hemat hingga Rp100rb dan peluang mendapatkan penghasilan mudah hanya dari rumah dengan bergabung di Mokkaya." />
+  <!-- share to twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="<%=dim%>/invite/<%=code%>" />
+  <meta name="twitter:creator" content="<%=name%>" />
+  <script src="/public/js/toast.js"></script>
+  <script src="/public/js/google.js"></script>
+  <title><%=name%> mengundang Anda untuk mendapatkan uang bersama!</title>
+  <meta name="description" content="Hemat hingga Rp100rb dan peluang mendapatkan penghasilan mudah hanya dari rumah dengan bergabung di Mokkaya.">
+</head>
+<body>
+  <div class="ga_tag" style="display: none;"><%=gaTag%></div>
+  <div class="container" data-st="<%=uid%>">
+    <div class="page_header">
+      <span>mokkaya.com</span>
+    </div>
+    <div class="logo">
+      <img src="/public/img/common/logo_slide.png" alt="">
+    </div>
+    <p class="top_info"><%=name%> mengundang Anda untuk bergabung dengan Mokkaya dan dapatkan uang bersama!</p>
+    <p class="middle_info">Ratusan ribu orang telah terbantu ekonominya oleh Mokkaya. Menjadi reseller Mokkaya tanpa modal dan tidak repot, dapat dikerjakan dari rumah.</p>
+    <p class="middle_info">Bergabung sekarang dan dapatkan kupon senilai <span>Rp100.000</span> lewat link di bawah ini.</p>
+    <div class="btn">
+      <button onclick="handleGoogle()">Gabung ke Mokkaya sekarang</button>
+    </div>
+    <p class="bottom_tip">ATAU isi kode undangan saya setelah mendaftar</p>
+    <div class="bottom_info">
+      <div>
+        <span><%=code%></span>
+        <span onclick="handleCopy()">Salin</span>
+        </div>
+    </div>
+  </div>
+  <div class="logo_wrap">
+    <img src="/public/img/share_invite/bottom_bg.png" alt="">
+  </div>
+  <input type="text" id="code" readonly="readonly" value="<%=code%>" style="opacity: 0;">
+  <script>
+    googleAnalytics('', document.querySelector('.ga_tag').innerText)
+  </script>
+  <script>
+    window.onload = function () {
+      gtag('event', 'page_show', {
+        type: 'invite_share_link',
+        invite_code: document.querySelector('#code').value,
+        page: 'invite_share_link'
+      })
+    }
+    const handleCopy = function () {
+      console.log(gtag)
+      gtag('event', 'button_click', {
+        type: 'invite_share_link',
+        about: 'copy',
+        invite_code: document.querySelector('#code').value,
+        page: 'invite_share_link',
+      })
+      document.querySelector('#code').select()
+      // console.log(document.querySelector('#code').value)
+      if (document.execCommand('Copy')) {
+        $toast({
+          message: 'Sukses menyalin',
+          time: 3000
+        })
+      } else {
+        $toast({
+          message: 'Sukses faild',
+        })
+      }
+    }
+    const handleGoogle = function () {
+      const obj = {
+        utm_campaign: new Date().getTime(), 
+        utm_medium: document.querySelector('#code').value,
+        utm_source: 'by_invite'
+      }
+      gtag('event', 'button_click', {
+        type: 'invite_share_link',
+        about: 'download_app',
+        invite_code: document.querySelector('#code').value,
+        page: 'invite_share_link',
+      })
+      const str = Object.entries(obj).map(val => `${val[0]}=${val[1]}`).join('&')
+      const link = `https://play.google.com/store/apps/details?id=com.mokkaya&referrer=` + encodeURIComponent(str)
+      const urlTeml = `https://play.app.goo.gl/?link=${encodeURIComponent(link)}`
+      console.log(urlTeml)
+      // localStorage.setItem('google_url', urlTeml)
+      window.open(link, 'blank')
+    }
+  </script>
+</body>
+</html>

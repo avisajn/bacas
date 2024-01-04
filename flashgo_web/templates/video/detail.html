@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/static/images/icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="fb:app_id" content="367713750463138">
+    <meta name="og:url" content="/sales/video/webapp_detail/test/{{ detail.id }}">
+    <!--<meta name="og:title" content="Saya menemukan produk yang sangat murah!">-->
+    <meta name="og:title" content="{{ detail.title }}">
+    <meta name="og:image" content="{{ detail.image }}">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="/static/css/videodetail.css">
+</head>
+<body>
+<div id="app">
+    <div class="content">
+        {% if detail %}
+        <div id="video-detail">
+            <div class="video-top">
+                <div class="mp">
+                    <!-- <video :src='this.dealDetail.url' controls="controls"></video> -->
+                    <iframe width="100%" height="100%" src="{{ detail.url }}" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="dis_title">{{ detail.title }}</div>
+            </div>
+            {% if deals|length > 0 %}
+            <div class="product-video">
+                <p class="mentioned-title">Produk terkait</p>
+                <div class="product-list">
+                    <div class="dealslist">
+                        <ul>
+                            {% for item in deals %}
+                            <a href="#" onclick="gotoTarget('http://flashgo.online/sales/deals/webapp/detail/{{ item.deal.id }}/')">
+                                <li class="shopitem">
+                                    <div class="recommand-img">
+                                        <img src="{{ item.dealarticleimages[0].image }}"/>
+                                    </div>
+                                    <div class="recommand-descript">
+                                        <div class="recommand-name">
+                                            <span>{{ item.deal.title }}</span>
+                                        </div>
+                                        <div class="price">Rp <span
+                                                class="price_num">{{ item.deal.current_price }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="btn">
+                                        <span>Cek</span>
+                                    </div>
+                                </li>
+
+                            </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if videos|length > 0 %}
+            <div class=" product-video releted-video">
+                <p class="mentioned-title">Video terkait</p>
+                <div class="video-list">
+                    <ul>
+                        {% for item in videos %}
+                        <a href="#" onclick="gotoDownload('{{ inviter_id }}')">
+                            <li onclick="gotoDownload('')">
+                                <div class="left">
+                                    <img src="{{ item.image }}" alt="">
+                                </div>
+                                <div class="right">
+                                    {{ item.title }}
+                                </div>
+                            </li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src="/static/js/videodetail.js"></script>
+</body>
+</html>

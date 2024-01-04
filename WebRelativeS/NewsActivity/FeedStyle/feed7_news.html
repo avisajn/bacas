@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ketentuan Komisi</title>
+</head>
+<style type='text/css'>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.flex {
+    padding: .8rem .5rem 0rem .5rem;
+    margin-bottom: .5rem;
+}
+
+.header {
+    font-size: .85rem;
+    width: 100%;
+    display: flex;
+
+}
+
+.title {
+    font-weight: 900;
+    flex: .75;
+    font-size: .8rem;
+}
+
+.more {
+    display: flex;
+    float: left;
+    flex: .35;
+    color: #999999;
+    align-items: center;
+    font-size: .6rem;
+    justify-content: flex-end;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    font-size: .8rem;
+    height: 4.8rem;
+    display: flex;
+}
+
+.pic {
+    width: 20%;
+    border-radius: .3rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-more {
+    width: .8rem;
+    height: .8rem;
+    margin-left: .2rem;
+    margin-top: 2px;
+}
+
+.game-content {
+    width: 100%;
+    padding: .75rem .5rem;
+    box-sizing: border-box;
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+.game-content:nth-child(1) {
+    padding-top: .75rem ;
+    border-top: 0px solid #eee;
+}
+
+.feed-item {
+    display: flex;
+    align-items: center;
+    box-sizing: content-box;
+    flex-shrink: 0;
+    border-radius: 5px;
+    height: 3.4rem;
+    width: 100%;
+}
+
+.feed-item-img {
+    flex: .22;
+    height: 100%;
+    margin-right: .25rem;
+}
+
+.feed-item-image {
+    height: 100%;
+    width: 3.4rem;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+.item-title {
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: .8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.content {
+    flex: .55;
+    margin: 2px 0px 0px 0px;
+    overflow: hidden;
+    margin-right: .3rem;
+}
+
+.btn {
+    flex: .2;
+    display: flex;
+    position: relative;
+    top: .25rem;
+    left: .8rem;
+}
+
+.btn span {
+    background: #0074FF;
+    color: #fff;
+    width: 3rem;
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: .75rem;
+    font-weight: bold;
+    border-radius: .2rem;
+
+}
+
+.tag {
+   color: #7B7B7B;
+    font-size: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin-top: .15rem;
+}
+
+.rate_score {
+    color: #7B7B7B;
+    font-size: .5rem;
+}
+
+.star {
+    width: .55rem;
+    height: .55rem;
+    margin-right: .05rem;
+}
+.rate {
+    font-size: 0;
+    margin-top: .15rem;
+}
+</style>
+
+
+<body id="banner">
+    <div id="content"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+    function w() {
+        var r = document.documentElement;
+        var a = r.getBoundingClientRect().width;
+        if (a > 750) {
+            a = 750;
+        };
+        rem = a / 18;
+        r.style.fontSize = rem + "px"
+    }
+    w();
+    window.addEventListener("resize", function() {
+        w()
+    }, false);
+})();
+
+
+function getQueryStringByName(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+
+function dataJson(data) {
+    if (data.data7_news) {
+        const obj = data.data7_news;
+        $('#title').html(obj.Title);
+        $('#moreLink').click(() => {
+            window.location.href = obj.LinkMoreUrl;
+        })
+        if (obj.Data && obj.Data.length > 0) {
+            $('#content').html('');
+            let _html = '';
+            obj.Data.forEach(item => {
+                let _image = ''
+                let _nostar = ''
+                for (i = 0; i < Math.floor(item.Score); i++) {
+                    _image += `<img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/star.png" alt="" class="star">`
+                }
+                for (i = 0; i < 5 - Math.floor(item.Score); i++) {
+                    _image += `<img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/no_star.png" alt="" class="star">`
+                }
+                _html += ` <div class="game-content" onclick="openApp('${item.RedirectUrl}')">
+                            <div class="feed-item" >
+                                <div class="feed-item-img">
+                                    <img src="${item.ImageUrl}" class="feed-item-image" />
+                                </div>
+                                <div class="content">
+                                    <div class="item-title">${item.Name} </div>
+                                    <div class="rate"> ` + _image + _nostar + `
+                                       
+                                        <span class="rate_score">${item.Score.toFixed(1)}</span>
+                                    </div>
+                                    <div class="tag">${item.Tags}</div>
+                                </div>
+                                <div class="btn" >
+                                    <span>${item.BtnText}</span>
+                                </div>
+                            </div>
+                        </div>`;
+            })
+            $('#content').html($(_html));
+        }
+    }
+}
+
+function openApp(url) {
+    window.location.href = url
+}
+</script>
+<script src="./json.js?cb=dataJson"></script>
+
+</html>

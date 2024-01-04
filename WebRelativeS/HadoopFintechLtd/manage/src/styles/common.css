@@ -1,0 +1,123 @@
+body{
+	background:url(../images/slide-img1.jpg) no-repeat center center;
+    background-size:cover;
+	height: 100%;
+	width: 100%;
+}
+#app,html{
+	height: 100%;
+	width: 100%;
+    background: rgba(0, 0, 0, 0.24);
+}
+.content-panel{
+	width: 100%;
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background: rgb(249, 249, 249);
+}
+.clearfix:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+/* 滚动条 */
+* ::-webkit-scrollbar{height:0px;width:0px;}
+
+
+.flr{
+    float:right;
+}
+.fll{
+    float: left;
+}
+.full-loading{
+    position:fixed;
+    z-index:999999999;
+    top:0px;
+    left:0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    background: rgba(121, 121, 121, 0.2) url(../images/loading.gif) no-repeat center center;
+    bottom: 0px;
+}
+
+.ivu-spin-fix{
+    padding:10px;
+}
+.no-foot-modal .ivu-modal-footer{
+    display: none;
+}
+.ivu-spin-fix:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.tables-panel{padding:20px; }
+
+.sysinfo-list-panel .ivu-table-row{cursor: pointer;}
+
+
+.user-info .ivu-dropdown-item{
+    height: 40px;
+    line-height: 29px;
+}
+.user-info .ivu-dropdown-item-divided:before{
+    height:1px;
+}
+
+.preframe{
+    background: url(../images/iframe-loading.gif) no-repeat center center;
+}
+
+.cout-tag{
+    color: black;
+    padding: 1px 3px;
+    display: inline-block;
+    margin-right: 4px;
+    background: #e3e8ee;
+}
+
+.g-mn th .ivu-table-cell{
+    position: relative;
+}
+.g-mn .ivu-table-sort{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    margin-left: 0px;
+}
+.g-mn .ivu-table-sort i{
+    display: none;
+    line-height: 13px;
+}
+.g-mn .ivu-table-sort i:first-child{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.g-mn .ivu-icon-arrow-up-b:before{
+    float: right;
+}
+.g-mn .ivu-icon-arrow-up-b:after{
+    content: "\F104";
+    float: right;
+    font-size: 12px;
+    position: relative;
+    top: 7px;
+    left: 7.5px;
+}

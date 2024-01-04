@@ -1,0 +1,44 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>Timeout</title>
+{% endblock %}
+
+
+
+{% block Content %}
+<style type="text/css">
+
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font: 14px/1.5 "Helvetica Neue", Helvetica, sans-serif;
+  }
+  .content{
+    font-weight: normal;
+  }
+</style>
+<br/><br/>
+<h2>request timed out</h2>
+<h4 class="content">{{Country.language['timeout'] | safe}}</h4>
+
+<script type="text/javascript">
+  if(window.localStorage){
+    window.localStorage['baca/store/newbaca.ymark.cc/firstscreen'] = JSON.stringify({"data":true,"ttl":new Date().getTime() + 1 * 24 * 60 * 60 * 1000});
+  }
+  var $time = document.getElementById('time');
+
+  var time = 5;
+  setInterval(function(){
+    if(time <= 0){
+      window.location.href = '/';
+    }else{
+      time--;
+      $time.innerText = time;
+    }
+  },1000);
+</script>
+{% endblock %}
+

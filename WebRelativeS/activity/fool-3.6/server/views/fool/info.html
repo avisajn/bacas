@@ -1,0 +1,194 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>{{Title}}</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/info/index.css">
+  {% endif %}
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-transform">
+
+
+  <meta name="description" content="{{Country.language['firm']}} - {{PageText['foolname']}}">
+
+
+  <!-- 分享到facebook的meta -->
+  <meta property="og:url" content="{{Url}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{PageText['foolname']}}" />
+  <meta property="og:description" content="{{Country.language['firm']}} - {{PageText['foolname']}}" />
+  <meta property="og:image" content="{{Img}}"/>
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- 分享到twitter的meta -->
+  <meta name="twitter:card" content="gallery">
+  <meta name="twitter:url"  content="{{Url}}">
+  <meta name="twitter:title" content="{{PageText['foolname']}}">
+  <meta name="twitter:description" itemprop="description" content="{{Country.language['firm']}} - {{PageText['foolname']}}">
+  <meta name="twitter:image" itemprop="image" content="{{Img}}">
+  <script type="text/javascript">
+    window.hostUrl = '{{Url}}';
+    window.newsId = '{{Title}}';
+    window.newTitle = '{{Title}}';
+    window.page = 'detailPage';
+    var header = '{{header}}';
+    function HTMLDecode(text) {
+      var temp = document.createElement("div");
+      temp.innerHTML = text;
+      var output = temp.innerText || temp.textContent;
+      temp = null;
+      return output; 
+    }
+    header = HTMLDecode(header);
+    alert(header);
+  </script>
+{% endblock %}
+
+
+
+{% block TplCommon %}
+
+{% import "./components/download.html" as download_tpl %}
+{{download_tpl.get('detail' ,Country.language['firm'] ,Country.language['firm-intro'],Country.language['download'])}}
+<!-- 引用分享模块 -->
+{% endblock %}
+
+
+{% block Content %}
+<div class="newsInfoBody">
+  <div class="news-info" id="newsInfo">
+    <h1 class="name" itemprop="name">{{ Title | safe }}</h1>
+    <div class="info">
+      <span class="from" rel="publisher">{{PageText['foolname']}}</span>
+      <span class="dateicon"></span>
+      <span class="date" id="createTime">{{DateTime}}</span>
+      <div class="share-detail" id="infoShareDetail">
+          <a class="share-whatsapp" href="javascript:window.shareClick.shareTo('whatsapp');"></a>
+          <a class="share-facebook" href="javascript:window.shareClick.shareTo('facebook');"></a>
+          {% if Lan == 'yn' %}
+          <!-- <a class="share-line" href="javascript:window.shareClick.shareTo('bbm');"></a> -->
+          {% endif %}
+      </div>
+    </div>
+    <div class="inline-praise">
+        <div>
+          <a class="hand">{{PraiseNum}}</a> 
+        </div>
+      </div>
+    <div class="img-box"> <img src="{{Img}}" /> </div>
+    <div class="content">
+      {{ Content | safe }} 
+    </div>
+    <div class="report">{{PageText['reporter']}} : {{PageText['repname']}}&nbsp;|&nbsp;{{PageText['foolname']}}</div>
+  </div>
+  <div class="praise-block">
+    <a class="hand" id="btnLikeTrue"> <span></span>{{PraiseNum}}</a> 
+    <a class="hand-o" id="btnLikeFalse"> <span></span>10</a>
+  </div>
+  <div class="hot-comment list-block" style="display: block;">
+    <h3 class="title">{{ Country.language['comment'] }}</h3>
+    <div class="data-list" id="commentList">
+        <section key="1530507">
+          <a href="javascript:;" class="item-link clearfix ">
+            <div class="img-left">
+              <img src="{{Avatar}}"></div>
+            <div class="comment-info">
+              <div class="info-tag clearfix">
+                <span class="name">
+                  <b>{{Author}}</b>
+                  <br>{{DateTime}}</span>
+                <span class="numbers">{{ComPNum}}</span>
+                <span class="upimg"></span>
+              </div>
+              <div class="comment">{{Comment}}</div></div>
+          </a>
+        </section>
+    </div>
+    <div class="btn-reset">
+      <a class="read-more" href="javascript:window.toIndex();">{{PageText['create']}}</a>
+    </div>
+  </div>
+</div>
+<div class="info-share bxshare">
+  <div class="share-btn share-img" id="ab-shareInfo" onclick="window.shareClick.showShare('float')">
+    <img src="/common/img/share.png">
+    <div class="share-down share-down-{{Lan}}">
+      <img src="/info/share-down-{{Lan}}.png">
+    </div>
+  </div>
+  <div id="shareBlock" class="hide">
+    <div class="share-block">
+      <div class="mask" onclick="window.shareClick.hideShare()"></div>
+      <div class="share-all">
+      <div class="share-btn-firm clearfix">
+        <a class="share-firm facebook" href="javascript:window.shareClick.shareTo('facebook');">
+          <img src="/common/img/facebook.png">
+          <span>facebook</span></a>
+        <a class="share-firm bbm" href="javascript:window.shareClick.shareTo('bbm');">
+          <img src="/common/img/bbm.png">
+          <span>bbm</span></a>
+        <a class="share-firm whatsapp" href="javascript:window.shareClick.shareTo('whatsapp');">
+          <img src="/common/img/whatsapp.png">
+          <span>whatsapp</span></a>
+      </div>
+      <a class="close-btn" href="javascript:window.shareClick.hideShare();">Cancelar</a></div>
+    </div>
+  </div>
+  <div class="hide" id="sharePanelArrow">
+    <div class="share-arrow-panel" onclick="window.closeShareShadow()">
+      <div class="img-arrow">
+        <img id="imgShareArrow" src="/common/img/arrow-ios.png">
+        <span class="arrow-text"> {{PageText['share']}} </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hide" id="sharePanelText">
+    <div class="share-text-panel">
+      <div class="title-img img-{{Lan}}">
+        <img src="/common/img/share-title-{{Lan}}.png" />
+      </div>
+      <div class="share-text-icon">
+        <a class="share-firm facebook" href="javascript:window.shareClick.shareTo('facebook');">
+          <img src="/common/img/facebook.png">
+          <div>facebook</div></a>
+        <a class="share-firm whatsapp" href="javascript:window.shareClick.shareTo('whatsapp');">
+          <img src="/common/img/whatsapp.png">
+          <div>whatsapp</div></a>
+      </div>
+      <div class="share-text">
+        <p>{{ PageText['shareText']  | safe}}</p>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<div class="share-hand hand-top hide">
+  <img src="/common/img/hand.png">
+</div>
+<div class="share-hand hand-bottom hide">
+  <img src="/common/img/hand.png">
+</div>
+<div class="other-infomation">
+  <div class="info">
+    <p>{{PageText['info']}}</p>
+  </div>
+  <div class="infomation">
+    <p>{{Country['language']['info'] | safe}}</p>
+  </div>
+  <div>
+    <a class="btn-download" onclick="window.Download.redirect('detail')">
+      <img src="/info/down-bck-{{Lan}}.png" />
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/info/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

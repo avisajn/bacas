@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Product feedback survey example, jQuery Survey Library Example
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.0.73/survey.jquery.js"></script>
+    <link
+      href="https://surveyjs.azureedge.net/1.0.73/survey.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+
+    <script type="text/javascript">
+      Survey.StylesManager.applyTheme("default");
+
+      var json = {
+        locale: "id",
+        pages: [
+          {
+            name: "User Investigation",
+            elements: [
+              {
+                type: "radiogroup",
+                name: "ChannelSource",
+                title: {
+                  default: "Tau Baca Plus dari mana?",
+                  id: "Tahu tentang Baca Plus dari mana?",
+                },
+                isRequired: true,
+                choices: ["Facebook", "Instagram", "Youtube", "Lainnya"],
+              },
+              {
+                type: "text",
+                name: "ChannelSourceExtend",
+                visibleIf: '{ChannelSource} = "Lainnya"',
+                title: {
+                  default: "Please fill the channel",
+                  id:
+                    "Bila tidak ada di atas, Di mana kamu melihat info Baca Plus pertama kali:",
+                },
+              },
+              {
+                type: "text",
+                name: "ChannelUrl",
+                title: {
+                  default:
+                    "Channel youtube atau post mana yang kamu lihat campaign Baca Plus?",
+                  id: "Tuliskan link/tautan info Baca Plus tersebut bila ada:",
+                },
+                isRequired: true,
+              },
+              {
+                type: "radiogroup",
+                name: "PlayGame",
+                title: {
+                  default: "Do you play games?",
+                  id: "Ada game mobile yang kamu mainkan?",
+                },
+                isRequired: true,
+                choices: [
+                  {
+                    value: "Yes",
+                    text: "Ya",
+                  },
+                  {
+                    value: "No",
+                    text: "Tidak",
+                  },
+                ],
+              },
+              {
+                type: "checkbox",
+                name: "GamesPlayed",
+                visibleIf: '{PlayGame} = "Yes"',
+                title: {
+                  id: "Game mobile apa yang kamu mainkan?",
+                },
+                choices: [
+                  "PUGB or Fire Free",
+                  "Mobile Legends",
+                  {
+                    value: "Other",
+                    text: {
+                      id: "Lainnya",
+                    },
+                  },
+                ],
+              },
+              {
+                type: "text",
+                name: "GamesPlayedExtend",
+                visibleIf: '{GamesPlayed} contains "Other"',
+                title: {
+                  id:
+                    "Bila tidak ada di atas, game mobile apa yang kamu mainkan?",
+                },
+              },
+              {
+                type: "radiogroup",
+                name: "IAP",
+                title: {
+                  id:
+                    "Kamu pernah membeli sesuatu dalam game mobile dengan uang asli?",
+                },
+                choices: [
+                  {
+                    value: "Yes",
+                    text: {
+                      id: "Ya",
+                    },
+                  },
+                  {
+                    value: "No",
+                    text: {
+                      id: "Tidak",
+                    },
+                  },
+                ],
+              },
+              {
+                type: "radiogroup",
+                name: "TimeSpend",
+                visibleIf: '{PlayGame} = "Yes"',
+                title: {
+                  id: "Berapa lama kamu bermain game dalam sehari?",
+                },
+                choices: [
+                  "<15minute",
+                  "15minute-1hour",
+                  "1hour-2hour",
+                  ">2hour",
+                ],
+              },
+              {
+                type: "radiogroup",
+                name: "WatchVideo",
+                title: {
+                  id:
+                    "Apa kamu suka menonton video tentang game, seperti tips atau panduan?",
+                },
+                isRequired: true,
+                choices: [
+                  {
+                    value: "Yes",
+                    text: {
+                      id: "Ya",
+                    },
+                  },
+                  {
+                    value: "No",
+                    text: {
+                      id: "Tidak",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      };
+
+      window.survey = new Survey.Model(json);
+			
+			window.config = this.initParams.apply(window);
+			
+      survey.onComplete.add(function(result) {
+//         document.querySelector("#surveyResult").innerHTML =
+//           "result: " + JSON.stringify(result.data);
+					config['result'] = result.data;
+					result.data && postAction(config);
+      });
+
+      $("#surveyElement").Survey({
+        model: survey,
+      });
+			
+			//method
+			function initParams(){
+				window.param = {
+						xuserid:'',
+						xusertoken:'',
+						xinvitecode: '',
+						xmac:'',
+						xosversion:'',
+						xpackage:'',
+						xosapi:'',
+						eventid:''
+				};
+				this.param.xusertoken = this.getQueryString('X-User-Token') || this.getQueryString('x-user-token');
+				console.log(`xusertoken=>${this.param.xusertoken}`);     
+				
+        this.param.xuserid = this.getQueryString('X-User-Id') || this.getQueryString('x-user-id');
+				console.log(`xuserid=>${this.param.xuserid}`); 
+				
+        this.param.xinvitecode = this.getQueryString('x-invite-code') || this.getQueryString('X-Invite-Code');
+				console.log(`xinvitecode=>${this.param.xinvitecode}`);
+				
+        this.param.xosversion = this.getQueryString('X-Os-Version') || this.getQueryString('x-os-version');
+				console.log(`xosversion=>${this.param.xosversion}`);
+        this.param.xpackage = this.getQueryString('X-App-Package-Id') || this.getQueryString('x-app-package-id');
+				console.log(`xpackage=>${this.param.xpackage}`);
+				this.param.xmac = this.getQueryString('X-Own-Mac') || this.getQueryString('x-own-mac');
+				console.log(`xmac=>${this.param.xmac}`);
+				this.param.xosapi = this.getQueryString('X-Os-Api') || this.getQueryString('x-os-api');
+				console.log(`xosapi=>${this.param.xosapi}`);
+				this.param.eventid = this.getEventId();
+				console.log(`eventid=>${this.param.eventid}`); 
+				
+				return param;
+			}
+			function getQueryString(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+					var r = window.location.search.substr(1).match(reg);
+					return r ? unescape(r[2]) : null;
+			}
+			function getEventId() {
+					let url = window.location.href;
+					var reg = /^http(s)?:\/\/([\w-]+\.)+[\w-]+\/questionnaire\/(.+?)\//gi;
+					var res = reg.exec(url);
+					if(res && res.length>0)
+							return res[3] || '';
+			}
+			function postAction(data){
+				 let requestHeader = {
+					  "x-user-id": data.xuserid,
+						"x-user-token": data.xusertoken,
+						"x-invite-code": data.xinvitecode,
+						"X-Os-Version": data.xosversion,
+						"X-Os-Api":data.xosapi,
+						"X-App-Package-Id":data.xpackage,
+						"X-Own-Mac": data.xmac,
+						"Content-Type":"application/json"
+				 };      
+				let postUrl = 'https://baca.co.id/api/v1/questionaire/' + data.eventid;
+				let requestOptions = {
+					type:"post",
+					url:postUrl,
+					data:data.result,
+					dataType:'json',
+					headers:requestHeader,
+					success:function(res){
+						if(res && res.data.errorno == 0){
+						}
+					},
+					error:function(error){
+						console.log(error);
+					}
+				};
+	
+				$.ajax(requestOptions);
+			}
+    </script>
+  </body>
+</html>

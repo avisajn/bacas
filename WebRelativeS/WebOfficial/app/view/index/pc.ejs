@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./common.css">
+  <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+</head>
+<body>
+  <div class="page-pc">
+    <header class="header">
+      <img src="https://cdn.mokkaya.com/images/SC_logo_header.png" alt class="header" />
+      <a class="header-item" onclick="changeHash('#content-banner2')">Peluang Keuntungan</a>
+      <a class="header-item" onclick="changeHash('#content-banner3')">Yuk Gabung!</a>
+      <a class="header-item" onclick="changeHash('#content-banner4')">Hubungi Kami</a>
+    </header>
+    <div class="banner">
+      <img ref="banner" src="https://cdn.mokkaya.com/images/SC_pc_test.png" alt />
+    </div>
+    <div class="shop">
+      <a :href="toGooglePlay()" target="blank">
+        <img src="https://cdn.mokkaya.com/images/SC_google_pc.png" alt="">
+      </a>
+    </div>
+    <div class="content-banner">
+      <img id="content-banner2" src="https://cdn.mokkaya.com/images/SC_dekstop_02.png" alt />
+      <img id="content-banner3" src="https://cdn.mokkaya.com/images/SC_dekstop_03.png" alt />
+      <img src="https://cdn.mokkaya.com/images/SC_dekstop_04.png" alt />
+    </div>
+    <h4>Hubungi Kami</h4>
+    <div class="share-block" ref="share-block" id="content-banner4">
+      <a class="item" href="https://wa.me/6281281091783/?text=" target="_blank">
+        <img src="https://cdn.mokkaya.com/images/SC_whatsapp.png" alt class="share-icon" />
+        <div class="share-title">WhatsApp</div>
+        <div class="share-btn">Kunjungi</div>
+      </a>
+      <a class="item" href="https://www.facebook.com/Mokkaya-103487204760235/" target="_blank">
+        <img src="https://cdn.mokkaya.com/images/SC_fb.png" alt class="share-icon" />
+        <div class="share-title">Facebook</div>
+        <div class="share-btn">Kunjungi</div>
+      </a>
+      <a class="item" href="https://www.instagram.com/mokkaya_id/" target="_blank">
+        <img src="https://cdn.mokkaya.com/images/SC_ins.png" alt class="share-icon" />
+        <div class="share-title">Instagram</div>
+        <div class="share-btn">Kunjungi</div>
+      </a>
+      <a class="item" href="https://www.youtube.com/channel/UCRlm213nyKyenNdHO_FrTrA" target="_blank">
+        <img src="https://cdn.mokkaya.com/images/SC_youtube.png" alt class="share-icon" />
+        <div class="share-title">YouTube</div>
+        <div class="share-btn">Kunjungi</div>
+      </a>
+    </div>
+    <div class="shop">
+      <a :href="toSupplier()" target="blank">
+        <img src="https://nipidpraise.blob.core.windows.net/webviewbanner/versi dekstop-07 3.png" alt="">
+      </a>
+    </div>
+    <footer class="concat">
+      <div class="contact-item">
+        <div class="title-item title-term">Tentang kami</div>
+        <a class="content-item curson" href="https://mokkaya.com/term" target="_blank">Syarat dan Ketentuan</a>
+        <a class="content-item curson" href="https://mokkaya.com/question" target="_blank">FAQ</a>
+      </div>
+      <div class="contact-item">
+        <div class="title-item">Hubungi kami</div>
+        <div class="content-item">Email: service@mokkaya.com</div>
+        <div class="content-item adress">
+          Alamat:
+          <br />Grand Slipi Tower, Palmerah, Jakarta Barat 11480
+        </div>
+      </div>
+    </footer>
+    <div class="line">
+      <div class="line-item"></div>
+    </div>
+    <footer class="copyright">
+      <div>Copyright @ Mokkaya</div>
+      <!-- <div>Co-owned by Hadoop Network and News In Palm</div> -->
+    </footer>
+  </div>
+    <!-- 
+<script>
+import Common from "@/libs/common";
+
+export default {
+  data() {
+    return {};
+  },
+  mounted() {
+    
+  },
+  methods: {
+    changeHash(bannerid) {
+      document.querySelector(bannerid).scrollIntoView(true);
+    },
+    toGooglePlay() {
+      return Common.goToGooglePlay(this)
+    },
+    toSupplier() {
+      return Common.toSupplierGooglePlay()
+    }
+  }
+};
+</script> -->
+</body>
+
+<style amp-boilerplate="">
+.page-pc {
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, Roboto-Regular;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 11.8%;
+  background: #fff;
+  font-size: 0.75rem;
+  position: relative;
+  color: #40444f;
+}
+.header img {
+  height: 2rem;
+  display: inline-block;
+  padding: 0;
+  position: absolute;
+  left: 11.8%;
+  top: 0.5rem;
+}
+.header-item {
+  margin-right: 2.4rem;
+  font-weight: 500;
+}
+.banner {
+  padding: 0 11.8%;
+  display: flex;
+  justify-content: center;
+  background: #f3f3f3;
+}
+.banner img {
+  width: 100%;
+  background: #448bf8;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+.shop img {
+  width: 100%;
+}
+.content-banner {
+  padding: 0 11.8%;
+}
+.content-banner img {
+  width: 100%;
+}
+.share-block {
+  height: 37%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem 1.2rem 0rem;
+  box-sizing: border-box;
+  padding: 0 13% 2% 13%;
+  background: #fff;
+}
+.share-block .item {
+  width: 22%;
+  background: #ffffff;
+  border: 1px solid #9f9f9f;
+  border-radius: 0.5rem;
+  margin-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2rem 0rem;
+}
+.item:nth-last-child(1) {
+  margin-right: 0;
+}
+.share-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.share-title {
+  font-size: 0.65rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+a.item {
+  text-decoration: none;
+}
+.share-btn {
+  padding: 0rem 1.5rem;
+  height: 1.8rem;
+  background: linear-gradient(to right, #f7598a, #f2354e);
+  border-radius: 1.5rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.65rem;
+  line-height: 1.8rem;
+  margin-top: 1.8rem;
+}
+.concat {
+  padding: 1rem 1rem;
+  display: flex;
+  box-sizing: border-box;
+  background: #f3f3f3;
+  width: 100%;
+  font-size: 0.75rem;
+  justify-content: center;
+}
+.title-item {
+  font-weight: bold;
+  color: #000;
+  font-size: 0.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.contact-item:nth-child(1) {
+  flex: 5;
+  margin-left: 20%;
+}
+.contact-item:nth-child(2) {
+  flex: 5;
+}
+.contact-item .content-item {
+  margin-top: 0.4rem;
+  color: #2d89ef;
+  line-height: 1.1rem;
+  display: inherit;
+}
+.adress {
+  padding-right: 3rem;
+}
+.curson {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  display: flex;
+  background: #f3f3f3;
+  justify-content: center;
+}
+.line-item {
+  background: #e3e3e3;
+  width: 80%;
+}
+.copyright {
+  font-size: .75rem;
+  background: #F2F3F5;
+  color: #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 0rem 1.45rem 0rem;
+  line-height: 1rem;
+}
+.copyright div {
+  margin-bottom: .2rem;
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+/*1680px*/
+@media screen and (min-width: 1680px) {
+  .item {
+    border-radius: 0.3rem;
+  }
+  .share-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .share-title {
+    font-size: 0.75rem;
+  }
+}
+</style>
+
+</html>

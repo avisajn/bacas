@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/index的副本.js"
+    ],
+    "names": [
+        "indexAction",
+        "display"
+    ],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;AAGE;;;;mBAIMA,W;;;;;;+CACG,KAAKC,OAAL,CAAa,OAAb,C",
+    "file": "../../../src/home/controller/index的副本.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n  /**\n   * index action\n   * @return {Promise} []\n   */\n  async indexAction(){\n    return this.display('index');\n  }\n}"
+    ]
+}

@@ -1,0 +1,163 @@
+server=usadadmin.westus.cloudapp.azure.com;database=magicadsystem;uid=root;pwd=Baca@123;charset='utf8'
+
+这个库的目的在于管理素材
+每一个素材需要绑定 一个广告单元格和发布人
+
+
+
+页面：
+	1.
+		
+
+	2.
+
+
+
+提供的接口：
+	1.	getadunit		// 返回处理后的列表
+			# 需要保存到Session中
+
+		参数： 无
+		返回： 列表
+
+	2.	getpublisher 	// 返回所有的发布人
+			# 也需要保存到 Session 中，
+
+		参数： 无
+		返回：列表
+
+		savepublisher	// 添加或者修改发布人
+
+		参数： name 
+		返回： id
+
+	3.	saveoffer		// 创建一个offer的时候，同时新建一个creative
+		参数： 
+			{
+				start_time ,	// offer :
+				end_time ,		// offer :
+				name ,			// offer : offername
+				# 长宽添加图片的时候，需要判断一下，是否符合广告单元格的比例
+				offer_id 		// creative : 插入完offer之后返回的offerid
+				width, 			// creative : 
+				height, 		// creative : 
+				cta, 			// creative :  (CallToAction【跳转按钮的文本】)
+				target_url,  	// creative : 
+				click_callback_url, 		// creative : 
+				impression_callback_url, 	// creative : 
+				title, 			// creative : creative
+				description, 	// creative : 
+				creative_url (iamge_url) 	// creative : 
+				新增一个：
+				youtobe_url（video_url）: // creative;
+
+			}
+	4.uploadimage //上传图片的接口
+		
+		参数：	{
+				title ,
+				start ,
+				end,
+				}
+		单张图片的：
+		返回 : {data: "http://img.cdn.baca.co.id/ads/ds_20190101_20190102.png", errmsg: "",
+		errno: 0}
+		多张图片
+		返回： 
+		{
+		data: "https://baca.blob.core.windows.net/hbms/3dcube.html",
+		 errmsg: "",
+		errno: 0
+		}
+		或者 
+		{
+		data: "	https://baca.blob.core.windows.net/hbms/carousel.html",
+		errmsg: "",
+		errno: 0
+		}
+
+
+
+
+adunit: (广告单元格，只需要查询就行了， 查询的时候,规则如下)
+  select id, name, index, creative_ratio, creative_size_limitation from adunit where app = 'baca'
+  name_{index+1} -> splash_1
+
+
+  	CREATE TABLE `adunit` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `index` int(11) DEFAULT NULL,
+	  `name` varchar(128) NOT NULL,
+	  `target_ctr` double DEFAULT NULL,
+	  `target_impression_multiplexer` double DEFAULT NULL,
+	  `ctr_multiplexer` double DEFAULT NULL,
+	  `app` varchar(128) NOT NULL DEFAULT 'baca',
+	  `creative_ratio` double DEFAULT '1.9',
+	  `creative_size_limitation` int(11) DEFAULT '204800',
+	  PRIMARY KEY (`id`),
+	  KEY `adunit_app_index` (`app`)
+	) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8
+
+
+publisher: （发布人，查询，也可以添加修改）
+  select publisher_name from publisher;
+  insert into publish (publisher_name) values ('<publisher_name>');
+
+  	CREATE TABLE `publisher` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `publisher_name` varchar(128) NOT NULL,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+
+offer: (创建一个offer的时候，同时新建一个creative)
+  start_time, end_time (+07:00) --> (+00:00), name
+
+  	CREATE TABLE `offer` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `status` tinyint(4) DEFAULT NULL,
+	  `created_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	  `updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	  `start_time` datetime DEFAULT CURRENT_TIMESTAMP,
+	  `end_time` datetime DEFAULT CURRENT_TIMESTAMP,
+	  `publisher_id` int(11) NOT NULL,
+	  `adunit_id` int(11) NOT NULL,
+	  `name` varchar(256) DEFAULT NULL,
+	  PRIMARY KEY (`id`),
+	  KEY `offer_index_status` (`status`),
+	  KEY `offer_publisher_id_fk` (`publisher_id`),
+	  KEY `offer_adunit_id_fk` (`adunit_id`),
+	  KEY `offer_end_time_start_time_index` (`end_time`,`start_time`),
+	  CONSTRAINT `offer_adunit_id_fk` FOREIGN KEY (`adunit_id`) REFERENCES `adunit` (`id`),
+	  CONSTRAINT `offer_publisher_id_fk` FOREIGN KEY (`publisher_id`) REFERENCES `publisher` (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+
+
+creative:
+
+  width, height, cta (CallToAction【跳转按钮的文本】), target_url, click_callback_url, impression_callback_url, title, description, creative_url (iamge_url)
+
+  	CREATE TABLE `creative` (
+	  `id` int(10) NOT NULL AUTO_INCREMENT,
+	  `offer_id` int(10) NOT NULL DEFAULT '0',
+	  `width` int(11) NOT NULL DEFAULT '0',
+	  `height` int(11) NOT NULL DEFAULT '0',
+	  `cta` varchar(128) DEFAULT '',
+	  `creative_url` varchar(2048) NOT NULL,
+	  `traget_url` varchar(2048) NOT NULL,
+	  `click_callback_url` varchar(2048) DEFAULT NULL,
+	  `impression_callback_url` varchar(2048) DEFAULT NULL,
+	  `title` varchar(512) DEFAULT NULL,
+	  `description` varchar(512) DEFAULT NULL,
+	  PRIMARY KEY (`id`),
+	  KEY `creative_index_offer_id` (`offer_id`),
+	  CONSTRAINT `creative_offer_id_fk` FOREIGN KEY (`offer_id`) REFERENCES `offer` (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+
+
+
+
+
+
+
+
+

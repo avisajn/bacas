@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 1080px;
+      margin: 0 auto;
+    }
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      margin-bottom: 50px;
+    }
+    .buttom_about {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      height: 24px;
+    }
+    .buttom_about span:last-child {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+    }
+    p {
+      line-height: 20px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 24px;
+    }
+    .img_list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .img_list img {
+      width: 20%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <%arr.forEach(item => {%>
+        <li>
+          <p>title: <%=item.title%></p>
+          <p>buttonText: <%=item.buttonText%></p>
+          <p>versionKey: <%=item.versionKey%>(clear cache)</p>
+          <div class="buttom_about">
+            <span>button background color: <%=item.buttonBg%></span>
+            <span style="background-color:  <%=item.buttonBg%>;"></span>
+          </div>
+          <div class="img_list">
+            <%item.imgs.forEach(img => {%>
+              <img src="<%=img%>?v=<%=item.versionKey%>" alt="">      
+            <%})%>
+          </div>
+        </li>
+
+      <%})%>
+    </ul>
+  </div>
+
+</body>
+</html>

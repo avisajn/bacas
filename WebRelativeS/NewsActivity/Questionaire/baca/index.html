@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Questionnaire
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.5.5/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.5.5/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/layer/3.0.3/mobile/layer.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+    <script type="text/javascript">
+    $({ property: 0 }).animate({ property: 100 }, {
+        duration: 3000,
+        step: function() {
+            var percentage = Math.round(this.property);
+            $('#progress').css('width', percentage + "%");
+            if (percentage == 100) {
+                $("#progress").addClass("done");
+            }
+        }
+    })
+    Survey.StylesManager.applyTheme("default");
+
+    var json = {
+        pages: [{
+            name: "page1",
+            elements: [{
+                    type: "radiogroup",
+                    name: "gender ",
+                    title: "Sebutkan Jenis Kelamin Anda",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "Male",
+                            text: "Pria"
+                        },
+                        {
+                            value: "Female",
+                            text: "Wanita"
+                        },
+                        {
+                            value: "I do prefer not to tell it",
+                            text: "Saya lebih suka untuk tidak mengatakannya"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "child belongings",
+                    title: "Apakah Anda sudah memiliki anak",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "Not yet",
+                            text: "Belum"
+                        },
+                        {
+                            value: "Yes",
+                            text: "Sudah"
+                        },
+                        {
+                            value: "I do prefer not to tell it",
+                            text: "Saya lebih suka untuk tidak mengatakannya"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "Type of living place ",
+                    title: "Sebutkan tipe wilayah tempat Anda tinggal",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    hasOther: true,
+                    choices: [{
+                            value: "Big Cities / Province capital",
+                            text: "Kota besar / ibu kota propinsi"
+                        },
+                        {
+                            value: "City (non of Province capital)",
+                            text: "Perkotaan (selain ibu kota propinsi)"
+                        },
+                        {
+                            value: "Village ",
+                            text: "Pedesaan"
+                        },
+                        {
+                            value: "Rural Area ",
+                            text: "Area terpencil"
+                        }
+                    ],
+                    otherText: "Lainnya "
+                },
+                {
+                    type: "radiogroup",
+                    name: "number of children",
+                    title: "Sebutkan berapa jumlah anak yang Anda miliki",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "1",
+                            text: "1"
+                        },
+                        {
+                            value: "2",
+                            text: "2"
+                        },
+                        {
+                            value: "3",
+                            text: "3"
+                        },
+                        {
+                            value: "4",
+                            text: ">3"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "overall budget",
+                    title: "Untuk seluruh keperluan anak, berapa dana yang biasanya Anda keluarkan setiap bulan nya, untuk masing-masing anak (rata-rata per anak)?",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "< Rp 100,000",
+                            text: "< Rp 100,000"
+                        },
+                        {
+                            value: "Rp 100,000 - Rp 499,000",
+                            text: "Rp 100,000 - Rp 499,000"
+                        },
+                        {
+                            value: "Rp 500,000 - Rp 999,000",
+                            text: "Rp 500,000 - Rp 999,000"
+                        },
+                        {
+                            value: "Rp 1.000,000 - Rp 1.999,000",
+                            text: "Rp 1.000,000 - Rp 1.999,000"
+                        },
+                        {
+                            value: "Rp 1.999,000 - Rp 3.000,000",
+                            text: "Rp 1.999,000 - Rp 3.000,000"
+                        },
+                        {
+                            value: "> Rp 3.000,000",
+                            text: "> Rp 3.000,000"
+                        }
+                    ],
+                    otherText: "Rp 1.999,000 - Rp 3.000,000"
+                },
+                {
+                    type: "radiogroup",
+                    name: "question1",
+                    title: "Untuk kebutuhan membeli mainan anak, berapa dana yang biasanya Anda keluarkan setiap bulan nya, untuk masing-masing anak (rata-rata per anak)?",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "< Rp 100,000",
+                            text: "< Rp 100,000"
+                        },
+                        {
+                            value: "Rp 100,000 - Rp 499,000",
+                            text: "Rp 100,000 - Rp 499,000"
+                        },
+                        {
+                            value: "Rp 500,000 - Rp 999,000",
+                            text: "Rp 500,000 - Rp 999,000"
+                        },
+                        {
+                            value: "Rp 1.000,000 - Rp 1.999,000",
+                            text: "Rp 1.000,000 - Rp 1.999,000"
+                        },
+                        {
+                            value: "Rp 1.999,000 - Rp 3.000,000",
+                            text: "Rp 1.999,000 - Rp 3.000,000"
+                        },
+                        {
+                            value: "> Rp 3.000,000",
+                            text: "> Rp 3.000,000"
+                        }
+                    ],
+                    otherText: "Rp 1.999,000 - Rp 3.000,000"
+                },
+                {
+                    type: "radiogroup",
+                    name: "kid clothes budget",
+                    title: "Untuk kebutuhan membeli pakaian anak, berapa dana yang biasanya Anda keluarkan setiap bulan nya, untuk masing-masing anak (rata-rata per anak)?",
+                    description: "Pilihlah salah satu dari opsi jawaban berikut",
+                    isRequired: true,
+                    choices: [{
+                            value: "< Rp 100,000",
+                            text: "< Rp 100,000"
+                        },
+                        {
+                            value: "Rp 100,000 - Rp 499,000",
+                            text: "Rp 100,000 - Rp 499,000"
+                        },
+                        {
+                            value: "Rp 500,000 - Rp 999,000",
+                            text: "Rp 500,000 - Rp 999,000"
+                        },
+                        {
+                            value: "Rp 1.000,000 - Rp 1.999,000",
+                            text: "Rp 1.000,000 - Rp 1.999,000"
+                        },
+                        {
+                            value: "Rp 1.999,000 - Rp 3.000,000",
+                            text: "Rp 1.999,000 - Rp 3.000,000"
+                        },
+                        {
+                            value: "> Rp 3.000,000",
+                            text: "> Rp 3.000,000"
+                        }
+                    ],
+                    otherText: "Rp 1.999,000 - Rp 3.000,000"
+                }
+            ]
+        }]
+    }
+    window.survey = new Survey.Model(json);
+    window.config = this.initParams.apply(window);
+
+    survey.onComplete.add(function(result) {
+        config['result'] = result.data;
+        result.data && postAction(config);
+
+    });
+
+    $("#surveyElement").Survey({
+        model: survey,
+    });
+
+    //method
+    function initParams() {
+        window.param = {
+            xuserid: '',
+            xusertoken: '',
+            xinvitecode: '',
+            xpackage: '',
+            eventid: '',
+            origin: ''
+        };
+
+        this.param.xusertoken = this.getQueryString('X-User-Token') || this.getQueryString('x-user-token');
+        this.param.xuserid = this.getQueryString('X-User-Id') || this.getQueryString('x-user-id');
+        this.param.xinvitecode = this.getQueryString('x-invite-code') || this.getQueryString('X-Invite-Code');
+        this.param.xpackage = this.getQueryString('X-App-Package-Id') || this.getQueryString('x-app-package-id');
+
+        this.param.origin = this.getQueryString('origin') || this.getQueryString('origin');
+        this.param.eventid = this.getEventId();
+        return param;
+
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        return r ? unescape(r[2]) : null;
+    }
+
+    function getEventId() {
+        let url = window.location.href;
+        return "0608ba7d-0e02-9a56-c742-bcf919f8bcf9";
+    }
+
+    function postAction(data) {
+        let requestHeader = {
+            "x-user-id": data.xuserid,
+            "x-user-token": data.xusertoken,
+            "x-invite-code": data.xinvitecode,
+            "X-App-Package-Id": data.xpackage,
+            "Content-Type": "application/json"
+        };
+        data.result.origin = data.origin //  push/banner
+
+        let postUrl = 'https://api.baca.co.id/api/v1/questionaire/' + data.eventid;
+        let requestOptions = {
+            type: "post",
+            url: postUrl,
+            data: JSON.stringify(data.result),
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.errorno == 0) {
+                    var coin = res.data.extraCoin;
+                    let tip = 'Anda mendapat ' + coin + ' Koin! Silahkan periksa di saldo Anda!'; //提交成功
+                    message(tip, 'OK', true, false);
+                    //TODO：埋点1 调用APP更新金币 待确认
+                    BacaAndroid.refreshCoinSystem();
+                }
+            },
+            error: function(error) {
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                } else {
+                    let tip = 'Gagal mengirim, silahkan coba lagi'; //提交失败
+                    message(tip, 'OK', false, true);
+                }
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function message(desc, btnText, isNeedBack, isShadeClose) {
+        var _self = this;
+        var index = layer.open({
+            content: desc,
+            shadeClose: isShadeClose,
+            btn: [btnText],
+            yes: function() {
+                isNeedBack && _self.toApp();
+            }
+        })
+    }
+
+    function toApp() {
+        BacaAndroid.goBackToApp();
+    }
+    </script>
+</body>
+
+</html>

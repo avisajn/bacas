@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <script src="/public/js/google.js"></script>
+    <style>
+      .mokkaya-native {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, .5);
+      }
+      .window {
+        width: 78%;
+        background: #fff;
+        border-radius: 4px;
+        display: none;
+      }
+      .window-title {
+        margin: 0;
+        border-bottom: 1px solid #eaeaea;
+        line-height: 24px;
+        color: #333;
+        padding: 18px 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .window-bottom {
+        text-align: center;
+        color: #fff;
+        line-height: 45px;
+        color: #000;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="mokkaya-native" ref="mokkaya-native">
+      <div class="window">
+        <div class="window-title">Buka di aplikasi Mokkaya</div>
+        <div class="window-bottom" onclick="openApp()">Buka</div>
+      </div>
+      <div hidden class="ga_tag">G-KL9JTFHCB7</div>
+    </div>
+    <script>
+      googleAnalytics('', document.querySelector('.ga_tag').innerText)
+    </script>
+    <script>
+
+    const queryParse = function(string) {
+      if (!string) return false
+      const obj = {}
+      const str = string[0] === '?' ? string.substring(1) : string
+      str.split('&').map(val => {
+        return val.split('=')
+      }).forEach(val => {
+        if (val.length >= 2 && val[0]) {
+          obj[val[0]] = val[1]
+        }
+      })
+      return obj
+    }
+
+    const quary = function(obj = {}, has = false) {
+      if (obj.constructor !== Object) return null
+      const arr = Object.entries(obj)
+      let str = ''
+      arr.forEach(val => {
+        str += `${val[0]}=${val[1]}&`
+      })
+      const qs = str.substring(0, str.length - 1)
+      if (qs) return has ? '?' + qs : qs
+      return null
+    }
+    
+    const formatColor = function (jumpUrl) {
+      const urlParse = queryParse(jumpUrl.split('?')[1])
+      const urlHost = jumpUrl.split('?')[0]
+      const urlObj = {}
+      let color = ''
+      Object.keys(urlParse).forEach((item, idx) => {
+        if(item == "color") {
+          color = urlParse.color
+        } else {
+          urlObj[item] = urlParse[item]
+        }
+      })
+      if (color != "") {
+        urlObj.color = color
+      }
+      return `${urlHost}?`+ quary(urlObj)
+    }
+
+    const formatUrl = function() {
+      let symbolStr = ""
+      let haveNewWindow = ""
+      let jumpUrl = ""
+      const url = decodeURIComponent(window.location.href)
+      const host = (location.host.indexOf('test') >=0 || location.host.indexOf('localhost') >=0) ? 'test.mokkaya.com' : 'mokkaya.com'
+      let redirectUrl = url.split('url=')[1]
+      if (redirectUrl.indexOf('?') > -1) {
+        symbolStr = '&'
+      } else {
+        symbolStr = '?'
+        if (redirectUrl.indexOf("&") > -1) {
+          redirectUrl = redirectUrl.replace('&', '?')
+        }
+      }
+      if (redirectUrl.indexOf('newWindow=true') > -1) {
+        haveNewWindow = ""
+        jumpUrl = `${host}/webapp/${redirectUrl}`
+      } else {
+        haveNewWindow = 'newWindow=true'
+        jumpUrl = `${host}/webapp/${redirectUrl}${symbolStr}${haveNewWindow}`
+      }
+      // 移除newWindow防止打开两个首页
+      if (jumpUrl.indexOf('/webapp/shop') > -1 && jumpUrl.indexOf('newWindow=true') > -1) {
+        jumpUrl = jumpUrl.replace('newWindow=true', '')
+      }
+      console.log(jumpUrl)
+
+      jumpUrl = formatColor(jumpUrl)
+      return jumpUrl
+    }
+
+    // 唤起app失败后跳转的页面
+    const handleOpenApp = function(url) {
+      const loadTimer = setTimeout(() => {
+        location.href = url
+      }, 2500)
+      const visibilitychange = () => {
+        const tag = document.hidden || document.webkitHidden
+        tag && clearTimeout(loadTimer)
+      }
+      document.addEventListener('visibilitychange', visibilitychange, false)
+    }
+    // 点击跳转
+    const openApp = function () {
+      document.querySelector('.window-bottom').style.opacity = 0.6
+      setTimeout(() => {
+        document.querySelector('.window-bottom').style.opacity = 1
+      }, 200)
+
+      const jumpUrl = formatUrl()
+      // _l:gp 未安装app跳转到GP
+      const search = queryParse(decodeURIComponent(location.search))
+
+      if (search._l.includes("gp")) {
+        handleOpenApp('https://play.google.com/store/apps/details?id=com.mokkaya&referrer=%E2%81%A3%E2%81%A3%E2%81%A3utm_source%3Dmokkaya.com%26utm_medium%3Dwa_links_recall_user')
+        location.href = `mokkaya://${jumpUrl}`
+      } else {
+        handleOpenApp(`https://${jumpUrl}`)
+        location.href = `mokkaya://${jumpUrl}`
+      }
+    }
+    
+    if (queryParse(decodeURIComponent(location.search)).sim) {
+      const arr = queryParse(decodeURIComponent(location.search)).sim.split('.')
+      if (arr[3] === '1') {
+        console.log('send')
+        gtag('event', 'from_whatsapp_link', {url: location.search, uuid: queryParse(decodeURIComponent(location.search)).uuid, about: 'browser'})
+      } else if (arr[3] === '2') {
+        console.log('send_push')
+        gtag('event', 'from_push_link', {url: location.search, uuid: queryParse(decodeURIComponent(location.search)).uuid, about: 'browser'})
+      }
+    }
+    let isApp = ''
+    try {
+      isApp = MokkayaAndroid.getPackageName() 
+    } catch (error) {
+      isApp = 'notApp'
+    }
+
+    if (isApp != 'notApp') {
+      const jumpUrl = formatUrl()
+      document.querySelector('.mokkaya-native').style.background = '#fff'
+      location.href =  `https://${jumpUrl}`
+    } else {
+      document.querySelector('.window').style.display = 'block'
+    }
+    </script>
+  </body>
+</html>

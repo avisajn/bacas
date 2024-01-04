@@ -1,0 +1,87 @@
+<html>
+<head>
+    <link rel="shortcut icon" content="http://flashgo.online/static/images/icon.png"/>
+    <title>Flash Go</title>
+    <style>
+        body {
+            height: 100%;
+            background:rgba(255,252,252,1);
+        }
+
+        #icon_div {
+            height: 45%;
+            font-size: 55px;
+            color: #FFFFFF
+        }
+
+        #p_div {
+            padding-left: 81px;
+            font-size:64px;
+            color:rgba(45,45,45,1);
+            line-height:75px;
+        }
+
+        #b_div {
+            height: 36%;
+            position: relative;
+        }
+
+        #img_tag {
+            top: 50%;
+            margin: auto;
+        }
+
+        #icon_p_div {
+            left: 50%;
+            top: 25%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            color:rgba(255,43,76,1);
+            text-align: center;
+        }
+
+        #download_button {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 720px;
+            height: 129px;
+            display: block;
+            padding: 0 20px;
+            border-radius: 60px;
+            text-align: center;
+            line-height: 129px;
+            font-size: 52px;
+            text-decoration: none;
+            color: rgba(255,255,255,1); 
+            background: rgba(255,0,73,1);
+        }
+    </style>
+
+    <script type="text/javascript">
+        var first_url = 'https://app.appsflyer.com/com.cari.p'
+        var second_url = 'romo.diskon?pid=h5code&c=INVITE_CODE'
+        function goto_gp() {
+            url = first_url + second_url;
+            window.location = url;
+        }
+        setTimeout("goto_gp()",5000);
+    </script>
+</head>
+<body>
+<div id='icon_div'>
+    <div id='icon_p_div'>
+        <image id='img_tag' src='http://cdn.flashgo.online/admin/20190529_6aaabaf3bacb43239b5acc7371119bc5.png'></image>
+        <p>Flash Go</p>
+    </div>
+</div>
+<div id='p_div'>
+    <p>Temukan gaya baru dan produk dengan harga termurah, semua hanya di flash go! Dapatkan bonus spesial untuk pengguna baru, cek sekarang! Otomatis mengalihkan ke Google Play setelah 5 detik.</p>
+</div>
+<div id='b_div'>
+    <a id='download_button' onclick="goto_gp()">Coba sekarang</a>
+</div>
+<img src="http://impression.appsflyer.com/com.cari.promo.diskon?c=INVITE_CODE$pid=h5code" style="display:none"/>
+</body>
+</html>

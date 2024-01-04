@@ -1,0 +1,22 @@
+@import	'../common/common';
+
+body{
+	background:#e9384d;
+}
+
+.container{
+  margin:0px auto;
+  width:100%;
+  height:100px;
+  text-align: center;
+}
+.ad,.ad-bx{
+	margin-top: 30px;
+}
+.ad-img{
+  height:100px;
+}
+.ad-yn-320_250,.ad-bx-320_250{
+	margin-top:0px;
+	height: 250px;
+}

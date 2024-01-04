@@ -1,0 +1,52 @@
+@import	'../common/common';
+
+body{
+	background:#dadada;
+}
+body,html,.container-body,.container-block,.container{
+	height: 100%;
+    width: 100%;
+}
+.top{
+	height:70%;
+	position:relative;
+	overflow:hidden;
+}
+.btn-group{
+	text-align:center;
+}
+.err-title{position:relative;
+	font-size:.5rem;
+	font-weight:bold;
+	top:-42%;
+	display:block;
+}
+.btn{border-radius:5px;
+	display:inline-block;
+	background:#ff424b;
+	height:36px;
+	width:142px;
+	text-align:center;
+	line-height:36px;
+	font-size:15px;
+	color:white;
+	margin-top:5px;
+	}	
+.top .img{
+	position:absolute;
+	bottom:0px;
+	width:70%;
+	margin-left:15%;
+	text-align:center;
+	height:90%;
+}
+
+.img>img{
+	height:100%;
+	width:auto;
+}
+.btn-index{margin-right:10px;
+	background:none;
+	border:1.5px solid #ff424b;
+	color:#ff424b;
+}

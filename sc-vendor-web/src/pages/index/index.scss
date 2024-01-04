@@ -1,0 +1,410 @@
+@import '../../theme.scss';
+
+$tableBorder: #f0f0f0;
+
+.index_page {
+  margin-top: 10px;
+  .dash_board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
+    li {
+      padding: 5px 10px;
+      list-style: none;
+      width: 25%;
+      padding-top: 12px;
+      border-radius: 3px;
+      p:first-child {
+        line-height: 22px;
+        color: rgba(0,0,0,.43);
+        // opacity: .73;
+        margin-bottom: 18px;
+        font-size: 16px;
+      }
+      p:last-child {
+        margin: 0;
+        line-height: 37px;
+        padding: 0 5px;
+        font-size: 16px;
+        // text-align: right;
+      }
+    }
+  }
+  .table_filter {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 15px 0;
+    background-color: #fff;
+    font-size: 14px;
+    &>div {
+      padding: 0 5px;
+      width: calc(100% / 3);
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      &>span:first-child {
+        padding: 0 10px;
+        line-height: 32px;
+        width: 110px;
+        font-size: 14PX;
+      }
+      &>input {
+        width: calc(100% - 120px);
+        padding: 0 3px;
+        // width: 80%;
+        border: none;
+        height: 32PX;
+        border: 1px solid $borderColor;
+        outline: none;
+        transition: all 0.3s;
+      }
+      &>input:hover {
+        border: 1px solid $themeColor;
+      }
+      .radio_wrap {
+        width: calc(100% - 120px);
+      }
+    }
+    .filter_large {
+      width: 50%;
+      .radio_wrap {
+        .ant-radio-button-wrapper {
+          border-color: $borderColor;;
+        }
+        .ant-radio-button-wrapper:hover {
+          color: $themeColor;
+        }
+        .ant-radio-button-wrapper-checked {
+          border-color: $themeColor;
+        }
+        .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+          color: $themeColor;
+        }
+        .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+          background-color: $themeColor;
+        }
+      }
+    }
+    .filter_big {
+      width: 75%;
+    }
+    .filter_small {
+      width: 25%;;
+    }
+    .filter_button {
+      justify-content: flex-end;
+      padding-right: 10px;
+      div {
+
+        display: flex;
+        justify-content: center;
+        border-radius: 2px;
+        overflow: hidden;
+        button {
+          padding: 0;
+          // width: 85px;
+          padding: 10px 20px;
+          height: 32PX;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          background-color: $themeColor;
+          outline: none;
+          cursor: pointer;
+          margin: 0;
+          border: none;
+          transition: all ease-in .25s;
+          outline: none;
+          border-radius: 3px;
+          i {
+            margin-right: 3px;
+          }
+        }
+        // button:hover {
+        //   width: 32px;
+        //   border-radius: 50%;
+        //   color: $themeColor;
+        //   .word {
+        //     display: none;
+        //   }
+        //   .icon {
+        //     display: block;
+        //   }
+        //   // background-color: #fff;
+        // }
+      }
+    }
+  }
+  .table_wrap {
+    .checkbox {
+      width: 16PX;
+      height: 16PX;
+      cursor: pointer;
+      border:1px solid #aaa;
+      margin: 0 auto;
+      border-radius: 2PX;
+      transition: all ease-in .25s;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        color: $themeColor;
+        font-weight: bolder;
+        font-size: 16px;
+        // font-style: italic;
+      }
+    }
+    .total_wrap {
+      height: 32PX;
+      min-width: 32PX;
+      padding: 0 15px;
+      border: 1px solid $tableBorder;
+      text-align: center;
+      background-color: #fff;
+    }
+    .checkbox:hover {
+      border: 1px solid $themeColor;
+    }
+    .ant-pagination-item-active,.ant-pagination-item:focus-visible, .ant-pagination-item:hover {
+      border-color: $themeColor;
+      a {
+        color: $themeColor;
+      }
+    }
+    .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {
+      color: $themeColor;
+      border-color: $themeColor;
+    }
+    .ant-pagination-item-link-icon {
+      color: $themeColor;
+    }
+    .table_loading {
+      .ant-spin-blur {
+        opacity: 0;
+      }
+      .ant-spin-dot-item {
+        background-color: $themeColor;
+      }
+      .ant-spin-text {
+        color: $themeColor;
+      }
+    }
+    .shop_link {
+      color: #000;
+    }
+    .inner_img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      // max-width: 150px;
+      img {
+        // height: 100%;
+        width: 120px;
+        height: 120px;
+        // max-width: 120px;
+        // max-width: 100px;
+      }
+    }
+    .status_word {
+      font-size: 16px;
+      // font-weight: bold;
+    }
+    .status-1 {
+      color: $successColor;
+    }
+    .status-2 {
+      color: $warnColor;
+    }
+    .status-3 {
+      color: $errorColor;
+    }
+    .action_list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .action {
+        padding: 0 8px;
+        height: 30px;
+        text-align: center;
+        border: none;
+        color: #fff;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        // border-radius: 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        outline: none;
+      }
+      .action-3 {
+        background-color: $actionColor-3;
+      }
+      .action-4 {
+        background-color: $actionColor-error;
+      }
+      .action-5 {
+        background-color: $actionColor-success;
+      }
+    }
+  }
+  .footer_operation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    .bottom_button {
+      display: flex;
+      align-items: center;
+      button {
+        margin-right: 15px;
+        width: 160px;
+        height: 32px;
+        text-align: center;
+        border:none;
+        margin: 0;
+        padding: 0;
+        margin-right: 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+      }
+      button:first-child {
+        background-color: $actionColor-success;
+      }
+      button:last-child {
+        background-color: $actionColor-error;
+      }
+    }
+    .page_wrap {
+      padding: 15px 0;
+      display: flex;
+      justify-content: flex-end;
+      button {
+        outline: none;
+        width: 92px;
+        height: 40px;
+        text-align: center;
+        border:none;
+        margin: 0;
+        padding: 0;
+        background: $themeColor;
+        color:#fff;
+        transition: all ease-in .3s;
+        border: 1px solid $themeColor;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 16px;
+        outline: none;
+      }
+      button:hover {
+        color: $themeColor;
+        background: #fff;
+      }
+    }
+  }
+
+  .ant-table-tbody > tr.ant-table-row-selected > td {
+    background: none;
+    border-color: rgba(0, 0, 0, 0.03);
+  }
+  .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+    background-color: $themeColor;
+  }
+  .ant-checkbox:hover {
+    .ant-checkbox-inner {
+      border:1px solid $themeColor;
+    }
+    // border: 1px solid $themeColor;
+  }
+  .ant-checkbox-inner::selection {
+    background: none;
+  }
+  .ant-checkbox-checked::after{
+      border: 1px solid $themeColor;
+  }
+  // .ant-checkbox {
+  //   .ant-checkbox-inner {
+  //     border-color: $themeColor;
+  //   }
+  //   // border: 1px solid $themeColor;
+  // }
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: $themeColor;
+    border-color: $themeColor;
+  }
+}
+.stock_modal {
+  .title_line {
+    padding-bottom: 20px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      span:first-child {
+        width: 40%;
+        line-height: 1.2;
+        font-size: 14px;
+      }
+      div:last-child {
+        width: 60%;
+        input {
+          height: 30px;
+          padding: 0 5px;
+          width: 100%;
+          outline: none;
+          border:none;
+          border: 1px solid $borderColor;
+          transition: all ease-in-out .15s;
+        }
+        input:focus {
+          border: 1px solid $themeColor;
+        }
+        input[value="0"] {
+          color: $errorColor;
+        }
+      }
+    }
+  }
+  div:last-child {
+
+    padding-top: 0 10px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      outline: none;
+      width: 72px;;
+      height: 28px;
+      background-color: $actionColor-3;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  }
+}
+.preview_modal {
+  .ant-modal-content {
+    background-color: transparent;
+    box-shadow: none;
+    .ant-modal-body {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

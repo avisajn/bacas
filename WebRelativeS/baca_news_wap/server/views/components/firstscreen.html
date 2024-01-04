@@ -1,0 +1,52 @@
+{% macro getBx(language) %}
+<div class="download-screen" id="indexDownload">
+  <a class="icon-intosite bx" href="javascript:window.Download.intoSiteIntro();">{{language['intoSite']}}</a>
+  <div class="icon-block">
+    <a class="circle down-screen-circle bx btn-intoWebSite" href="javascript:window.Download.intoList();">
+      <img alt="download icon" src="/common/img/download-index-bx.png"></a>
+    <div class="pillar"></div>
+  </div>
+  <br>
+  <div class="btn-group">
+    <a class="btn-down" onclick="window.Download.redirect('intro')">{{language['download']}}</a>
+    <br>
+    <a class="btn-page btn-intoWebSite" href="javascript:window.Download.intoList();">{{language['intoWebSite']}}</a></div>
+</div>
+{% endmacro %}
+
+{% macro getYn(language) %}
+<div class="download-screen screen-yn" id="indexDownload">
+  <div class="icon-block">
+    <a class="circle down-screen-circle yn btn-intoWebSite" href="javascript:window.Download.intoList();">
+      <img alt="download icon" src="/common/img/download-index.png"></a>
+    <div class="pillar"></div>
+  </div>
+  <br>
+  <div class="btn-group">
+    <a class="btn btn-down" onclick="window.Download.redirect('intro')">{{language['download']}}</a>
+    <br>
+    <a class="btn btn-intoWebSite" href="javascript:window.Download.intoList();">{{language['intoWebSite']}}</a>
+    <br>
+    <a class="btn btn-intoWebSite" href="javascript:window.Download.intoSiteIntro();">{{language['intoSite']}}</a>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro getMe(language) %}
+<div class="download-screen screen-yn screen-me" id="indexDownload">
+  <div class="icon-block">
+    <a class="circle down-screen-circle yn btn-intoWebSite" href="javascript:window.Download.intoList();">
+      <img alt="download icon" src="/common/img/download-index-me.png"></a>
+    <div class="pillar"></div>
+  </div>
+  <br>
+  <div class="btn-group">
+    <a class="btn btn-down" onclick="window.Download.redirect('intro')">{{language['download']}}</a>
+    <br>
+    <a class="btn btn-intoWebSite" href="javascript:window.Download.intoList();">{{language['intoWebSite']}}</a>
+    <br>
+    <a class="btn btn-intoWebSite" href="javascript:window.Download.intoSiteIntro();">{{language['intoSite']}}</a>
+    </div>
+</div>
+{% endmacro %}

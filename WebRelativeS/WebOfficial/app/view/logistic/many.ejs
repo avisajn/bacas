@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Logistic Label</title> -->
+  <title>Logistic Label</title>
+  <script src="/public/js/ajax.js"></script>
+  <meta name="description" content="mokkaya express label info">
+  <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+  <script src="/public/js/google.js"></script>
+  <link rel="stylesheet" href="/public/css/loading.css">
+  <style>
+    body {
+      width: 100% !important;
+      overflow-y: scroll;
+    }
+    html, .container {
+      page-break-inside: avoid;
+      page-break-before: avoid !important;
+    }
+    @page {
+      size: auto;
+      margin: 10px 0;
+    }
+    .section {
+      margin: 0 auto;
+      margin-top: 80px;
+    }
+    .container {
+      margin: 20px auto !important;
+    }
+    
+    .logo_line div:last-child {
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+    }
+    .btn {
+      width: 100%;
+      height: 70px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      box-shadow: 2px 5px 4px 2px #eaeaea;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      /* padding: 0 10px; */
+    }
+    .btn button {
+      margin-right: 10px;
+      width: 120px;
+      height: 36px;
+      outline: none;
+      color: #fff;
+      background: #38adff;
+      border: none;
+    }
+    .loading {
+      display: none;
+    }
+    .donwload_text {
+      margin-top: -40px;
+      color: #38adff;
+      text-align: center;
+    }
+    .model {
+      position: fixed;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      width: 100%;
+      height: 100%;
+      z-index: 12;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      background: rgba(0, 0, 0, .5);
+    }
+    .model_window {
+      /* display: flex; */
+      background: #fff;
+      box-sizing: border-box;
+      padding: 20px 40px;
+      max-height: 600px;
+      overflow-y: scroll;
+      position: relative;
+      /* max-height: 100%; */
+    }
+    .model_window div {
+      width: 100%;
+      line-height: 24px;
+      /* padding: 0 40px; */
+      margin-bottom: 10px;
+    }
+    .model_window .close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 20px;
+      cursor: pointer;
+    }
+    .model_window img {
+      margin-bottom: 10px;
+    }
+    .model_window img:nth-child(3) {
+      width: 64%;
+    }
+
+    .model_title {
+      padding: 20px 0px;
+      line-height: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <%-html%>
+  </div>
+  <div class="btn">
+    <button onclick="handleSave()">save</button>
+    <button onclick="handlePrint()">print</button>
+  </div>
+  <div class="loading">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+    </div>
+    <div class="donwload_text">downloading...</div>
+  </div>
+  <div style="display: none;" class="api"><%=apiUrl%></div>
+  <div hidden class="ga_tag" style="display: none;"><%=logKey%></div>
+  <div hidden class="vendor_id"><%=vendor_id%></div>
+  <div hidden id="ids" hidden><%=ids%></div>
+  <div class="model" onclick="handleClose()">
+    <div class="model_window" onclick="handleStop(event)">
+      <img src="/public/img/common/close_toast.png" alt="" onclick="handleClose()" class="close">
+      <div class="model_title">File ini dapat diunduh dengan cepat melalui langkah berikut:</div>
+      <div>1.Klik tombol "print" di sudut kanan atas halaman ini</div>
+      <img src="/public/img/logistic/print_ex.png" alt="">
+      <div>2.Setelah membuka halaman "Cetak", pada bagian "Tujuan" pilih "Simpan sebagai PDF" atau "Microsoft print to PDF" atau opsi lain yang menyertakan "PDF"</div>
+      <div>3.Klik tombol "Simpan" atau "Cetak" untuk menyimpan dokumen</div>
+      <img src="/public/img/logistic/print_ex1.png" alt="">
+    </div>
+  </div>
+  <script>
+    googleAnalytics('', document.querySelector('.ga_tag').innerText)
+  </script>
+  <script>
+    window.onload = function () {
+      gtag('event', 'print_label_many', { type: 'loaded', ids: document.querySelector('#ids').innerText})
+    }
+    const handleStop = function (e) {
+      e.stopPropagation()
+      console.dir(e)
+    }
+    const handlePrint = async function () {
+      document.querySelector('.loading').style.display = 'flex'
+      const res = await updateOrderStatus()
+      if (res.data.data) {
+        document.querySelector('.loading').style.display = 'none'
+        window.scrollTo({
+          top: 0
+        })
+        gtag('event', 'print_label_many', { type: 'print', ids: document.querySelector('#ids').innerText})
+        document.querySelector('.btn').style.display = 'none'
+        document.querySelector('title').innerText = namesapce()
+        gtag('event', 'button_click', { type: 'batch_print_pickup_order', about: 'print_pickup_orders_print_click', page: 'many_label_print', result: 'success' })
+        setTimeout(() => {
+          window.print()
+        }, 200)
+        setTimeout(() => {
+          document.querySelector('.btn').style.display = 'flex'
+          document.querySelector('title').innerText = `Logistic Label`
+        }, 400)
+      } else {
+        alert('print faild')
+        gtag('event', 'button_click', { type: 'batch_print_pickup_order', about: 'print_pickup_orders_print_click', page: 'many_label_print', result: 'fail', fail_reason: res.data.data.msg })
+      }
+
+    }
+    const handleClose = function () {
+      document.querySelector('.model').style.display = 'none'
+      // const top = document.documentElement.scrollTop || document.body.scrollTop
+      const top = Number(document.body.style.top.replace('-', '').replace('px', '')) - 15
+      document.body.style.position = 'relative'
+      document.body.style.top = '0'
+      console.log(top)
+      window.scrollTo({ top })
+    }
+
+    const updateOrderStatus = async function () {
+      return axios({
+        method: 'POST',
+        url: document.querySelector('.api').innerText,
+        data: {
+          combined_ids: document.querySelector('#ids').innerHTML.split(',').map(val => Number(val)),
+          vendor_id: document.querySelector('.vendor_id').innerText
+        }
+      })
+    }
+    const namesapce = function () {
+      const datetime = new Date()
+      const yyyy = datetime.getFullYear()
+      const MM = datetime.getMonth() + 1
+      const dd = datetime.getDate()
+      const hh = datetime.getHours()
+      const mm = datetime.getMinutes()
+      const ss = datetime.getSeconds()
+      const isBig = (num) => num > 10 ? num : '0' + num
+      return `Mokkaya_${yyyy}${isBig(MM)}${isBig(dd)}${isBig(hh)}${isBig(mm)}${isBig(ss)}.pdf`
+    }
+    const handleSave = async function () {
+      gtag('event', 'button_click', { type: 'batch_print_pickup_order', about: 'print_pickup_orders_save_click', page: 'many_label_print', result: 'success' })
+      const top = document.documentElement.scrollTop || document.body.scrollTop
+      document.body.style.position = 'fixed'
+      document.body.style.top = '-' + (top + 15) + 'px'
+      document.querySelector('.model').style.display = 'flex'
+
+      // await updateOrderStatus()
+      // axios({
+      //   method: 'post',
+      //   url: '/logistics/pdf',
+      //   data: {
+      //     ids: document.querySelector('#ids').innerHTML.split(',').map(val => Number(val))
+      //   },
+      //   responseType: "blob"
+      // }).then(res => {
+      //   // console.log(new Blob([res.data]))
+      //   let url = window.URL.createObjectURL(new Blob([res.data]))
+      //   let link = document.createElement('a')
+      //   link.style.display = 'none'
+      //   link.href = url
+      //   link.setAttribute('download', namesapce())
+      //   document.body.appendChild(link)
+      //   link.click()
+      //   document.body.removeChild(link)
+      //   window.URL.revokeObjectURL(url)
+      // }).then(() => {
+      //   gtag('event', 'print_label_many', { type: 'save', ids: document.querySelector('#ids').innerText})
+      //   document.querySelector('.loading').style.display = 'none'
+      // }).catch(err => {
+      //   document.querySelector('.loading').style.display = 'none'
+      //   gtag('event', 'print_label_many_error', { error: err.message})
+      //   alert('Gagal membuat label, harap periksa jaringan dan coba lagi')
+      // })
+    }
+  </script>
+</body>
+</html>

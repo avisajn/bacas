@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h4 {
+      color: #38adff;
+    }
+    p {
+      width: 100%;
+      word-break: break-all;
+    }
+    a {
+      color: #eb6100;
+    }
+  </style>
+</head>
+<body>
+  <h4>正式环境邀请码  用于生成Google play 链接</h4>
+  <div>
+    <input type="text" id="code">
+    <button onclick="handleClick()">生成</button>
+  </div>
+  <p>
+    <a href="" class="res" target="blank"></a>
+  </p>
+  <script>
+    const handleClick = function () {
+      const code = document.getElementById('code').value
+      if (code && code.trim()) {
+        const obj = {
+          utm_campaign: new Date().getTime(), 
+          utm_medium: code,
+          utm_source: 'by_invite'
+        }
+        const str = Object.entries(obj).map(val => `${val[0]}=${val[1]}`).join('&')
+        const link = encodeURIComponent(`https://play.google.com/store/apps/details?id=com.mokkaya&referrer=` + encodeURIComponent(str))
+        const urlTeml = `https://play.app.goo.gl/?link=${link}`
+        document.querySelector('.res').innerText = urlTeml
+        document.querySelector('.res').href = urlTeml
+      } else {
+        alert('输入了个寂寞？')
+      }
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+环境：
+	nodejs 
+	npm 
+	n
+
+	
+
+一些官网 
+	1.advertis   	- ALTAS TECHNOLOGY LIMITED 的官网
+
+	2.baca_wap 		- 吧咔的新闻wap页面
+		- 印尼： http://berita.baca.co.id/
+		- 巴西： http://noticias.cennoticias.com/
+		- 中东： https://nipmenews.azurewebsites.net/
+
+	3.clean			- 各种清理的官网
+		- http://okokclean.com/
+
+	4.Hadoop Fintech Ltd 的官网
+
+	5.xiaomi_detail	- 小米详情页的官网 
+		- http://wap.mi.baca.co.id/18248389
+
+
+后台管理 	
+	=> 服务器的访问：ssh work@idcrawler.vm.newsinpalm.net  密码为：Baca@123
+	=> 权限管理，最高管理员 admin - admin1
+	=> 具体某个项目调用哪个接口，都可以通过network查询到
+	=> 接口具体映射到哪个项目，可以查看nginx的配置
+
+
+
+	1.NIPCMS	- 新闻管理
+		- http://idcrawler.vm.newsinpalm.net/cms/index.html#!/
+
+	2.NIPDailyReport - 日报
+		- http://idcrawler.vm.newsinpalm.net/dailyreport/index.html#!/
+
+	3.NIPMagicAD - 广告单元管理
+		- http://idcrawler.vm.newsinpalm.net/magicad/#/offer
+
+	4.NIPPermission - 权限管理
+
+活动项目
+	1.baca-campaign 	- 活动的统一模板，此项目最终会生成静态文件，放到服务器上
+	2.collecting-4.11	- 一个AXA的调查问卷
+	3.fool-3.6			- 愚人节活动，此项目是一个express的项目，html全是通过nodejs渲染的，如果活动分享的内容会根据用户而变化，可以参考这个项目
+	4.jagadiri			- 一个静态的合作商的调查问卷
+
+
+
+以下若没有写密码，则密码均为Baca@123
+一些会用到的操作
+	1.服务器的访问方式  ssh work@idcrawler.vm.newsinpalm.net
+
+	2.如何部署活动（密码可以重新设置[可以在部署凭据中添加]，也可以用admin1!1）
+		1.如果生成的是静态文件，可以直接ftp上去，具体ftp的路径可以在azure上，找到nipideventbackup，点击属性，右侧会有ftp用户名和主机
+		2.如果是nodejs的一个web项目，可以将项目上传到git中，然后在azure->nipideventbackup->高级工具->转到->Debug Console->Power Shell -> site->wwwroot 中 clone 一下，然后npm install ,需要更改下server.js，具体可参考wap新闻页的部署配置
+
+	3.adsense\ga的用户名为：bacalovepeace@gmail.com 密码为Baca@123
+	4.
+
+
+一些习惯
+	1.Vue 使用的UI一般都是 https://v1.iviewui.com/docs/guide/install
+	2.api 一般都是 https://thinkjs.org/
+
+
+一些链接：
+	ga 文档 : http://ichdata.com/index.php?controller=post&action=view&id_post=19
+	ga 后台 : https://analytics.google.com/analytics/web/#home/a35158941w128530288p132312614/
+	ga模拟统计点击： https://ga-dev-tools.appspot.com/hit-builder/
+	seo分析：https://www.seoptimer.com/
+	goo短链-活动用到： https://goo.gl/
+	azure : https://portal.azure.com/signin/index/?signIn=1 ，有问题，具体可以问panshuhan
+	中东wap新闻页的部署地址：https://nipmenews.scm.azurewebsites.net/DebugConsole/?shell=powershell
+	印尼wap新闻页的部署地址：https://nipidnews.scm.azurewebsites.net/DebugConsole/?shell=powershell
+	巴西wap新闻页的部署地址：https://nipbrnews.scm.azurewebsites.net/DebugConsole/?shell=powershell
+
+	吧咔公共的仓库地址：https://newsinpalm.visualstudio.com/newsinpalm-ad-network/_git/AdNetwork
+	用到的项目管理软件为tower: https://tower.im/projects/868d505efb08433c80a53977167cfe4b/
+	abtest 文档： http://doc.appadhoc.com/sdk/htmlSDK.html
+	abtest 后台： https://abtesting.appadhoc.com/#/login
+	adsense 文档：	
+		-> https://support.google.com/adsense/answer/181947?hl=zh-Hans&ref_topic=28893
+		-> https://support.google.com/analytics/answer/1033863
+
+
+贷款的React Native的APP相关的链接(Kasbon)
+	tower bug列表	: https://tower.im/projects/f96d42a1bf0a45ec8bd80c10d11061b7/
+	设计地址：  https://lanhuapp.com/web/#/item/board?pid=c4910851-3c00-4ea8-b670-c52a3ca18029
+	原型： https://www.chainco.cn/run/v1hd0OSrqefh1zQg
+	fbsdk : https://github.com/underscopeio/react-native-facebook-account-kit
+	fbsdk 文档： https://developers.facebook.com/docs/react-native/getting-started
+	firechat : https://github.com/aryaminus/RN-firechat
+	firebase: https://github.com/invertase/react-native-firebase
+	firebase后台： https://console.firebase.google.com/project/payday-loan/overview
+	react native: http://reactnative.cn/docs/0.37/view.html#content
+	appsflyer : https://support.appsflyer.com/hc/zh-cn/articles/213335183-
+	faceid	: https://faceid.com/pages
+	navigation: https://wix.github.io/react-native-navigation/#/installation-android
+	icons : https://oblador.github.io/react-native-vector-icons/
+	loading : https://github.com/joinspontaneous/react-native-loading-spinner-overlay
+

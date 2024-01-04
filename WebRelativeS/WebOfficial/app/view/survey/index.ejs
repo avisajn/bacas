@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>survey list</title>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+  </head>
+  <style>
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      padding: 20px 0;
+    }
+
+    li {
+      line-height: 24px;
+      font-size: 14px;
+      text-decoration: underline;
+      text-decoration-color: #38adff;
+    }
+
+    li span {
+      cursor: pointer;
+      color: #38adff;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <ul>
+        <%urls.forEach((val) => {%>
+          <li onclick="handleNav(event)">
+            <span><%=val%></span>
+          </li>
+        <%})%>
+      </ul>
+    </div>
+    <script>
+      const handleNav = function (e) {
+        // console.log(e.target.innerHTML)
+        window.open(e.target.innerHTML)
+      }
+    </script>
+  </body>
+</html>

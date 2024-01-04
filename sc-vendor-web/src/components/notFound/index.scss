@@ -1,0 +1,18 @@
+.not_fount {
+  background: #fff;
+  padding: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex-direction: column;
+  h3 {
+    font-size: 40px;
+    color: #999;
+    margin: 0;
+    margin-left: 20px;
+  }
+  svg {
+    font-size: 80px;
+    color: #999;
+  }
+}

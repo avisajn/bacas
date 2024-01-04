@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- index -->
+  <url>
+    <loc>http://www.mokkaya.com/</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- index -->
+  <url>
+    <loc>http://www.mokkaya.com/index</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- 活动页  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页1  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote1</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+    <!-- 活动页 2 -->
+  <url>
+    <loc>http://www.mokkaya.com/promote2</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页3  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote3</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页4  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote4</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页5  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote5</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页1111  -->
+  <url>
+    <loc>http://www.mokkaya.com/promote1111</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- 活动页cod  -->
+  <url>
+    <loc>http://www.mokkaya.com/promotecod</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- reseller qa页  -->
+  <url>
+    <loc>http://www.mokkaya.com/question</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- reseller 条款页  -->
+  <url>
+    <loc>http://www.mokkaya.com/term</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- reseller 隐私协议  -->
+  <url>
+    <loc>http://www.mokkaya.com/policy</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- reseller 提现隐私协议  -->
+  <url>
+    <loc>http://www.mokkaya.com/wdpolicy</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- reseller 师徒协议  -->
+  <url>
+    <loc>http://www.mokkaya.com/referral</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- vendor qa  -->
+  <url>
+    <loc>http://www.mokkaya.com/vendorQA</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- vendor 隐私协议  -->
+  <url>
+    <loc>http://www.mokkaya.com/vendorPrivacy</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- vendor 服务条款  -->
+  <url>
+    <loc>http://www.mokkaya.com/vendorTerms</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- vendor 服务提现条款  -->
+  <url>
+    <loc>http://www.mokkaya.com/vendorWdpolicy</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- vendor 服务提现条款  -->
+  <url>
+    <loc>http://www.mokkaya.com/logisitics/</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- reseller 原生跳转  -->
+  <url>
+    <loc>http://www.mokkaya.com/share</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- reseller 原生跳转  -->
+  <url>
+    <loc>http://www.mokkaya.com/links</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- youteebe url -->
+  <url>
+    <loc>https://bit.ly/3no7P59</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- mokkaya faq short url -->
+  <url>
+    <loc>https://bit.ly/3jPgxqy</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- mokkaya term short url -->
+  <url>
+    <loc>https://bit.ly/3hc5eXM</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- google play short url -->
+  <url>
+    <loc>https://bit.ly/3nhBtJf</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- mokkaya web app short url -->
+  <url>
+    <loc>https://bit.ly/3tjLoPp</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- mokkaya vendor app google short url -->
+  <url>
+    <loc>https://bit.ly/2VrP4lE</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- mokkaya facebook short url -->
+  <url>
+    <loc>https://bit.ly/3tp3csu</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- mokkaya instagram short url -->
+  <url>
+    <loc>https://bit.ly/3tmJgpX</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- mokkaya youtube short url -->
+  <url>
+    <loc>https://bit.ly/2YpIvB0</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- send email to mokkaya -->
+  <url>
+    <loc>mailto:service@mokkaya.com</loc>
+    <lastmod>2021-09-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>

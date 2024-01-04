@@ -1,0 +1,131 @@
+所有的密码均为： Baca@123
+
+
+ssh xiaowei@43.231.128.204 -p 12320
+
+============================================NIPPermission
+// 上传API
+
+scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/app work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api
+
+
+// 上传全部
+
+scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/app work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api && scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/www work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api/ && scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/view work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api/
+
+
+// 上传web
+
+scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/www work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api/ && scp -r /Users/wangxiaowei/baka/manage/NIPPermission/api/view work@idcrawler.vm.newsinpalm.net:/home/work/nip_permission/api/
+
+
+上传完api之后，需要修改数据库的密码
+vim app/common/config/db.js
+
+需要修改web的fetch的地址
+
+
+
+============================================NIPDailyReport
+// 上传NIPDailyReport的命令
+scp -r /Users/wangxiaowei/baka/manage/NIPDailyReport/dist work@idcrawler.vm.newsinpalm.net:/home/work/dashboard_project/dailyReport/
+
+// 上传upload控件
+scp /Users/wangxiaowei/baka/manage/NIPDailyReport/upload.html work@idcrawler.vm.newsinpalm.net:/home/work/dashboard_project/dailyReport/upload.html
+
+// 上传upload依赖库
+scp -r /Users/wangxiaowei/baka/manage/NIPDailyReport/upload work@idcrawler.vm.newsinpalm.net:/home/work/dashboard_project/dailyReport/
+
+
+
+
+
+============================================NIPCMS
+// 上传所有文件
+scp -r /Users/wangxiaowei/baka/manage/NIPCMS/dist work@idcrawler.vm.newsinpalm.net:/home/work/cms_project/
+
+
+
+
+
+
+
+============================================NIPMagicAd
+// 上传所有文件
+scp -r /Users/wangxiaowei/baka/manage/NIPMagicAd/webui/dist/static/js work@idcrawler.vm.newsinpalm.net:/home/work/nip_magic_ad/static &&
+scp -r /Users/wangxiaowei/baka/manage/NIPMagicAd/webui/dist/static/css work@idcrawler.vm.newsinpalm.net:/home/work/nip_magic_ad/static
+scp /Users/wangxiaowei/baka/manage/NIPMagicAd/webui/dist/index.html work@idcrawler.vm.newsinpalm.net:/home/work/nip_magic_ad/
+
+
+scp -r ./webui/dist/static/js work@idcrawler.vm.newsinpalm.net:/home/work/nip_magic_ad/static && scp -r ./webui/dist/static/css work@idcrawler.vm.newsinpalm.net:/home/work/nip_magic_ad/static
+
+
+============================================NIPOPSystem
+
+/home/work/temp
+
+// 上传web的命令 - 暂没权限
+scp -r /Users/wangxiaowei/baka/NIPOPSystem/web/dist/* work@idcrawler.vm.newsinpalm.net:/home/work/_temp
+
+// 进入到工作目录
+cd /home/zhouhuan/NIPOPSystem/web
+sudo mv dist dist.bak
+sudo mv /home/work/_temp /home/zhouhuan/NIPOPSystem/web/dist
+
+
+
+
+
+
+
+ftp 部署
+
+//=====>>>>>    活动 - 表单   nipidadevent\ftp-wxw
+
+FTP/部署用户
+nipidadevent\ftp-wxw
+
+FTP 主机名
+ftp://waws-prod-sg1-005.ftp.azurewebsites.windows.net
+
+
+
+
+
+
+
+
+
+// 小米 testnewslite
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-35158941-12', 'auto');
+  ga('send', 'pageview');
+</script>
+
+// nipbrnewslite
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-35158941-13', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+// nipidhspnewslite
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-35158941-14', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+

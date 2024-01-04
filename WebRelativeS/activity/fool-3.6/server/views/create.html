@@ -1,0 +1,60 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>{{PageText['foolname']}}</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/form/index.css">
+  {% endif %}
+  <meta name="description" content="{{Country.language['firm']}} - {{PageText['foolname']}}">
+  <!-- 分享到facebook的meta -->
+  <meta property="og:url" content="{{Url}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{PageText['foolname']}}" />
+  <meta property="og:description" content="{{Country.language['firm']}} - {{PageText['foolname']}}" />
+  <meta property="og:image" content="{{Url}}/form/main-{{Lan}}.png"/>
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- 分享到twitter的meta -->
+  <meta name="twitter:card" content="gallery">
+  <meta name="twitter:url"  content="{{Url}}">
+  <meta name="twitter:title" content="{{PageText['foolname']}}">
+  <meta name="twitter:description" itemprop="description" content="{{Country.language['firm']}} - {{PageText['foolname']}}">
+  <meta name="twitter:image" itemprop="image" content="{{Url}}/form/main-{{Lan}}.png">
+  <script type="text/javascript">
+    window.page = 'createPage';
+  </script>
+{% endblock %}
+
+
+
+{% block Content %}
+
+<div class="create-form">
+  <div class="logo"><img src="/form/logo-{{Lan}}.png"/></div>
+  <img src="/form/main-{{Lan}}.png">
+  <div class="form form-{{Lan}}">
+    <div>
+      {{Country['language']['sex']}} : &nbsp;&nbsp;
+      <input type="radio" name="sex" value="0" checked="">
+      <label for="0"> {{Country['language']['male']}}</label>&nbsp;&nbsp;
+      <input type="radio" name="sex" value="1">
+      <label for="0"> {{Country['language']['female']}}</label>
+    </div>
+    <div>
+      <input type="text" class="input" id="name" name="username" placeholder="{{Country['language']['inputPlace']}}" />
+    </div>
+    <div class="btn click-big" id="btnSubmit">{{Country['language']['create']}}</div>
+  </div>
+  <div class="infomation">
+    <p>{{Country['language']['info'] | safe}}</p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block Script %}
+  <script src="/form/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,66 @@
+@import '../common/common';
+.create-form{
+	position: relative;
+	img{
+		max-width: 100%;
+	}
+	.logo{
+		max-width: 480px;
+	    img{
+	    	height: 60px;
+	    }
+	}
+	.form{
+		margin-top:40px;
+		text-align:center;
+		color:white;
+		font-size: 15px;
+		.input{
+			margin-top: 20px;
+		    padding: 10px;
+		    border-radius: 5px;
+		    border: 1px solid white;
+		    outline: none;
+		    width: 80%;
+		    text-align: center;
+		    font-size: 16px;
+		    font-weight: normal;
+		    height: 40px;
+		    background: white;
+		    -webkit-appearance: none;
+		}
+		.none-estimate{
+			border:1px solid #e95d26;
+		}
+
+		.btn{
+			margin: 15px;
+		    border-radius: 5px;
+		    width: 80%;
+		    background: #fcd61d;
+		    display: inline-block;
+		    line-height: 40px;
+		    font-size: .54rem;
+		    color: #252c49;
+		    height: 40px;
+		}
+	}
+
+	.infomation{
+	    /*position: absolute;
+	    left: 0px;
+	    right: 0px;*/
+	    background: #252c49;
+	    color: white;
+	    font-size: 14px;
+	    padding: 20px;
+	    line-height: 17px;
+	    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.46);
+	    letter-spacing: 0.4;
+
+	    span{
+	    	color:#ffde01;
+	    }
+	}
+
+}

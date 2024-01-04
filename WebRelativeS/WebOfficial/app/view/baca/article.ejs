@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title><%-data.page_title%></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .article {
+        font-size: .9rem;
+        padding: 20px 14px 5px;
+      }
+      .article .title {
+        font-weight: bold !important;
+      }
+      .article .link {
+        color: teal;
+      }
+      .article .link-url {
+        text-decoration: underline;
+      }
+      .article .item {
+        text-indent: 2em;
+      }
+      .article div {
+        margin-bottom: 15px;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="article">
+      <div hidden class="ga_tag">G-7V4FLXYH67</div>
+      <div v-html="data.title"><%-data.title%></div>
+      <div class="link" onclick="handleOpen()">
+        <%-data.link%>
+      </div>
+      <div>
+        <%-data.innerHtml%>
+      </div>
+      <div class="link bottom"onclick="handleOpen()">
+        <%-data.link%>
+      </div>
+    </div>
+    <script src="/public/js/google.js"></script>
+    <script>
+      const isInViewPort = function (element) {
+      const { top, height } = element.getBoundingClientRect();
+        var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        return parseInt(height + top) == windowHeight
+      }
+      const handleScroll = function () {
+        const isShow = isInViewPort(document.querySelector('.article'))
+        if (isShow) {
+          console.log('yes')
+          gtag('event', 'scroll_bottom', {
+            'event_label': 'scroll_bottom',
+          });
+          // this.$gtag('event', 'scroll_bottom', {
+          //   'event_label': 'scroll_bottom',
+          // });
+        }
+      }
+      window.addEventListener("scroll", handleScroll, true);
+
+      const handleOpen = () => {
+        try {
+          BacaAndroid.openThirdPartWeb("https://bit.ly/33vqvoe");
+        } catch (error) {
+          window.open('https://bit.ly/33vqvoe')
+        }
+      }
+    </script>
+  </body>
+</html>

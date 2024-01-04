@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Survey Game
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.5.5/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.5.5/survey.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/layer/3.0.3/mobile/layer.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+    <script type="text/javascript">
+    Survey.StylesManager.applyTheme("default");
+
+    var json = {
+        pages: [{
+            name: "Survey Game ",
+            elements: [{
+                    type: "radiogroup",
+                    name: "1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?",
+                    title: "Berapa kali Anda bermain game dalam seminggu (baik ponsel, PC / laptop, tablet, konsol, VR)?",
+                    isRequired: true,
+                    choices: [{
+                            value: "tidak pernah main-main sama sekali",
+                            text: "tidak pernah main-main sama sekali"
+                        },
+                        {
+                            value: "Dulu sering tetapi sekarang tidak ",
+                            text: "Dulu sering tetapi sekarang tidak "
+                        },
+                        {
+                            value: "1 - 3 x",
+                            text: "1 - 3 x"
+                        },
+                        {
+                            value: "4 - 7 x",
+                            text: "4 - 7 x"
+                        },
+                        {
+                            value: "> 7 x",
+                            text: "> 7 x"
+                        }
+                    ]
+                },
+                {
+                    type: "multipletext",
+                    name: "2 Your contact *please fill it properly, to avoid any difficulties when you're choosen as the winner",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Tuliskan kontak Anda *tolong isi dengan benar, agar kami mudah menghubungi Anda, ketika Anda terpilih sebagai pemenang",
+                    isRequired: true,
+                    items: [{
+                            name: "Nomor telepon Anda (wajib)",
+                            title: "Nomor telepon Anda (wajib)"
+                        },
+                        {
+                            name: "ID Line Anda",
+                            title: "ID Line Anda"
+                        },
+                        {
+                            name: "ID IG Anda",
+                            title: "ID IG Anda"
+                        }
+                    ]
+                },
+                {
+                    type: "multipletext",
+                    name: "3 Where do you live",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Dimana kamu tinggal",
+                    isRequired: true,
+                    items: [{
+                            name: "Kota / Kabupaten",
+                            title: "Kota / Kabupaten"
+                        },
+                        {
+                            name: "Provinsi ",
+                            title: "Provinsi "
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "4 What is your gender",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Apa jenis kelamin Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "Pria",
+                            text: "Pria"
+                        },
+                        {
+                            value: "Wanita",
+                            text: "Wanita"
+                        }
+                    ]
+                },
+                {
+                    type: "text",
+                    name: "5 what is your age",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Berapa usia Anda?",
+                    isRequired: true
+                },
+                {
+                    type: "radiogroup",
+                    name: "6 what is your occupation",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Apa pekerjaanmu?",
+                    isRequired: true,
+                    choices: [{
+                            value: "siswa sekolah dasar",
+                            text: "siswa sekolah dasar"
+                        },
+                        {
+                            value: "Siswa smp",
+                            text: "Siswa smp"
+                        },
+                        {
+                            value: "siswa SMA",
+                            text: "siswa SMA"
+                        },
+                        {
+                            value: "mahasiswa",
+                            text: "mahasiswa"
+                        },
+                        {
+                            value: "pekerja lepas / freelance",
+                            text: "pekerja lepas / freelance"
+                        },
+                        {
+                            value: "pekerja penuh waktu",
+                            text: "pekerja penuh waktu"
+                        },
+                        {
+                            value: "pengusaha",
+                            text: "pengusaha"
+                        },
+                        {
+                            value: "Ibu rumah tangga",
+                            text: "Ibu rumah tangga"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "7 Type of devices regularly being used for gaming in every weeks",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Jenis perangkat yang rutin Anda gunakan untuk bermain game setiap minggu nya",
+                    description: "*pilih sebanyak yang Anda mainkan secara rutin",
+                    isRequired: true,
+                    choices: [{
+                            value: "Smartphone Android",
+                            text: "Smartphone Android"
+                        },
+                        {
+                            value: "Smartphone iPhone - iOS",
+                            text: "Smartphone iPhone - iOS"
+                        },
+                        {
+                            value: "Tablet Android",
+                            text: "Tablet Android"
+                        },
+                        {
+                            value: "iPad",
+                            text: "iPad"
+                        },
+                        {
+                            value: "PC / Laptop",
+                            text: "PC / Laptop"
+                        },
+                        {
+                            value: "Console (seperti: SONY PS / Xbox)",
+                            text: "Console (seperti: SONY PS / Xbox)"
+                        },
+                        {
+                            value: "Virtual Reality (VR Headset)",
+                            text: "Virtual Reality (VR Headset)"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "checkbox",
+                    name: "question1",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Sebutkan game apa saja yang rutin Anda mainkan ",
+                    description: "*pilih sebanyak yang Anda mainkan**daftar urutan dalam alfabet",
+                    isRequired: true,
+                    choices: [{
+                            value: "8 ball pool",
+                            text: "8 ball pool"
+                        },
+                        {
+                            value: "Arena of Valor",
+                            text: "Arena of Valor"
+                        },
+                        {
+                            value: "Call of duty",
+                            text: "Call of duty"
+                        },
+                        {
+                            value: "Candy crush",
+                            text: "Candy crush"
+                        },
+                        {
+                            value: "Clash of Clans",
+                            text: "Clash of Clans"
+                        },
+                        {
+                            value: "Counter Strike",
+                            text: "Counter Strike"
+                        },
+                        {
+                            value: "Final Fantasy",
+                            text: "Final Fantasy"
+                        },
+                        {
+                            value: "Free fire ",
+                            text: "Free fire "
+                        },
+                        {
+                            value: "Game of Sultan",
+                            text: "Game of Sultan"
+                        },
+                        {
+                            value: "GTA",
+                            text: "GTA"
+                        },
+                        {
+                            value: "Harvest Moon",
+                            text: "Harvest Moon"
+                        },
+                        {
+                            value: "Minecraft",
+                            text: "Minecraft"
+                        },
+                        {
+                            value: "Mobile legend ",
+                            text: "Mobile legend "
+                        },
+                        {
+                            value: "PES",
+                            text: "PES"
+                        },
+                        {
+                            value: "Pokemon ",
+                            text: "Pokemon "
+                        },
+                        {
+                            value: "PUBG",
+                            text: "PUBG"
+                        },
+                        {
+                            value: "Resident Evil",
+                            text: "Resident Evil"
+                        },
+                        {
+                            value: "Snake",
+                            text: "Snake"
+                        },
+                        {
+                            value: "Worm zone",
+                            text: "Worm zone"
+                        }
+                    ],
+                    choicesOrder: "asc"
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "9 Mention any of these local games which you aware  and which games are ever install and play it  choose as much as you know and play *order in alfabetical\"",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Sebutkan video game lokal apa saja yang Anda ketahuiserta game lokal apa saja yang pernah Anda instal dan mainkan",
+                    description: "*pilih sebanyak mungkin yang Anda tahu dan mainkan\n**daftar urutan dalam alfabet",
+                    isRequired: true,
+                    columns: [{
+                            name: "game Local yang Anda ketahui",
+                            title: "game Local yang Anda ketahui"
+                        },
+                        {
+                            name: "game local yang pernah Anda instal dan coba mainkan",
+                            title: "game local yang pernah Anda instal dan coba mainkan"
+                        }
+                    ],
+                    choices: [{
+                        value: "✓ ",
+                        text: "✓ "
+                    }],
+                    cellType: "radiogroup",
+                    rows: [{
+                            value: "Angkot",
+                            text: "Angkot"
+                        },
+                        {
+                            value: "Bis simulator",
+                            text: "Bis simulator"
+                        },
+                        {
+                            value: "Bubur ayam",
+                            text: "Bubur ayam"
+                        },
+                        {
+                            value: "Citampi stories",
+                            text: "Citampi stories"
+                        },
+                        {
+                            value: "Diponegoro - Tower Defense",
+                            text: "Diponegoro - Tower Defense"
+                        },
+                        {
+                            value: "Domino",
+                            text: "Domino"
+                        },
+                        {
+                            value: "Dreadout ",
+                            text: "Dreadout "
+                        },
+                        {
+                            value: "Jomblo ",
+                            text: "Jomblo "
+                        },
+                        {
+                            value: "Juragan Ojek",
+                            text: "Juragan Ojek"
+                        },
+                        {
+                            value: "kiko run",
+                            text: "kiko run"
+                        },
+                        {
+                            value: "Kode keras cewek",
+                            text: "Kode keras cewek"
+                        },
+                        {
+                            value: "Lokapala",
+                            text: "Lokapala"
+                        },
+                        {
+                            value: "Mini Racing Adventures",
+                            text: "Mini Racing Adventures"
+                        },
+                        {
+                            value: "Pamali",
+                            text: "Pamali"
+                        },
+                        {
+                            value: "Pocong Hunter",
+                            text: "Pocong Hunter"
+                        },
+                        {
+                            value: "Poker ",
+                            text: "Poker "
+                        },
+                        {
+                            value: "Pulang : Insanity on Steam",
+                            text: "Pulang : Insanity on Steam"
+                        },
+                        {
+                            value: "Sopo Jarwo",
+                            text: "Sopo Jarwo"
+                        },
+                        {
+                            value: "Tahu Bulat",
+                            text: "Tahu Bulat"
+                        },
+                        {
+                            value: "Tebak Gambar",
+                            text: "Tebak Gambar"
+                        },
+                        {
+                            value: "TTS",
+                            text: "TTS"
+                        },
+                        {
+                            value: "Ular Tangga",
+                            text: "Ular Tangga"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "10 What makes you try to play that local game? choose as much as relevant with you \"",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Pada awalnya Apa yang membuat Anda mencoba memainkan game local (buatan Indonesia) tersebut",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "Direkomendasikan oleh teman",
+                            text: "Direkomendasikan oleh teman"
+                        },
+                        {
+                            value: "Orang-orang di sekitar saya memainkannya",
+                            text: "Orang-orang di sekitar saya memainkannya"
+                        },
+                        {
+                            value: "Cari, mau mainkan sesuatu yang relevan dengan hobi / minat pribadi",
+                            text: "Cari, mau mainkan sesuatu yang relevan dengan hobi / minat pribadi"
+                        },
+                        {
+                            value: "Dari iklan",
+                            text: "Dari iklan"
+                        },
+                        {
+                            value: "Rekomendasi dari beberapa situs web / forum / komunitas",
+                            text: "Rekomendasi dari beberapa situs web / forum / komunitas"
+                        },
+                        {
+                            value: "Ingatan anak-anak (pernah terdengar, pernah diputar sebelumnya)",
+                            text: "Ingatan anak-anak (pernah terdengar, pernah diputar sebelumnya)"
+                        },
+                        {
+                            value: "Cari, ingin memainkan sesuatu yang berbeda dari yang lain / Unik (tidak banyak orang memainkannya, dan itu menunjukkan kemandirian / keunikan saya)",
+                            text: "Cari, ingin memainkan sesuatu yang berbeda dari yang lain / Unik (tidak banyak orang memainkannya, dan itu menunjukkan kemandirian / keunikan saya)"
+                        },
+                        {
+                            value: "Dibuat oleh perusahaan game besar / terkenal",
+                            text: "Dibuat oleh perusahaan game besar / terkenal"
+                        },
+                        {
+                            value: "Mendukung pengembang game lokal",
+                            text: "Mendukung pengembang game lokal"
+                        },
+                        {
+                            value: "Direkomendasikan oleh game influencer",
+                            text: "Direkomendasikan oleh game influencer"
+                        },
+                        {
+                            value: "Mendapatkan insentif berupa duit / vocer / pulsa",
+                            text: "Mendapatkan insentif berupa duit / vocer / pulsa"
+                        },
+                        {
+                            value: "Game Ini memiliki file ukuran kecil",
+                            text: "Game Ini memiliki file ukuran kecil"
+                        },
+                        {
+                            value: "game ini gratis",
+                            text: "game ini gratis"
+                        },
+                        {
+                            value: "Cerita / nama game ini tampak unik",
+                            text: "Cerita / nama game ini tampak unik"
+                        },
+                        {
+                            value: "Cerita / nama game tampaknya relevan dengan kehidupan sehari-hari",
+                            text: "Cerita / nama game tampaknya relevan dengan kehidupan sehari-hari"
+                        }
+                    ],
+                    choicesOrder: "random"
+                },
+                {
+                    type: "checkbox",
+                    name: "11 There are local games that you never try, why?   choose as much as relevant with you \"",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Terdapat game lokal (buatan Indonesia) yang belum pernah Anda coba, mengapa hal itu terjadi?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "itemtidak tertarik dengan game yang berasal dari lokal Indonesia1",
+                            text: "tidak tertarik dengan game yang berasal dari lokal Indonesia"
+                        },
+                        {
+                            value: "(tidak gratis) harus membayar ",
+                            text: "(tidak gratis) harus membayar "
+                        },
+                        {
+                            value: "tidak tahu di mana untuk mendownload nya",
+                            text: "tidak tahu di mana untuk mendownload nya"
+                        },
+                        {
+                            value: "kesulitan dalam mengunduh (ukuran file terlalu besar), dll.",
+                            text: "kesulitan dalam mengunduh (ukuran file terlalu besar), dll."
+                        },
+                        {
+                            value: "tidak memiliki perangkat (mis. VR)",
+                            text: "tidak memiliki perangkat (mis. VR)"
+                        },
+                        {
+                            value: "rekomendasi negatif dari review",
+                            text: "rekomendasi negatif dari review"
+                        },
+                        {
+                            value: "kesulitan bermain di perangkat lain (mis. PC)",
+                            text: "kesulitan bermain di perangkat lain (mis. PC)"
+                        },
+                        {
+                            value: "Cerita / nama game nya tidak menarik  ",
+                            text: "Cerita / nama game nya tidak menarik  "
+                        },
+                        {
+                            value: "rekomendasi negatif dari teman",
+                            text: "rekomendasi negatif dari teman"
+                        },
+                        {
+                            value: "tidak ada yang memberi rekomendasi",
+                            text: "tidak ada yang memberi rekomendasi"
+                        }
+                    ]
+                },
+                {
+                    type: "multipletext",
+                    name: "12 Sources of Information toward gaming",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Tolong tuliskan dari mana saja sumber Informasi terkait video game yang biasa Anda mainkan? ",
+                    description: "*silahkan tulis sebanyak-banyaknya yang relevan dengan Anda\n**jika tidak ada, silahkan tulis \"N\" saja",
+                    isRequired: true,
+                    items: [{
+                            name: "Youtube (tolong tulis nama channel yang Anda ingat) _____",
+                            title: "Youtube (tolong tulis nama channel yang Anda ingat) _____"
+                        },
+                        {
+                            name: "Facebook (tolong tulis nama akun / group yang Anda ingat) _____",
+                            title: "Facebook (tolong tulis nama akun / group yang Anda ingat) _____"
+                        },
+                        {
+                            name: "Instagram (tolong tulis nama akun yang Anda ingat) _____",
+                            title: "Instagram (tolong tulis nama akun yang Anda ingat) _____"
+                        },
+                        {
+                            name: "Game timeline (sebutkan di game apa?)",
+                            title: "Game timeline (sebutkan di game apa?)"
+                        },
+                        {
+                            name: "Twitter (tolong tulis nama akun yang Anda ingat) _____",
+                            title: "Twitter (tolong tulis nama akun yang Anda ingat) _____"
+                        },
+                        {
+                            name: "Kaskus (tuliskan nama forum game yang Anda ingat?)",
+                            title: "Kaskus (tuliskan nama forum game yang Anda ingat?)"
+                        },
+                        {
+                            name: "Line (tuliskan nama forum game yang Anda ingat?)",
+                            title: "Line (tuliskan nama forum game yang Anda ingat?)"
+                        },
+                        {
+                            name: "Discord (tuliskan nama forum game yang Anda ingat?)",
+                            title: "Discord (tuliskan nama forum game yang Anda ingat?)"
+                        },
+                        {
+                            name: "Website (tolong tulis nama web yang Anda ingat) _____",
+                            title: "Website (tolong tulis nama web yang Anda ingat) _____"
+                        },
+                        {
+                            name: "Forum  (please write the name) _______",
+                            title: "Forum  (please write the name) _______"
+                        }
+                    ]
+                },
+                {
+                    type: "checkbox",
+                    name: "13 Where and how to download / having the game on each device ",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Di mana Anda pernah mendownload game local (buatan Indonesia) tersebut ",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "Apple Aps Store",
+                            text: "Apple Aps Store"
+                        },
+                        {
+                            value: "Google Playstore",
+                            text: "Google Playstore"
+                        },
+                        {
+                            value: "Windows Store",
+                            text: "Windows Store"
+                        },
+                        {
+                            value: "Phone Brand App Market",
+                            text: "Phone Brand App Market"
+                        },
+                        {
+                            value: "Steam",
+                            text: "Steam"
+                        },
+                        {
+                            value: "gog.com",
+                            text: "gog.com"
+                        },
+                        {
+                            value: "itch.io",
+                            text: "itch.io"
+                        },
+                        {
+                            value: "gameflip.com",
+                            text: "gameflip.com"
+                        },
+                        {
+                            value: "g2g.com",
+                            text: "g2g.com"
+                        },
+                        {
+                            value: "origin",
+                            text: "origin"
+                        },
+                        {
+                            value: "gamegfaqs",
+                            text: "gamegfaqs"
+                        },
+                        {
+                            value: "miniclip",
+                            text: "miniclip"
+                        },
+                        {
+                            value: "destructoid",
+                            text: "destructoid"
+                        },
+                        {
+                            value: "gamespot",
+                            text: "gamespot"
+                        },
+                        {
+                            value: "yahoogames",
+                            text: "yahoogames"
+                        },
+                        {
+                            value: "yahoogames",
+                            text: "yahoogames"
+                        },
+                        {
+                            value: "gamehouse",
+                            text: "gamehouse"
+                        },
+                        {
+                            value: "shockwave",
+                            text: "shockwave"
+                        },
+                        {
+                            value: "big fish games",
+                            text: "big fish games"
+                        },
+                        {
+                            value: "retro games",
+                            text: "retro games"
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "14  How do you feel playing local games made in Indonesia? - Please select as much as possible that is relevant to you",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Bagaimana perasaan Anda bermain game lokal buatan Indonesia?  ",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    columns: [{
+                        name: ".",
+                        title: "."
+                    }],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Game lokal membosankan ",
+                            text: "Game lokal membosankan "
+                        },
+                        {
+                            value: "Game-game lokal sepertinya memiliki kualitas rendah",
+                            text: "Game-game lokal sepertinya memiliki kualitas rendah"
+                        },
+                        {
+                            value: "Tidak tertarik dengan game lokal",
+                            text: "Tidak tertarik dengan game lokal"
+                        },
+                        {
+                            value: "Saya merasa bangga memainkan game lokal",
+                            text: "Saya merasa bangga memainkan game lokal"
+                        },
+                        {
+                            value: "Saya merasa dapat berpartisipasi dalam mendukung industri game kami sendiri",
+                            text: "Saya merasa dapat berpartisipasi dalam mendukung industri game kami sendiri"
+                        },
+                        {
+                            value: "saya menikmati dan bersemangat memainkan game lokal ",
+                            text: "saya menikmati dan bersemangat memainkan game lokal "
+                        },
+                        {
+                            value: "Saya merasa game ini relevan dengan budaya kehidupan kita",
+                            text: "Saya merasa game ini relevan dengan budaya kehidupan kita"
+                        },
+                        {
+                            value: "Saya merasa senang mengetahui budaya / sejarah kita sendiri dihidupkan",
+                            text: "Saya merasa senang mengetahui budaya / sejarah kita sendiri dihidupkan"
+                        },
+                        {
+                            value: "Ingin memainkan sesuatu yang berbeda dari yang lain / Unik (tidak banyak orang memainkannya, dan itu menunjukkan kemandirian / keunikan saya)",
+                            text: "Ingin memainkan sesuatu yang berbeda dari yang lain / Unik (tidak banyak orang memainkannya, dan itu menunjukkan kemandirian / keunikan saya)"
+                        }
+                    ]
+                },
+                {
+                    type: "matrixdropdown",
+                    name: "15 What is your attitude in playing local games made in Indonesia?",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Bagaimana sikap Anda dalam memainkan game lokal buatan Indonesia? ",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    columns: [{
+                        name: ".",
+                        title: "."
+                    }],
+                    choices: [{
+                        value: "√",
+                        text: "√"
+                    }],
+                    cellType: "checkbox",
+                    rows: [{
+                            value: "Saya bersedia mengeluarkan uang untuk game berbayar",
+                            text: "Saya bersedia mengeluarkan uang untuk game berbayar"
+                        },
+                        {
+                            value: "Saya bersedia mengeluarkan uang untuk pembelian dalam aplikasi di game berbayar",
+                            text: "Saya bersedia mengeluarkan uang untuk pembelian dalam aplikasi di game berbayar"
+                        },
+                        {
+                            value: "Saya bersedia mengeluarkan uang untuk pembelian dalam game gratis",
+                            text: "Saya bersedia mengeluarkan uang untuk pembelian dalam game gratis"
+                        },
+                        {
+                            value: "Saya mau merekomendasikan game ke orang lain jika itu game yang bagus",
+                            text: "Saya mau merekomendasikan game ke orang lain jika itu game yang bagus"
+                        },
+                        {
+                            value: "Saya bersedia merekomendasikan game kepada orang lain untuk mendukung game lokal",
+                            text: "Saya bersedia merekomendasikan game kepada orang lain untuk mendukung game lokal"
+                        },
+                        {
+                            value: "Saya ingin membahas / mendisuksikan di forum",
+                            text: "Saya ingin membahas / mendisuksikan di forum"
+                        }
+                    ]
+                },
+                {
+                    type: "radiogroup",
+                    name: "16 if there any game portal / apps which provide sections for local games, such as the news and download , do you want to visit / download?  ",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "jika ada portal / aplikasi yang menyediakan konten untuk game lokal, seperti berita dan link untuk mendownload, apakah Anda ingin mengunjungi web site / mendownload aplikasi tersebut?",
+                    description: "*silahkan pilih sebanyak mungkin yang relevan dengan Anda",
+                    isRequired: true,
+                    choices: [{
+                            value: "Ya saya ingin Mengunjungi versi web",
+                            text: "Ya saya ingin Mengunjungi versi web"
+                        },
+                        {
+                            value: "Ya saya ingin mengunduh aplikasi",
+                            text: "Ya saya ingin mengunduh aplikasi"
+                        },
+                        {
+                            value: "Tidak, saya tidak tertarik dengan itu",
+                            text: "Tidak, saya tidak tertarik dengan itu"
+                        }
+                    ]
+                },
+                {
+                    type: "text",
+                    name: "17 what kind of features / contenct do you expect in game portal / apps,  so you can be more interested or have intention to try and regularly visit\"",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Fitur / konten seperti apa yang Anda harapkan di portal / aplikasi game,sehingga Anda dapat lebih tertarik atau berniat untuk mencoba dan mengunjungi secara teratur ",
+                    isRequired: true
+                },
+                {
+                    type: "text",
+                    name: "18 what kind of local games do you want to play  you can share from the type of games, storys, etc.\"",
+                    visible: false,
+                    visibleIf: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} anyof ['1 - 3 x', '4 - 7 x', '> 7 x']",
+                    title: "Game lokal seperti apa yang ingin Anda mainkan\nAnda dapat menceritakan dari aspek jenis game, jenis cerita, dll…",
+                    isRequired: true
+                }
+            ],
+            title: "Survey Game ",
+            description: "Selamat datang di survey online mengenai game, di sini kami ingin mengetahui mengenai kebiasaan dan preferensi Anda dalam bermain game, serta harapan Anda lain nya terhadap game lokal buatan Indonesia.\n\nHarap mengisi dan melengkapi survey ini sebaik-baiknya, bagi teman-teman yang dapat memberikan ide-ide menarik, akan kami hubungi secara langsung untuk mendapatkan hadiah.\n\nAtas perhatian nya, kami ucapkan terima kasih."
+        }],
+        triggers: [{
+                type: "complete",
+                expression: "{1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} = 'tidak pernah main-main sama sekali' and {1 How many times do you playing games in a week (either mobile, PC / laptop, tablet, console, VR)?} = 'Dulu sering tetapi sekarang tidak '"
+            },
+            {
+                type: "skip",
+                gotoName: "9 Please write down the names of the local games that you know / have heard on each device? * please write down as much as you know"
+            },
+            {
+                type: "skip",
+                gotoName: "14 Local video games are currently growing, do you want to install and try it?"
+            },
+            {
+                type: "skip",
+                gotoName: " 11 Please write down the names of any locally made Indonesian games that you normally play on each device?"
+            },
+            {
+                type: "skip",
+                gotoName: "13 If you know a local game made in Indonesia, why don't you install it and / or try to play it"
+            },
+            {
+                type: "skip",
+                gotoName: "19 At the beginning What made you want to try playing the game? - please choose as many as you want"
+            },
+            {
+                type: "skip",
+                gotoName: "18 Please write the names of any locally made Indonesian game that you want to play on each device?"
+            },
+            {
+                type: "skip",
+                gotoName: "15 What will make you willing to install and try local games made in Indonesia?"
+            },
+            {
+                type: "skip",
+                gotoName: "9 Please write down the names of the local games that you know / have heard on each device? * please write down as much as you know"
+            },
+            {
+                type: "skip",
+                gotoName: "14 Local video games are currently growing, do you want to install and try it?"
+            },
+            {
+                type: "skip",
+                gotoName: "9 Please write down the names of the local games that you know / have heard on each device? * please write down as much as you know"
+            },
+            {
+                type: "skip",
+                gotoName: "14 Local video games are currently growing, do you want to install and try it?"
+            },
+            {
+                type: "skip",
+                gotoName: " 11 Please write down the names of any locally made Indonesian games that you normally play on each device?"
+            }
+        ],
+        showPageNumbers: true,
+        showProgressBar: "bottom"
+    }
+    window.survey = new Survey.Model(json);
+
+    window.config = this.initParams.apply(window);
+
+    survey.onComplete.add(function(result) {
+        // 
+        // document.querySelector("#surveyResult").innerHTML =
+        // "result: " + JSON.stringify(result.data);
+        config['result'] = result.data;
+        result.data && postAction(config);
+
+    });
+
+    $("#surveyElement").Survey({
+        model: survey,
+    });
+
+    function str_substr(start, end, str) {
+        temp = str.split(start, 2);
+        content = temp[1].split(end, 2);
+        return content[0];
+    }
+
+    //method
+    function initParams() {
+
+        window.param = {
+            eventid: ''
+        };
+        this.param.eventid = this.getEventId();
+        return param;
+    }
+
+    function getEventId() {
+        let url = window.location.href;
+        return "5a20f25d-aae6-4d63-a868-a64313a6490b";
+    }
+
+    function postAction(data) {
+        var str = window.location.search
+
+        if (str.indexOf('utm_source') > -1) {
+            var newstr = str_substr("utm_source=", "&", str)
+            var utm_source = newstr
+        } else {
+            var utm_source = 'no_source'
+
+        }
+        data.result["utm_source"] = utm_source
+
+
+
+        if (typeof(data.result["2 Your contact *please fill it properly, to avoid any difficulties when you're choosen as the winner"]) == 'undefined') {
+            // var postData = Math.round(Math.random() * 100000000000);
+            // 
+            var cp_timestamp = new Date().getTime();
+            var postData = cp_timestamp
+        } else {
+            var postData = data.result["2 Your contact *please fill it properly, to avoid any difficulties when you're choosen as the winner"]["Nomor telepon Anda (wajib)"]
+        }
+
+
+
+        let requestHeader = {
+            "x-user-id": postData,
+        };
+        let postUrl = 'https://api.baca.co.id/api/v1/non-app/questionaire/' + data.eventid;
+        console.log(requestHeader)
+        let requestOptions = {
+            type: "post",
+            url: postUrl,
+            data: JSON.stringify(data.result),
+            dataType: 'json',
+            headers: requestHeader,
+            success: function(res) {
+                if (res && res.errorno == 0) {
+                    var coin = res.data.extraCoin;
+                    let tip = '  Kirim berhasil '; //提交成功
+                    message(tip, 'OK', true, false);
+                }
+            },
+            error: function(error) {
+                if (error.status == 410) { //活动已结束
+                    let tip = 'Oh, tugas telah berakhir. Nantikan yang berikutnya!';
+                    message(tip, 'OK', true, false);
+                } else if (error.status == 409) { //已经做过该活动            
+                    let tip = 'Anda telah menyelesaikan tugas ini! Sampai ketemu lain waktu!';
+                    message(tip, 'OK', true, false);
+                } else {
+                    let tip = 'Gagal mengirim, silahkan coba lagi'; //提交失败
+                    message(tip, 'OK', true, true);
+                }
+                console.log(error);
+            }
+        };
+
+        $.ajax(requestOptions);
+    }
+
+    function message(desc, btnText, isNeedBack, isShadeClose) {
+        var _self = this;
+        var index = layer.open({
+            content: desc,
+            shadeClose: true,
+            btn: [btnText],
+            yes: function(index) {
+                if (isShadeClose) {
+                    location.reload();
+                    layer.close(index);
+                }
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% extends "./layout.html" %}
+
+{% block Head %}
+	<title>新闻详情页</title>
+  {% if env === "production"  %}
+      <link rel="stylesheet" href="/info/index.css">
+  {% endif %}
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-transform">
+{% endblock %}
+
+
+{% block Content %}
+<div class="newsInfoBody">
+  <div class="label-list" id="labelList"></div>
+  <div class="news-info" id="newsInfo">
+    <h1 class="name" itemprop="name" id="title"></h1>
+    <div class="info">
+      <span class="from" rel="publisher" id="publisher"></span>
+      <span class="dateicon"></span>
+      <span class="date" id="createTime"></span>
+      <div class="share-detail" id="infoShareDetail">
+          <a class="share-whatsapp" href="javascript:window.shareClick.shareTo('whatsapp');"></a>
+          <a class="share-facebook" href="javascript:window.shareClick.shareTo('facebook');"></a>
+          <a class="share-line" href="javascript:window.shareClick.shareTo('line');"></a>
+      </div>
+    </div>
+    <div class="article-detail" id="articleDetail">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block Script %}
+	<script src="/info/bundle.js"></script>
+    {% if env === "dev" and reload === true %}
+        <script src="/reload/reload.js"></script>
+    {% endif %}
+{% endblock %}
+

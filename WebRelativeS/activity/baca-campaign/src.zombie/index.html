@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 42px;" class="loading resetScreen">
+<head>
+    <title>Baca - Tuan Rumah Misterius</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-transform">
+	<link rel="shortcut icon" href="http://event.baca.co.id/survival_pub/share-img.jpg" >
+
+
+	<meta name="description" content="Aku berhasil keluar dari rumah misterius ini, sanggupkah kamu melakukan hal yang sama?">
+
+	<!-- 分享到facebook的meta -->
+	<meta property="og:url" content="http://event.baca.co.id/zombie.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Tuan Rumah Misterius" />
+	<meta property="og:description" content="Aku berhasil keluar dari rumah misterius ini, sanggupkah kamu melakukan hal yang sama?" />
+	<meta property="og:image" content="http://event.baca.co.id/survival_pub/share-img.jpg"/>
+	<meta property="og:image:type" content="image/jpeg">
+
+	<!-- 分享到twitter的meta -->
+	<meta name="twitter:card" content="gallery">
+	<meta name="twitter:url"  content="http://event.baca.co.id/zombie.html">
+	<meta name="twitter:title" content="Tuan Rumah Misterius">
+	<meta name="twitter:description" itemprop="description" content="Aku berhasil keluar dari rumah misterius ini, sanggupkah kamu melakukan hal yang sama?">
+	<meta name="twitter:image" itemprop="image" content="http://event.baca.co.id/survival_pub/share-img.jpg">
+
+
+    <style type="text/css">
+    .myloading{position:fixed;top:0px;width:100%;left:0px;height:100%;background:white;z-index:222;text-align:center;}
+    .myloading>img{position:absolute;top:50%;height:14px;width:14px;margin-top:-7px;margin-left:-7px;left:50%;}
+    .hide{display: none;}
+    </style>
+    <script type="text/javascript">
+    	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-110141868-1', 'auto');
+		ga('send', 'pageview');
+		window.ga = ga;
+    </script>
+</head>
+<body class="resetScreen">
+	<div class="hide">
+		<audio src="http://event.baca.co.id/survival_pub/music/30-50.mp3" id="music_bck" loop controls preload="auto"></audio>
+		<!-- <audio src="http://event.baca.co.id/survival_pub/music/bck.mp3" id="music_bck" loop controls preload="auto"></audio> -->
+		<audio src="http://event.baca.co.id/survival_pub/music/switch-page.ogg" id="music_switch_page" controls preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/die-1-music.mp3" id="music_die_1" controls preload="auto"></audio>
+
+		<audio src="http://event.baca.co.id/survival_pub/music/appear_zombie.mp3" id="music_appear_zombie" controls="" preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/click.mp3" id="music_click" controls="" preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/girl_shout.mp3" id="music_girl_shout" controls="" preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/open_door.mp3" id="music_open_door" controls="" preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/witch_shout.mp3" id="music_witch_shout" controls="" preload="auto"></audio>
+		<audio src="http://event.baca.co.id/survival_pub/music/zombie_shout.mp3" id="music_zombie_shout" controls="" preload="auto"></audio>
+	</div>
+	<div class="myloading" id="pageLoading"><img src="http://event.baca.co.id/survival_pub/5-121204193943.gif"></div>
+
+	<div class="main-container" id="pageContainer">
+		
+	
+
+		<!-- 主游戏场景 -->
+		<div class="main-container" id="pageOld">
+			<div class="swiper-container" id="old_swiper">
+		        <div class="swiper-wrapper">
+		        	<div class="swiper-slide start-page">
+		        		<div class="background-panel">
+		        			<img id="onloadImage" class="full-image" src="http://event.baca.co.id/survival_pub/1-bg.jpg">
+		        		</div>
+            			<div class="my-form-panel">
+            				<div class="my-form ani" swiper-animate-effect="swing" swiper-animate-delay="0.3s">
+            					<div>Siapakah nama teman terbaikmu ?</div>
+            					<div>
+            						<input class="input" id="input_friend_name" />
+            					</div>
+            				</div>
+            				<div style="margin-top:10px;" class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+        						<img id="plot_btn_to_1" src="http://event.baca.co.id/survival_pub/yes.png">
+            				</div>
+            			</div>
+	            		<div class="swiper-content">
+            			</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/2-bg.jpg">
+		        		</div>
+		            </div>
+		            <div class="swiper-slide page-3" id="redirect_to_start">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/3-bg.jpg">
+		        		</div>
+		        		<div id="dialog-page-3-text"> 
+		        			<img style="width:80%" class="ani" swiper-animate-effect="flipInX" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" src="http://event.baca.co.id/survival_pub/3-bg-1.png"><br/>
+		        			<img class="ani" swiper-animate-effect="flipInX" swiper-animate-duration="0.5s" swiper-animate-delay="1s" src="http://event.baca.co.id/survival_pub/yes.png">
+		        		</div>
+
+		            </div>
+
+		            <div class="swiper-slide page-4">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/4-gb.jpg">
+		        		</div>
+		        		<div class="swiper-content">
+		        			<div class="gif-block gif-fish">
+		        				<img src="http://event.baca.co.id/survival_pub/fish-1.png">
+		        				<img class="gif-top" src="http://event.baca.co.id/survival_pub/fish-2.png">
+		        			</div>
+		        		</div>
+		            </div>
+		            <div class="swiper-slide page-5">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/3-bg.jpg">
+		        		</div>
+		        		<div class="swiper-content"> 
+		        			<div class="choice-text ani" style="margin-top:10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+		        				Buat Pilihanmu
+		        			</div>
+		        			<div class="paper-item paper-zm ani" id="btn_to_die1" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+		        				<div >
+		        					Selamat datang. Saya tuan rumah di sini dan kamu adalah orang keenam yang datang. 
+									Sebagai tuan rumah yang baik saya telah menyediakan makanan dari olahan ikan. Saya paham kamu pasti lapar. Segera makan dan tetap di sini. Kondisi di luar sangat bahaya. Akan ada yang menyelamatkanmu nanti.
+		        				</div>
+		        			</div>
+		        			<div class="paper-item ani paper-fm" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="2s">
+			        			<div>
+			        				Tulisan di halaman depan itu semuanya palsu, jangan percaya! Ada jalan tersembunyi di dalam lemari. Carilah lemari itu. Dan jangan makan olahan ikan ini, karena itu isinya ikan buntal beracun, kamu pasti akan langsung mati. Cepat pergi. jika kamu berdiam disini akan ada banyak zombie! 
+			        			</div>
+		        			</div>
+		        			
+		        		</div>
+		            </div>
+		            <div class="swiper-slide page-4 page-6">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/4-bg.jpg">
+		        		</div>
+		        		<div class="swiper-content">
+		        			<div class="gif-block gif-fish">
+		        				<img src="http://event.baca.co.id/survival_pub/fish-1.png">
+		        				<img class="gif-top" src="http://event.baca.co.id/survival_pub/fish-2.png">
+		        			</div>
+		        		</div>
+		            </div>
+
+		            <div class="swiper-slide page-room page-room-1">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/room-bck.jpg">
+		        		</div>
+		        		<div class="swiper-content">
+		        			<div class="control-hide scene-1 ">
+		        				<div class="fig fig-girl"></div>
+		        			</div>
+		        			<div class="control-hide scene-dialog hide" id="dialog-girl">
+		        				<div class="fig-light"></div>
+		        				<div class="fig fig-girl"></div>
+		        			</div>
+
+		        			<div class="control-hide scene-1 scene-2 hide" id="scene-2">
+		        				<div class="fig fig-girl"></div>
+		        				<div class="fig fig-gmother"></div>
+		        				<div class="fig fig-friend"></div>
+		        			</div>
+		        			<div class="control-hide scene-dialog hide" id="dialog-gmother">
+		        				<div class="fig-light"></div>
+		        				<div class="fig fig-gmother"></div>
+		        			</div>
+		        			<div class="control-hide scene-dialog hide" id="dialog-friend">
+		        				<div class="fig-light"></div>
+		        				<div class="fig fig-friend"></div>
+		        			</div>
+		        			<div class="control-hide scene-dialog hide" id="dialog-choice">
+	        					<img class="full-image" style="margin-top:10%;" src="http://event.baca.co.id/survival_pub/choice-fig-text.png">
+		        				<div class="fig-light"></div>
+		        				<div class="fig-panel">
+		        					<div class="fig-item" id="choice-gmother"><div class="fig fig-gmother"></div></div>
+		        					<div class="fig-item" id="choice-friend"><div class="fig fig-friend"></div></div>
+		        					<div class="fig-item" id="choice-girl"><div class="fig fig-girl"></div></div>
+		        				</div>
+		        			</div>
+
+		        		</div>
+		            </div>
+
+		            <div class="swiper-slide">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/scene-3.jpg">
+		        		</div>
+		            </div>
+		            <div class="swiper-slide">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/jiangshi.2.jpg">
+		        		</div>
+		        		<div class="btn-panel hide" id="choice-sence4-panel">
+		        			<div class="button" id="btn_to_result_by_boat"> Pecahkan kaca dan lompat ke luar<i></i><i></i><i></i></div>
+		        			<div class="button" id="btn_to_die4"> Keluar melalui pintu<i></i><i></i><i></i></div>
+		        		</div>
+		            </div>
+
+		            
+		            <div class="swiper-slide">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/scene-5.jpg" />
+		        		</div>
+	        			<img class="win-fig-image" src="http://event.baca.co.id/survival_pub/win-fig.png" />
+		            </div>
+
+		            <div class="swiper-slide">
+		            	<div class="background-panel">
+		        			<img class="full-image" src="http://event.baca.co.id/survival_pub/bck-result.jpg">
+		        		</div>
+		        		<div class="btn-panel over-page clearfix">
+		        			<div class="button" id="btn-down-hide" onclick="window.Download.redirect('detail');"> Download Applikasi Baca Sekarang Juga<i></i><i></i><i></i></div>
+			        		<div class="share-panel">
+			        			<img onclick="window.showShare('facebook')" src="http://berita.baca.co.id/common/img/facebook.png">
+			        			<img onclick="window.showShare('twitter')" src="http://event.baca.co.id/survival_pub/twitter.png">
+			        			<img onclick="window.showShare('whatsapp')" src="http://berita.baca.co.id/common/img/whatsapp.png">
+			        		</div>
+		        		</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+		<!-- 第一种死法 -->
+		<div class="die-way-panel hide" id="dieWay1">
+			<div class="background-panel">
+				<img class="full-image" src="http://event.baca.co.id/survival_pub/die-1.jpg">
+			</div>
+			<div class="btn-panel hide" id="die-panel-return-1">
+    			<div class="button" onclick="window.returnFromDie();">KEMBALI  <i></i><i></i><i></i></div>
+    			<div class="button" onclick="window.ModalTo('modal_ysgznr');"> BERITA<i></i><i></i><i></i></div>
+    		</div>
+		</div>
+		<!-- 第二种死法 -->
+		<div class="die-way-panel hide" id="dieWay2">
+			<div class="background-panel">
+				<img class="full-image" src="http://event.baca.co.id/survival_pub/die-gmother.jpg">
+			</div>
+			<div class="btn-panel hide" id="die-panel-return-2">
+    			<div class="button" onclick="window.returnFromDie();">KEMBALI  <i></i><i></i><i></i></div>
+    			<div class="button" onclick="window.ModalTo('modal_jiangshi');"> BERITA<i></i><i></i><i></i></div>
+    		</div>
+		</div>
+		<!-- 第三种死法 -->
+		<div class="die-way-panel hide" id="dieWay3">
+			<div class="background-panel">
+				<img class="full-image" src="http://event.baca.co.id/survival_pub/die-girl.jpg">
+			</div>
+			<div class="btn-panel hide" id="die-panel-return-3">
+    			<div class="button" onclick="window.returnFromDie();">KEMBALI  <i></i><i></i><i></i></div>
+    			<div class="button" onclick="window.ModalTo('modal_jiangshi');"> BERITA<i></i><i></i><i></i></div>
+    		</div>
+		</div>
+		<!-- 第四种死法 -->
+		<div class="die-way-panel hide" id="dieWay4">
+			<div class="background-panel">
+				<img class="full-image" src="http://event.baca.co.id/survival_pub/die-4.jpg">
+			</div>
+			<div class="btn-panel hide" id="die-panel-return-4">
+    			<div class="button" onclick="window.returnFromDie();">KEMBALI  <i></i><i></i><i></i></div>
+    		</div>
+		</div>
+
+
+		<div class="dialog-panel hide" id="dialogPanel">
+			<div class="dialog-content-panel" id="dialogText"></div>
+		</div>
+
+	</div>
+	<div class="modal_containers">
+	  	<div class="modal hide" id="modal_ysgznr">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body">
+		      <div class="close"></div>
+		      <div class="modal-content">
+		      		<div class="article-content">
+						<h2>Sosok “Beukuem”: Ikan Beracunkah? (I)</h2>
+						<img style="width: 100%!important; height: auto;" class="entry-thumb td-modal-image" src="http://raw.cdn.baca.co.id/b97405ea-a643-4648-9c84-cc34dcdba553" alt="" title="Bukuem-1" data-srcset="http://raw.cdn.baca.co.id/b97405ea-a643-4648-9c84-cc34dcdba553"><p>Lautan Aceh sangat luas dengan aneka ragam jenis ikan di dalamnya tentunya menjadikan lautan kita sebagai aset yang harus di kelola dan di jaga dengan sebaik mungkin. Salah satu ikan yang unik di lautan yang di kenal masyarakat dengan nama Bukuem alias Ikan buntek atau ikan buntal adalah salah satu jenis ikan laut yang dipercayai sebagai vertebrata paling beracun di dunia setelah Katak Racun Emas. Dalam masyarakat Aceh sering mengistilahkan untuk orang yang perangai tidak baik dengan ‘Beukuem”. Benarkah “beukuem” itu berbahaya?</p> <p>Ikan buntal memiliki nama yang berbeda-beda di setiap daerah, di Indonesia sering dikenal dengan nama ikan buntek. Tubuh ikan buntal&nbsp; dapat mengembang seperti balon dan mengeluarkan duri tajam, hal ini dilakukan untuk melindungi diri dari mangsa yang akan mengganggunya. Selain itu, ikan buntal ini juga memiliki racun yang terkandung di dalam tubuhnya. Spesies ini umumnya dapat tumbuh hingga memiliki panjang 8-14 inci (20-35 cm), mencapai maksimum 20 inci (50 cm) dan penyebaran ikan ini adalah di perairan tropis seluruh dunia.</p> <p>Racun yang terkadung dalam ikan buntal adalah jenis Tetrodotoxin (TTX). Berdasarkan beberapa penelitian yang salah satunya dilakukan oleh National University Of Singapore mengungkapkan bahwa racun tetrodotoxin yang ada pada ikan buntal memiliki kekuatan 20 kali lebih mematikan daripada sianida. 2 mg Tetrodotoxin merupakan dosis yang cukup lethal (mematikan) bagi manusia. Racun ini sangat mematikan dan bereaksi sangat cepat antara setengah jam hingga 3 jam setelah mengkonsumsi racun dari ikan buntal. Selain di kulitnya, Racun tetrodotoxin pada ikan buntal banyak terkandung di dalam organ dalamnya seperti hati dan telurnya. Racun tetrodotoxin ada di dalam tubuh ikan buntal karena ikan ini memakan hewan lain yang mengadung bakteri tetrodotoxin laden dan seiring waktu tubuh ikan buntal membuat kekebalan tubuhnya terhadap racun tetrodotoxin</p> <p>Melalui proses yang disebut adaptasi evolusi, ia menjadi kebal terhadap racun tetrodotoxin yang berasal dari sesuatu yang dimakannya, khususnya dari makhluk hidup laut yang terkontaminasi racun.Mengingat resiko yang tinggi jika ikan ini salah dalam pengolahannya, maka di Jepang hanya koki-koki yang memiliki sertifikat dari Departemen Kesehatan lah yang diizinkan untuk mengolah ikan buntal ini untuk dikonsumsi umum. Sehingga di Jepang, menu masakan yang mengandung ikan buntal harganya cukup mahal. Di sebuah restoran di Osaka menjual menu ikan buntalnya dengan harga 10.500 yen atau sekitar Rp 840.000.</p> <p>Selain di negara Jepang ada baiknya berhati-hati untuk memakannya, khususnya di Indonesia, sebab belum ada sertifikasi koki yang menjamin ikan buntal tersebut dimasak oleh ahlinya. Di Singapore sendiri terjadi kasus keracunan ikan fugu oleh salah satu restoran Jepang yang hampir memakan korban jiwa sang Chef yang sedang mencoba makanan tesebut. Bahkan di Thailand tahun 2004-2007, 115 korban dirumahsakitkan karena mengkonsumsi daging ini dan 15 orang meninggal, sekalipun sebenernya ikan ini sudah di banned masuk ke Thailand sejak 2002.</p> <p><strong>*Ahmad Ghazali, penikmat kopi Gayo dan penggiat masalah agama serta masyarakat. Referensi: dikutip dari berbagai sumber</strong></p>
+					</div>
+		      	</div>
+				<div class="down-panel">
+					<a class="download-app-block" href="javascript:window.Download.redirect('detail');">Download Baca, Mudah Cari Berita</a>
+				</div>
+		    </div>
+	  	</div> 
+
+	  	<div class="modal hide" id="modal_jiangshi">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body">
+		      <div class="close"></div>
+		      <div class="modal-content">
+		      		<div class="article-content">
+						<h2>Ciri - Ciri Teman Sejati, Bukan Imitasi</h2>
+						<article class="detailpost-content"><p class="MsoNormal" align="center"><strong><span>Ciri - Ciri Teman Sejati, Bukan Imitasi</span></strong> </p><p class="MsoNormal"><span>&nbsp;</span> </p><p class="MsoNormal"><span>Sahabat Ummi, coba hitung berapa jumlah temanmu? &nbsp;Mungkin di dunia maya ada ratusan bahkan ribuan orang yaa…Diantaranya, berapa banyak yang merupakan teman sejatimu? Bisa jadi hanya beberapa puluh saja. Teman sejati yang dimaksudkan di sini adalah teman yang secara intens bersilaturahim. Bukan cuma berbalas pesan, bertukar komentar atau jempol tangan di sosial media. Tapi, teman yang tetap berada di sisimu kapan saja, terutama saat duka menyapa.</span> </p><p class="MsoNormal"><span>Jadi, diantara&nbsp; temanmu, pasti ada yang termasuk teman sejati dan adapula yang imitasi. </span> </p> <p class="MsoNormal"><span>Nah, tentu kamu ingin punya teman sejati bukan? Lalu apa ciri-cirinya :</span> </p><p class="MsoListParagraphCxSpFirst"><span>1.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span><span>Tahu Dirimu Luar Dalam</span></span> </p><p class="MsoListParagraphCxSpMiddle"><span>Teman imitasi itu, yang meski sering berdua jalan, bareng-bareng makan, tetap pede menyuguhi kamu sayur asem sambal jengkol. Padahal sudah tahu kamu sama sekali tidak suka sama jengkol. Apalagi, saat ditanya, ia bilang tidak tahu, dengan polosnya. Harusnya kalau dia teman sejatimu, dia sudah tahu luar dalammu, kesukaan dan kebencianmu. Mengerti saat kamu sensi atau happy, hanya dari perubahan sikapmu, tanpa perlu mengatakan apa yang kamu rasakan. </span> </p><p class="MsoListParagraphCxSpMiddle"><span>&nbsp;</span> </p><p class="MsoListParagraphCxSpMiddle"><span>2.<span>&nbsp;&nbsp;&nbsp;&nbsp;<span>&nbsp; </span></span></span><span><span>Bagus Bilang Bagus, Jelek Bilang Jelek</span></span> </p><p class="MsoListParagraphCxSpMiddle"><span>Kamu tampil dengan gaya pakaian terbaru yang menurutmu bukanlah dirimu yang sebenarnya. Tapi temanmu bilang oke banget lantaran tak mau mengecewakanmu. Atau, ketika kamu coba resep cake terkini dan hasilnya ternyata kurang sempurna. Eh, temanmu komentar itu cake enaknya nggak kira-kira. Ah, itu sih ciri teman yang cuma menyenangkan hatimu saja. Seharusnya teman sejati itu yang jujur menilaimu apa adanya. Bagus atau jelek bakal terus terang. Dan, dia ikhlas menyumbangkan saran dan kritikan untuk kemajuanmu di masa mendatang.</span> </p><p class="MsoListParagraphCxSpMiddle"><span>&nbsp;</span> </p><p class="MsoListParagraphCxSpMiddle"><span>3.<span>&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp; </span></span></span><span><span>Datang Saat Duka Membayang</span></span> </p><p class="MsoListParagraphCxSpMiddle"><span>Ada teman yang hanya datang saat kita sedang senang. Bertandang waktu kita lagi banyak uang. Mendekat kala kita sedang ada di kondisi yang tepat. Dan, tampak pada waktu kita ada di posisi puncak. Itu imitasi! Seharusnya, jika dia teman sejati, justru muncul ketika hati kita sedang masygul. Hadir menghibur hati yang sedang getir. Membantu kala kondisi kita benar-benar sudah buntu. Mengulurkan tangannya hingga kita merasa tak sendirian saja. Teman sejati itu, saat kecewamu tiba, ia datang meringankannya. Dan, saat kamu jatuh terpuruk, akan menghiburmu hingga kamu tak merasa buruk.</span> </p><p class="MsoListParagraphCxSpMiddle"><span>&nbsp;</span> </p><p class="MsoListParagraphCxSpMiddle"><span>4.<span>&nbsp;&nbsp;&nbsp;&nbsp;<span>&nbsp; </span></span></span><span><span>Beda Itu Sah-Sah Saja</span></span> </p><p class="MsoListParagraphCxSpMiddle"><span>Ada teman yang kalau kamu ajak makan mie ayam, bilang suka juga mie ayam. Kamu suka warna biru, nimbrung juga biru warna favoritnya. Saat kamu hobi merajut, buru-buru komentar itu juga favoritnya. Ujung-ujungnya kamu jadi bingung apa sebenarnya yang jadi kesukaan si teman. Sepertinya dia hanya menampilkan sisi yang sama denganmu. Hingga kamu tidak pernah tahu sisi aslinya. Teman sejati, semestinya, menganggap beda itu hal biasa. Sah-sah saja jika kamu suka sambal terasi sementara dia lebih senang sambal kweni. Boleh saja, kalau kamu lebih pilih menjahit dan dia lebih senang memasak. Toh, meski tak sama, kalian bisa saling mendukung satu dengan yang lainnya. Karena perbedaan itu sah dan indah.</span> </p><p class="MsoListParagraphCxSpMiddle"><span>&nbsp;</span> </p><p class="MsoListParagraphCxSpMiddle"><span>Nah, Sahabat Ummi sekarang kamu bisa nilai sendiri, mana temanmu yang sejati dan mana yang imitasi. Meski demikian, tetaplah berteman dengan keduanya. Asalkan teman itu bisa membawamu ke arah kebaikan jangan bedakan! Ingat, kalian bertemu bukan karena kebetulan tapi karena Allah telah mentakdirkan! ^^</span> </p><p class="MsoListParagraphCxSpMiddle"><span>&nbsp;</span> </p><p class="MsoListParagraphCxSpMiddle">&nbsp; </p><p class="MsoListParagraphCxSpMiddle"><span>Penulis : Dian Restu Agustina (FB : Dian Restu Agustina / www.dianrestuagustina.com)</span> </p><p class="MsoListParagraphCxSpMiddle"><span>Ilustrasi : Google</span> </p><p class="MsoNormal"><span>&nbsp;</span> </p><p>&nbsp; </p><p class="MsoNormal">&nbsp;</p></article>
+					</div>
+		      	</div>
+				<div class="down-panel">
+					<a class="download-app-block" href="javascript:window.Download.redirect('detail');">Download Baca, Mudah Cari Berita</a>
+				</div>
+		    </div>
+	  	</div> 
+
+
+
+	</div>
+
+</body>
+</html>

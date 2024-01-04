@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id" style="font-size: 20px;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- add new meta for SEO -->
+    <!-- <meta name="description" content="Peluang penghasilan ibu rumah tangga (irt) kerja dari rumah, bisnis online tanpa modal, tidak perlu repot, jualan online cepat laku, menghasilkan uang dengan mudah lewat internet, aplikasi, dan sosmed">
+    <meta name="description" content="eluang penghasilan pasif modal 0 untuk ibu rumah tangga, kerja dari rumah, jualan online tanpa repot, tidak perlu stok barang, cara menghasilkan uang dengan cepat dari internet dan aplikasi"> -->
+    <meta name="description" content="Jualan online tanpa modal, peluang penghasilan mudah untuk ibu rumah tangga dan pemula, kerja dari rumah, bisnis fashion, alat dapur, tas, sepatu, make up, daftar gratis, buat olshop sendiri">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow" />
+    <meta name="author" content="Mokkaya">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="mau kaya">
+    <meta name="keywords" content="mo kaya">
+    <meta name="keywords" content="mokaya">
+    <meta name="keywords" content="reseller">
+    <meta name="keywords" content="reseller online">
+    <meta name="keywords" content="reseller terbaik">
+    <meta name="keywords" content="aplikasi dropship terbaik">
+    <meta name="keywords" content="aplikasi reseller terbaik">
+    <meta name="keywords" content="jualan online">
+    <meta name="keywords" content="jualan online tanpa modal">
+    <meta name="keywords" content="jualan online paling laris">
+    <meta name="keywords" content="reseller terpercaya">
+    <meta name="keywords" content="aplikasi reseller">
+    <meta name="keywords" content="aplikasi dropship">
+    <meta name="keywords" content="aplikasi dropshiper">
+    <meta name="keywords" content="aplikasi dropship terpercaya">
+    <!-- add new meta for SEO -->
+    <meta property="og:title" content="Mokkaya - Portal Reselling Produk Berkualitas | MASKER ANAK LUCU | SELIMUT MOTIF ELEGANT" />
+    <meta property="og:url" content="http://mokkaya.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cdn.mokkaya.com/images/SC_logo.png" />
+    <!-- add meta for google section -->
+    <meta property="og:description" content="mau kaya">
+    <meta property="og:description" content="mo kaya">
+    <meta property="og:description" content="mokaya">
+    <meta property="og:description" content="reseller">
+    <meta property="og:description" content="reseller online">
+    <meta property="og:description" content="reseller terbaik">
+    <meta property="og:description" content="aplikasi dropship terbaik">
+    <meta property="og:description" content="aplikasi reseller terbaik">
+    <meta property="og:description" content="jualan online">
+    <meta property="og:description" content="jualan online tanpa modal">
+    <meta property="og:description" content="jualan online paling laris">
+    <meta property="og:description" content="reseller terpercaya">
+    <meta property="og:description" content="aplikasi reseller">
+    <meta property="og:description" content="aplikasi dropship">
+    <meta property="og:description" content="aplikasi dropshiper">
+    <meta property="og:description" content="aplikasi dropship terpercaya">
+    <meta property="og:description"
+      content="Peluang penghasilan ibu rumah tangga (irt) kerja dari rumah, bisnis online tanpa modal, tidak perlu repot, jualan online cepat laku, menghasilkan uang dengan mudah lewat internet, aplikasi, dan sosmed" />
+    <meta property="og:description"
+      content="eluang penghasilan pasif modal 0 untuk ibu rumah tangga, kerja dari rumah, jualan online tanpa repot, tidak perlu stok barang, cara menghasilkan uang dengan cepat dari internet dan aplikasi" />
+    <meta property="og:description"
+      content="Jualan online tanpa modal, peluang penghasilan mudah untuk ibu rumah tangga dan pemula, kerja dari rumah, bisnis fashion, alat dapur, tas, sepatu, make up, daftar gratis, buat olshop sendiri" />
+    <meta property="og:site_name" content="Mokkaya">
+    <!-- add meta for google section -->
+    <title>Mokkaya - Portal Reselling Produk Berkualitas | MASKER ANAK LUCU | SELIMUT MOTIF ELEGANT</title>
+    <link rel="icon" href="https://cdn.mokkaya.com/images/SC_logo.png">
+    <link href="/public/css/promote.css" rel="stylesheet">
+    <link href="/public/css/normalize.css" rel="stylesheet">
+    <script src="/public/js/native.js"></script>
+    <script src="/public/js/util.js"></script>
+    
+  </head>
+  <body style="font-size: 20px;">
+    
+    <div class="block">
+      <%imgs.forEach(img => {%>
+      <img src="<%=img%>?v=<%=versionKey%>" onerror="errorImageLogs()" alt="">
+      <%})%>
+      <% if (showButton) { %>
+      <div class="normal" style="background: <%=buttonBg%>"></div>
+      <div class="button" onClick="goToMokkaya()"><%=buttonText%></div>
+      <%}%>
+    </div>
+    <div hidden class="ga_tag"><%=logKey%></div>
+    <div hidden class="target_url"><%=target_url%></div>
+    <script src="/public/js/google.js"></script>
+    <script>
+      googleAnalytics('', document.querySelector('.ga_tag').innerText)
+    </script>
+    <script>
+      if (location.href.includes('6')) {
+        document.querySelector('.normal').style.display = 'none'
+      } else if (location.href.includes('9')) {
+        const query = $utils.$queryParse(location.search)
+        const from = query._f
+        gtag('event', 'winner_account_show', { about: 'browser', from})
+      } else if (location.href.includes('8')) {
+        document.body.style.backgroundColor = 'rgb(114,35,86)'
+        const query = $utils.$queryParse(location.search)
+        const from = query._f || 'none'
+        gtag('event', 'winner_lottery_show', { about: 'browser', from})
+      } else if (location.href.includes('10')) {
+        const query = $utils.$queryParse(location.search)
+        const from = query._f
+        gtag('event', 'winner_account_show_2', { about: 'browser', from })
+      } else if (location.href.includes('cashback')) {
+        const query = $utils.$queryParse(location.search)
+        const from = query._f
+        gtag('event', 'cash_back_actice', { about: from, from})
+      }
+    </script>
+  </body>
+</html>

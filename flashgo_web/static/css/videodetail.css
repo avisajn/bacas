@@ -1,0 +1,202 @@
+a {
+    color: #3A3A3A;
+}
+
+.video-detail {
+    position: relative;
+    overflow: auto;
+}
+
+
+.video-top {
+    width: 100%;
+    height: 14rem;
+    font-size: .85rem;
+    line-height: 15px;
+    border-bottom: .5rem solid #F1F2F5;
+}
+
+.video-top .mp {
+    width: 100%;
+    height: 10rem;
+    text-align: center;
+}
+
+.video-top .mp video {
+    width: 100%;
+    height: 100%;
+}
+
+.video-top .dis_title {
+    font-size: .75rem;
+    height: 4rem;
+    font-weight: bold;
+    margin-top: .5rem;
+    line-height: 1.2rem;
+    padding: 0px .5rem;
+}
+
+.product-video {
+    color: #333333;
+    padding: 0px 10px;
+    border-bottom: .5rem solid #F1F2F5;
+}
+
+.product-video .mentioned-title {
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+
+.product-list .dealslist ul {
+    width: 100%;
+    padding: 0px;
+}
+
+.product-list .dealslist ul li {
+    list-style: none;
+    display: flex;
+    padding: 0px .5rem 0px 0px;
+    margin-bottom: 10px;
+}
+
+.product-list .dealslist ul li .btn {
+    color: #fff;
+    background-color: #F2354E;
+    width: 3.1rem;
+    height: 1.4rem;
+    text-align: center;
+    line-height: 1.4rem;
+    margin-left: .5rem;
+    margin-top: .8rem;
+    border-radius: 5px;
+    font-size: .7rem;
+}
+
+.product-list .dealslist ul li .recommand-img {
+    flex: 1.5;
+    margin-right: .3rem;
+}
+
+.product-list .dealslist ul li .recommand-img img {
+    width: 100%;
+}
+
+.product-list .dealslist ul li .recommand-descript {
+    font-size: .61rem;
+    flex: 6;
+    font-weight: bold;
+}
+
+.product-list .dealslist ul li .recommand-descript .price {
+    font-size: .5rem;
+    color: #F2354E;
+    font-weight: bold;
+}
+
+.product-list .dealslist ul li .recommand-descript .price span {
+    font-size: .65rem;
+}
+
+.product-list .dealslist ul li .recommand-descript .price .recommand-name {
+    flex: 5;
+    color: red;
+    font-size: 100px;
+}
+
+.product-list .dealslist ul li .recommand-descript .price .recommand-name span {
+    font-size: 10px !important;
+}
+
+
+.releted-video ul {
+    width: 100%;
+    padding: 0px;
+}
+
+.releted-video ul li {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+.releted-video ul li .left {
+    flex: 5;
+    padding: 0px .5rem 0px 0px;
+}
+
+.releted-video ul li .left img {
+    width: 100%;
+    height: 100%;
+}
+
+.releted-video ul li .right {
+    flex: 5;
+    font-size: .61rem;
+    font-weight: bold;
+    color: #3A3A3A;
+}
+
+.banner-background {
+    width: 100%;
+    padding: 0;
+    min-height: 2.8rem;
+    z-index: 1000;
+    background: #404040;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+}
+
+.banner-logo {
+    margin-top: .7rem;
+    margin-left: .2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.banner-text {
+    margin-top: .7rem;
+    margin-left: .2rem;
+    font-size: .6rem;
+    font-weight: bold;
+    color: white;
+    line-height: 1.2;
+}
+
+.banner-text-money {
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(235, 255, 0, 1);
+}
+
+.close-button {
+    margin-right: .2rem;
+    margin-left: .2rem;
+    margin-top: .9rem;
+}
+
+.close-button img {
+    width: .75rem;
+}
+
+.download-button {
+    margin-top: .75rem;
+    border-radius: .75rem;
+    width: 3.6rem;
+    height: 1.5rem;
+    background: linear-gradient(to right top, rgba(255, 236, 117, 1), rgba(255, 250, 213, 1), rgba(255, 236, 119, 1));
+    animation: download-button 0.3s cubic-bezier(0.51, 0.6, 1, 1) infinite alternate forwards;
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(218, 76, 85, 1);
+    border: 0;
+}
+
+@keyframes download-button {
+    100% {
+        /* color:  blue; */
+        background: linear-gradient(to right bottom, rgba(238, 216, 81, 1), rgba(255, 250, 213, 1), rgba(238, 216, 81, 1));
+    }
+}

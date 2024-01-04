@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>Baca</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://berita.baca.co.id/common/img/mipmap-xxxhdpi/logo.png">
+    <style>
+    .baca_share {
+      background: #fff;
+      position:fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .baca_share>img {
+      width: 290px;
+      height: 364px;
+    }
+    .btn img {
+      padding-top: 100px;
+      width: 237px;
+      height: 54px;
+    }
+    </style>
+  </head>
+  <body>
+  <div class="ga_tag" style="display: none;">UA-35158941-6</div>
+    <div class="baca_share">
+      <img src="/public/img/baca/im.png" alt="">
+      <div class="btn">
+        <img src="/public/img/baca/button.png" alt="" onClick="handleNav()">
+      </div>
+    </div>
+    <script>
+      const handleNav = function () {
+        const arr = location.pathname.split('/')
+        const url = `https://api.coin.baca.co.id/api/v1/invite/${arr[arr.length - 1]}${location.search}`
+        window.open(url, 'self')
+      }
+    </script>
+    <script src="/public/js/google.js" async></script>
+  </body>
+</html>

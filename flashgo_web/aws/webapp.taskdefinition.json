@@ -1,0 +1,31 @@
+{
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
+      ],
+      "command": [
+        "nuxt",
+        "start"
+      ],
+      "cpu": 512,
+      "memory": 2048,
+      "workingDirectory": "/app/sale_aggregator_service/webapp",
+      "image": "239801832578.dkr.ecr.ap-southeast-1.amazonaws.com/flashgo-webapp:latest",
+      "essential": true,
+      "name": "flashgo-webapp",
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 50000,
+          "hardLimit": 50000
+        }
+      ]
+    }
+  ],
+  "family": "flashgo-webapp"
+}

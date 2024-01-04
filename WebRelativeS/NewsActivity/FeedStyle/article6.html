@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>style6</title>
+</head>
+<style type='text/css'>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+}
+
+.content {
+    background: #EEEFF1;
+    padding-bottom: .7rem;
+    font-family: Roboto-Bold, Roboto;
+}
+
+.top {
+    padding-left: .5rem;
+    height: 2.3rem;
+    color: #333;
+    font-size: .8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+}
+
+.feed {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.feed .item {
+    width: 75.4%;
+    flex-shrink: 0;
+    height: 11rem;
+    background: #fff;
+    /* margin-right: .4rem; */
+    border-radius: 3%;
+    padding: .35rem .5rem 0rem .5rem;
+}
+
+.item:nth-child(1) {
+    margin-left: .5rem;
+}
+
+.item:last-child {
+    margin-right: .5rem;
+}
+
+.doc {
+    width: 1.1rem;
+    height: .9rem;
+    margin-bottom: .25rem;
+}
+
+.text {
+    font-size: .65rem;
+    width: 100%;
+    height: 6.1rem;
+    overflow: hidden;
+    margin-bottom: .45rem;
+    line-height: .88rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+}
+
+
+.bottom {
+    border-top: 1px solid #eee;
+    padding: .4rem 0rem;
+    display: flex;
+}
+
+.game-icon-image {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: inline-block;
+    border-radius: 20%;
+}
+
+.star {
+    width: .55rem;
+    height: .55rem;
+    margin-right: .05rem;
+    display: inline-block;
+}
+
+.game {
+    width: 84%;
+}
+
+.game-item {
+    width: 80%;
+    font-size: .6rem;
+    align-items: center;
+    display: flex;
+}
+
+.author-pic {
+    width: 1rem;
+    /* height: 1rem; */
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.desc {
+    margin-top: .4rem;
+    font-size: .55rem;
+    color: #999999;
+}
+
+.game-name {
+    font-weight: bold;
+}
+
+.username {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.feed::-webkit-scrollbar {
+    display: none !important
+}
+
+.item-width {
+    flex-shrink: 0;
+    height: 11rem;
+    background: #EEEFF1;
+    width: .4rem;
+}
+</style>
+
+<body id="banner">
+    <div class="content">
+        <div class="top">
+            <div class="title">Apa kata mereka?</div>
+        </div>
+        <div class="feed" id="feed">
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+    function w() {
+        var r = document.documentElement;
+        var a = r.getBoundingClientRect().width;
+        if (a > 750) {
+            a = 750;
+        };
+        rem = a / 18;
+        r.style.fontSize = rem + "px"
+    }
+    w();
+    window.addEventListener("resize", function() {
+        w()
+    }, false);
+})();
+
+function getQueryStringByName(name) {
+    var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+    if (result == null || result.length < 1) {
+        return "";
+    }
+    return result[1];
+}
+
+function dataJson(data) {
+    if (data.data6) {
+        const obj = data.data6;
+        $('#title').html(obj.Title);
+        $('#moreLink').click(() => {
+            window.location.href = obj.LinkMoreUrl;
+        })
+        if (obj.Data && obj.Data.length > 0) {
+            $('#feed').html('');
+            let _html = '';
+            obj.Data.forEach(item => {
+                let _image = ''
+                for (i = 0; i < Math.floor(item.Score); i++) {
+                    _image += `<img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/star.png" alt="" class="star">`
+                }
+                for (i = 0; i < 5 - Math.floor(item.Score); i++) {
+                    _image += `<img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/no_star.png" alt="" class="star">`
+                }
+                _html += ` <div class="item" onclick="openApp('${item.RedirectUrl}')">
+                                <div class="icon">
+                                    <img src="https://nipidpraise.blob.core.windows.net/webviewbanner/webview-image/doc.png" alt="" class="doc">
+                                </div>
+                                <div class="text">
+                                  <div>${item.Content}</div>
+                                </div>
+                                <div class="bottom" >
+                                    <div class="game">
+                                        <div class="game-item">
+                                            <img src="${item.User.FaceUrl}" alt="" class="author-pic">
+                                            &nbsp; 
+                                        <div class="username">${item.User.Name}</div>
+                                            &nbsp;
+                                            ` + _image + `
+                                        </div>
+                                        <div class="desc">menilai <span class="game-name">${item.Game.Name}</span></div>
+                                    </div>
+                                    <div class="game-icon">
+                                        <img src="${item.Game.IconUrl}" alt="" class="game-icon-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-width"></div>
+                            `;
+            })
+            $('#feed').html($(_html));
+        }
+    }
+}
+
+function openApp(url) {
+    window.location.href = url
+}
+</script>
+<script src="./json.js?cb=dataJson"></script>
+
+</html>

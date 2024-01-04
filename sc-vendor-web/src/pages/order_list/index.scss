@@ -1,0 +1,307 @@
+@import '../../theme.scss';
+.order-list {
+  .shipments_modal {
+    .ant-modal-content {
+      border-radius: 13px;
+      .ant-modal-body {
+        padding: 16px;
+        .shipments_wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          > img {
+            width: 44px;
+          }
+          > h1 {
+            margin: 0;
+            line-height: 19px;
+            font-size: 18px;
+            // word-break: break-all;
+            word-wrap: break-word;
+            &:first-of-type {
+              padding: 10px 0 15px;
+              font-weight: bold;
+              color: #ff4d6c;
+            }
+            &:nth-of-type(2) {
+              margin-bottom: 4px;
+              font-size: 17px;
+              font-weight: 700;
+            }
+          }
+          div {
+            // line-height: 17px;
+            word-wrap: break-word;
+            // word-break:break-all;
+            > span {
+              font-size: 14px;
+              font-weight: bold;
+              color: #ff4d6c;
+            }
+          }
+          button {
+            box-sizing: content-box;
+            width: 240px;
+            padding: 14px 73px;
+            margin-top: 13px;
+            text-align: center;
+            color: #fff;
+            background: #ff4d6c;
+            border: none;
+            border-radius: 21px;
+          }
+        }
+      }
+    }
+  }
+  .ant-checkbox-inner {
+    border: 1px solid #aaa;
+  }
+  .ant-form-inline .ant-form-item {
+    margin-bottom: 8px;
+  }
+  .cod-tag,
+  .batch-request {
+    color: #fff;
+    background-color: $themeColor;
+    border: 1px solid $themeColor;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-left: 19px;
+    margin-top: 30px;
+  }
+  .select-all {
+    margin: 0 10px;
+  }
+  .down-sel-btn {
+    margin-right: 14px;
+  }
+  .is-cod {
+    background-color: $actionColor-1;
+    border-radius: 10px;
+    padding: 0 10px;
+  }
+
+  .desc-orders {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #cccccc38;
+    padding: 10px;
+    background-color: #fff;
+    .desc-left {
+      
+    }
+    .item {
+      .product-info {
+        display: flex;
+        margin-top: 10px;
+
+        .product-image {
+          width: 110px;
+          height: 110px;
+        }
+
+        .product-title {
+          width: 800px;
+          margin-left: 15px;
+          color: #000;
+          padding-right: 40px;
+          border-bottom: 1px solid #cccccc38;
+          border-right: 1px solid #cccccc38;
+          .name {
+            margin-bottom: 10px;
+          }
+          div {
+            margin-bottom: 4px;
+          }
+          a {
+            margin-left: 10px;
+          }
+          .sku-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .split-sku {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+
+        .product-sku {
+          font-size: 18px;
+          color: #999;
+          .sku-split {
+            color: red;
+          }
+        }
+        .amount {
+          color: red;
+          margin-left: 10px;
+          font-size: 18px;
+        }
+        .status_desc {
+          border: 1px solid #666;
+          border-radius: 8px;
+          padding: 0 10px;
+          margin-left: 10px;
+        }
+        .amount-price {
+          margin-left: 250px;
+          margin-bottom: 20px;
+        }
+
+        .price {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .product-info:nth-last-of-type(1) .product-title {
+      border-bottom: none;
+    }
+
+    .express {
+      width: 19%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      .express-no {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .express-button {
+        width: 220px;
+        font-size: 12px;
+        line-height: 20px;
+        background-color: #bac0f5;
+        margin: 10px;
+      }
+      .time {
+        text-align: center;
+      }
+    }
+
+    .item-button {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      button {
+        width: 150px;
+        margin-top: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  .status {
+    font-weight: bold;
+  }
+
+  .status-1 {
+    color: $actionColor-1;
+  }
+
+  .status-2 {
+    color: $actionColor-2;
+  }
+
+  .status-3 {
+    color: $actionColor-3;
+  }
+
+  .status-4 {
+    color: $actionColor-4;
+  }
+
+  .status-5 {
+    color: $actionColor-5;
+  }
+
+  .status-6 {
+    color: $successColor;
+  }
+
+  .status-7 {
+    color: $errorColor;
+  }
+
+  .action {
+    padding: 3px 8px;
+    text-align: center;
+    border: none;
+    color: #fff;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .detail-btn {
+    background-color: $successColor;
+  }
+
+  .pick-up {
+    background-color: $warnColor
+  }
+
+  .cancel-order {
+    background-color: $errorColor
+  }
+
+  .action-status {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+
+    .waning-text {
+      color: $errorColor;
+    }
+    .pick-up-text {
+      color: $successColor;
+    }
+    .print-status {
+      color: $actionColor-5;
+    }
+
+    .not-print-status {
+      color: $actionColor-3;
+    }
+  }
+}
+.ant-table-expanded-row td{
+  padding: 0px 0px 15px 0px !important;
+}
+.ant-tabs-tab-btn {
+  font-weight: bold;
+}
+.ant-form {
+  background-color: #fff;
+  padding: 16px;
+}
+
+.ant-image-mask:hover {
+  opacity: 0;
+}
+.ant-image-preview-img {
+  width: 600px;
+}
+.ant-image-preview-operations {
+  margin-left: -300px;
+  margin-top: -400px;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+}

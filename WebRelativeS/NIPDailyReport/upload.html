@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>上传文件并处理</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width"/>
+<style type="text/css">
+	/* reset */
+	html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+	header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+	table{border-collapse:collapse;border-spacing:0;}
+	caption,th{text-align:left;font-weight:normal;}
+	html,body,fieldset,img,iframe,abbr{border:0;}
+	i,cite,em,var,address,dfn{font-style:normal;}
+	[hidefocus],summary{outline:0;}
+	li{list-style:none;}
+	h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+	sup,sub{font-size:83%;}
+	pre,code,kbd,samp{font-family:inherit;}
+	q:before,q:after{content:none;}
+	textarea{overflow:auto;resize:none;}
+	label,summary{cursor:default;}
+	a,button{cursor:pointer;}
+	h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+	del,ins,u,s,a,a:hover{text-decoration:none;}
+	body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#333;outline:0;}
+	body{background:#fff;}
+	a,a:hover{color:#333;}
+	.hide{display: none; }
+	img{max-width: 100%;}
+	.clearfix:after{visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	.upload-box{
+		width: 400px;
+		height: 100px;
+		border: 1px dashed #bdbdbd;
+		text-align: center;
+		cursor: pointer;
+	}
+	.upload-box .img{margin-top: 15px; width: 40px; }
+	.upload-box .title{margin-top: 5px;color: gray; font-size: 14px;line-height: 26px;}
+	.upload-box .title>span{color:black;font-size: 16px;}
+
+	.uploading{position: relative; }
+	.uploading .mask,.uploading .loading-block {
+		display: block;
+		position: absolute;
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom: 0px;
+		background: rgba(0, 0, 0, 0.88);
+		z-index:1;
+	}
+	.uploading .loading-block{
+		z-index: 2;
+		text-align: center;
+		color:white;
+		background: none;
+	}
+
+	.loading{
+	  width: 120px;
+	  height: 8px;
+	  margin: 0 auto;
+	  margin-top:39px;
+	  position: relative;
+	  background: #dedede;
+	  overflow: hidden;
+	}
+	.loading span{
+	  display:block;
+	  width: 100%;
+	  height: 100%;
+	  background: #3399ff;
+	  -webkit-animation: changePosition 4s linear infinite;
+	}
+	@-webkit-keyframes changePosition{
+	  0%{-webkit-transform: translate(-150px); }
+	  50%{-webkit-transform: translate(0); }
+	  100%{-webkit-transform: translate(150px); }
+	}
+</style>
+</head>
+<body>
+<div id="box" class="upload-box">
+	<img class="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAANlBMVEUAAAAQl9sSltsRltsQj98RltsSltoQl98QldoQldsRltoRltsRldsQltwSldwQltsQldoSltvCf7MSAAAAEXRSTlMAQIDwEMCgIDBg0OCwUJBwbwfNko0AAANfSURBVHjaxJbbkoQgDES5g6io//+zW1uLttZkVVAy/TJOqZVD0wmKWgWpfmWt+/0ZpRFsCrOy/fIhbZ2SorV851Cbkm0J4ROKn2kYRQOZOS63pV0Q70oOS6H67s3y9rNAtH/pl3JSSjlL2KDM2+URNMJhIyfXN0AI9lbK0SX6gDA/jZ462D55ca3RHYgfxXHceapTuI3d7W1Lpnr5wz7Upjo4Wlbufv+op4IDghIVmrGCypb2cMGaB/Y7U58hXbsNPm7Jl4+6KC2rimwMmti9p0mai+vTxtVvpivZOUTnuaZCgrHA/kJHXcHTF6mpzLTjrQ+ZeNdVk+vrIN4UothdkaL+y1oJRnGmdX6/Xx9rOzvSu71PrQjiWQAb1ke+0hViEo0U9HkMEixqpO40BhJ32wghHwSleOLP20GkDjnVJgB0DHpiXOc7RrSV+m8kO3jTVj2dNI90NJakz0UHrqbCoeApA1Thfmb5moGYKAMKE7gsFcFBMcoABgCyWgJTcwBYICANJA4Aj0P38B1sWABgwUD8ZwAgVmxwCnEAYBxOh1NaCyYApD4eRpNjA0AM/b4HAieAiLs+kNgBPgCVXcf1wAsgd98lFm4wAeDdgEvPDGBzI8IMZoBp2/guXzECIAR2y6BiBcD43cbQyAqA6WPWkSDZAez6araCHcDlNvBoAkYAZA9pZAbIhdMtACNprQCzJBXu9OEtALlUyRYApO8BTDkL7AAhP6O4AOgIx+8D/JRvdisMwjAUTv2pczrr+z/tHDgyQSgS2i+y3HgjKLRNk5zz7Uvwx5vQyTG0JaJkSER8KsYvI/w65gsSvCTDi1K8LCcaE+1IPbRmfHOKt+f4gAIf0fBDKnxMhw8q8VEtP6zGx/W8YIFLNrhoVU+2U5F48SVc8tKtxGvp0C5eu5PvJVU1MHi0cPAmloo2ns6pkQm3cvFmNpGYv17sdj7XhkbppkKWzv67ut5NrbytVyQUNDYj1m4lFeJdzO2F7P3p0m8XABwIxGNsDaRN+sGlAMjFjvmEA+ZjB51WC+hUH/V6nqJedthtrQa7aQwXcb9Zcb8MpGUBHl+nwOMap+LMpcbUN1uMIYTPM569cfz8raFX3dmZyJ+YGuBzmwGfb4x+7zEkEH7XeITUbDH3iw3/fwPCcMcOF0Z8wgAAAABJRU5ErkJggg==">
+	<div class="title"><span>Upload image to azure blob and use cdn url</span></div>
+	<div class="mask hide"></div>
+	<div class="loading-block hide">
+		<div class="loading"><span></span></div>
+		<br/>
+		正在上传中...
+	</div>
+</div>
+<div id="drop-area-div" class="hide"> <input id="btnUpload" type="file" name="files[]" multiple="multiple"> </div>
+
+<script type="text/javascript" src="./upload/jquery.min.js"></script>
+<script type="text/javascript" src="./upload/dmuploader.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $box = $('#box');
+		var $btnUpload = $('#btnUpload');
+		$box.on('click' ,function(){
+			if($box.hasClass('uploading')){return; }
+			$btnUpload.click();
+		});
+
+		console.log('window.country',window.parent.country);
+
+		$('#drop-area-div').dmUploader({
+	        url: 'http://ja.ymark.cc/api/xls/upload',
+	        dataType: 'json',
+	        allowedTypes: '*',
+	        extFilter : 'jpg;jpeg;png',
+	        onInit: function(){},
+	        onBeforeUpload: function(id){
+	        	$box.addClass('uploading');
+	        },
+	        onComplete: function(){
+	        	$box.removeClass('uploading');
+	        },
+	        onUploadSuccess: function(id, data){
+	        	window.parent.upload.success({id:id ,data:data});
+	        },
+	        onUploadError: function(id, message){
+	        	$box.removeClass('uploading');
+	        	window.parent.upload.error('上传出错了!<br/>'+message);
+	        },
+	        onFileExtError : function(file){
+	        	$box.removeClass('uploading');
+	        	window.parent.upload.error('正确的格式为：jpg ,jpeg ,png<br/>当前选择的文件为：'+file.name);
+	        },
+	        onFileTypeError: function(file){
+	        	$box.removeClass('uploading');
+	        	window.parent.upload.error('正确的格式为：jpg ,jpeg ,png<br/>当前选择的文件为：'+file.name);
+	        },
+	        onFallbackMode: function(message){
+	        	window.parent.upload.error('当前浏览器不支持上传组件，联系作者！'+message);
+	        }
+	      });
+	});
+	
+</script>
+</body>
+</html>

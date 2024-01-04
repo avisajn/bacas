@@ -1,0 +1,8 @@
+FROM 239801832578.dkr.ecr.ap-southeast-1.amazonaws.com/flashgo-filebeat:latest
+
+ENV AWS_ACCESS_KEY_ID=AKIAJJ67HQDFLENG63QQ
+ENV AWS_SECRET_ACCESS_KEY=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
+
+ADD filebeat.yml /etc/filebeat/filebeat.yml
+
+CMD filebeat --plugin kinesis.so -c /etc/filebeat/filebeat.yml

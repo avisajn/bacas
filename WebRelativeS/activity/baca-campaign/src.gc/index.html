@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 42px;" class="loading">
+<head>
+    <title>Baca - Gariskan Cintamu</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- <meta http-equiv="pragma" content="no-cache" /> -->
+	<!-- <meta http-equiv="Cache-Control" content="no-transform"> -->
+	<link rel="shortcut icon" href="http://img.cdn.baca.co.id/event/gc/img/share.jpg" >
+
+
+	<meta name="description" content="Cari tahu kisah cinta kamu lewat Gariskan Cintamu! ">
+
+	<!-- 分享到facebook的meta -->
+	<meta property="og:url" content="http://event.baca.co.id/gc/index.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Gariskan Cintamu" />
+	<meta property="og:description" content="Cari tahu kisah cinta kamu lewat Gariskan Cintamu! " />
+	<meta property="og:image" content="http://img.cdn.baca.co.id/event/gc/img/share.jpg"/>
+	<meta property="og:image:type" content="image/jpeg">
+
+	<!-- 分享到twitter的meta -->
+	<meta name="twitter:card" content="gallery">
+	<meta name="twitter:url"  content="http://event.baca.co.id/gc/index.html">
+	<meta name="twitter:title" content="Gariskan Cintamu">
+	<meta name="twitter:description" itemprop="description" content="Cari tahu kisah cinta kamu lewat Gariskan Cintamu! ">
+	<meta name="twitter:image" itemprop="image" content="http://img.cdn.baca.co.id/event/gc/img/share.jpg">
+
+
+    <style type="text/css">
+    .myloading{position:fixed;top:0px;width:100%;left:0px;height:100%;background:white;z-index:222;text-align:center;}
+    .myloading>img{position:absolute;top:50%;height:14px;width:14px;margin-top:-7px;margin-left:-7px;left:50%;}
+    .hide{display: none;}
+    </style>
+    <script type="text/javascript">
+    	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-110141868-1', 'auto');
+		ga('send', 'pageview');
+		window.ga = ga;
+		window.SEOData = {
+		    title : 'Baca - Gariskan Cintamu',
+		    description : 'Cari tahu kisah cinta kamu lewat Gariskan Cintamu! ',
+		    url : 'http://event.baca.co.id/gc/index.html',
+		    image : 'http://img.cdn.baca.co.id/event/gc/img/share.jpg',
+		}
+    </script>
+</head>
+<body class="">
+	<script type="text/javascript" src="http://img.cdn.baca.co.id/event/gc/js/canvas.lib.min.js"></script>
+	<div class="hide">
+ 		<audio src="http://img.cdn.baca.co.id/event/gc/img/bck.mp3" id="music_bck" loop controls preload="auto"></audio>
+ 	</div>
+	<div class="hide"><img src="http://img.cdn.baca.co.id/event/gc/img/share.jpg"></div>
+	<div class="myloading" id="pageLoading"><img src="http://img.cdn.baca.co.id/event/top10/img/5-121204193943.gif"></div>
+	<div class="form-loading hide" id="formLoading"> 
+		<div class="single-load">
+			<img src="http://img.cdn.baca.co.id/event/top10/img/spinner.svg">
+		</div>
+	</div>
+	<div id="share-drag">
+		<div style="margin-top:4px;" id="shareTouchMove" class="sprite-move sprite"></div>
+		<div class="sprite-share-ws sprite" onclick="window.showShare('whatsapp')"></div>
+		<div class="sprite-share-tw sprite" onclick="window.showShare('twitter')"></div>
+		<div class="sprite-share-fb sprite" onclick="window.showShare('facebook')"></div>
+	</div>
+
+	<div class="main-container" id="pageContainer">
+		<div class="main-panel">
+			<div class="clearfix info-panel">
+				<div class="info" id="btnToInfo">Info</div>
+			</div>
+			<div class="sprite sprite-main-image"></div>
+			<div class="form-radio-box" style="margin-top:10px;">
+				<label><input type="radio" name="sex-choice" value="male" /> Laki-laki  </label>
+				<label><input type="radio" name="sex-choice" value="female" /> Perempuan  </label>
+				<input type="hidden" id="form_sex"></input>
+			</div>
+			<div class="form-item">
+				<input class="input-item" id="form_name" placeholder="Nama"></input>
+			</div>
+
+
+			<div class="form-item">
+				<input class="input-item" id="form_phone" placeholder="No Handphone"></input>
+			</div>
+
+			<div class="form-item">
+				<input class="input-item" id="form_city" placeholder="Tanggal Lahir"></input>
+			</div>
+
+			<div>
+				<div id="btnPlay" class="sprite sprite-btn-play"></div>
+			</div>
+
+		</div>
+	</div>
+	<input type="hidden" id="100_t" value="{{ymark-code}}"></input>
+	<input type="hidden" id="200_t" value="{{userId}}"></input>
+	<div class="modal_containers">
+	  	<div class="modal hide" id="modal_game_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:420px">
+		      <div class="modal-content">
+		      		<div class="tools clearfix">
+		      			<div class="title" id="result-title"></div>
+		      		</div>
+		      		<div class="main-canvas" id="my_pt_container">
+		      			<div class="game-canvas">
+		      				<canvas id="game_main_canvas" style="width:300px;height:300px;" width="300" height="300"></canvas>
+		      			</div>
+		      			<div class="preview-image-mask">
+		      				<img id="result_image" src="">
+		      			</div>
+		      		</div>
+		      		<div class="share-play-again" style="bottom:0px;">
+		      		  	<div class="foot-panel" id="result-foot"></div>
+		      		</div>
+		      	</div>
+		    </div>
+	  	</div> 
+	  	<div class="modal hide" id="modal_rule_panel">
+		    <div class="mask mask-close"></div>
+		    <div class="modal-body" style="height:300px;">
+		      <div class="modal-content">
+		      	<div class="rule-title">MEKANISME:</div>
+		      	<div>
+		      		<p>1. Bentuk garis menjadi pola sesuai keinginan kamu</p>
+		      		<p>2. Kamu akan mengetahui kisah cinta kamu setelah pola terbentuk</p>
+		      		<p>3. Share screen capture hasil kisah cinta ke Facebook dan Instagram dengan hashtag #gariskancintamu</p>
+		      	</div>
+		      	<div style="text-align: center;margin-top:30px;">
+	      			<div class="btn-close sprite sprite-btn-return" id="btn_skip"></div>
+		      	</div>
+		    </div>
+	  	</div> 
+
+	  	<div class="modal hide" id="modal_share_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:300px;">
+		      <div class="modal-header">
+		      	<div class="sprite sprite-share img-panel">
+		      	</div>
+		      </div>
+		      <div class="modal-content">
+		      	<div class="result-panel">
+		      		<div class="star-panel" id="starPanel">
+		      			<div class="sprite star-1 sprite-star"></div>
+		      			<div class="sprite star-2 sprite-star"></div>
+		      			<div class="sprite star-3 sprite-star"></div>
+		      		</div>
+		      		<div class="result">
+			      		<div class="inset-shadow-panel" style="height:70px">
+			      			<div class="myfamily">
+			      				<p>SELAMAT</p>
+			      				<p>WAKTU KAMU : <span id="res_time">01:30</span></p>
+			      			</div>
+			      		</div>
+		      		</div>
+		      		<div class="share-title">
+			      		<div class="inset-shadow-panel radius-2">
+			      			<div class="myfamily"> SHARE </div>
+			      		</div>
+		      		</div>
+		      		<div class="share-btn-panel">
+		      			<div class="sprite sprite-fb" share-fb></div>
+		      			<div class="sprite sprite-tw" share-tw></div>
+		      			<div class="sprite sprite-ws" share-wp></div>
+		      		</div>
+
+		      	</div>	
+		      </div>
+      		  <div class="share-play-again">
+      		  	<div class="my-btn myfamily red" id="btnPlayAgain"> <span>MAIN LAGI</span> </div>
+      		  </div>
+		    </div>
+	  	</div> 
+
+	  	<div class="modal hide" id="modal_download_panel">
+		    <div class="mask"></div>
+		    <div class="modal-body" style="height:350px;" _offset_margin="100">
+		      	<div class="modal-header">
+		      		<img src="http://img.cdn.baca.co.id/event/pt/img/down-header-image.png">
+		      	</div>
+		      	<div class="modal-content">
+		      		<div class="tip-panel">
+			      		<div class="inset-shadow-panel" style="height:150px;">
+			      			<div class="myfamily">
+			      				<p class="big"> Mau lanjut main dan dapat hadiah ? </p>
+			      				<hr/>
+			      				<p> Download Aplikasi Baca sekarang juga </p>
+			      			</div>
+			      		</div>
+		      		</div>	
+		      		<div>
+		      			<div class="my-btn myfamily red" downapp> <span>DOWNLOAD</span> </div>
+		      		</div>
+		    	</div>
+		    </div>
+	  	</div> 
+
+
+
+	</div>
+
+</body>
+</html>
